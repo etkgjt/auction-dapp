@@ -1,0 +1,21 @@
+{
+    "data": {
+        "retCode": 0,
+        "retText": "Oke",
+        "data": [{
+            "name": "Hot 24h",
+            "id": "7dbaf7e4-2a52-4285-b491-29100215944f"
+        }, {
+
+            "id": "f34ff0ca-770b-41fc-8192-a57f58a38017",
+            "name": "Góc học tập"
+        }, {
+            "name": "Góc vui chơi",
+            "id": "5e2baba8-6b98-47f9-8669-1fcba09b206c"
+        }, {
+            "name": "STNHĐ",
+            "id": "f186f0a5-8ec4-4166-8917-585cf0ddf038"
+        }]
+    },
+    "status": 200
+}

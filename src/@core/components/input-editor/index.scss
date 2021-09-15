@@ -1,0 +1,29 @@
+.quill__editor-custom {
+    line-height: 'initial';
+
+    .ql-toolbar {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+
+    .ql-container {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+}
+
+.error__editor {
+    .ql-toolbar {
+        border-top-color: #ea5023;
+        border-left-color: #ea5023;
+        border-right-color: #ea5023;
+    }
+
+    .ql-container {
+        border-bottom-color: #ea5023;
+        border-left-color: #ea5023;
+        border-right-color: #ea5023;
+    }
+
+}

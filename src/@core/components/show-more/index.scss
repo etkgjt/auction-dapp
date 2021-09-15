@@ -1,0 +1,25 @@
+.show-more {
+  img {
+    max-width: 250px;
+  }
+  .hide {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .show {
+    display: block;
+  }
+  .btn-click-more {
+    cursor: pointer;
+    color: blue;
+    font-weight: 400;
+    &:hover,
+    &:focus {
+      color: blue;
+      font-weight: 500;
+    }
+  }
+}
