@@ -15,7 +15,7 @@ export default {
         authRoute: true,
       },
       props: {
-        title: 'Siêu Trí Nhớ Học Đường | Tâm Trí Lực',
+        title: 'Trang chủ | Siêu Trí Nhớ Học Đường',
         titleI18n: 'Home:title',
       },
     },
