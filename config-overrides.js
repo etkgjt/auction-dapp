@@ -13,13 +13,12 @@ module.exports = function override(config, env) {
     '@components': path.resolve(__dirname, 'src/@core/components'),
     '@layouts': path.resolve(__dirname, 'src/@core/layouts'),
     '@store': path.resolve(__dirname, 'src/store'),
-    '@styles': path.resolve(__dirname, 'src/@core/scss'),
     '@configs': path.resolve(__dirname, 'src/configs'),
     '@utility': path.resolve(__dirname, 'src/utility'),
     '@utils': path.resolve(__dirname, 'src/utility/Utils'),
-    '@hooks': path.resolve(__dirname, 'src/utility/hooks'),
     '@Modules': path.resolve(__dirname, 'src/Modules'),
     '@Firebase': path.resolve(__dirname, 'src/Firebase'),
+    '@styles': path.resolve(__dirname, 'src/@core/scss'),
   })(config, env);
 
   config = new SassRuleRewire()

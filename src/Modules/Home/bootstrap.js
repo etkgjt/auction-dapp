@@ -10,17 +10,17 @@ export default {
     {
       url: '',
       component: 'Page/index',
-      layout: 'HorizontalLayout',
+      layout: 'StickyLayout',
       meta: {
         authRoute: true,
       },
       props: {
         title: 'Siêu Trí Nhớ Học Đường | Tâm Trí Lực',
-        titleI18n: 'AdvertPost:title',
+        titleI18n: 'Home:title',
       },
     },
   ],
   lang: { vi: intlMessagesVi, en: intlMessagesEN },
-  isAuthenticate: true,
+  isAuthenticate: false,
   // redux: initReducer,
 };
