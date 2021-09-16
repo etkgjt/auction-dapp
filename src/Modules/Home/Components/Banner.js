@@ -44,7 +44,7 @@ const Banner = () => {
               <div className="d-title">
                 <span>Giới thiệu siêu trí nhớ học đường</span>
               </div>
-              <div className="d-carousel">
+              {/* <div className="d-carousel">
                 <Carousel
                   className="blog-slides owl-carousel owl-theme"
                   {...options}
@@ -90,7 +90,7 @@ const Banner = () => {
                     </div>
                   </div>{' '}
                 </Carousel>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
