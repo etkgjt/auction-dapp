@@ -1,2 +1,11 @@
 {
+    "MENU": {
+        "home": "Trang chủ",
+        "introduce": "Giới thiệu",
+        "news": "Tin tức",
+        "teachers": "Đội ngũ giáo viên",
+        "partners": "Đối tác",
+        "support": "Hỗ trợ",
+        "contact": "Liên hệ"
+    }
 }

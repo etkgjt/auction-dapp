@@ -1,24 +1,20 @@
-import { Mail, Home } from 'react-feather';
-import { BsFilePost, BsPeopleFill } from 'react-icons/bs';
-
 export default [
   {
     id: 'home',
     title: 'Trang chủ',
     titleI18n: 'MENU:home',
-    icon: <Home size={20} />,
+
     to: '/home',
     submenu: [
       {
         id: 'secondPage',
         title: 'Second Page',
-        icon: <Mail size={20} />,
         to: '/second-page',
       },
       {
         id: 'secondPage',
         title: 'Second Page',
-        icon: <Mail size={20} />,
+
         to: '/second-page',
       },
     ],
@@ -27,24 +23,42 @@ export default [
     id: 'introduce',
     title: 'Giới thiệu',
     titleI18n: 'MENU:introduce',
-    icon: <BsFilePost size={20} />,
     to: '/introduce',
+    submenu: [],
+  },
+  {
+    id: 'teachers',
+    title: 'Đội ngũ giáo viên',
+    titleI18n: 'MENU:teachers',
+    to: '/teachers',
+    submenu: [],
+  },
+  {
+    id: 'partners',
+    title: 'Đối tác',
+    titleI18n: 'MENU:partners',
+    to: '/partners',
     submenu: [],
   },
   {
     id: 'news',
     title: 'Tin tức',
     titleI18n: 'MENU:news',
-    icon: <BsFilePost size={20} />,
-    to: '/social-post',
+    to: '/news',
     submenu: [],
   },
   {
-    id: 'user',
-    title: 'Khách hàng',
-    titleI18n: 'MENU:home',
-    icon: <BsPeopleFill size={20} />,
-    to: '/user',
+    id: 'support',
+    title: 'Hỗ trợ',
+    titleI18n: 'MENU:support',
+    to: '/support',
+    submenu: [],
+  },
+  {
+    id: 'contact',
+    title: 'Liên hệ',
+    titleI18n: 'MENU:contact',
+    to: '/contact',
     submenu: [],
   },
 ];
