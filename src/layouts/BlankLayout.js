@@ -4,6 +4,7 @@ import Navbar from '@layouts/components/navbar';
 import Footer from '@layouts/components/footer';
 
 const BlankLayout = ({ children, ...rest }) => {
+
   // ** States
   const [isMounted, setIsMounted] = useState(false);
 

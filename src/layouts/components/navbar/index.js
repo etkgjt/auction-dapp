@@ -14,9 +14,10 @@ import navigation from '@src/navigation';
 import * as actionsCommon from '@store/common/actions';
 import { getCodeLanguage } from '@store/common/selectors';
 
-const Navbar = ({ router = {} }) => {
+const Navbar = () => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
+  const pathname = window.location.pathname;
 
   /*Selectors*/
   const lang = useSelector((state) => getCodeLanguage(state));
@@ -24,8 +25,6 @@ const Navbar = ({ router = {} }) => {
   /*State*/
   const [collapsed, setCollapsed] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
-
-  const { pathname } = router;
 
   const layOutCls = '';
   const logo = require('@src/assets/images/logo.png').default;
@@ -92,19 +91,20 @@ const Navbar = ({ router = {} }) => {
               {navigation && navigation.length ? (
                 <ul className="navbar-nav nav ms-auto">
                   {navigation.map((item) => (
-                    <li className="nav-item" key={item.id}>
-                      <a
-                        className="nav-link"
-                        href={item.to}
-                        onClick={(e) => e.preventDefault()}
-                      >
+                    <li
+                      className={`nav-item ${
+                        item.to === pathname ? 'active' : ''
+                      }`}
+                      key={item.id}
+                    >
+                      <Link className="nav-link" to={item.to}>
                         {item.titleI18n ? t(item.titleI18n) : item.title}
-                      </a>
+                      </Link>
                       {item.submenu && item.submenu.length ? (
                         <ul className="dropdown_menu">
                           {item.submenu.map((sub, index) => (
                             <li key={sub.id || `sub-${index}`}>
-                              <Link activeClassName="active" to={sub.to}>
+                              <Link to={sub.to}>
                                 {sub.titleI18n ? t(sub.titleI18n) : sub.title}
                               </Link>
                             </li>

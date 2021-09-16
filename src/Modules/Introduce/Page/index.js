@@ -1,7 +1,7 @@
 import '../bootstrap.scss';
 
 import React from 'react';
-import Banner from '@Modules/Home/Components/Banner';
+import Banner from '@Modules/Introduce/Components/Banner';
 import Features from '@components/Saas/Features';
 import Overview from '@components/Saas/Overview';
 import JoinCard from '@components/Saas/JoinCard';
@@ -13,9 +13,9 @@ import PricingPlan from '@components/Saas/PricingPlan';
 import GetStarted from '@components/Saas/GetStarted';
 import Feedback from '@components/Saas/Feedback';
 import Partner from '@components/Saas/Partner';
-const Home = () => {
+const Introduce = () => {
   return (
-    <div className="home__page">
+    <div className="introduce__page">
       <Banner />
       <Features />
       <Overview />
@@ -28,8 +28,7 @@ const Home = () => {
       <GetStarted />
       <Feedback />
       <Partner />
-      {/* <Footer /> */}
     </div>
   );
 };
-export default Home;
+export default Introduce;

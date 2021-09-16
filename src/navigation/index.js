@@ -3,21 +3,8 @@ export default [
     id: 'home',
     title: 'Trang chủ',
     titleI18n: 'MENU:home',
-
-    to: '/home',
-    submenu: [
-      {
-        id: 'secondPage',
-        title: 'Second Page',
-        to: '/second-page',
-      },
-      {
-        id: 'secondPage',
-        title: 'Second Page',
-
-        to: '/second-page',
-      },
-    ],
+    to: '/',
+    submenu: [],
   },
   {
     id: 'introduce',

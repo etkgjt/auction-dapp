@@ -72,6 +72,28 @@ body {
     font-family: var(--fontFamily);
     padding: 0;
     margin: 0;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 4px rgba(#001529, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #a2afb6;
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        border-radius: 4px;
+    }
+
+    @supports (scrollbar-width: thin) {
+        scrollbar-width: thin;
+    }
 }
 
 a {
@@ -404,10 +426,6 @@ Navbar CSS
 =================================================*/
 .crake-nav {
     background: var(--whiteColor);
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding-top: 15px;
     width: 100%;
     z-index: 666;
     height: auto;
@@ -429,6 +447,8 @@ Navbar CSS
         }
 
         .navbar-nav {
+            text-transform: uppercase;
+
             li {
                 position: relative;
                 padding: 8px 0 !important;
@@ -447,7 +467,6 @@ Navbar CSS
 
                     &:hover,
                     &.active {
-                        color: var(--primaryColor) !important;
 
                         &::before {
                             opacity: 1;
@@ -458,11 +477,27 @@ Navbar CSS
 
                 }
 
-                &:hover,
+                &:hover {
+
+
+                    a {
+                        color: var(--primaryColor2) !important;
+
+                        &::before {
+                            opacity: 1;
+                            visibility: visible;
+                            left: -12px;
+                        }
+                    }
+                }
+
+
                 &.active {
                     border-bottom: 3px solid var(--primaryColor);
 
                     a {
+                        color: var(--primaryColor) !important;
+
                         &::before {
                             opacity: 1;
                             visibility: visible;
@@ -7603,6 +7638,10 @@ Footer CSS
     position: relative;
     z-index: 1;
 
+    .logo__content {
+        margin-bottom: 36px;
+    }
+
     .single-footer-widget {
         .logo {
             display: block;
@@ -7614,7 +7653,43 @@ Footer CSS
             }
         }
 
+        .about__content {
+            .about__title {
+                font-style: normal;
+                font-weight: bold;
+                font-size: 20px;
+                line-height: 140%;
+                color: var(--whiteColor);
+            }
+
+            .about__main {
+                margin-top: 16px;
+
+                .about__main-item {
+                    display: flex;
+                    flex: 1;
+                    align-items: flex-start;
+                    margin-bottom: 12px;
+
+                    .about__main-item-icon {
+                        margin-right: 10px;
+                    }
+                }
+
+                .about__main-item-content {
+
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 140%;
+                    color: var(--primaryColor3);
+
+                }
+            }
+        }
+
         p {
+            color: var(--whiteColor);
             margin-bottom: 0;
         }
 
@@ -7631,10 +7706,10 @@ Footer CSS
                     margin-right: 10px;
 
                     a {
-                        color: var(--blackColor);
+                        color: var(--whiteColor);
 
                         &:hover {
-                            color: var(--templateColor);
+                            color: var(--templateColor3);
                         }
                     }
 
@@ -7650,11 +7725,14 @@ Footer CSS
 
                     a {
                         display: block;
-                        color: var(--paragraphColor);
-                        font-weight: 600;
+                        color: var(--primaryColor3);
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 14px;
+                        line-height: 140%;
 
                         &:hover {
-                            color: var(--templateColor);
+                            color: var(--whiteColor);
                             padding-left: 7px;
                         }
                     }
@@ -7666,17 +7744,23 @@ Footer CSS
             }
         }
 
-        h3 {
-            font: {
-                size: 23px;
-                weight: 700;
-            }
-
-            margin-bottom: 25px;
+        .menu__title {
+            font-style: normal;
+            font-weight: 800;
+            font-size: 12px;
+            line-height: 16px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            margin-bottom: 16px;
         }
     }
 
-    &.bg-image {
+    .bg-image {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        min-height: 700px;
+
         background: {
             image: url("@src/assets/images/bg-images.png");
             position: inherit;
@@ -7688,7 +7772,6 @@ Footer CSS
 
 .copyright-area {
     padding: 30px 0;
-    margin-top: 100px;
     background-color: var(--primaryColor2);
 
     .container {
