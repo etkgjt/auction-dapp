@@ -7678,8 +7678,8 @@ Footer CSS
 
     &.bg-image {
         background: {
-            image: url("../images/footer-shape.png");
-            position: center;
+            image: url("@src/assets/images/bg-images.png");
+            position: inherit;
             size: cover;
             repeat: no-repeat;
         }
@@ -7690,6 +7690,14 @@ Footer CSS
     padding: 30px 0;
     margin-top: 100px;
     border-top: 1px solid #eeeeee;
+    background-color: var(--primaryColor2);
+
+    .container {
+        p {
+            color: var(--whiteColor);
+        }
+
+    }
 
     ul {
         text-align: right;
@@ -7719,7 +7727,7 @@ Footer CSS
             }
 
             a {
-                color: var(--paragraphColor);
+                color: var(--whiteColor) !important;
 
                 &:hover {
                     color: var(--templateColor);
