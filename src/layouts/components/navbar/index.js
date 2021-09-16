@@ -127,12 +127,10 @@ const Navbar = ({ router = {} }) => {
                         value={lang}
                         id="lang"
                       >
-                        <option value="vi" id="vi" className="vietnam__flag">
-                          Tiếng Việt
+                        <option value="vi" className="vietnam__flag">
+                          🇻🇳
                         </option>
-                        <option id="en" value="en">
-                          English
-                        </option>
+                        <option value="en">🇺🇸</option>
                       </select>
                     </div>
                   </form>
