@@ -16,7 +16,7 @@ import Partner from '@components/Saas/Partner';
 const Home = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Banner />
       <Features />
       <Overview />
@@ -29,7 +29,7 @@ const Home = () => {
       <GetStarted />
       <Feedback />
       <Partner />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

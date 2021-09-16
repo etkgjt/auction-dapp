@@ -34,7 +34,7 @@ const Navbar = ({ router = {}, products = [] }) => {
   };
 
   const handleSearchForm = () => {
-    searchForm(!searchForm);
+    setSearchForm(!searchForm);
   };
 
   useEffect(() => {

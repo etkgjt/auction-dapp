@@ -79,68 +79,74 @@ const Router = ({ Routes }) => {
   // ** Return Route to Render
   const ResolveRoutes = () => {
     return Object.keys(Layouts).map((layout, index) => {
+      const LayoutTag = Layouts[layout];
       const { LayoutRoutes, LayoutPaths } = LayoutRoutesAndPaths(layout);
       const routerProps = {};
 
       return (
         <Route path={LayoutPaths} key={index}>
-          <Switch>
-            {LayoutRoutes.map((route) => {
-              return (
-                <Route
-                  key={route.path}
-                  path={route.path}
-                  exact={route.exact === true}
-                  render={(props) => {
-                    // ** Assign props to routerProps
-                    Object.assign(routerProps, {
-                      ...props,
-                      meta: route.meta,
-                    });
+          <LayoutTag
+            routerProps={routerProps}
+            layout={layout}
+            currentActiveItem={currentActiveItem}
+          >
+            <Switch>
+              {LayoutRoutes.map((route) => {
+                return (
+                  <Route
+                    key={route.path}
+                    path={route.path}
+                    exact={route.exact === true}
+                    render={(props) => {
+                      // ** Assign props to routerProps
+                      Object.assign(routerProps, {
+                        ...props,
+                        meta: route.meta,
+                      });
 
-                    return (
-                      <Suspense fallback={null}>
-                        {/* Layout Wrapper to add classes based on route's layout, appLayout and className */}
-                        <LayoutWrapper
-                          layout={DefaultLayout}
-                          /* Conditional props */
-                          /*eslint-disable */
-                          {...(route.appLayout
-                            ? {
-                                appLayout: route.appLayout,
-                              }
-                            : {})}
-                          {...(route.meta
-                            ? {
-                                routeMeta: route.meta,
-                              }
-                            : {})}
-                          {...(route.className
-                            ? {
-                                wrapperClass: route.className,
-                              }
-                            : {})}
-                          /*eslint-enable */
-                        >
-                          {route.titleI18n || route.title ? (
-                            <Helmet>
-                              <title>
-                                {route.titleI18n
-                                  ? t(route.titleI18n)
-                                  : route.title}
-                              </title>
-                            </Helmet>
-                          ) : null}
-                          <route.component {...props} />
-                          {/* <FinalRoute route={route} {...props} /> */}
-                        </LayoutWrapper>
-                      </Suspense>
-                    );
-                  }}
-                />
-              );
-            })}
-          </Switch>
+                      return (
+                        <Suspense fallback={null}>
+                          {/* Layout Wrapper to add classes based on route's layout, appLayout and className */}
+                          <LayoutWrapper
+                            layout={DefaultLayout}
+                            /*eslint-disable */
+                            {...(route.appLayout
+                              ? {
+                                  appLayout: route.appLayout,
+                                }
+                              : {})}
+                            {...(route.meta
+                              ? {
+                                  routeMeta: route.meta,
+                                }
+                              : {})}
+                            {...(route.className
+                              ? {
+                                  wrapperClass: route.className,
+                                }
+                              : {})}
+                            /*eslint-enable */
+                          >
+                            {route.titleI18n || route.title ? (
+                              <Helmet>
+                                <title>
+                                  {route.titleI18n
+                                    ? t(route.titleI18n)
+                                    : route.title}
+                                </title>
+                              </Helmet>
+                            ) : null}
+                            <route.component {...props} />
+                            {/* <FinalRoute route={route} {...props} /> */}
+                          </LayoutWrapper>
+                        </Suspense>
+                      );
+                    }}
+                  />
+                );
+              })}
+            </Switch>
+          </LayoutTag>
         </Route>
       );
     });
