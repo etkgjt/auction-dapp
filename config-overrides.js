@@ -9,16 +9,15 @@ module.exports = function override(config, env) {
 
   config = rewireAliases.aliasesOptions({
     '@src': path.resolve(__dirname, 'src'),
-    '@assets': path.resolve(__dirname, 'src/@core/assets'),
-    '@components': path.resolve(__dirname, 'src/@core/components'),
-    '@layouts': path.resolve(__dirname, 'src/@core/layouts'),
+    '@assets': path.resolve(__dirname, 'src/assets'),
+    '@components': path.resolve(__dirname, 'src/components'),
+    '@layouts': path.resolve(__dirname, 'src/layouts'),
     '@store': path.resolve(__dirname, 'src/store'),
     '@configs': path.resolve(__dirname, 'src/configs'),
     '@utility': path.resolve(__dirname, 'src/utility'),
     '@utils': path.resolve(__dirname, 'src/utility/Utils'),
     '@Modules': path.resolve(__dirname, 'src/Modules'),
-    '@Firebase': path.resolve(__dirname, 'src/Firebase'),
-    '@styles': path.resolve(__dirname, 'src/@core/scss'),
+    '@styles': path.resolve(__dirname, 'src/assets/scss'),
   })(config, env);
 
   config = new SassRuleRewire()

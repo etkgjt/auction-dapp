@@ -1,24 +1,18 @@
 // ** React Imports
 import ReactDOM from 'react-dom';
 
-// ** PrismJS
-import 'prismjs';
-import 'prismjs/themes/prism-tomorrow.css';
-import 'prismjs/components/prism-jsx.min';
-
-// ** React Perfect Scrollbar
-import 'react-perfect-scrollbar/dist/css/styles.css';
-
-// ** Core styles
-import './@core/assets/fonts/feather/iconfont.css';
-import './@core/scss/index.scss';
-
 // ** Service Worker
 import * as serviceWorker from './serviceWorker';
 
 //**CSS */
-import '@styles/css/icofont.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '@assets/css/bootstrap.min.css';
+import '@assets/css/icofont.min.css';
+import '@assets/css/animate.css';
+import '../node_modules/react-modal-video/scss/modal-video.scss';
+import 'react-image-lightbox/style.css';
+import 'react-accessible-accordion/dist/fancy-example.css';
+import '@assets/css/style.scss';
+import '@assets/css/responsive.scss';
 
 // ** Lazy load app
 import Bootstrap from './bootstrap';

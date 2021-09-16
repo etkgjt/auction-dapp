@@ -10,7 +10,6 @@ export default {
     {
       url: '',
       component: 'Page/index',
-      layout: 'StickyLayout',
       meta: {
         authRoute: true,
       },

@@ -3,11 +3,6 @@ import {BASE_URL_API} from '@configs/api'
 
 const axiosCreate = axios.create({
   baseURL: BASE_URL_API
-  // headers: {
-  //     Accept:
-  //     'application/json,application/x-www-form-urlencoded,text/plain,*/*',
-  //     'Content-Type': 'application/json;charset=utf-8'
-  // }
 })
 
 // axiosCreate
@@ -39,13 +34,10 @@ axiosCreate.interceptors.response.use(
     if (error.response && error.response.data) {
       return Promise.reject(error.response.data)
     }
-    // console.error('network error');
-    // console.error(error);
     return Promise.reject(error.message)
   }
 )
 axiosCreate.interceptors.request.use(request => {
-  // console.log(request);
   return request
 })
 

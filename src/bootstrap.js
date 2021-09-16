@@ -19,7 +19,6 @@ import { I18nextProvider, initReactI18next } from 'react-i18next';
 import i18next from 'i18next';
 import intlMessagesEn from '@src/i18n/localization/en.json';
 import intlMessagesVi from '@src/i18n/localization/vi.json';
-import Spinner from './@core/components/spinner/fallback-spinner';
 
 // ** Router Default
 import { DefaultRoute, Routes } from '@src/router/routes';
@@ -29,7 +28,6 @@ import InitApp from './InitApp';
 
 /*Api*/
 import apiMethod from '@utility/ApiMethod';
-import apiMethodFireBase from '@utility/ApiMethodFireBase';
 
 const Bootstrap = () => {
   const [loaded, setLoaded] = useState(false);
@@ -53,7 +51,6 @@ const Bootstrap = () => {
     const isAuthenticated = accessToken ? true : false;
     if (isAuthenticated) {
       apiMethod.defaults.headers.common['Authorization'] = accessToken;
-      apiMethodFireBase.defaults.headers.common['Authorization'] = accessToken;
     }
     const setupApp = async () => {
       const res = await initApp(isAuthenticated);
@@ -131,7 +128,7 @@ const Bootstrap = () => {
     /*End Setup language*/
     return (
       <Provider store={store}>
-        <Suspense fallback={<Spinner />}>
+        <Suspense fallback={null}>
           <PersistGate loading={null} persistor={persist}>
             <I18nextProvider i18n={i18next}>
               <InitApp

@@ -6,14 +6,13 @@ import { useSelector } from 'react-redux';
 
 // ** Custom Components
 // import Spinner from '@components/spinner/Loading-spinner' // Uncomment if your require content fallback
-import LayoutWrapper from '@layouts/components/layout-wrapper';
+import LayoutWrapper from '@layouts/layout-wrapper';
 
 // ** Router Components
 import { BrowserRouter as AppRouter, Route, Switch } from 'react-router-dom';
 
 // ** Layouts
 import BlankLayout from '@layouts/BlankLayout';
-import StickyLayout from '@src/layouts/StickyLayout';
 
 import Helmet from 'react-helmet';
 import { useTranslation } from 'react-i18next';
@@ -44,7 +43,6 @@ const Router = ({ Routes }) => {
   // ** All of the available layouts
   const Layouts = {
     BlankLayout,
-    StickyLayout,
   };
 
   // ** Current Active Item
@@ -70,11 +68,6 @@ const Router = ({ Routes }) => {
 
     return { LayoutRoutes, LayoutPaths };
   };
-
-  const NotAuthorized = lazy(() => import('@src/views/NotAuthorized'));
-
-  // ** Init Error Component
-  const Error = lazy(() => import('@src/views/Error'));
 
   // ** Return Route to Render
   const ResolveRoutes = () => {
@@ -159,15 +152,9 @@ const Router = ({ Routes }) => {
         <Route
           exact
           path="/not-authorized"
-          render={(props) => (
-            <Layouts.BlankLayout>
-              <NotAuthorized />
-            </Layouts.BlankLayout>
-          )}
+          render={(props) => <Layouts.BlankLayout></Layouts.BlankLayout>}
         />
         {ResolveRoutes()}
-        {/* NotFound Error page */}
-        <Route path="*" component={Error} />/
       </Switch>
     </AppRouter>
   );
