@@ -1,31 +1,13 @@
 .home__page {
     .main-banner {
-        .d-table {
-            .d-table-cell {
-                .top__padding {
-                    padding-top: 8rem;
-                    padding-bottom: 8rem;
-                }
+        .owl-carousel {
+            position: relative;
 
-                .container {
-                    .d-carousel {
-                        .bg__slider {
-                            background-color: transparent;
-                            flex-shrink: 0;
-                            width: 100%;
-
-                            max-width: 100% img {
-                                position: absolute;
-                                margin: auto;
-                                top: 0;
-                                left: 0;
-                                right: 0;
-                                bottom: 0;
-                            }
-                        }
-
-                    }
-                }
+            .owl-dots {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
             }
         }
     }

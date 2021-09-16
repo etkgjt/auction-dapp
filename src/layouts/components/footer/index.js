@@ -1,6 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LocationIcon, PhoneIcon, MailIcon, WebsiteIcon } from './icon';
+import {
+  LocationIcon,
+  PhoneIcon,
+  MailIcon,
+  WebsiteIcon,
+  YoutubeIcon,
+  FacebookIcon,
+} from './icon';
 
 const Footer = () => {
   return (
@@ -83,29 +90,6 @@ const Footer = () => {
                     </ul>
                   </div>
                 </div>
-
-                <ul className="social-list">
-                  <li>
-                    <a href="https://www.facebook.com/" target="_blank">
-                      <i className="icofont-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://twitter.com/" target="_blank">
-                      <i className="icofont-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="instagram.com" target="_blank">
-                      <i className="icofont-instagram"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/" target="_blank">
-                      <i className="icofont-linkedin"></i>
-                    </a>
-                  </li>
-                </ul>
               </div>
             </div>
 
@@ -144,34 +128,22 @@ const Footer = () => {
 
                 <ul className="list">
                   <li>
-                    <Link to="#">
-                      <a>Integrations</a>
-                    </Link>
+                    <Link to="#">Hỗ trợ</Link>
                   </li>
                   <li>
-                    <Link to="#">
-                      <a>API</a>
-                    </Link>
+                    <Link to="#">Hướng dẫn mua hàng</Link>
                   </li>
                   <li>
-                    <Link to="/pricing-one">
-                      <a>Pricing</a>
-                    </Link>
+                    <Link to="/pricing-one">Điều khoản mua hàng</Link>
                   </li>
                   <li>
-                    <Link to="/#">
-                      <a>Documentation</a>
-                    </Link>
+                    <Link to="/#">Chính sách bảo mật</Link>
                   </li>
                   <li>
-                    <Link to="/signup">
-                      <a>Sign Up</a>
-                    </Link>
+                    <Link to="/signup">Chính sách khiếu nại</Link>
                   </li>
                   <li>
-                    <Link to="#">
-                      <a>Release Notes</a>
-                    </Link>
+                    <Link to="#">Chính sách đổi trả</Link>
                   </li>
                 </ul>
               </div>
@@ -183,23 +155,29 @@ const Footer = () => {
 
                 <ul className="list">
                   <li>
-                    <Link to="/about">
-                      <a>About</a>
-                    </Link>
+                    <div className="work__time">
+                      <div className="work__time-day">Thứ 2 - Thứ 6</div>
+                      <div className="work__time-hour">: 8h00 - 19h00</div>
+                    </div>
                   </li>
                   <li>
-                    <Link to="/contact">
-                      <a>Contact</a>
-                    </Link>
+                    <div className="work__time">
+                      <div className="work__time-day">Thứ 7</div>
+                      <div className="work__time-hour">: 8h00 - 17h00</div>
+                    </div>
                   </li>
                   <li>
-                    <Link to="/faq">
-                      <a>FAQ</a>
-                    </Link>
+                    <div className="work__time">
+                      <div className="work__time-day">Chủ nhật</div>
+                      <div className="work__time-hour">: 8h00 - 15h00</div>
+                    </div>
                   </li>
                   <li>
                     <Link to="#">
-                      <a>Press</a>
+                      <img
+                        src={require('@src/assets/images/BCT.png').default}
+                        alt="Bo-cong-thuong"
+                      />
                     </Link>
                   </li>
                 </ul>
@@ -212,20 +190,35 @@ const Footer = () => {
       <div className="copyright-area">
         <div className="container">
           <div className="row h-100 justify-content-center align-items-center">
-            <div className="col-lg-6 col-md-6">
-              <p>Copyright &copy; 2021 Mojosa. All rights reserved</p>
+            <div className="col-lg-8 col-md-8">
+              <div className="copy__right-text">&copy; 2020 Tâm Trí Lực</div>
+              <div className="copy__right-text">
+                Giấy chứng nhận Đăng ký Kinh Doanh 0314866590 do Sở Kế hoạch và
+                đầu tư Thành Phố Hồ Chí Minh cấp ngày 12/02/2015
+              </div>
             </div>
 
-            <div className="col-lg-6 col-md-6">
-              <ul>
+            <div className="col-lg-4 col-md-4">
+              <ul
+                style={{
+                  display: 'flex',
+                  justifyContent: 'flex-end',
+                  alignItems: 'center',
+                }}
+              >
                 <li>
                   <Link to="/#">
-                    <a>Terms & Conditions</a>
+                    <div>SOCIAL MEDIA</div>
                   </Link>
                 </li>
                 <li>
                   <Link to="/#">
-                    <a>Privacy Policy</a>
+                    <YoutubeIcon />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/#">
+                    <FacebookIcon />
                   </Link>
                 </li>
               </ul>

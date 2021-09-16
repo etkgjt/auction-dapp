@@ -37,70 +37,40 @@ const Banner = () => {
 
   return (
     <div className="main-banner saas-home">
-      <div className="d-table">
-        <div className="d-table-cell">
-          <div className="container top__padding">
-            <div className="row h-100 justify-content-center align-items-center">
-              <div className="d-title">
-                <span>Giới thiệu siêu trí nhớ học đường</span>
-              </div>
-              <div className="d-carousel">
-                <Carousel
-                  className="blog-slides owl-carousel owl-theme"
-                  {...options}
-                >
-                  <div className="col-lg-12 col-md-12">
-                    <div className="container bg__slider">
-                      <img
-                        src={
-                          require('@src/assets/images/slider-img1.png').default
-                        }
-                        alt="blog-image"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-12 col-md-12">
-                    <div className="bg__slider">
-                      <img
-                        src={
-                          require('@src/assets/images/slider-img1.png').default
-                        }
-                        alt="blog-image"
-                      />
-                    </div>
-                  </div>{' '}
-                  <div className="col-lg-12 col-md-12">
-                    <div className="bg__slider">
-                      <img
-                        src={
-                          require('@src/assets/images/slider-img1.png').default
-                        }
-                        alt="blog-image"
-                      />
-                    </div>
-                  </div>{' '}
-                  <div className="col-lg-12 col-md-12">
-                    <div className="bg__slider">
-                      <img
-                        src={
-                          require('@src/assets/images/slider-img1.png').default
-                        }
-                        alt="blog-image"
-                      />
-                    </div>
-                  </div>{' '}
-                </Carousel>
-              </div>
-            </div>
+      <Carousel className="blog-slides owl-carousel owl-theme" {...options}>
+        <div className="col-lg-12 col-md-12">
+          <div className="bg__slider">
+            <img
+              src={require('@src/assets/images/home-banner1.png').default}
+              alt="blog-image"
+            />
           </div>
         </div>
-      </div>
-
-      <div className="bg-gray shape-1"></div>
-
-      <div className="shape4 rotateme">
-        <img src={require('@src/assets/images/star.svg').default} alt="img" />
-      </div>
+        <div className="col-lg-12 col-md-12">
+          <div className="bg__slider">
+            <img
+              src={require('@src/assets/images/home-banner1.png').default}
+              alt="blog-image"
+            />
+          </div>
+        </div>{' '}
+        <div className="col-lg-12 col-md-12">
+          <div className="bg__slider">
+            <img
+              src={require('@src/assets/images/home-banner1.png').default}
+              alt="blog-image"
+            />
+          </div>
+        </div>{' '}
+        <div className="col-lg-12 col-md-12">
+          <div className="bg__slider">
+            <img
+              src={require('@src/assets/images/home-banner1.png').default}
+              alt="blog-image"
+            />
+          </div>
+        </div>{' '}
+      </Carousel>
     </div>
   );
 };
