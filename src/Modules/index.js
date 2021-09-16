@@ -1,5 +1,6 @@
 export default [
   { key: 'About' },
+  { key: 'App' },
   { key: 'Contact' },
   { key: 'Introduce' },
   { key: 'News' },

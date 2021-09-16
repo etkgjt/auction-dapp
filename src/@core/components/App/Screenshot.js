@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+
 import OwlCarousel from 'react-owl-carousel3';
 
 const options = {
@@ -30,115 +30,133 @@ const options = {
   },
 };
 
-class Screenshot extends React.Component {
-  state = { display: false };
+const Screenshot = () => {
+  const [display, setDisplay] = useState(false);
+  useEffect(() => {
+    setDisplay(true);
+  }, []);
 
-  componentDidMount() {
-    this.setState({ display: true });
-  }
+  return (
+    <section className="screenshot-area ptb-100">
+      <div className="container">
+        <div className="section-title">
+          <h2>Screenshot</h2>
+          <div className="bar"></div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
 
-  render() {
-    return (
-      <section className="screenshot-area ptb-100">
-        <div className="container">
-          <div className="section-title">
-            <h2>Screenshot</h2>
-            <div className="bar"></div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="screenshot-contain">
+              <img
+                src={require('@src/assets/images/mobile.png').default}
+                className="mobile-light"
+                alt="mobile"
+              />
 
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="screenshot-contain">
-                <img
-                  src="/images/mobile.png"
-                  className="mobile-light"
-                  alt="mobile"
-                />
-
-                <div className="row">
-                  {this.state.display ? (
-                    <OwlCarousel
-                      className="screenshot-slides owl-carousel owl-theme"
-                      {...options}
-                    >
-                      <div className="col-lg-12">
-                        <div className="screenshot-item">
-                          <img
-                            src="/images/screenshot-img1.png"
-                            alt="screenshot"
-                          />
-                        </div>
+              <div className="row">
+                {display ? (
+                  <OwlCarousel
+                    className="screenshot-slides owl-carousel owl-theme"
+                    {...options}
+                  >
+                    <div className="col-lg-12">
+                      <div className="screenshot-item">
+                        <img
+                          src={
+                            require('@src/assets/images/screenshot-img1.png')
+                              .default
+                          }
+                          alt="screenshot"
+                        />
                       </div>
+                    </div>
 
-                      <div className="col-lg-12">
-                        <div className="screenshot-item">
-                          <img
-                            src="/images/screenshot-img4.png"
-                            alt="screenshot"
-                          />
-                        </div>
+                    <div className="col-lg-12">
+                      <div className="screenshot-item">
+                        <img
+                          src={
+                            require('@src/assets/images/screenshot-img4.png')
+                              .default
+                          }
+                          alt="screenshot"
+                        />
                       </div>
+                    </div>
 
-                      <div className="col-lg-12">
-                        <div className="screenshot-item">
-                          <img
-                            src="/images/screenshot-img2.png"
-                            alt="screenshot"
-                          />
-                        </div>
+                    <div className="col-lg-12">
+                      <div className="screenshot-item">
+                        <img
+                          src={
+                            require('@src/assets/images/screenshot-img2.png')
+                              .default
+                          }
+                          alt="screenshot"
+                        />
                       </div>
+                    </div>
 
-                      <div className="col-lg-12">
-                        <div className="screenshot-item">
-                          <img
-                            src="/images/screenshot-img3.png"
-                            alt="screenshot"
-                          />
-                        </div>
+                    <div className="col-lg-12">
+                      <div className="screenshot-item">
+                        <img
+                          src={
+                            require('@src/assets/images/screenshot-img3.png')
+                              .default
+                          }
+                          alt="screenshot"
+                        />
                       </div>
+                    </div>
 
-                      <div className="col-lg-12">
-                        <div className="screenshot-item">
-                          <img
-                            src="/images/screenshot-img4.png"
-                            alt="screenshot"
-                          />
-                        </div>
+                    <div className="col-lg-12">
+                      <div className="screenshot-item">
+                        <img
+                          src={
+                            require('@src/assets/images/screenshot-img4.png')
+                              .default
+                          }
+                          alt="screenshot"
+                        />
                       </div>
+                    </div>
 
-                      <div className="col-lg-12">
-                        <div className="screenshot-item">
-                          <img
-                            src="/images/screenshot-img1.png"
-                            alt="screenshot"
-                          />
-                        </div>
+                    <div className="col-lg-12">
+                      <div className="screenshot-item">
+                        <img
+                          src={
+                            require('@src/assets/images/screenshot-img1.png')
+                              .default
+                          }
+                          alt="screenshot"
+                        />
                       </div>
+                    </div>
 
-                      <div className="col-lg-12">
-                        <div className="screenshot-item">
-                          <img
-                            src="/images/screenshot-img2.png"
-                            alt="screenshot"
-                          />
-                        </div>
+                    <div className="col-lg-12">
+                      <div className="screenshot-item">
+                        <img
+                          src={
+                            require('@src/assets/images/screenshot-img2.png')
+                              .default
+                          }
+                          alt="screenshot"
+                        />
                       </div>
-                    </OwlCarousel>
-                  ) : (
-                    ''
-                  )}
-                </div>
+                    </div>
+                  </OwlCarousel>
+                ) : (
+                  ''
+                )}
               </div>
             </div>
           </div>
         </div>
-      </section>
-    );
-  }
-}
+      </div>
+    </section>
+  );
+};
 
 export default Screenshot;
