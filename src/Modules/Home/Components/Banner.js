@@ -1,7 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Carousel from 'react-owl-carousel3';
 
 const isServer = typeof window === 'undefined';
 const WOW = !isServer ? require('wowjs') : null;
+
+const options = {
+  autoplay: true,
+  nav: false,
+  loop: true,
+  mouseDrag: true,
+  autoplayHoverPause: true,
+  responsiveClass: true,
+  margin: 30,
+  dots: true,
+  lazyLoad: true,
+  items: 1,
+  autoHeight: true,
+};
 
 const Banner = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,8 +44,54 @@ const Banner = () => {
               <div className="d-title">
                 <span>Giới thiệu siêu trí nhớ học đường</span>
               </div>
+              <div className="d-carousel">
+                <Carousel
+                  className="blog-slides owl-carousel owl-theme"
+                  {...options}
+                >
+                  <div className="col-lg-12 col-md-12">
+                    <div className="single-blog-post">
+                      <img
+                        src={
+                          require('@src/assets/images/blog-img1.jpg').default
+                        }
+                        alt="blog-image"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-12 col-md-12">
+                    <div className="single-blog-post">
+                      <img
+                        src={
+                          require('@src/assets/images/blog-img1.jpg').default
+                        }
+                        alt="blog-image"
+                      />
+                    </div>
+                  </div>{' '}
+                  <div className="col-lg-12 col-md-12">
+                    <div className="single-blog-post">
+                      <img
+                        src={
+                          require('@src/assets/images/blog-img1.jpg').default
+                        }
+                        alt="blog-image"
+                      />
+                    </div>
+                  </div>{' '}
+                  <div className="col-lg-12 col-md-12">
+                    <div className="single-blog-post">
+                      <img
+                        src={
+                          require('@src/assets/images/blog-img1.jpg').default
+                        }
+                        alt="blog-image"
+                      />
+                    </div>
+                  </div>{' '}
+                </Carousel>
+              </div>
             </div>
-            <div className="row h-100 justify-content-center align-items-center"></div>
           </div>
         </div>
       </div>
