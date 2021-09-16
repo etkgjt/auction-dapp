@@ -1,0 +1,35 @@
+@import '@assets/css/_variables.scss';
+
+.navbar {
+    .nav__select {
+        margin-bottom: 0;
+
+
+
+        .select__language {
+            width: 80px;
+
+            .ant-select-selector {
+                background: #EFF0F7;
+                border: none;
+                border-radius: 10px;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    border: 1px solid var(--primaryColor);
+                }
+
+
+
+            }
+
+            .ant-select-arrow {
+                color: var(--primaryColor);
+                font-weight: 700;
+            }
+
+        }
+    }
+
+}

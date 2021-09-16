@@ -1,13 +1,27 @@
 import React, { lazy, useEffect, useState } from 'react';
-/*Store state Redux Saga */
-import { useDispatch } from 'react-redux';
 
 //** Load App
 const LazyApp = lazy(() => import('./App'));
 
+/*Hooks*/
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+
+/*Redux*/
+import * as actionsCommon from '@store/common/actions';
+import { getCodeLanguage } from '@store/common/selectors';
+
 const InitApp = ({ DefaultRoute, listRoutes, listNav }) => {
   const dispatch = useDispatch();
+  const { i18n } = useTranslation();
   const [loaded, setLoaded] = useState(false);
+
+  /*Selectors*/
+  const lang = useSelector((state) => getCodeLanguage(state));
+
+  useEffect(() => {
+    i18n.changeLanguage(lang);
+  }, [lang]);
 
   useEffect(() => {
     const setupInitApp = async () => {
@@ -15,11 +29,8 @@ const InitApp = ({ DefaultRoute, listRoutes, listNav }) => {
     };
     setupInitApp().then();
   }, []);
-
-  console.log('route', listRoutes);
-
   return (
-      <LazyApp DefaultRoute={DefaultRoute} Routes={listRoutes} Nav={listNav} />
+    <LazyApp DefaultRoute={DefaultRoute} Routes={listRoutes} Nav={listNav} />
   );
 };
 export default InitApp;

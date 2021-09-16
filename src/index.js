@@ -13,6 +13,7 @@ import 'react-image-lightbox/style.css';
 import 'react-accessible-accordion/dist/fancy-example.css';
 import '@assets/css/style.scss';
 import '@assets/css/responsive.scss';
+import 'antd/dist/antd.css';
 
 // ** Lazy load app
 import Bootstrap from './bootstrap';

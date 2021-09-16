@@ -3,22 +3,19 @@ import { persistReducer } from 'redux-persist';
 import * as Actions from './constants';
 
 const initState = {
-  language: "vi",
-  codeLanguage: "vi-VN",
+  language: 'vi',
+  codeLanguage: 'vi',
 };
 
 const CommonReducer = (state = initState, action = {}) => {
   switch (action.type) {
     case Actions.SET_LANGUAGE:
-      const {code} = action.payload
-      switch (code) {
-        case "vi-VN":
-          return {...state, language: "vi", codeLanguage: code, itemsLanguageSelect: action.payload}
-        case "en-US":
-          return {...state, language: "en", codeLanguage: code, itemsLanguageSelect: action.payload}
-        default:
-          return {...state}
-      }
+      return {
+        ...state,
+        language: action.payload,
+        codeLanguage: action.payload,
+        itemsLanguageSelect: action.payload,
+      };
     default:
       return state;
   }

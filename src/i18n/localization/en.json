@@ -1,2 +1,11 @@
 {
+    "MENU": {
+        "home": "Home",
+        "introduce": "Introduce",
+        "news": "News",
+        "teachers": "Teachers",
+        "partners": "Partners",
+        "support": "Support",
+        "contact": "Contact"
+    }
 }

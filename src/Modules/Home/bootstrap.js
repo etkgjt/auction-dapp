@@ -16,6 +16,7 @@ export default {
       props: {
         title: 'Trang chủ | Siêu Trí Nhớ Học Đường',
         titleI18n: 'Home:title',
+        headerStyle: 'fill',
       },
     },
   ],

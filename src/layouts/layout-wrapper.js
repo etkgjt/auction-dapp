@@ -12,8 +12,7 @@ import 'animate.css/animate.css';
 
 const LayoutWrapper = (props) => {
   // ** Props
-  const { layout, children, appLayout, wrapperClass, transition, routeMeta } =
-    props;
+  const { children, wrapperClass } = props;
 
   return (
     <div

@@ -65,21 +65,15 @@ This files table contents are outlined below>>>>>
 /*================================================
 Default CSS
 =================================================*/
+@import 'variables';
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');
-:root {
-    --fontFamily: 'Nunito', sans-serif;
-    --templateColor: #13c4a1;
-    --templateColor2: #FF8A73;
-    --whiteColor: #ffffff;
-    --blackColor: #000000;
-    --paragraphColor: #818992;
-    --transition: .5s;
-}
+
 body {
     font-family: var(--fontFamily);
     padding: 0;
     margin: 0;
 }
+
 a {
     color: var(--blackColor);
     text-decoration: none;
@@ -87,14 +81,17 @@ a {
     display: inline-block;
     outline: 0;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         text-decoration: none;
         color: var(--templateColor2);
     }
 }
+
 img {
     max-width: 100%;
 }
+
 .d-table {
     width: 100%;
     height: 100%;
@@ -102,16 +99,43 @@ img {
     &-cell {
         vertical-align: middle;
     }
+
+    .d-title {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            font-style: normal;
+            font-weight: 900;
+            font-size: 44px;
+            line-height: 60px;
+            text-align: center;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            text-shadow: -2px 1.7px 0px #EA5023, -3px 3px 5px #CF3115, -2px 2px 2px rgba(185, 60, 6, 0.76), -4.59183px 4.59183px 9.18366px #C84D19;
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+            margin: 54px 0px;
+        }
+    }
 }
+
 .ptb-100 {
     padding: {
         top: 100px;
         bottom: 100px;
     }
 }
+
 .bg-gray {
     background-color: #edf5ff;
 }
+
 p {
     font-size: 16px;
     color: var(--paragraphColor);
@@ -121,59 +145,78 @@ p {
         margin-bottom: 0;
     }
 }
+
 button {
     outline: 0 !important;
 }
+
 .pl-15 {
     padding-left: 15px;
 }
+
 /* btn btn-primary */
 .btn-primary {
     color: var(--whiteColor);
     background-color: var(--templateColor2);
 
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
         color: var(--whiteColor);
         background: var(--templateColor);
         transform: translateY(-5px);
     }
-    &.focus, &:focus {
+
+    &.focus,
+    &:focus {
         box-shadow: unset;
     }
-    &:not(:disabled):not(.disabled).active:focus, &:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+
+    &:not(:disabled):not(.disabled).active:focus,
+    &:not(:disabled):not(.disabled):active:focus,
+    .show>.btn-primary.dropdown-toggle:focus {
         box-shadow: unset;
     }
-    &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+
+    &:not(:disabled):not(.disabled).active,
+    &:not(:disabled):not(.disabled):active,
+    .show>.btn-primary.dropdown-toggle {
         color: var(--whiteColor);
         background: var(--templateColor);
         transform: translateY(-5px);
     }
-    &.disabled, &:disabled {
+
+    &.disabled,
+    &:disabled {
         color: var(--whiteColor);
         background-color: var(--templateColor2);
         border-color: var(--templateColor2);
         opacity: 1;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             background: var(--templateColor);
         }
     }
 }
+
 .btn {
     font: {
         weight: 700;
         size: 15px;
     }
+
     border: none;
     padding: 13px 31px;
     border-radius: 5px;
     text-transform: uppercase;
     position: relative;
-    box-shadow: 0 13px 27px 0 rgba(163,48,53,.25);
+    box-shadow: 0 13px 27px 0 rgba(163, 48, 53, .25);
     z-index: 1;
     transition: .9s;
 
-    &::after, &::before {
+    &::after,
+    &::before {
         content: '';
         position: absolute;
         top: 0;
@@ -184,22 +227,29 @@ button {
         z-index: -1;
         border-radius: 5px;
     }
+
     &::after {
         left: 0;
     }
+
     &::before {
         right: 0;
     }
+
     &:hover {
-        &::after, &::before {
+
+        &::after,
+        &::before {
             width: 50%;
         }
     }
 }
+
 /* section title */
 .section-title {
     text-align: center;
     max-width: 720px;
+
     margin: {
         bottom: 50px;
         top: -6px;
@@ -212,12 +262,15 @@ button {
             size: 35px;
             weight: 700;
         }
+
         margin-bottom: 0;
     }
+
     p {
         max-width: 650px;
         margin: 0 auto;
     }
+
     .bar {
         height: 4px;
         width: 85px;
@@ -242,26 +295,32 @@ button {
         }
     }
 }
+
 @-webkit-keyframes MOVE-BG {
     from {
         -webkit-transform: translateX(0);
     }
+
     to {
         -webkit-transform: translateX(85px);
     }
 }
+
 @keyframes MOVE-BG {
     from {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(85px);
     }
 }
+
 /* form-control */
 .form-group {
     margin-bottom: 20px;
 }
+
 .form-control {
     height: 50px;
     padding: 12px;
@@ -275,6 +334,7 @@ button {
     &::placeholder {
         color: var(--paragraphColor);
     }
+
     &:focus {
         color: var(--paragraphColor);
         background-color: var(--whiteColor);
@@ -321,15 +381,18 @@ Preloader CSS
         }
     }
 }
+
 @keyframes lds-hourglass {
     0% {
         transform: rotate(0);
         animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
     }
+
     50% {
         transform: rotate(900deg);
         animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
     }
+
     100% {
         transform: rotate(1800deg);
     }
@@ -339,7 +402,7 @@ Preloader CSS
 Navbar CSS
 =================================================*/
 .crake-nav {
-    background: transparent;
+    background: var(--whiteColor);
     position: absolute;
     top: 0;
     left: 0;
@@ -359,46 +422,46 @@ Navbar CSS
                 height: auto;
             }
         }
+
         ul {
             list-style-type: none;
         }
+
         .navbar-nav {
             li {
                 position: relative;
-                padding: 15px 0 !important;
+                padding: 8px 0 !important;
 
                 a {
                     font: {
                         weight: 600;
                         size: 17px;
                     }
-                    color: var(--whiteColor) !important;
+
+                    color: var(--darkColor) !important;
                     padding: 0 0 !important;
                     margin: 0 17px;
                     position: relative;
                     transition: var(--transition);
 
-                    &::before {
-                        content: '';
-                        position: absolute;
-                        left: 0;
-                        top: 9px;
-                        width: 6px;
-                        height: 6px;
-                        background: var(--whiteColor);
-                        opacity: 0;
-                        border-radius: 50%;
-                        visibility: hidden;
-                        transition: .4s;
-                    }
-                    &:hover {
-                        &::before {
-                            opacity: 1;
-                            visibility: visible;
-                            left: -12px;
-                        }
-                    }
+                    &:hover,
                     &.active {
+                        color: var(--primaryColor) !important;
+
+                        &::before {
+                            opacity: 1;
+                            visibility: visible;
+                            left: -12px;
+                        }
+                    }
+
+                }
+
+                &:hover,
+                &.active {
+                    border-bottom: 3px solid var(--primaryColor);
+
+                    a {
                         &::before {
                             opacity: 1;
                             visibility: visible;
@@ -406,13 +469,7 @@ Navbar CSS
                         }
                     }
                 }
-                &:hover a {
-                    &::before {
-                        opacity: 1;
-                        visibility: visible;
-                        left: -12px;
-                    }
-                }
+
                 .dropdown_menu {
                     box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.05);
                     background: var(--whiteColor);
@@ -435,6 +492,7 @@ Navbar CSS
                             font: {
                                 size: 15px;
                             }
+
                             padding: 5px 15px !important;
                             margin: 0;
                             display: block;
@@ -447,15 +505,18 @@ Navbar CSS
                                 visibility: hidden;
                                 top: 12px;
                             }
+
                             &:hover {
                                 &::before {
                                     left: 13px;
                                     opacity: 1;
                                     visibility: visible;
                                 }
+
                                 color: var(--templateColor) !important;
                                 padding-left: 25px !important;
                             }
+
                             &.active {
                                 color: var(--templateColor) !important;
                                 padding-left: 25px !important;
@@ -467,6 +528,7 @@ Navbar CSS
                                 }
                             }
                         }
+
                         .dropdown_menu {
                             position: absolute;
                             left: 95%;
@@ -495,6 +557,7 @@ Navbar CSS
                                             visibility: visible;
                                         }
                                     }
+
                                     &.active {
                                         color: var(--templateColor) !important;
                                         padding-left: 25px !important;
@@ -508,12 +571,14 @@ Navbar CSS
                                 }
                             }
                         }
+
                         &:hover {
                             .dropdown_menu {
                                 opacity: 1 !important;
                                 visibility: visible !important;
                                 top: -20px !important;
                             }
+
                             a {
                                 padding-left: 25px !important;
                                 color: var(--templateColor) !important;
@@ -527,6 +592,7 @@ Navbar CSS
                         }
                     }
                 }
+
                 &:hover {
                     ul {
                         opacity: 1 !important;
@@ -536,6 +602,7 @@ Navbar CSS
                 }
             }
         }
+
         .others-option {
             .navbar-nav {
                 align-items: center;
@@ -551,6 +618,7 @@ Navbar CSS
                             line-height: 52px;
                             font-size: 25px;
                         }
+
                         span {
                             position: absolute;
                             width: 16px;
@@ -567,6 +635,7 @@ Navbar CSS
                         }
                     }
                 }
+
                 li {
                     padding: 0 !important;
 
@@ -577,6 +646,7 @@ Navbar CSS
                             display: none;
                         }
                     }
+
                     .side-menu {
                         cursor: pointer;
                         width: 32px;
@@ -591,7 +661,8 @@ Navbar CSS
                             margin-bottom: 2px;
                             transition: all 0.4s ease-in-out;
 
-                            &::before, &::after {
+                            &::before,
+                            &::after {
                                 content: '';
                                 position: absolute;
                                 right: -12px;
@@ -602,10 +673,12 @@ Navbar CSS
                                 border-radius: 50%;
                                 transition: all 0.4s ease-in-out;
                             }
+
                             &::after {
                                 right: -24px;
                             }
                         }
+
                         .bar-2 {
                             position: relative;
                             width: 8px;
@@ -616,7 +689,8 @@ Navbar CSS
                             border-radius: 50%;
                             transition: all 0.4s ease-in-out;
 
-                            &::before, &::after {
+                            &::before,
+                            &::after {
                                 content: '';
                                 position: absolute;
                                 right: -12px;
@@ -627,10 +701,12 @@ Navbar CSS
                                 border-radius: 50%;
                                 transition: all 0.4s ease-in-out;
                             }
+
                             &::after {
                                 right: -24px;
                             }
                         }
+
                         .bar-3 {
                             position: relative;
                             width: 8px;
@@ -641,7 +717,8 @@ Navbar CSS
                             border-radius: 50%;
                             transition: all 0.4s ease-in-out;
 
-                            &::before, &::after {
+                            &::before,
+                            &::after {
                                 content: '';
                                 position: absolute;
                                 right: -12px;
@@ -652,12 +729,15 @@ Navbar CSS
                                 border-radius: 50%;
                                 transition: all 0.6s ease-in-out;
                             }
+
                             &::after {
                                 right: -24px;
                                 transition: all 0.8s ease-in-out;
                             }
                         }
-                        &:hover, &:focus {
+
+                        &:hover,
+                        &:focus {
                             .bar-2 {
                                 &::after {
                                     opacity: 0;
@@ -665,8 +745,11 @@ Navbar CSS
                                     transform: translateX(-100%);
                                 }
                             }
+
                             .bar-3 {
-                                &::after, &::before {
+
+                                &::after,
+                                &::before {
                                     opacity: 0;
                                     visibility: hidden;
                                     transform: translateX(-100%);
@@ -678,6 +761,7 @@ Navbar CSS
             }
         }
     }
+
     &.marketing-navbar {
         nav {
             .navbar-nav {
@@ -688,29 +772,38 @@ Navbar CSS
                         &::before {
                             background: var(--templateColor);
                         }
-                        &:hover, &:focus, &.active {
+
+                        &:hover,
+                        &:focus,
+                        &.active {
                             color: var(--templateColor) !important;
                         }
                     }
+
                     .side-menu {
                         .bar-1 {
                             background: #716c80;
 
-                            &::before, &::after {
+                            &::before,
+                            &::after {
                                 background: #716c80;
                             }
                         }
+
                         .bar-2 {
                             background: #716c80;
 
-                            &::before, &::after {
+                            &::before,
+                            &::after {
                                 background: #716c80;
                             }
                         }
+
                         .bar-3 {
                             background: #716c80;
 
-                            &::before, &::after {
+                            &::before,
+                            &::after {
                                 background: #716c80;
                             }
                         }
@@ -718,10 +811,12 @@ Navbar CSS
                 }
             }
         }
+
         &.is-sticky {
             background: var(--whiteColor) !important;
         }
     }
+
     &.is-sticky {
         position: fixed;
         top: 0;
@@ -730,10 +825,11 @@ Navbar CSS
         padding: 0;
         z-index: 999;
         box-shadow: 0 7px 13px 0 rgba(0, 0, 0, 0.1);
-        background-color: var(--templateColor) !important;
+        background-color: var(--whiteColor) !important;
         animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
     }
 }
+
 .header-search {
     position: fixed;
     top: 0px;
@@ -775,6 +871,7 @@ Navbar CSS
                 }
             }
         }
+
         .btn {
             position: absolute;
             right: 0;
@@ -782,11 +879,13 @@ Navbar CSS
             height: 100%;
             padding: 0 50px;
             border-radius: 0;
+
             &:hover {
                 transform: translateY(0);
             }
         }
     }
+
     .close {
         position: absolute;
         color: var(--templateColor2);
@@ -795,10 +894,12 @@ Navbar CSS
         opacity: 1 !important;
         visibility: visible;
         padding: 0;
+
         font: {
             size: 25px;
             weight: 300;
         }
+
         border-radius: 50%;
         cursor: pointer;
         width: 35px;
@@ -810,19 +911,22 @@ Navbar CSS
         top: 50%;
         line-height: 25px;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             background-color: var(--templateColor) !important;
             color: var(--whiteColor) !important;
             border-color: var(--templateColor) !important;
             opacity: 1 !important;
         }
     }
+
     &.open {
         transform: translate(0px, 0px) scale(1, 1);
         opacity: 1;
         visibility: visible;
     }
 }
+
 .sidebar-modal {
     position: relative;
 
@@ -833,6 +937,7 @@ Navbar CSS
             }
         }
     }
+
     .modal.right {
         .modal-dialog {
             position: fixed;
@@ -844,27 +949,32 @@ Navbar CSS
             -o-transform: translate3d(0%, 0, 0);
             transform: translate3d(0%, 0, 0);
         }
+
         &.fade.show {
             .modal-dialog {
                 right: 0;
                 transition: all 0.3s ease-in-out;
             }
         }
+
         &.fade {
             .modal-dialog {
                 right: -320px;
                 transition: all 0.3s ease-in-out;
             }
         }
+
         .modal-content {
             height: 100%;
             overflow-y: auto;
             border-radius: 0;
             border: none;
         }
+
         .modal-body {
             padding: 30px;
             border-left: 1px solid #eee;
+
             .sidebar-modal-widget {
                 margin-bottom: 35px;
 
@@ -873,6 +983,7 @@ Navbar CSS
                         size: 20px;
                         weight: 700;
                     }
+
                     position: relative;
                     z-index: 1;
                     margin-bottom: 30px;
@@ -887,6 +998,7 @@ Navbar CSS
                         background: var(--templateColor);
                         content: '';
                     }
+
                     &::after {
                         content: '';
                         position: absolute;
@@ -901,9 +1013,11 @@ Navbar CSS
                         animation-name: MOVE-BG;
                     }
                 }
+
                 &:last-child {
                     margin-bottom: 0;
                 }
+
                 ul {
                     padding: 0;
                     margin: 0;
@@ -916,6 +1030,7 @@ Navbar CSS
                             margin-bottom: 0;
                         }
                     }
+
                     &.contact-info {
                         li {
                             position: relative;
@@ -939,6 +1054,7 @@ Navbar CSS
                                 font-size: 25px;
                                 transition: .4s;
                             }
+
                             span {
                                 display: block;
                                 font-weight: 400;
@@ -946,6 +1062,7 @@ Navbar CSS
                                 margin-top: 5px;
                                 text-transform: initial;
                             }
+
                             &:hover {
                                 i {
                                     color: var(--whiteColor);
@@ -953,16 +1070,19 @@ Navbar CSS
                                     background: var(--templateColor);
                                 }
                             }
+
                             &:last-child {
                                 margin-bottom: 0;
                             }
                         }
                     }
+
                     &.social-list {
                         li {
                             display: inline-block;
                             margin-bottom: 0;
                             margin-right: 10px;
+
                             a {
                                 width: 40px;
                                 height: 40px;
@@ -973,7 +1093,8 @@ Navbar CSS
                                 color: var(--paragraphColor);
                                 border: 1px solid var(--paragraphColor);
 
-                                &:hover, &:focus {
+                                &:hover,
+                                &:focus {
                                     color: var(--whiteColor);
                                     background: var(--templateColor);
                                     border-color: var(--templateColor);
@@ -985,6 +1106,7 @@ Navbar CSS
             }
         }
     }
+
     .modal-header {
         display: inline;
         padding: 0;
@@ -1014,6 +1136,7 @@ Navbar CSS
                 opacity: 1;
             }
         }
+
         h2 {
             background: linear-gradient(142deg, #3ec9cf 0%, #2d136a 100%);
             padding: 30px 25px;
@@ -1023,6 +1146,7 @@ Navbar CSS
             }
         }
     }
+
     button {
         &:focus {
             outline: 0px;
@@ -1035,53 +1159,70 @@ Main Banner CSS
 =================================================*/
 .main-banner {
     height: 840px;
-    background: var(--templateColor);
+    background: var(--bannerColor);
     position: relative;
     z-index: 1;
 
     .hero-content {
         h1 {
             color: var(--whiteColor);
+
             font: {
                 size: 60px;
                 weight: 700;
             }
+
             margin: 0;
         }
+
         p {
             color: #f2f2f2;
             font-size: 18px;
+
             margin: {
                 top: 30px;
                 bottom: 35px;
             }
         }
+
         .btn {
             &:hover {
-                &::after, &::before {
+
+                &::after,
+                &::before {
                     background: var(--whiteColor);
                 }
+
                 transform: translateY(0);
             }
         }
+
         .btn-primary {
-            &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+
+            &:not(:disabled):not(.disabled).active,
+            &:not(:disabled):not(.disabled):active,
+            .show>.btn-primary.dropdown-toggle {
                 color: var(--templateColor2);
                 background: var(--whiteColor);
             }
-            &:hover, &:focus {
+
+            &:hover,
+            &:focus {
                 background: var(--whiteColor);
                 color: var(--templateColor2);
             }
         }
+
         .video-btn {
             margin-left: 15px;
             color: var(--whiteColor);
             text-transform: uppercase;
+
             font: {
                 size: 15px;
                 weight: 700;
             }
+
             i {
                 font-size: 30px;
                 position: relative;
@@ -1089,19 +1230,21 @@ Main Banner CSS
                 top: 4px;
                 transition: .4s;
             }
+
             &:hover {
                 i {
                     color: var(--templateColor2);
                 }
             }
         }
+
         form {
             max-width: 540px;
             position: relative;
 
             .form-control {
                 height: 70px;
-                background: rgba(255, 255, 255,0.10);
+                background: rgba(255, 255, 255, 0.10);
                 box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.1);
                 border: none;
                 border-radius: 3px;
@@ -1113,6 +1256,7 @@ Main Banner CSS
                     color: var(--whiteColor);
                 }
             }
+
             .btn {
                 position: absolute;
                 right: 0;
@@ -1121,6 +1265,7 @@ Main Banner CSS
             }
         }
     }
+
     .signup-download {
         background: var(--whiteColor);
         padding: 30px 40px;
@@ -1150,20 +1295,24 @@ Main Banner CSS
                 label {
                     display: block;
                     margin-bottom: 8px;
+
                     font: {
                         weight: 700;
                         size: 17px;
                     }
                 }
             }
+
             .btn {
                 display: block;
                 width: 100%;
             }
         }
     }
+
     .app-image {
         position: relative;
+
         img {
             position: absolute;
             left: 0;
@@ -1178,6 +1327,7 @@ Main Banner CSS
             }
         }
     }
+
     .product-image {
         position: relative;
 
@@ -1192,6 +1342,7 @@ Main Banner CSS
                 animation: movebounce 5s linear infinite;
             }
         }
+
         .offer-badge {
             position: absolute;
             right: 90px;
@@ -1203,10 +1354,12 @@ Main Banner CSS
             border-radius: 50%;
             text-align: center;
             animation: ripple-white 1s linear infinite;
+
             font: {
                 size: 18px;
                 weight: 700;
             }
+
             padding-top: 25px;
 
             span {
@@ -1214,6 +1367,7 @@ Main Banner CSS
             }
         }
     }
+
     .saas-image {
         position: relative;
 
@@ -1224,61 +1378,74 @@ Main Banner CSS
                 top: -200px;
                 left: 0;
             }
+
             &:nth-child(2) {
                 left: 55px;
                 top: -100px;
             }
+
             &:nth-child(3) {
                 left: 36%;
                 z-index: 1;
                 top: -170px;
             }
+
             &:nth-child(4) {
                 right: 27%;
                 top: 110px;
                 z-index: 2;
             }
+
             &:nth-child(5) {
                 right: 15%;
                 top: 80px;
                 z-index: 2;
             }
+
             &:nth-child(6) {
                 right: 25%;
                 top: -170px;
             }
+
             &:nth-child(7) {
                 right: 47%;
                 top: 96px;
                 z-index: 2;
             }
+
             &:nth-child(8) {
                 right: 22%;
                 top: 45px;
                 z-index: 1;
             }
+
             &:nth-child(9) {
                 right: 75px;
                 top: 20px;
             }
+
             &:nth-child(10) {
                 left: 32%;
                 top: -76px;
                 z-index: 1;
             }
+
             &:nth-child(11) {
                 right: 40%;
                 top: -20px;
             }
+
             &:nth-child(12) {
                 top: -292px;
                 left: 45px;
             }
+
             &:last-child {
                 display: none;
             }
         }
     }
+
     .startup-image {
         position: relative;
 
@@ -1290,51 +1457,62 @@ Main Banner CSS
                 top: 45px;
                 right: 23%;
             }
+
             &:nth-child(2) {
                 left: 20px;
                 top: -35px;
                 right: 0;
                 margin: 0 auto;
             }
+
             &:nth-child(3) {
                 right: 0;
                 top: 65px;
             }
+
             &:nth-child(4) {
                 left: 85px;
                 top: 0;
             }
+
             &:nth-child(5) {
                 left: 110px;
                 top: 132px;
             }
+
             &:nth-child(6) {
                 right: 8%;
                 top: 131px;
             }
+
             &:nth-child(7) {
                 right: 20%;
                 top: -30px;
             }
+
             &:nth-child(8) {
                 right: 38%;
                 top: 64px;
             }
+
             &:nth-child(9) {
                 right: 0;
                 top: -15px;
             }
+
             &:nth-child(10) {
                 left: 0;
                 top: 245px;
                 right: 0;
                 margin: 0 auto;
             }
+
             &:last-child {
                 display: none;
             }
         }
     }
+
     .paymant-processing-image {
         position: relative;
 
@@ -1347,11 +1525,13 @@ Main Banner CSS
                 left: 30px;
                 margin: 0 auto;
             }
+
             &:nth-child(2) {
                 right: 0;
                 top: 25px;
                 z-index: 1;
             }
+
             &:nth-child(3) {
                 right: 0;
                 top: 275px;
@@ -1359,40 +1539,48 @@ Main Banner CSS
                 margin: 0 auto;
                 z-index: 1;
             }
+
             &:nth-child(4) {
                 top: 170px;
                 z-index: 1;
                 left: 20px;
             }
+
             &:nth-child(5) {
                 left: 115px;
                 top: 240px;
                 z-index: 1;
             }
+
             &:nth-child(6) {
                 right: 0;
                 top: -75px;
                 left: 9px;
                 margin: 0 auto;
             }
+
             &:nth-child(7) {
                 right: 0;
                 top: 23px;
             }
+
             &:nth-child(8) {
                 left: 0;
                 top: -45px;
                 z-index: -1;
             }
+
             &:nth-child(9) {
                 right: 21%;
                 top: 16px;
             }
+
             &:last-child {
                 display: none;
             }
         }
     }
+
     &.marketing-home {
         background: var(--whiteColor) url("../images/bg-point.png") no-repeat fixed right -500px center/auto;
 
@@ -1400,36 +1588,49 @@ Main Banner CSS
             h1 {
                 color: var(--blackColor);
             }
+
             p {
                 color: var(--paragraphColor);
             }
+
             .video-btn {
                 color: #716c80;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     i {
                         color: var(--templateColor);
                     }
                 }
             }
+
             .btn {
                 &:hover {
-                    &::after, &::before {
+
+                    &::after,
+                    &::before {
                         background: var(--templateColor);
                     }
                 }
             }
+
             .btn-primary {
-                &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+
+                &:not(:disabled):not(.disabled).active,
+                &:not(:disabled):not(.disabled):active,
+                .show>.btn-primary.dropdown-toggle {
                     background: var(--templateColor);
                     color: var(--whiteColor);
                 }
-                &:hover, &:focus {
+
+                &:hover,
+                &:focus {
                     background: var(--templateColor);
                     color: var(--whiteColor);
                 }
             }
         }
+
         .marketing-image {
             position: relative;
             height: 100%;
@@ -1442,14 +1643,17 @@ Main Banner CSS
                     right: 0;
                     top: -45px;
                 }
+
                 &:nth-child(2) {
                     left: 90px;
                     top: -30px;
                 }
+
                 &:nth-child(3) {
                     left: 60px;
                     top: 165px;
                 }
+
                 &:nth-child(4) {
                     left: 0;
                     right: -15px;
@@ -1457,35 +1661,43 @@ Main Banner CSS
                     margin: 0 auto;
                     top: 185px;
                 }
+
                 &:nth-child(5) {
                     bottom: -55px;
                     right: 0;
                 }
+
                 &:nth-child(6) {
                     bottom: -50px;
                     right: 140px;
                 }
+
                 &:nth-child(7) {
                     left: 198px;
                     bottom: -55px;
                 }
+
                 &:nth-child(8) {
                     left: 80px;
                     bottom: -40px;
                 }
+
                 &:nth-child(9) {
                     right: 65px;
                     bottom: 0;
                     animation: rotate3d 4s linear infinite;
                 }
+
                 &:nth-child(10) {
                     left: 50px;
                     top: 85px;
                 }
+
                 &:nth-child(11) {
                     right: 195px;
                     bottom: -55px;
                 }
+
                 &:nth-child(12) {
                     top: 100px;
                     right: -4px;
@@ -1493,6 +1705,7 @@ Main Banner CSS
                     text-align: center;
                     margin: 0 auto;
                 }
+
                 &:nth-child(13) {
                     left: 62px;
                     right: 0;
@@ -1501,12 +1714,14 @@ Main Banner CSS
                     top: 20px;
                     animation: rotate3d 6s linear infinite;
                 }
+
                 &:last-child {
                     display: none;
                 }
             }
         }
     }
+
     &.product-home {
         .shape4 {
             left: auto;
@@ -1514,6 +1729,7 @@ Main Banner CSS
             top: 25%;
         }
     }
+
     &.software-home {
         .bubble-animate {
             .circle {
@@ -1521,6 +1737,7 @@ Main Banner CSS
             }
         }
     }
+
     &.payment-processing-home {
         .creative-shape {
             img {
@@ -1529,6 +1746,7 @@ Main Banner CSS
             }
         }
     }
+
     &.book-home {
         background: {
             image: url("../images/book-banner.jpg");
@@ -1537,6 +1755,7 @@ Main Banner CSS
             attachment: fixed;
             repeat: no-repeat;
         }
+
         &::before {
             content: '';
             position: absolute;
@@ -1548,6 +1767,7 @@ Main Banner CSS
             z-index: -1;
             opacity: .87;
         }
+
         .hero-content {
             span {
                 color: var(--whiteColor);
@@ -1558,6 +1778,7 @@ Main Banner CSS
                 border-left: 3px solid var(--whiteColor);
                 padding-left: 10px;
             }
+
             em {
                 &.inlucdebooks {
                     display: block;
@@ -1566,6 +1787,7 @@ Main Banner CSS
                 }
             }
         }
+
         .book-image {
             height: 100%;
             width: 100%;
@@ -1579,6 +1801,7 @@ Main Banner CSS
         }
     }
 }
+
 .startup-home {
     .main-banner {
         background: {
@@ -1599,15 +1822,19 @@ Main Banner CSS
             opacity: .95;
         }
     }
+
     .startup-bg1 {
         background-image: url("../images/main-bg-1.jpg");
     }
+
     .startup-bg2 {
         background-image: url("../images/main-bg-2.jpg");
     }
+
     .startup-bg3 {
         background-image: url("../images/main-bg-3.jpg");
     }
+
     &.owl-theme {
         .owl-nav {
             margin-top: 0;
@@ -1619,7 +1846,7 @@ Main Banner CSS
                 margin: 0;
                 width: 45px;
                 height: 45px;
-                background: rgba(255,255,255,0.1);
+                background: rgba(255, 255, 255, 0.1);
                 line-height: 42px;
                 font-size: 30px;
                 border-radius: 5px;
@@ -1630,6 +1857,7 @@ Main Banner CSS
                     left: auto;
                     right: 10px;
                 }
+
                 &:hover {
                     background: var(--templateColor);
                 }
@@ -1637,13 +1865,16 @@ Main Banner CSS
         }
     }
 }
+
 .app-home {
     overflow: hidden;
+
     .shape4 {
         left: auto !important;
         right: 15%;
     }
 }
+
 .creative-shape {
     position: absolute;
     bottom: -1px;
@@ -1651,10 +1882,12 @@ Main Banner CSS
     width: 100%;
     height: auto;
     z-index: -1;
+
     img {
         width: 100%;
     }
 }
+
 #canvas {
     width: 100%;
     height: 100%;
@@ -1664,6 +1897,7 @@ Main Banner CSS
     opacity: 0.3;
     z-index: -1;
 }
+
 .shape-1 {
     left: 20px;
     bottom: 10px;
@@ -1675,6 +1909,7 @@ Main Banner CSS
     opacity: .5;
     animation: movebounce 5s linear infinite;
 }
+
 .shape1 {
     position: absolute;
     top: 85px;
@@ -1682,6 +1917,7 @@ Main Banner CSS
     left: 30px;
     animation: movebounce 5s linear infinite;
 }
+
 .shape2 {
     position: absolute;
     top: 85px;
@@ -1689,6 +1925,7 @@ Main Banner CSS
     right: 30px;
     animation: movebounce 5s linear infinite;
 }
+
 .shape3 {
     position: absolute;
     bottom: 85px;
@@ -1696,6 +1933,7 @@ Main Banner CSS
     right: 30px;
     animation: movebounce 5s linear infinite;
 }
+
 .shape4 {
     position: absolute;
     left: 9%;
@@ -1703,6 +1941,7 @@ Main Banner CSS
     z-index: -1;
     opacity: .3;
 }
+
 .shape6 {
     position: absolute;
     top: 30%;
@@ -1711,6 +1950,7 @@ Main Banner CSS
     // animation: rotate3d 4s linear infinite;
     opacity: .6;
 }
+
 .shape7 {
     position: absolute;
     top: 20%;
@@ -1719,12 +1959,14 @@ Main Banner CSS
     animation: movebounce 5s linear infinite;
     opacity: .4;
 }
+
 .shape8 {
     position: absolute;
     z-index: -1;
     top: 60%;
     left: 10%;
 }
+
 .shape9 {
     position: absolute;
     left: 45%;
@@ -1732,6 +1974,7 @@ Main Banner CSS
     z-index: -1;
     animation: animationFramesOne 15s infinite linear;
 }
+
 .shape10 {
     position: absolute;
     right: 5%;
@@ -1739,147 +1982,183 @@ Main Banner CSS
     z-index: -1;
     animation: movebounce 5s linear infinite;
 }
+
 .shape11 {
     position: absolute;
     left: 3%;
     bottom: 3%;
     z-index: -1;
 }
+
 @keyframes movebounce {
     0% {
         transform: translateY(0px);
     }
+
     50% {
         transform: translateY(20px);
     }
+
     100% {
         transform: translateY(0px);
     }
 }
+
 @keyframes moveleftbounce {
     0% {
         transform: translateX(0px);
     }
+
     50% {
         transform: translateX(20px);
     }
+
     100% {
         transform: translateX(0px);
     }
 }
+
 .rotateme {
     animation-name: rotateme;
     animation-duration: 40s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
+
 @keyframes rotateme {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
 }
+
 @-webkit-keyframes rotateme {
     from {
         -webkit-transform: rotate(0deg);
     }
+
     to {
         -webkit-transform: rotate(360deg);
     }
 }
+
 @-moz-keyframes rotateme {
     from {
         -moz-transform: rotate(0deg);
     }
+
     to {
         -moz-transform: rotate(360deg);
     }
 }
+
 @-o-keyframes rotateme {
     from {
         -o-transform: rotate(0deg);
     }
+
     to {
         -o-transform: rotate(360deg);
     }
 }
+
 @-webkit-keyframes rotate3d {
     0% {
         -webkit-transform: rotateY(0deg);
         transform: rotateY(0deg);
     }
+
     100% {
         -webkit-transform: rotateY(360deg);
         transform: rotateY(360deg);
     }
 }
+
 @keyframes rotate3d {
     0% {
         -webkit-transform: rotateY(0deg);
         transform: rotateY(0deg);
     }
+
     100% {
         -webkit-transform: rotateY(360deg);
         transform: rotateY(360deg);
     }
 }
-@keyframes animationFramesOne{
+
+@keyframes animationFramesOne {
     0% {
-        transform:  translate(0px,0px)  rotate(0deg) ;
+        transform: translate(0px, 0px) rotate(0deg);
     }
+
     20% {
-        transform:  translate(73px,-1px)  rotate(36deg) ;
+        transform: translate(73px, -1px) rotate(36deg);
     }
+
     40% {
-        transform:  translate(141px,72px)  rotate(72deg) ;
+        transform: translate(141px, 72px) rotate(72deg);
     }
+
     60% {
-        transform:  translate(83px,122px)  rotate(108deg) ;
+        transform: translate(83px, 122px) rotate(108deg);
     }
+
     80% {
-        transform:  translate(-40px,72px)  rotate(144deg) ;
+        transform: translate(-40px, 72px) rotate(144deg);
     }
+
     100% {
-        transform:  translate(0px,0px)  rotate(0deg) ;
+        transform: translate(0px, 0px) rotate(0deg);
     }
 }
+
 @-webkit-keyframes animationFramesOne {
     0% {
-        -webkit-transform:  translate(0px,0px)  rotate(0deg) ;
+        -webkit-transform: translate(0px, 0px) rotate(0deg);
     }
+
     20% {
-        -webkit-transform:  translate(73px,-1px)  rotate(36deg) ;
+        -webkit-transform: translate(73px, -1px) rotate(36deg);
     }
+
     40% {
-        -webkit-transform:  translate(141px,72px)  rotate(72deg) ;
+        -webkit-transform: translate(141px, 72px) rotate(72deg);
     }
+
     60% {
-        -webkit-transform:  translate(83px,122px)  rotate(108deg) ;
+        -webkit-transform: translate(83px, 122px) rotate(108deg);
     }
+
     80% {
-        -webkit-transform:  translate(-40px,72px)  rotate(144deg) ;
+        -webkit-transform: translate(-40px, 72px) rotate(144deg);
     }
+
     100% {
-        -webkit-transform:  translate(0px,0px)  rotate(0deg) ;
+        -webkit-transform: translate(0px, 0px) rotate(0deg);
     }
 }
+
 @-webkit-keyframes ripple-white {
     0% {
         -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2), 0 0 0 20px rgba(255, 255, 255, 0.2), 0 0 0 40px rgba(255, 255, 255, 0.2);
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2), 0 0 0 20px rgba(255, 255, 255, 0.2), 0 0 0 40px rgba(255, 255, 255, 0.2)
     }
+
     100% {
         -webkit-box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.2), 0 0 0 40px rgba(255, 255, 255, 0.2), 0 0 0 60px rgba(255, 255, 255, 0);
         box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.2), 0 0 0 40px rgba(255, 255, 255, 0.2), 0 0 0 60px rgba(255, 255, 255, 0)
     }
 }
+
 @keyframes ripple-white {
     0% {
         -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2), 0 0 0 20px rgba(255, 255, 255, 0.2), 0 0 0 40px rgba(255, 255, 255, 0.2);
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2), 0 0 0 20px rgba(255, 255, 255, 0.2), 0 0 0 40px rgba(255, 255, 255, 0.2)
     }
+
     100% {
         -webkit-box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.2), 0 0 0 40px rgba(255, 255, 255, 0.2), 0 0 0 60px rgba(255, 255, 255, 0);
         box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.2), 0 0 0 40px rgba(255, 255, 255, 0.2), 0 0 0 60px rgba(255, 255, 255, 0)
@@ -1900,6 +2179,7 @@ About CSS
                 right: 0;
             }
         }
+
         p {
             margin: {
                 left: 0;
@@ -1908,6 +2188,7 @@ About CSS
         }
     }
 }
+
 .about-inner-area {
     margin-top: 100px;
 
@@ -1917,6 +2198,7 @@ About CSS
                 size: 23px;
                 weight: 700;
             }
+
             margin-bottom: 15px;
         }
     }
@@ -1934,6 +2216,7 @@ Features CSS
             margin-top: 90px;
         }
     }
+
     &.software-features {
         .single-features {
             position: relative;
@@ -1950,15 +2233,18 @@ Features CSS
                 line-height: 65px;
                 font-size: 25px;
             }
+
             h3 {
                 margin-top: 0;
             }
         }
     }
+
     &.book-features {
         background: #F9FAFC url('../images/bg-point.png') no-repeat fixed right -600px center/ auto;
     }
 }
+
 .single-features {
     text-align: center;
     transition: .4s;
@@ -1975,13 +2261,16 @@ Features CSS
         color: var(--templateColor);
         transition: .4s;
     }
+
     h3 {
         font: {
             size: 23px;
             weight: 700;
         }
+
         margin: 25px 0 15px;
     }
+
     &:hover {
         transform: translateY(-10px);
 
@@ -1992,6 +2281,7 @@ Features CSS
         }
     }
 }
+
 .single-holder-box {
     box-shadow: 0 0 1.25rem rgba(108, 118, 134, 0.1);
     background: var(--whiteColor);
@@ -2005,37 +2295,46 @@ Features CSS
             size: 20px;
             weight: 700;
         }
+
         margin: {
             top: 25px;
             bottom: 15px;
         }
     }
+
     img {
         width: 120px;
     }
+
     &:hover {
         transform: translateY(-7px);
     }
+
     &.mt-30 {
         margin-top: 30px;
     }
+
     &.mt-50 {
         margin-top: 50px;
     }
 }
-.features-holder-content  {
+
+.features-holder-content {
     .section-title {
         text-align: left;
+
         margin: {
             bottom: 15px;
         }
     }
+
     .bar {
         margin: {
             left: 0;
             right: 0;
         }
     }
+
     p {
         margin: {
             bottom: 0;
@@ -2043,10 +2342,12 @@ Features CSS
             right: 0;
         }
     }
+
     p {
         margin-bottom: 25px;
     }
 }
+
 .single-features-box {
     margin-bottom: 30px;
     padding: 30px;
@@ -2067,13 +2368,16 @@ Features CSS
         color: var(--templateColor);
         transition: .4s;
     }
+
     h3 {
         font: {
             size: 23px;
             weight: 700;
         }
+
         margin: 25px 0 15px;
     }
+
     &:hover {
         transform: translateY(-10px);
 
@@ -2083,6 +2387,7 @@ Features CSS
         }
     }
 }
+
 .features-inner-area {
     margin-top: 60px;
 
@@ -2098,6 +2403,7 @@ Features CSS
             &:last-child {
                 margin-bottom: 0;
             }
+
             .icon {
                 position: absolute;
                 left: 0;
@@ -2110,16 +2416,19 @@ Features CSS
                 font-size: 25px;
                 text-align: center;
                 color: var(--templateColor);
-                box-shadow: 0 0 1.25rem rgba(108,118,134,.1)!important;
+                box-shadow: 0 0 1.25rem rgba(108, 118, 134, .1) !important;
                 transition: .4s;
             }
+
             h3 {
                 font: {
                     size: 23px;
                     weight: 700;
                 }
+
                 margin: 0 0 15px;
             }
+
             &:hover {
                 transform: translateY(-10px);
 
@@ -2138,6 +2447,7 @@ Product New Features CSS
 .new-features-area {
     position: relative;
     z-index: 1;
+
     background: {
         image: url("../images/cta-bg.jpg");
         position: center center;
@@ -2158,6 +2468,7 @@ Product New Features CSS
         opacity: .87;
     }
 }
+
 .new-features-content {
     .section-title {
         text-align: left;
@@ -2166,12 +2477,14 @@ Product New Features CSS
         h2 {
             color: var(--whiteColor);
         }
+
         .bar {
             margin: {
                 bottom: 0;
                 left: 0;
                 right: 0;
             }
+
             background: var(--whiteColor);
 
             &::before {
@@ -2188,6 +2501,7 @@ Product New Features CSS
         &:last-child {
             margin-bottom: 0;
         }
+
         i {
             position: absolute;
             left: 0;
@@ -2195,14 +2509,17 @@ Product New Features CSS
             font-size: 30px;
             color: var(--whiteColor);
         }
+
         h3 {
             font: {
                 size: 23px;
                 weight: 700;
             }
+
             margin-bottom: 15px;
             color: var(--whiteColor);
         }
+
         p {
             color: #f2f2f2;
         }
@@ -2215,15 +2532,18 @@ Services CSS
 .services-area {
     padding-bottom: 70px;
 }
+
 .single-services {
     margin-bottom: 30px;
     background: var(--whiteColor);
-    padding:  {
+
+    padding: {
         left: 30px;
         right: 30px;
         top: 30px;
         bottom: 30px;
     }
+
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.08);
     border-radius: 5px;
     transition: .4s;
@@ -2240,16 +2560,19 @@ Services CSS
         color: var(--templateColor);
         transition: .4s;
     }
+
     h3 {
         font: {
             size: 23px;
             weight: 700;
         }
+
         margin: {
             top: 25px;
             bottom: 15px;
         }
     }
+
     &:hover {
         transform: translateY(-8px);
         box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
@@ -2270,21 +2593,27 @@ Book Discover CSS
             size: 35px;
             weight: 700;
         }
+
         margin-bottom: 15px;
     }
+
     span {
         display: block;
         color: var(--paragraphColor);
+
         font: {
             size: 20px;
             weight: 400;
         }
+
         margin-bottom: 15px;
         letter-spacing: 2px;
     }
+
     p {
         margin-bottom: 10px;
     }
+
     ul {
         padding: 0;
         margin: 0;
@@ -2316,18 +2645,21 @@ Overview CSS
     .shape7 {
         opacity: 1;
     }
+
     &.software-overview {
         &.bg-gray {
             background: var(--whiteColor);
         }
     }
 }
+
 .overview-box {
     margin-bottom: 60px;
 
     .overview-img {
         text-align: center;
     }
+
     .overview-content {
         .icon {
             background: #ffe9da;
@@ -2340,23 +2672,28 @@ Overview CSS
             border-radius: 50%;
             font-size: 25px;
         }
+
         span {
             display: block;
             margin-bottom: -10px;
             color: var(--templateColor2);
         }
+
         h3 {
             position: relative;
             margin: 20px 0 15px;
             z-index: 1;
+
             font: {
                 size: 23px;
                 weight: 700;
             }
         }
+
         p {
             margin-bottom: 0;
         }
+
         ul {
             padding: 0;
             margin: 15px 0 25px;
@@ -2378,12 +2715,15 @@ Overview CSS
                     border-radius: 50%;
                     background: var(--templateColor);
                 }
+
                 &:last-child {
                     margin-bottom: 0;
                 }
             }
+
             &.features-list {
                 overflow: hidden;
+
                 margin: {
                     top: 20px;
                     bottom: 0;
@@ -2395,11 +2735,13 @@ Overview CSS
                     background: var(--whiteColor);
                     padding: 10px 20px 10px 30px;
                     border-radius: 5px;
+
                     margin: {
                         bottom: 0;
                         right: 10px;
                         top: 10px;
                     }
+
                     font-size: 15px;
                     border: 1px solid #f9f6f6;
 
@@ -2411,6 +2753,7 @@ Overview CSS
             }
         }
     }
+
     &.modern-flexible {
         .single-item {
             position: relative;
@@ -2424,21 +2767,26 @@ Overview CSS
                 font-size: 30px;
                 color: var(--templateColor);
             }
+
             h3 {
                 font: {
                     size: 23px;
                     weight: 700;
                 }
+
                 margin-bottom: 15px;
             }
+
             &:last-child {
                 margin-bottom: 0;
             }
+
             &.right-icon {
                 padding: {
                     left: 0;
                     right: 55px;
                 }
+
                 text-align: right;
 
                 .icon {
@@ -2448,9 +2796,11 @@ Overview CSS
             }
         }
     }
+
     &:last-child {
         margin-bottom: 0;
     }
+
     .app-fetured-item {
         position: relative;
         height: 100%;
@@ -2464,40 +2814,47 @@ Overview CSS
             position: absolute;
 
             &.item-one {
-                background-image: -webkit-linear-gradient(40deg,#e87e16 0,#f0de14 100%);
-                box-shadow: 0 20px 40px 0 rgba(224,149,32,.4);
+                background-image: -webkit-linear-gradient(40deg, #e87e16 0, #f0de14 100%);
+                box-shadow: 0 20px 40px 0 rgba(224, 149, 32, .4);
                 right: 0;
                 top: -150px;
                 z-index: 1;
             }
+
             &.item-two {
-                background-image: -webkit-linear-gradient(40deg,#13C4A1 0,#41CBB0 100%);
-                box-shadow: 0 20px 40px 0 rgba(19,196,161,.4);
+                background-image: -webkit-linear-gradient(40deg, #13C4A1 0, #41CBB0 100%);
+                box-shadow: 0 20px 40px 0 rgba(19, 196, 161, .4);
                 left: 60px;
                 top: 0;
             }
+
             &.item-three {
-                background-image: -webkit-linear-gradient(40deg,#008000 0,#268B26 100%);
-                box-shadow: 0 20px 40px 0 rgba(0,128,0,.4);
+                background-image: -webkit-linear-gradient(40deg, #008000 0, #268B26 100%);
+                box-shadow: 0 20px 40px 0 rgba(0, 128, 0, .4);
                 left: 90px;
                 bottom: -10px;
             }
+
             &.item-four {
-                background-image: -webkit-linear-gradient(40deg,#FF8A73 0,#F89B88 100%);
-                box-shadow: 0 20px 40px 0 rgba(255,138,115,.4);
+                background-image: -webkit-linear-gradient(40deg, #FF8A73 0, #F89B88 100%);
+                box-shadow: 0 20px 40px 0 rgba(255, 138, 115, .4);
                 right: 35px;
                 top: -15px;
             }
+
             i {
                 font-size: 40px;
                 color: var(--whiteColor);
             }
+
             h6 {
                 font: {
                     size: 16px;
                     weight: 700;
                 }
+
                 color: var(--whiteColor);
+
                 margin: {
                     top: 10px;
                     bottom: 0;
@@ -2514,6 +2871,7 @@ CTA CSS
     position: relative;
     z-index: 1;
     padding: 60px 0;
+
     background: {
         image: url("../images/cta-bg.jpg");
         position: center center;
@@ -2533,26 +2891,37 @@ CTA CSS
         background: var(--templateColor);
         opacity: .87;
     }
+
     p {
         color: var(--whiteColor);
+
         font: {
             size: 25px;
             weight: 700;
         }
     }
+
     .btn {
         &:hover {
-            &::after, &::before {
+
+            &::after,
+            &::before {
                 background: var(--whiteColor);
             }
         }
     }
+
     .btn-primary {
-        &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+
+        &:not(:disabled):not(.disabled).active,
+        &:not(:disabled):not(.disabled):active,
+        .show>.btn-primary.dropdown-toggle {
             color: var(--templateColor2);
             background: var(--whiteColor);
         }
-        &:hover, &:focus {
+
+        &:hover,
+        &:focus {
             background: var(--whiteColor);
             color: var(--templateColor2);
         }
@@ -2571,12 +2940,14 @@ SAAS Tools CSS
             &.small {
                 opacity: .1;
             }
+
             &.medium {
                 opacity: .1;
             }
         }
     }
 }
+
 .tab {
     overflow: hidden;
     background: var(--whiteColor);
@@ -2587,10 +2958,12 @@ SAAS Tools CSS
     .tabs {
         list-style-type: none;
         margin-bottom: 30px;
+
         padding: {
             left: 60px;
             right: 60px;
         }
+
         display: -ms-flexbox;
         display: flex;
         -ms-flex-wrap: wrap;
@@ -2602,23 +2975,28 @@ SAAS Tools CSS
             -ms-flex: 0 0 20%;
             flex: 0 0 20%;
             max-width: 20%;
+
             padding: {
                 right: 15px;
                 left: 15px;
             }
+
             text-align: center;
 
             &:first-child {
                 padding-left: 0;
             }
+
             &:last-child {
                 padding-right: 0;
             }
+
             a {
                 font: {
                     size: 18px;
                     weight: 700;
                 }
+
                 text-decoration: none;
                 display: inline-block;
 
@@ -2636,25 +3014,30 @@ SAAS Tools CSS
                     -moz-transition: .4s;
                     transition: .4s;
                 }
+
                 &:hover {
                     i {
                         color: var(--whiteColor);
                         background: var(--templateColor);
                     }
+
                     color: var(--templateColor);
                 }
             }
+
             &.current {
                 i {
                     color: var(--whiteColor);
                     background: var(--templateColor);
                 }
+
                 a {
                     color: var(--templateColor);
                 }
             }
         }
     }
+
     .tab_content {
         .tabs_item {
             display: none;
@@ -2662,17 +3045,21 @@ SAAS Tools CSS
             &:first-child {
                 display: block;
             }
+
             .tabs_item_content {
                 h3 {
                     font: {
                         size: 23px;
                         weight: 700;
                     }
+
                     margin-bottom: 15px;
                 }
+
                 p {
                     margin-bottom: 0;
                 }
+
                 ul {
                     padding: 0;
                     margin: 0;
@@ -2687,6 +3074,7 @@ SAAS Tools CSS
                         &:first-child {
                             margin-top: 0;
                         }
+
                         i {
                             margin-right: 3px;
                             font-size: 14px;
@@ -2706,12 +3094,14 @@ Fun Facts CSS
     position: relative;
     text-align: center;
     border: 1px solid #edf5ff;
+
     padding: {
         left: 30px;
         top: 30px;
         bottom: 30px;
         right: 30px;
     }
+
     transition: .4s;
     border-radius: 5px;
 
@@ -2726,19 +3116,23 @@ Fun Facts CSS
         color: var(--templateColor);
         transition: .4s;
     }
+
     h3 {
         font: {
             size: 35px;
             weight: 700;
         }
+
         margin: 25px 0 8px;
     }
+
     p {
         font-size: 17px;
     }
+
     &:hover {
-        box-shadow: 0 10px 55px 5px rgba(137,173,255,.35);
-        transform: translate(0,-10px);
+        box-shadow: 0 10px 55px 5px rgba(137, 173, 255, .35);
+        transform: translate(0, -10px);
         background-color: var(--whiteColor);
 
         .icon {
@@ -2747,6 +3141,7 @@ Fun Facts CSS
         }
     }
 }
+
 .single-funfact-box {
     position: relative;
     padding-left: 90px;
@@ -2765,18 +3160,22 @@ Fun Facts CSS
         color: var(--templateColor);
         transition: .4s;
     }
+
     h3 {
         font: {
             size: 35px;
             weight: 700;
         }
+
         margin: 0 0 6px;
         color: var(--whiteColor);
     }
+
     p {
         font-size: 17px;
         color: var(--whiteColor);
     }
+
     &:hover {
         .icon {
             background: var(--templateColor2);
@@ -2784,6 +3183,7 @@ Fun Facts CSS
         }
     }
 }
+
 .fun-facts-inner-area {
     margin-top: 100px;
 
@@ -2795,11 +3195,14 @@ Fun Facts CSS
                 size: 35px;
                 weight: 700;
             }
+
             margin: 0 0 15px;
         }
+
         p {
             margin-bottom: 15px;
         }
+
         ul {
             padding: 0;
             margin: 0 0 25px;
@@ -2821,6 +3224,7 @@ Fun Facts CSS
                     border-radius: 50%;
                     background: var(--templateColor);
                 }
+
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -2828,9 +3232,11 @@ Fun Facts CSS
         }
     }
 }
+
 .app-funfacts-area {
     position: relative;
     z-index: 1;
+
     background: {
         image: url("../images/cta-bg.jpg");
         position: center center;
@@ -2838,6 +3244,7 @@ Fun Facts CSS
         attachment: fixed;
         repeat: no-repeat;
     }
+
     padding: {
         bottom: 70px;
     }
@@ -2853,6 +3260,7 @@ Fun Facts CSS
         background: var(--templateColor);
         opacity: .87;
     }
+
     .single-funfact {
         border: none;
         padding: 0;
@@ -2861,9 +3269,11 @@ Fun Facts CSS
         h3 {
             color: var(--whiteColor);
         }
+
         p {
             color: var(--whiteColor);
         }
+
         &:hover {
             background: transparent;
             box-shadow: unset;
@@ -2882,6 +3292,7 @@ Work Process CSS
 .saas-work-process {
     position: relative;
     z-index: 1;
+
     background: {
         image: url("../images/cta-bg.jpg");
         position: center center;
@@ -2901,10 +3312,14 @@ Work Process CSS
         background: var(--templateColor);
         opacity: .87;
     }
+
     .section-title {
-        h2, p {
+
+        h2,
+        p {
             color: var(--whiteColor);
         }
+
         .bar {
             background: var(--whiteColor);
 
@@ -2914,6 +3329,7 @@ Work Process CSS
         }
     }
 }
+
 .single-work-process {
     position: relative;
     padding: 30px;
@@ -2938,6 +3354,7 @@ Work Process CSS
         border-radius: 3px;
         transition: .4s;
     }
+
     .icon {
         display: inline-block;
         width: 60px;
@@ -2950,22 +3367,26 @@ Work Process CSS
         color: var(--templateColor);
         transition: .4s;
     }
+
     h3 {
         font: {
             size: 23px;
             weight: 700;
         }
+
         margin: 25px 0 15px;
     }
+
     &:hover {
-        box-shadow: 0 10px 55px 5px rgba(137,173,255,.35);
-        transform: translate(0,-10px);
+        box-shadow: 0 10px 55px 5px rgba(137, 173, 255, .35);
+        transform: translate(0, -10px);
         background-color: var(--whiteColor);
 
         .icon {
             background: var(--templateColor);
             color: var(--whiteColor);
         }
+
         &::before {
             bottom: -5px;
         }
@@ -2987,6 +3408,7 @@ Pricing CSS
         }
     }
 }
+
 .pricingTable {
     text-align: center;
     background: var(--whiteColor);
@@ -3012,12 +3434,15 @@ Pricing CSS
         transform: translateX(-50%);
         transition: all 0.5s ease 0s;
     }
+
     .price-Value {
         display: inline-block;
+
         font: {
             size: 45px;
             weight: 700;
         }
+
         position: relative;
 
         .currency {
@@ -3025,20 +3450,25 @@ Pricing CSS
                 size: 18px;
                 weight: 900;
             }
+
             position: absolute;
             top: 3px;
             left: -13px;
         }
     }
+
     .month {
         display: inline-block;
+
         font: {
             size: 15px;
             weight: 700;
         }
+
         padding-left: 10px;
         text-transform: capitalize;
     }
+
     .pricingHeader {
         position: relative;
         z-index: 1;
@@ -3054,15 +3484,18 @@ Pricing CSS
             z-index: -1;
             transition: all 0.5s ease 0s;
         }
+
         .title {
             width: 50%;
             background: var(--templateColor);
             margin: 15px auto 10px;
             padding: 10px 0;
+
             font: {
                 size: 18px;
                 weight: 700;
             }
+
             color: var(--whiteColor);
             text-transform: uppercase;
             position: relative;
@@ -3071,11 +3504,13 @@ Pricing CSS
             transition: all 0.5s ease 0s;
         }
     }
+
     .pricing-content {
         margin: {
             top: 30px;
             bottom: 35px;
         }
+
         ul {
             list-style: none;
             padding: 0;
@@ -3089,6 +3524,7 @@ Pricing CSS
                 &:last-child {
                     margin-bottom: 0;
                 }
+
                 &.active {
                     text-decoration: none;
                     color: var(--paragraphColor);
@@ -3096,18 +3532,21 @@ Pricing CSS
             }
         }
     }
+
     &:hover {
-        box-shadow: 0 10px 55px 5px rgba(137,173,255,.35);
-        transform: translate(0,-10px);
+        box-shadow: 0 10px 55px 5px rgba(137, 173, 255, .35);
+        transform: translate(0, -10px);
 
         .pricing-icon {
             background: var(--templateColor);
             color: var(--whiteColor);
         }
+
         .pricingHeader {
             &::after {
                 background: var(--templateColor2);
             }
+
             .title {
                 color: var(--whiteColor);
                 background: var(--templateColor2);
@@ -3115,6 +3554,7 @@ Pricing CSS
         }
     }
 }
+
 /* Pricing Table Style Two */
 .pricing-table {
     text-align: center;
@@ -3131,18 +3571,22 @@ Pricing CSS
     .price-header {
         .title {
             color: var(--whiteColor);
+
             font: {
                 size: 23px;
                 weight: 700;
             }
+
             text-transform: uppercase;
             margin-bottom: 30px;
         }
+
         .price {
             font: {
                 size: 45px;
                 weight: 700;
             }
+
             transition: .3s ease-in;
             text-align: left;
             position: relative;
@@ -3164,14 +3608,17 @@ Pricing CSS
                 transform: skewX(-35deg);
                 z-index: -1;
             }
+
             .dollar {
                 font: {
                     size: 18px;
                     weight: 900;
                 }
+
                 position: relative;
                 top: -25px;
             }
+
             .month {
                 font: {
                     size: 18px;
@@ -3180,6 +3627,7 @@ Pricing CSS
             }
         }
     }
+
     .price-body {
         ul {
             margin: 30px 0;
@@ -3196,43 +3644,56 @@ Pricing CSS
             }
         }
     }
+
     .price-footer {
         .btn {
             &:hover {
-                &::after, &::before {
+
+                &::after,
+                &::before {
                     background: var(--whiteColor);
                 }
             }
         }
+
         .btn-primary {
-            &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+
+            &:not(:disabled):not(.disabled).active,
+            &:not(:disabled):not(.disabled):active,
+            .show>.btn-primary.dropdown-toggle {
                 color: var(--templateColor2);
                 background: var(--whiteColor);
             }
-            &:hover, &:focus {
+
+            &:hover,
+            &:focus {
                 background: var(--whiteColor);
                 color: var(--templateColor2);
             }
         }
     }
+
     &:hover {
         transform: translateY(-7px);
     }
 }
+
 /* Pricing Table Style Three */
 .pricing-table-box {
-	padding-bottom: 30px;
-	background: var(--whiteColor);
-	text-align: center;
-	z-index: 1;
-	position: relative;
-	border-radius: 5px;
+    padding-bottom: 30px;
+    background: var(--whiteColor);
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    border-radius: 5px;
+
     background: {
         image: url("../images/patt.png");
         position: center center;
     }
-	overflow: hidden;
-	box-shadow: 7px 5px 30px 0 rgba(72,73,121,0.15);
+
+    overflow: hidden;
+    box-shadow: 7px 5px 30px 0 rgba(72, 73, 121, 0.15);
     transition: .4s;
 
     .pricingTable-header {
@@ -3249,25 +3710,30 @@ Pricing CSS
             position: absolute;
             right: -50%;
             top: -130%;
-            background: repeating-radial-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.2) 20%);
+            background: repeating-radial-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2) 20%);
             transition: .4s;
         }
     }
+
     .title {
         font: {
             size: 23px;
             weight: 700;
         }
+
         color: var(--whiteColor);
         text-transform: uppercase;
         margin-bottom: 15px;
     }
+
     .price-value {
         display: block;
+
         font: {
             size: 45px;
             weight: 700;
         }
+
         color: var(--whiteColor);
         margin-bottom: 30px;
 
@@ -3276,11 +3742,13 @@ Pricing CSS
             text-transform: uppercase;
             margin-left: -10px;
         }
+
         sup {
             font-size: 23px;
             top: -25px;
         }
     }
+
     .pricing-content {
         padding: 30px 25px;
         margin-bottom: 0;
@@ -3300,6 +3768,7 @@ Pricing CSS
             }
         }
     }
+
     &:hover {
         transform: translateY(-10px);
 
@@ -3340,15 +3809,17 @@ Project CSS
                 }
             }
         }
+
         .owl-controls {
             line-height: .1;
         }
     }
 }
+
 .single-project {
     text-align: center;
     background: var(--whiteColor);
-    box-shadow: 0 10px 50px 0 rgba(46,65,90,.1);
+    box-shadow: 0 10px 50px 0 rgba(46, 65, 90, .1);
     margin-bottom: 30px;
     border-radius: 5px;
 
@@ -3361,8 +3832,10 @@ Project CSS
                 size: 20px;
                 weight: 700;
             }
+
             margin: 0;
         }
+
         span {
             display: block;
             margin-bottom: 10px;
@@ -3370,6 +3843,7 @@ Project CSS
             font-size: 15px;
         }
     }
+
     .project-image {
         position: relative;
 
@@ -3387,6 +3861,7 @@ Project CSS
             transform: scale(.8);
             transition: .4s;
         }
+
         .popup-btn {
             position: absolute;
             left: 0;
@@ -3406,11 +3881,13 @@ Project CSS
                 color: var(--templateColor);
             }
         }
+
         img {
             transform-style: unset !important;
             border-radius: 5px;
         }
     }
+
     &:hover {
         .project-image {
             &::before {
@@ -3418,6 +3895,7 @@ Project CSS
                 opacity: .8;
                 transform: scale(1);
             }
+
             .popup-btn {
                 visibility: visible;
                 opacity: 1;
@@ -3448,7 +3926,9 @@ Project Details CSS
         visibility: hidden;
         transition: .4s;
     }
-    .popup-youtube, .popup-btn {
+
+    .popup-youtube,
+    .popup-btn {
         position: absolute;
         left: 0;
         right: 0;
@@ -3461,32 +3941,39 @@ Project Details CSS
         visibility: hidden;
         cursor: pointer;
     }
+
     &:hover {
         &::before {
             opacity: .77;
             visibility: visible;
         }
-        .popup-youtube, .popup-btn {
+
+        .popup-youtube,
+        .popup-btn {
             opacity: 1;
             visibility: visible;
             margin-top: -20px;
         }
     }
 }
+
 .project-details-desc {
     h3 {
         font: {
             size: 23px;
             weight: 700;
         }
+
         margin: {
             bottom: 15px;
             top: 25px;
         }
     }
+
     p {
         margin-bottom: 15px;
     }
+
     .project-details-information {
         overflow: hidden;
 
@@ -3500,8 +3987,10 @@ Project Details CSS
                     size: 23px;
                     weight: 700;
                 }
+
                 margin-bottom: 15px;
             }
+
             ul {
                 padding: 0;
                 margin: 0;
@@ -3544,6 +4033,7 @@ Gallery CSS
         transform: scale(.8);
         transition: .4s;
     }
+
     .popup-btn {
         position: absolute;
         left: 0;
@@ -3563,12 +4053,14 @@ Gallery CSS
             color: var(--templateColor);
         }
     }
+
     &:hover {
         &::before {
             visibility: visible;
             opacity: .8;
             transform: scale(1);
         }
+
         .popup-btn {
             visibility: visible;
             opacity: 1;
@@ -3584,6 +4076,7 @@ Get Started CSS
     position: relative;
     z-index: 1;
 }
+
 .get-started-form {
     max-width: 600px;
     margin: 0 auto;
@@ -3599,6 +4092,7 @@ Get Started CSS
             width: 100%;
             letter-spacing: 2px;
         }
+
         p {
             margin-top: 15px;
 
@@ -3619,6 +4113,7 @@ How App Works CSS
 .how-app-work {
     position: relative;
     z-index: 1;
+
     background: {
         image: url("../images/cta-bg.jpg");
         position: center center;
@@ -3638,10 +4133,14 @@ How App Works CSS
         background: var(--templateColor);
         opacity: .87;
     }
+
     .section-title {
-        h2, p {
+
+        h2,
+        p {
             color: var(--whiteColor);
         }
+
         .bar {
             background: var(--whiteColor);
 
@@ -3650,12 +4149,14 @@ How App Works CSS
             }
         }
     }
+
     .app-mobile {
         text-align: center;
         margin-bottom: 60px;
         animation: movebounce 5s linear infinite;
     }
 }
+
 .single-app-works {
     text-align: center;
     transition: .4s;
@@ -3672,20 +4173,25 @@ How App Works CSS
         color: var(--templateColor);
         transition: .4s;
     }
+
     h3 {
         margin: {
             bottom: 15px;
             top: 25px;
         }
+
         font: {
             size: 23px;
             weight: 700;
         }
+
         color: var(--whiteColor);
     }
+
     p {
         color: var(--whiteColor);
     }
+
     &:hover {
         transform: translateY(-7px);
 
@@ -3716,16 +4222,19 @@ Screenshot CSS
                 transition: .4s;
                 border: 1px solid #eee;
                 line-height: 1;
+
                 &:hover {
                     color: var(--templateColor);
                 }
             }
         }
+
         .owl-controls {
             line-height: .1;
         }
     }
 }
+
 .screenshot-contain {
     position: relative;
     margin-top: 82px;
@@ -3741,6 +4250,7 @@ Screenshot CSS
         top: -82px;
         z-index: 2;
     }
+
     .screenshot-item {
         img {
             transform-style: unset !important;
@@ -3749,12 +4259,14 @@ Screenshot CSS
         }
     }
 }
+
 .page-from-book {
     .owl-theme {
         .owl-nav {
             margin-top: 50px;
         }
     }
+
     .screenshot-item {
         position: relative;
         text-align: center;
@@ -3762,6 +4274,7 @@ Screenshot CSS
         a {
             display: block;
         }
+
         &::before {
             content: '';
             position: absolute;
@@ -3775,6 +4288,7 @@ Screenshot CSS
             transform: scale(.8);
             transition: .4s;
         }
+
         .popup-btn {
             position: absolute;
             left: 0;
@@ -3794,16 +4308,19 @@ Screenshot CSS
                 color: var(--templateColor);
             }
         }
+
         img {
             transform-style: unset !important;
             width: unset !important;
         }
+
         &:hover {
             &::before {
                 visibility: visible;
                 opacity: .8;
                 transform: scale(1);
             }
+
             .popup-btn {
                 visibility: visible;
                 opacity: 1;
@@ -3819,6 +4336,7 @@ Team CSS
 .team-area {
     padding-bottom: 70px;
 }
+
 .team-slides {
     &.owl-theme {
         .owl-nav {
@@ -3845,11 +4363,13 @@ Team CSS
                 }
             }
         }
+
         .owl-controls {
             line-height: .1;
         }
     }
 }
+
 .single-team-member {
     box-shadow: 0 0 1.25rem rgba(108, 118, 134, 0.1);
     margin-bottom: 30px;
@@ -3860,6 +4380,7 @@ Team CSS
     img {
         border-radius: 5px 5px 0 0;
     }
+
     .team-content {
         padding: 30px;
 
@@ -3868,13 +4389,16 @@ Team CSS
                 size: 20px;
                 weight: 700;
             }
+
             margin-bottom: 8px;
         }
+
         span {
             display: block;
             color: var(--paragraphColor);
             font-size: 15px;
         }
+
         ul {
             padding: 0;
             margin: 15px 0 0;
@@ -3899,6 +4423,7 @@ Team CSS
                         background: var(--templateColor);
                         border-color: var(--templateColor);
                     }
+
                     &.facebook {
                         border-color: #5580FF;
                         color: #5580FF;
@@ -3908,6 +4433,7 @@ Team CSS
                             color: var(--whiteColor);
                         }
                     }
+
                     &.instagram {
                         border-color: var(--blackColor);
                         color: var(--blackColor);
@@ -3917,6 +4443,7 @@ Team CSS
                             color: var(--whiteColor);
                         }
                     }
+
                     &.twitter {
                         border-color: #FF8A73;
                         color: #FF8A73;
@@ -3926,6 +4453,7 @@ Team CSS
                             color: var(--whiteColor);
                         }
                     }
+
                     &.linkedin {
                         border-color: #FFD474;
                         color: #FFD474;
@@ -3940,6 +4468,7 @@ Team CSS
         }
     }
 }
+
 .single-team-member-box {
     box-shadow: 0 0 1.25rem rgba(108, 118, 134, 0.1);
     margin-bottom: 30px;
@@ -3951,6 +4480,7 @@ Team CSS
     img {
         clip-path: polygon(50% 0%, 38.11% 6.7%, 24.99% 6.72%, 18.06% 18.44%, 6.7% 25%, 6.56% 38.64%, 0% 50%, 6.7% 61.89%, 6.7% 75%, 18.44% 81.94%, 25% 93.3%, 38.64% 93.44%, 50% 100%, 61.88% 93.3%, 75% 93.3%, 81.94% 81.56%, 93.3% 74.9%, 93.44% 61.36%, 100% 50%, 93.3% 38.11%, 93.3% 25%, 81.56% 18.06%, 74.96% 6.7%, 61.36% 6.56%, 50% 0%);
     }
+
     .team-content {
         margin-top: 30px;
 
@@ -3959,13 +4489,16 @@ Team CSS
                 size: 23px;
                 weight: 700;
             }
+
             margin-bottom: 8px;
         }
+
         span {
             display: block;
             color: var(--paragraphColor);
             font-size: 15px;
         }
+
         ul {
             padding: 0;
             margin: 15px 0 0;
@@ -3982,15 +4515,19 @@ Team CSS
                     &:hover {
                         transform: translateY(-5px);
                     }
+
                     &.facebook {
                         color: #5580FF;
                     }
+
                     &.twitter {
                         color: #FF8A73;
                     }
+
                     &.linkedin {
                         color: #FFD474;
                     }
+
                     &.instagram {
                         color: var(--blackColor);
                     }
@@ -4019,13 +4556,16 @@ Next Generation CSS
             color: var(--templateColor);
             transition: .4s;
         }
+
         h3 {
             font: {
                 size: 23px;
                 weight: 700;
             }
+
             margin-bottom: 15px;
         }
+
         &:hover {
             .icon {
                 color: var(--templateColor2);
@@ -4051,6 +4591,7 @@ Feedback CSS
         z-index: -1;
     }
 }
+
 .single-feedback {
     position: relative;
     padding: 30px;
@@ -4059,6 +4600,7 @@ Feedback CSS
     text-align: center;
     border-radius: 3px;
     z-index: 1;
+
     margin: {
         bottom: 30px;
         top: 50px;
@@ -4076,24 +4618,29 @@ Feedback CSS
             width: 115px !important;
             height: 115px !important;
         }
+
         h3 {
             font: {
                 size: 23px;
                 weight: 700;
             }
+
             margin: {
                 bottom: 5px;
                 top: 55px;
             }
         }
+
         span {
             color: var(--templateColor2);
             font-size: 15px;
         }
     }
+
     p {
         margin-top: 25px;
     }
+
     &::before {
         content: '';
         position: absolute;
@@ -4106,18 +4653,22 @@ Feedback CSS
         border-radius: 0 0 3px 3px;
         transition: .4s;
     }
+
     &:hover {
         box-shadow: 0 0 20px 5px rgba(137, 173, 255, 0.35);
         background-color: var(--whiteColor);
     }
 }
+
 .single-feedback-box {
     background: var(--whiteColor);
     box-shadow: 0 10px 50px 0 rgba(46, 65, 90, 0.1);
+
     margin: {
         bottom: 30px;
         left: 30px;
     }
+
     border-radius: 5px;
     position: relative;
     padding: 30px 30px 30px 45px;
@@ -4132,24 +4683,29 @@ Feedback CSS
             border-radius: 50%;
             border: 3px solid var(--whiteColor);
         }
+
         h3 {
             font: {
                 size: 23px;
                 weight: 700;
             }
+
             margin: {
                 bottom: 5px;
             }
         }
+
         span {
             color: var(--templateColor2);
             font-size: 15px;
         }
     }
+
     p {
         margin-top: 20px;
     }
 }
+
 .feedback-slides {
     .owl-item {
         .single-feedback {
@@ -4161,6 +4717,7 @@ Feedback CSS
                 visibility: hidden;
             }
         }
+
         &.active {
             &.center {
                 .single-feedback {
@@ -4174,12 +4731,14 @@ Feedback CSS
                         width: 100%;
                     }
                 }
+
                 .single-feedback-box {
                     margin-top: 30px;
                 }
             }
         }
     }
+
     &.owl-theme {
         .owl-nav {
             margin-top: 20px;
@@ -4202,6 +4761,7 @@ Feedback CSS
                 }
             }
         }
+
         .owl-controls {
             line-height: .1;
         }
@@ -4225,6 +4785,7 @@ App Download CSS
                 right: 0;
             }
         }
+
         p {
             margin: {
                 left: 0;
@@ -4232,6 +4793,7 @@ App Download CSS
                 bottom: 35px;
             }
         }
+
         .download-btn {
             a {
                 position: relative;
@@ -4239,15 +4801,19 @@ App Download CSS
                 background: var(--templateColor2);
                 color: var(--whiteColor);
                 border-radius: 70px;
+
                 font: {
                     weight: 300;
                     size: 15px;
                 }
+
                 margin-right: 10px;
                 box-shadow: 0 13px 27px 0 rgba(163, 48, 53, 0.25);
+
                 &:last-child {
                     margin-right: 0;
                 }
+
                 i {
                     position: absolute;
                     left: 25px;
@@ -4255,20 +4821,25 @@ App Download CSS
                     font-size: 25px;
                     margin-top: -12px;
                 }
+
                 span {
                     display: block;
+
                     font: {
                         weight: 700;
                         size: 16px;
                     }
                 }
-                &:hover, &:focus {
+
+                &:hover,
+                &:focus {
                     background: var(--templateColor);
                     transform: translateY(-5px);
                 }
             }
         }
     }
+
     .download-image {
         position: absolute;
         right: 0;
@@ -4291,7 +4862,8 @@ App Download CSS
         }
     }
 
-    .col-lg-6, .col-md-12 {
+    .col-lg-6,
+    .col-md-12 {
         position: relative;
     }
 }
@@ -4305,19 +4877,22 @@ Platform Connect CSS
     h2 {
         text-align: center;
         max-width: 520px;
+
         font: {
             size: 35px;
             weight: 700;
         }
+
         margin: {
             bottom: 60px;
             left: auto;
             right: auto;
         }
     }
+
     .box {
         display: block;
-        box-shadow: 0 10px 55px 5px rgba(137,173,255,.35);
+        box-shadow: 0 10px 55px 5px rgba(137, 173, 255, .35);
         position: relative;
         padding: 15px 15px 15px 80px;
         border-radius: 5px;
@@ -4329,18 +4904,22 @@ Platform Connect CSS
             left: 15px;
             top: 15px;
         }
+
         h3 {
             font: {
                 size: 20px;
                 weight: 700;
             }
+
             margin-bottom: 5px;
         }
+
         span {
             text-transform: uppercase;
             color: var(--paragraphColor);
             font-size: 14px;
         }
+
         i {
             position: absolute;
             right: 15px;
@@ -4350,6 +4929,7 @@ Platform Connect CSS
             transition: .4s;
             font-size: 25px;
         }
+
         &:hover {
             transform: translateY(-10px);
 
@@ -4392,11 +4972,13 @@ Blog CSS
                 }
             }
         }
+
         .owl-controls {
             line-height: .1;
         }
     }
 }
+
 .single-blog-post {
     background: var(--whiteColor);
     margin-bottom: 30px;
@@ -4405,6 +4987,7 @@ Blog CSS
     .post-image {
         display: block;
     }
+
     .blog-post-content {
         padding: 30px;
 
@@ -4422,10 +5005,12 @@ Blog CSS
                 &:last-child {
                     margin-right: 0;
                 }
+
                 i {
                     color: var(--templateColor);
                     margin-right: 4px;
                 }
+
                 a {
                     color: var(--paragraphColor);
 
@@ -4435,20 +5020,25 @@ Blog CSS
                 }
             }
         }
+
         h3 {
             margin: {
                 top: 15px;
                 bottom: 15px;
             }
+
             font: {
                 size: 20px;
                 weight: 700;
             }
+
             line-height: 30px;
         }
+
         p {
             margin-bottom: 20px;
         }
+
         .read-more-btn {
             font-weight: 700;
         }
@@ -4468,7 +5058,7 @@ Blog Details CSS
         .article-img {
             position: relative;
 
-            > img {
+            >img {
                 width: 100%;
             }
 
@@ -4479,11 +5069,13 @@ Blog Details CSS
                 right: 15px;
                 height: 100px;
                 text-align: center;
+
                 font: {
-                   size: 25px;
-                   style: italic;
-                   weight: 700;
+                    size: 25px;
+                    style: italic;
+                    weight: 700;
                 }
+
                 background: var(--templateColor);
                 color: var(--whiteColor);
                 border-radius: 5px;
@@ -4491,6 +5083,7 @@ Blog Details CSS
                 line-height: 32px;
             }
         }
+
         .article-content {
             padding: 30px;
 
@@ -4498,10 +5091,12 @@ Blog Details CSS
                 li {
                     display: inline-block;
                 }
+
                 &.category {
                     li {
                         margin-right: 5px;
                         margin-bottom: 10px;
+
                         a {
                             background: var(--templateColor);
                             color: var(--whiteColor);
@@ -4511,25 +5106,31 @@ Blog Details CSS
                             font-weight: 400;
                         }
                     }
+
                     margin-bottom: 20px;
                 }
             }
+
             h3 {
                 font: {
                     size: 23px;
                     weight: 700;
                 }
+
                 margin-bottom: -5px;
             }
+
             p {
                 margin-bottom: 0;
                 margin-top: 20px;
             }
+
             .blockquote {
                 margin: {
                     bottom: 20px;
                     top: 20px;
                 }
+
                 background: #f4f4f4;
                 padding: 30px;
                 border-left: 4px solid var(--templateColor);
@@ -4539,6 +5140,7 @@ Blog Details CSS
                     font-size: 18px;
                 }
             }
+
             .share-post {
                 text-align: center;
                 margin-top: 30px;
@@ -4546,6 +5148,7 @@ Blog Details CSS
                 ul {
                     li {
                         margin: 0 2px;
+
                         a {
                             width: 40px;
                             font-size: 15px;
@@ -4556,7 +5159,8 @@ Blog Details CSS
                             border-radius: 50%;
                             color: #555555;
 
-                            &:hover, &:focus {
+                            &:hover,
+                            &:focus {
                                 color: var(--whiteColor);
                                 border-color: var(--templateColor);
                                 background-color: var(--templateColor);
@@ -4565,6 +5169,7 @@ Blog Details CSS
                     }
                 }
             }
+
             ul {
                 padding: 0;
                 margin: 0;
@@ -4572,22 +5177,29 @@ Blog Details CSS
             }
         }
     }
+
     .post-controls-buttons {
         overflow: hidden;
+
         margin: {
             top: 25px;
             bottom: 25px;
         }
-        background: var(--whiteColor);;
+
+        background: var(--whiteColor);
+        ;
         padding: 30px;
-        box-shadow: 0 5px 10px rgba(0, 9, 128, 0.035), 0 7px 18px rgba(0, 9, 128, 0.05);
+        box-shadow: 0 5px 10px rgba(0, 9, 128, 0.035),
+        0 7px 18px rgba(0, 9, 128, 0.05);
 
         .controls-left {
             float: left;
         }
+
         .controls-right {
             float: right;
         }
+
         div {
             a {
                 border: 1px solid #eeeeee;
@@ -4597,7 +5209,8 @@ Blog Details CSS
                 font-weight: 700;
                 font-size: 14px;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: var(--whiteColor);
                     background: var(--templateColor);
                     border-color: var(--templateColor);
@@ -4605,6 +5218,7 @@ Blog Details CSS
             }
         }
     }
+
     .post-comments {
         padding: 30px;
         background: var(--whiteColor);
@@ -4615,8 +5229,10 @@ Blog Details CSS
                 size: 23px;
                 weight: 700;
             }
+
             margin-bottom: 0;
         }
+
         .single-comment {
             position: relative;
             padding-left: 95px;
@@ -4633,21 +5249,26 @@ Blog Details CSS
                     border-radius: 50%;
                 }
             }
+
             .comment-content {
                 h4 {
                     font: {
                         size: 15px;
                         weight: 700;
                     }
+
                     margin-bottom: 10px;
                     text-transform: uppercase;
                 }
+
                 span {
                     color: var(--paragraphColor);
                 }
+
                 p {
                     margin-bottom: 15px;
                 }
+
                 a {
                     position: absolute;
                     font-weight: 700;
@@ -4656,11 +5277,13 @@ Blog Details CSS
                     text-transform: uppercase;
                 }
             }
+
             &.left-m {
                 margin-left: 85px;
             }
         }
     }
+
     .leave-a-reply {
         padding: 30px;
         background: var(--whiteColor);
@@ -4672,6 +5295,7 @@ Blog Details CSS
                 size: 23px;
                 weight: 700;
             }
+
             margin-bottom: 30px;
         }
     }
@@ -4704,13 +5328,16 @@ Boxes CSS
             color: var(--templateColor);
             transition: .4s;
         }
+
         h3 {
             font: {
                 size: 23px;
                 weight: 700;
             }
+
             margin: 25px 0 15px;
         }
+
         &:hover {
             transform: translateY(-10px);
 
@@ -4730,18 +5357,23 @@ Join CSS
         display: block;
         color: var(--templateColor2);
         margin-bottom: 10px;
+
         font: {
             size: 14px;
         }
+
         text-transform: uppercase;
     }
+
     h3 {
         font: {
             size: 23px;
             weight: 700;
         }
+
         margin-bottom: 15px;
     }
+
     p {
         margin-bottom: 25px;
     }
@@ -4751,10 +5383,10 @@ Join CSS
 Analysis CSS
 =================================================*/
 .analysis-form {
-	background: var(--whiteColor);
-	box-shadow: 5px 7px 30px rgba(72,73,121,0.15);
-	padding: 40px;
-	border-radius: 5px;
+    background: var(--whiteColor);
+    box-shadow: 5px 7px 30px rgba(72, 73, 121, 0.15);
+    padding: 40px;
+    border-radius: 5px;
     text-align: center;
 
     h3 {
@@ -4762,8 +5394,10 @@ Analysis CSS
             size: 23px;
             weight: 700;
         }
+
         margin-bottom: 30px;
     }
+
     form {
         .btn {
             display: block;
@@ -4773,19 +5407,23 @@ Analysis CSS
         }
     }
 }
+
 .analysis-text {
     span {
         color: var(--templateColor2);
         text-transform: capitalize;
     }
+
     h3 {
         font: {
             size: 35px;
             weight: 700;
         }
+
         margin: 15px 0 20px;
         line-height: 40px;
     }
+
     ul {
         padding: 0;
         margin: 20px 0 0;
@@ -4807,6 +5445,7 @@ Analysis CSS
                 background: var(--templateColor);
                 clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
             }
+
             &:last-child {
                 margin-bottom: 0;
             }
@@ -4823,6 +5462,7 @@ Partner CSS
 
     .item {
         text-align: center;
+
         a {
             display: block;
 
@@ -4831,27 +5471,32 @@ Partner CSS
             }
         }
     }
+
     .owl-controls {
         .owl-nav {
             margin-top: 0;
         }
     }
+
     &.app-partner {
         padding: 50px 0 0;
         border: 0;
     }
+
     &.marketing-partner {
         border: {
             bottom: 1px dashed #edf5ff;
             top: 1px dashed #edf5ff;
         }
     }
+
     &.software-partner {
         border: {
             bottom: 1px dashed #edf5ff;
             top: none;
         }
     }
+
     &.startup-partner {
         border: {
             bottom: 1px dashed #edf5ff;
@@ -4866,6 +5511,7 @@ Subscribe CSS
 .subscribe-area {
     position: relative;
     z-index: 1;
+
     background: {
         image: url("../images/map.png");
         position: center center;
@@ -4885,10 +5531,14 @@ Subscribe CSS
         background: var(--templateColor);
         opacity: .67;
     }
+
     .section-title {
-        h2, p {
+
+        h2,
+        p {
             color: var(--whiteColor);
         }
+
         .bar {
             background: var(--whiteColor);
 
@@ -4897,6 +5547,7 @@ Subscribe CSS
             }
         }
     }
+
     .newsletter-form {
         max-width: 650px;
         margin: 0 auto;
@@ -4916,16 +5567,19 @@ Subscribe CSS
                 color: var(--paragraphColor);
             }
         }
+
         .btn {
             position: absolute;
             right: 0;
             top: 0;
             height: 100%;
 
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 transform: translateY(0);
             }
         }
+
         #validator-newsletter {
             position: absolute;
             bottom: -45px;
@@ -4939,6 +5593,7 @@ Subscribe CSS
         }
     }
 }
+
 .bubble-animate {
     position: absolute;
     left: 0;
@@ -4968,6 +5623,7 @@ Subscribe CSS
                 animation-delay: 1s;
                 animation-timing-function: ease-in;
             }
+
             &.square2 {
                 left: 36%;
                 top: 100%;
@@ -4977,6 +5633,7 @@ Subscribe CSS
                 animation-delay: 2s;
                 animation-timing-function: ease-in;
             }
+
             &.square3 {
                 left: 54%;
                 top: 100%;
@@ -4986,6 +5643,7 @@ Subscribe CSS
                 animation-delay: 1s;
                 animation-timing-function: ease-in;
             }
+
             &.square4 {
                 left: 72%;
                 top: 100%;
@@ -4995,6 +5653,7 @@ Subscribe CSS
                 animation-delay: 4s;
                 animation-timing-function: ease-in;
             }
+
             &.square5 {
                 left: 90%;
                 top: 100%;
@@ -5004,6 +5663,7 @@ Subscribe CSS
                 animation-timing-function: ease-in;
             }
         }
+
         &.medium {
             width: 40px;
             height: 40px;
@@ -5018,6 +5678,7 @@ Subscribe CSS
                 animation-delay: 2s;
                 animation-timing-function: ease-in;
             }
+
             &.square2 {
                 left: 42%;
                 top: 100%;
@@ -5027,6 +5688,7 @@ Subscribe CSS
                 animation-delay: 6s;
                 animation-timing-function: ease-in;
             }
+
             &.square3 {
                 left: 63%;
                 top: 100%;
@@ -5036,6 +5698,7 @@ Subscribe CSS
                 animation-delay: 12s;
                 animation-timing-function: ease-in;
             }
+
             &.square4 {
                 left: 84%;
                 top: 100%;
@@ -5045,6 +5708,7 @@ Subscribe CSS
                 animation-delay: 12s;
                 animation-timing-function: ease-in;
             }
+
             &.square5 {
                 left: 105%;
                 top: 100%;
@@ -5055,6 +5719,7 @@ Subscribe CSS
                 animation-timing-function: ease-in;
             }
         }
+
         &.large {
             width: 100px;
             height: 100px;
@@ -5069,6 +5734,7 @@ Subscribe CSS
                 animation-delay: 6s;
                 animation-timing-function: ease-in;
             }
+
             &.square2 {
                 left: 42%;
                 top: 100%;
@@ -5078,6 +5744,7 @@ Subscribe CSS
                 animation-delay: 3s;
                 animation-timing-function: ease-in;
             }
+
             &.square3 {
                 left: 63%;
                 top: 100%;
@@ -5087,6 +5754,7 @@ Subscribe CSS
                 animation-delay: 13s;
                 animation-timing-function: ease-in;
             }
+
             &.square4 {
                 left: 84%;
                 top: 100%;
@@ -5096,6 +5764,7 @@ Subscribe CSS
                 animation-delay: 9s;
                 animation-timing-function: ease-in;
             }
+
             &.square5 {
                 left: 105%;
                 top: 100%;
@@ -5108,34 +5777,17 @@ Subscribe CSS
         }
     }
 }
+
 @-webkit-keyframes smallBubble {
     0% {
         top: 100%;
         margin-left: 10px;
     }
+
     25% {
         margin-left: -10px;
     }
-    50% {
-        margin-left: 10px;
-    }
-    75% {
-        margin-left: -10px;
-    }
-    100% {
-        top: 0%;
-        opacity: 0;
-        margin-left: 0px;
-    }
-}
-@keyframes smallBubble {
-    0% {
-        top: 100%;
-        margin-left: 10px;
-    }
-    25% {
-        margin-left: -10px;
-    }
+
     50% {
         margin-left: 10px;
     }
@@ -5143,86 +5795,132 @@ Subscribe CSS
     75% {
         margin-left: -10px;
     }
+
     100% {
         top: 0%;
         opacity: 0;
         margin-left: 0px;
     }
 }
+
+@keyframes smallBubble {
+    0% {
+        top: 100%;
+        margin-left: 10px;
+    }
+
+    25% {
+        margin-left: -10px;
+    }
+
+    50% {
+        margin-left: 10px;
+    }
+
+    75% {
+        margin-left: -10px;
+    }
+
+    100% {
+        top: 0%;
+        opacity: 0;
+        margin-left: 0px;
+    }
+}
+
 @-webkit-keyframes mediumBubble {
     0% {
         top: 100%;
         margin-left: 15px;
     }
+
     25% {
         margin-left: -15px;
     }
+
     50% {
         margin-left: 15px;
     }
+
     75% {
         margin-left: -15px;
     }
+
     100% {
         top: 0%;
         opacity: 0;
         margin-left: 0px;
     }
 }
+
 @keyframes mediumBubble {
     0% {
         top: 100%;
         margin-left: 15px;
     }
+
     25% {
         margin-left: -15px;
     }
+
     50% {
         margin-left: 15px;
     }
+
     75% {
         margin-left: -15px;
     }
+
     100% {
         top: 0%;
         opacity: 0;
         margin-left: 0px;
     }
 }
+
 @-webkit-keyframes bigBubble {
     0% {
         top: 100%;
         margin-left: 20px;
     }
+
     25% {
         margin-left: -20px;
     }
+
     50% {
         margin-left: 20px;
     }
+
     75% {
         margin-left: -20px;
     }
+
     100% {
         top: 0%;
         opacity: 0;
         margin-left: 0px;
     }
 }
+
 @keyframes bigBubble {
     0% {
         top: 100%;
         margin-left: 20px;
     }
+
     25% {
         margin-left: -20px;
     }
+
     50% {
         margin-left: 20px;
     }
+
     75% {
         margin-left: -20px;
     }
+
     100% {
         top: 0%;
         opacity: 0;
@@ -5234,7 +5932,7 @@ Subscribe CSS
 Product CSS
 =================================================*/
 .single-product {
-    box-shadow: 0 10px 50px 0 rgba(46,65,90,.1);
+    box-shadow: 0 10px 50px 0 rgba(46, 65, 90, .1);
     margin-bottom: 30px;
 
     .product-img {
@@ -5245,6 +5943,7 @@ Product CSS
             transform: scale(1);
             transition: all 300ms ease;
         }
+
         .add-to-cart-btn {
             display: block;
             position: absolute;
@@ -5257,10 +5956,12 @@ Product CSS
             letter-spacing: 2px;
             padding: 12px 20px;
             text-transform: uppercase;
+
             font: {
                 weight: 700;
                 size: 14px;
             }
+
             overflow: hidden;
             transition: .4s;
 
@@ -5270,6 +5971,7 @@ Product CSS
             }
         }
     }
+
     .product-content {
         padding: 30px;
 
@@ -5278,15 +5980,19 @@ Product CSS
                 size: 20px;
                 weight: 700;
             }
+
             margin-bottom: 15px;
         }
+
         .row {
             h5 {
                 text-align: left;
+
                 font: {
                     size: 17px;
                     weight: 700;
                 }
+
                 margin-bottom: 0;
 
                 span {
@@ -5297,6 +6003,7 @@ Product CSS
                     color: var(--paragraphColor);
                 }
             }
+
             ul {
                 text-align: right;
                 padding: 0;
@@ -5310,17 +6017,20 @@ Product CSS
             }
         }
     }
+
     &:hover {
         .product-img {
             img {
                 transform: scale(1.09);
             }
+
             .add-to-cart-btn {
                 bottom: 0;
             }
         }
     }
 }
+
 .product-slides {
     &.owl-theme {
         .owl-nav {
@@ -5344,14 +6054,17 @@ Product CSS
                 }
             }
         }
+
         .owl-controls {
             line-height: .1;
         }
     }
 }
+
 .woocommerce-topbar {
     margin-bottom: 30px;
 }
+
 .woocommerce-topbar-ordering {
     .form-select {
         padding: 12px 15px;
@@ -5364,9 +6077,10 @@ Product Details CSS
 .shop-details-area {
     padding-bottom: 70px;
 }
+
 .shop-details {
-	background: var(--whiteColor);
-	padding: 30px;
+    background: var(--whiteColor);
+    padding: 30px;
     box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
 
     .product-entry-summary {
@@ -5375,14 +6089,17 @@ Product Details CSS
                 size: 23px;
                 weight: 700;
             }
+
             text-transform: capitalize;
             margin-bottom: 0;
         }
+
         h4 {
             font: {
                 size: 18px;
                 weight: 600;
             }
+
             margin: 17px 0;
 
             span {
@@ -5390,9 +6107,11 @@ Product Details CSS
                 text-decoration: line-through;
             }
         }
+
         p {
             margin-bottom: 17px;
         }
+
         ul {
             padding: 0;
             margin: 0;
@@ -5412,6 +6131,7 @@ Product Details CSS
                     }
                 }
             }
+
             &.share-social {
                 li {
                     display: inline-block;
@@ -5436,15 +6156,18 @@ Product Details CSS
                 }
             }
         }
+
         form {
             margin: {
                 top: 30px;
                 bottom: 30px;
             }
+
             .form-control {
                 display: inline-block;
                 width: 120px;
             }
+
             .btn {
                 display: inline-block;
                 position: relative;
@@ -5453,6 +6176,7 @@ Product Details CSS
             }
         }
     }
+
     .owl-theme {
         .owl-nav {
             margin-top: 20px;
@@ -5474,10 +6198,12 @@ Product Details CSS
                 }
             }
         }
+
         .owl-controls {
             line-height: .1;
         }
     }
+
     .shop-details-tabs {
         margin-top: 40px;
 
@@ -5490,16 +6216,19 @@ Product Details CSS
                 display: inline-block;
                 padding: 12px 50px;
                 cursor: pointer;
+
                 font: {
                     weight: 700;
                     size: 16px;
                 }
+
                 background: #eaeaea;
 
                 &.active {
                     background-color: var(--templateColor);
                     position: relative;
                     color: #fff;
+
                     &::before {
                         content: '';
                         position: absolute;
@@ -5510,36 +6239,44 @@ Product Details CSS
                         background: var(--templateColor);
                     }
                 }
+
                 &.inactive {
                     background-color: #eeeeee;
                     padding: 12px 50px;
                 }
             }
         }
+
         .content {
             .shop-description {
                 border: 1px solid #eee;
                 padding: 30px;
             }
+
             display: none;
 
             &.show {
                 display: block;
             }
+
             h3 {
                 margin-bottom: 20px;
+
                 font: {
                     size: 23px;
                     weight: 700;
                 }
             }
+
             .shop-reviews {
                 padding: 30px;
                 border: 1px solid #eee;
+
                 b {
                     margin: 0 0 15px;
                     display: inline-block;
                 }
+
                 ul {
                     padding: 0;
                     margin: 0;
@@ -5548,6 +6285,7 @@ Product Details CSS
                     li {
                         display: inline-block;
                         position: relative;
+
                         margin: {
                             right: 15px;
                         }
@@ -5561,16 +6299,19 @@ Product Details CSS
                             left: -10px;
                             top: 6px;
                         }
+
                         &:first-child {
                             &::before {
                                 display: none;
                             }
                         }
+
                         a {
                             color: #FF9800;
                         }
                     }
                 }
+
                 .review-form {
                     margin-top: 30px;
                 }
@@ -5578,11 +6319,13 @@ Product Details CSS
         }
     }
 }
+
 .shop-related-prodcut {
     margin-top: 100px;
 
     .section-title {
         text-align: left;
+
         margin: {
             left: 0;
             right: 0;
@@ -5605,10 +6348,12 @@ Page Title CSS
     position: relative;
     background: var(--templateColor);
     z-index: 1;
+
     padding: {
         top: 200px;
         bottom: 120px;
     }
+
     text-align: center;
 
     .container {
@@ -5617,12 +6362,15 @@ Page Title CSS
 
     h2 {
         margin: 0;
+
         font: {
             size: 35px;
             weight: 700;
         }
+
         color: var(--whiteColor);
     }
+
     .bubble-animate {
         .circle {
             background: var(--whiteColor);
@@ -5652,12 +6400,14 @@ Pagination CSS
                 font-size: 16px;
                 box-shadow: 0 2px 10px 0 #d8dde6;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     color: var(--whiteColor);
                     background-color: var(--templateColor);
                     box-shadow: unset;
                 }
             }
+
             &.active {
                 .page-link {
                     color: var(--whiteColor);
@@ -5687,6 +6437,7 @@ Sidebar CSS
                         border-color: var(--templateColor);
                     }
                 }
+
                 button {
                     position: absolute;
                     right: 0;
@@ -5705,16 +6456,20 @@ Sidebar CSS
                 }
             }
         }
+
         &:last-child {
             margin-bottom: 0;
         }
+
         .widget-title {
             font: {
                 weight: 700;
                 size: 23px;
             }
+
             margin-bottom: 0;
         }
+
         .bar {
             height: 4px;
             width: 65px;
@@ -5738,6 +6493,7 @@ Sidebar CSS
                 animation-name: MOVE-BG;
             }
         }
+
         &.widget_product_categories {
             ul {
                 padding: 0;
@@ -5750,11 +6506,14 @@ Sidebar CSS
                     &:last-child {
                         margin-bottom: 0;
                     }
+
                     a {
                         color: var(--paragraphColor);
+
                         font: {
                             weight: 600;
                         }
+
                         position: relative;
 
                         &:hover {
@@ -5767,6 +6526,7 @@ Sidebar CSS
                                 left: 0;
                             }
                         }
+
                         i {
                             position: absolute;
                             left: 8px;
@@ -5780,6 +6540,7 @@ Sidebar CSS
                 }
             }
         }
+
         &.widget_post_categories {
             ul {
                 padding: 0;
@@ -5792,11 +6553,14 @@ Sidebar CSS
                     &:last-child {
                         margin-bottom: 0;
                     }
+
                     a {
                         color: var(--paragraphColor);
+
                         font: {
                             weight: 600;
                         }
+
                         position: relative;
 
                         &:hover {
@@ -5809,6 +6573,7 @@ Sidebar CSS
                                 left: 0;
                             }
                         }
+
                         i {
                             position: absolute;
                             left: 8px;
@@ -5822,6 +6587,7 @@ Sidebar CSS
                 }
             }
         }
+
         &.widget_tag_cloud {
             .tagcloud {
                 a {
@@ -5841,6 +6607,7 @@ Sidebar CSS
                 }
             }
         }
+
         &.widget_recent_posts {
             ul {
                 list-style-type: none;
@@ -5856,6 +6623,7 @@ Sidebar CSS
                     &:last-child {
                         margin-bottom: 0;
                     }
+
                     .recent-post-thumb {
                         position: absolute;
                         left: 0;
@@ -5866,14 +6634,17 @@ Sidebar CSS
                             display: block;
                         }
                     }
+
                     .recent-post-content {
                         h3 {
                             font: {
                                 size: 16px;
                                 weight: 700;
                             }
+
                             line-height: 23px;
                         }
+
                         .date {
                             display: block;
                             margin-top: 3px;
@@ -5884,6 +6655,7 @@ Sidebar CSS
                 }
             }
         }
+
         &.widget_recent_products {
             ul {
                 list-style-type: none;
@@ -5899,6 +6671,7 @@ Sidebar CSS
                     &:last-child {
                         margin-bottom: 0;
                     }
+
                     .recent-products-thumb {
                         position: absolute;
                         left: 0;
@@ -5909,20 +6682,24 @@ Sidebar CSS
                             display: block;
                         }
                     }
+
                     .recent-products-content {
                         h3 {
                             font: {
                                 size: 16px;
                                 weight: 700;
                             }
+
                             line-height: 23px;
                         }
+
                         .date {
                             display: block;
                             margin-top: 3px;
                             font-size: 14px;
                             color: #828893;
                         }
+
                         ul {
                             margin: -3px 0 -3px;
 
@@ -5939,6 +6716,7 @@ Sidebar CSS
                 }
             }
         }
+
         &.widget_text {
             ul {
                 padding: 0;
@@ -5971,11 +6749,14 @@ Login CSS
             size: 23px;
             weight: 700;
         }
+
         margin-bottom: 8px;
     }
+
     p {
         margin-bottom: 30px;
     }
+
     form {
         .form-check {
             margin-top: 18px;
@@ -5984,6 +6765,7 @@ Login CSS
                 color: var(--paragraphColor);
             }
         }
+
         .forgot-password {
             margin: {
                 bottom: 20px;
@@ -5998,12 +6780,14 @@ Login CSS
                 }
             }
         }
+
         .btn {
             margin: {
                 bottom: 20px;
                 top: 10px;
             }
         }
+
         span {
             display: block;
             color: var(--paragraphColor);
@@ -6029,8 +6813,10 @@ Signup CSS
             size: 23px;
             weight: 700;
         }
+
         margin-bottom: 25px;
     }
+
     form {
         .form-check {
             margin-top: 18px;
@@ -6041,12 +6827,14 @@ Signup CSS
                 top: -2px;
             }
         }
+
         .btn {
             margin: {
                 bottom: 20px;
                 top: 20px;
             }
         }
+
         span {
             display: block;
             color: var(--paragraphColor);
@@ -6081,27 +6869,34 @@ FAQ CSS
             &:last-child {
                 margin-bottom: 0;
             }
+
             .accordion-title {
                 display: block;
                 padding: 20px 30px;
                 text-decoration: none;
                 background: #f5f9ff;
+
                 font: {
                     size: 20px;
                     weight: 700;
                 }
 
-                &:hover, &.active, &:focus {
+                &:hover,
+                &.active,
+                &:focus {
                     background: var(--templateColor);
                     color: var(--whiteColor);
                 }
+
                 &.active {
                     border-radius: 0;
                 }
             }
+
             .accordion__panel {
                 position: relative;
                 padding: 15px;
+
                 P {
                     &:last-child {
                         margin-bottom: 0;
@@ -6110,6 +6905,7 @@ FAQ CSS
             }
         }
     }
+
     .accordion__button {
         transition: .5s;
         background-color: #f5f9ff;
@@ -6117,12 +6913,14 @@ FAQ CSS
         font-weight: 600;
         outline: 0;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             color: var(--whiteColor);
             background-color: var(--templateColor);
         }
     }
 }
+
 .faq-contact {
     margin-top: 45px;
     box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
@@ -6134,8 +6932,10 @@ FAQ CSS
             size: 35px;
             weight: 700;
         }
+
         margin-bottom: 25px;
     }
+
     form {
         .btn {
             margin-top: 15px;
@@ -6164,10 +6964,12 @@ Error 404 CSS
         display: inline-block;
         width: 140px;
         height: 140px;
+
         background: {
             image: url("../images/emoji.png");
             size: cover;
         }
+
         margin-top: -68px;
 
         &::before {
@@ -6181,13 +6983,16 @@ Error 404 CSS
             z-index: -1;
         }
     }
+
     h2 {
         font: {
             size: 60px;
             weight: 700;
         }
+
         margin-bottom: 10px;
     }
+
     span {
         display: block;
         margin-bottom: 20px;
@@ -6221,27 +7026,33 @@ Coming Soon CSS
         content: '';
         position: absolute;
     }
+
     .coming-soon-content {
         max-width: 650px;
         margin: 0 auto;
 
         h1 {
             color: var(--whiteColor);
+
             font: {
                 size: 45px;
                 weight: 900;
             }
+
             text-transform: uppercase;
             margin-bottom: 0;
             line-height: 55px;
         }
+
         p {
             color: #c7c3c7;
+
             margin: {
                 top: 20px;
                 bottom: 35px;
             }
         }
+
         form {
             position: relative;
 
@@ -6256,6 +7067,7 @@ Coming Soon CSS
                     border-color: var(--templateColor);
                 }
             }
+
             button {
                 position: absolute;
                 right: 0;
@@ -6276,15 +7088,18 @@ Coming Soon CSS
                 }
             }
         }
+
         #timer {
             margin-bottom: 35px;
 
             div {
                 display: inline-block;
+
                 font: {
                     size: 45px;
                     weight: 900;
                 }
+
                 color: var(--whiteColor);
                 width: 135px;
                 height: 135px;
@@ -6294,8 +7109,10 @@ Coming Soon CSS
                 line-height: 40px;
                 margin: 0 5px;
             }
+
             span {
                 display: block;
+
                 font: {
                     size: 17px;
                     weight: 600;
@@ -6324,6 +7141,7 @@ Cart CSS
                 }
             }
         }
+
         tbody {
             tr {
                 td {
@@ -6340,6 +7158,7 @@ Cart CSS
                             }
                         }
                     }
+
                     &.product-name {
                         a {
                             color: var(--paragraphColor);
@@ -6350,6 +7169,7 @@ Cart CSS
                             }
                         }
                     }
+
                     &.product-remove {
                         a {
                             color: red;
@@ -6360,6 +7180,7 @@ Cart CSS
         }
     }
 }
+
 .cart-buttons {
     margin-top: 45px;
 
@@ -6387,6 +7208,7 @@ Cart CSS
         }
     }
 }
+
 .cart-totals {
     margin-top: 45px;
     background: var(--whiteColor);
@@ -6401,8 +7223,10 @@ Cart CSS
             size: 23px;
             weight: 700;
         }
+
         margin-bottom: 25px;
     }
+
     ul {
         padding: 0;
         margin: 0 0 25px;
@@ -6417,6 +7241,7 @@ Cart CSS
             &:first-child {
                 border-bottom: none;
             }
+
             span {
                 float: right;
                 color: var(--blackColor);
@@ -6439,6 +7264,7 @@ Checkout CSS
         color: var(--templateColor);
         margin-right: 4px;
     }
+
     span {
         display: inline-block;
         color: var(--templateColor);
@@ -6448,14 +7274,17 @@ Checkout CSS
         }
     }
 }
+
 .checkout-area {
     .title {
         font: {
             size: 23px;
             weight: 700;
         }
+
         margin-bottom: 0;
     }
+
     .bar {
         height: 4px;
         width: 65px;
@@ -6480,6 +7309,7 @@ Checkout CSS
         }
     }
 }
+
 .billing-details {
     box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
     background: var(--whiteColor);
@@ -6498,6 +7328,7 @@ Checkout CSS
             }
         }
     }
+
     .form-check {
         margin-bottom: 15px;
 
@@ -6506,6 +7337,7 @@ Checkout CSS
         }
     }
 }
+
 .order-details {
     box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.08);
     background: var(--whiteColor);
@@ -6522,15 +7354,18 @@ Checkout CSS
                     th {
                         border-bottom-width: 0px;
                         vertical-align: middle;
+
                         font: {
                             weight: 700;
                             size: 16px;
                         }
+
                         border-color: #eaedff;
                         padding: 15px 20px;
                     }
                 }
             }
+
             tbody {
                 tr {
                     td {
@@ -6549,7 +7384,10 @@ Checkout CSS
                                 }
                             }
                         }
-                        &.order-subtotal, &.order-shipping , &.total-price {
+
+                        &.order-subtotal,
+                        &.order-shipping,
+                        &.total-price {
                             span {
                                 color: var(--blackColor);
                                 font-weight: 700;
@@ -6560,6 +7398,7 @@ Checkout CSS
             }
         }
     }
+
     .payment-method {
         margin-top: 40px;
         border-top: 1px solid #eaedff;
@@ -6569,22 +7408,30 @@ Checkout CSS
             font: {
                 size: 14px;
             }
+
             [type="radio"] {
-                &:checked, &:not(:checked) {
+
+                &:checked,
+                &:not(:checked) {
                     position: absolute;
                     left: -9999px;
                 }
             }
+
             [type="radio"] {
-                &:checked, &:not(:checked) {
-                    + label {
+
+                &:checked,
+                &:not(:checked) {
+                    +label {
                         padding-left: 30px;
                         cursor: pointer;
                         display: block;
+
                         font: {
                             size: 16px;
                             weight: 700;
                         }
+
                         color: var(--blackColor);
                         position: relative;
                         margin-bottom: 8px;
@@ -6600,6 +7447,7 @@ Checkout CSS
                             border-radius: 50%;
                             background: var(--whiteColor);
                         }
+
                         &::after {
                             content: '';
                             width: 12px;
@@ -6614,9 +7462,10 @@ Checkout CSS
                     }
                 }
             }
+
             [type="radio"] {
                 &:not(:checked) {
-                    + label {
+                    +label {
                         &::after {
                             opacity: 0;
                             visibility: hidden;
@@ -6625,9 +7474,10 @@ Checkout CSS
                     }
                 }
             }
+
             [type="radio"] {
                 &:checked {
-                    + label {
+                    +label {
                         &::after {
                             opacity: 1;
                             visibility: visible;
@@ -6638,6 +7488,7 @@ Checkout CSS
             }
         }
     }
+
     .btn {
         &.order-btn {
             display: block;
@@ -6664,6 +7515,7 @@ Contact Us CSS
 .contact-info-area {
     border-bottom: 1px solid #eee;
 }
+
 .contact-info-box {
     text-align: center;
     transition: .4s;
@@ -6682,13 +7534,16 @@ Contact Us CSS
         color: var(--templateColor);
         transition: .4s;
     }
+
     h3 {
         font: {
             size: 23px;
             weight: 700;
         }
+
         margin: 25px 0 15px;
     }
+
     p {
         margin-bottom: 0;
 
@@ -6700,6 +7555,7 @@ Contact Us CSS
             }
         }
     }
+
     &:hover {
         transform: translateY(-10px);
 
@@ -6709,10 +7565,12 @@ Contact Us CSS
         }
     }
 }
+
 #map {
     height: 500px;
     width: 100%;
 }
+
 #contactForm {
     .help-block {
         ul {
@@ -6723,11 +7581,15 @@ Contact Us CSS
             }
         }
     }
+
     .btn {
         margin-top: 10px;
     }
+
     #msgSubmit {
-        &.text-danger, &.text-success {
+
+        &.text-danger,
+        &.text-success {
             margin: 20px 0 0;
         }
     }
@@ -6744,14 +7606,17 @@ Footer CSS
         .logo {
             display: block;
             margin-bottom: 20px;
+
             img {
                 max-width: 110px;
                 height: auto;
             }
         }
+
         p {
             margin-bottom: 0;
         }
+
         ul {
             padding: 0;
             margin: 0;
@@ -6771,11 +7636,13 @@ Footer CSS
                             color: var(--templateColor);
                         }
                     }
+
                     &:last-child {
                         margin-right: 0;
                     }
                 }
             }
+
             &.list {
                 li {
                     margin-bottom: 9px;
@@ -6790,20 +7657,24 @@ Footer CSS
                             padding-left: 7px;
                         }
                     }
+
                     &:last-child {
                         margin-bottom: 0;
                     }
                 }
             }
         }
+
         h3 {
             font: {
                 size: 23px;
                 weight: 700;
             }
+
             margin-bottom: 25px;
         }
     }
+
     &.bg-image {
         background: {
             image: url("../images/footer-shape.png");
@@ -6813,6 +7684,7 @@ Footer CSS
         }
     }
 }
+
 .copyright-area {
     padding: 30px 0;
     margin-top: 100px;
@@ -6838,11 +7710,13 @@ Footer CSS
                 width: 2px;
                 height: 12px;
             }
+
             &:first-child {
                 &::before {
                     display: none;
                 }
             }
+
             a {
                 color: var(--paragraphColor);
 
@@ -6868,10 +7742,12 @@ Back To Top CSS
         cursor: pointer;
         width: 40px;
         padding: 3px 5px;
+
         font: {
             size: 10px;
             weight: bold;
         }
+
         color: transparent;
         text-align: center;
         z-index: 3;
@@ -6879,7 +7755,8 @@ Back To Top CSS
         transition: all 0.25s ease-in-out;
         background-color: var(--paragraphColor);
 
-        &::before, &::after {
+        &::before,
+        &::after {
             content: '';
             position: absolute;
             left: 0;
@@ -6888,17 +7765,21 @@ Back To Top CSS
             border: 20px solid transparent;
             border-top: 0;
         }
+
         &::before {
             top: -20px;
             z-index: 4;
             border-bottom: 20px solid var(--paragraphColor);
         }
+
         &::after {
             bottom: 0;
             z-index: 5;
             border-bottom: 20px solid var(--templateColor);
         }
-        &:hover, &:focus {
+
+        &:hover,
+        &:focus {
             opacity: 1;
             text-decoration: none;
             height: 40px;
@@ -6906,12 +7787,15 @@ Back To Top CSS
         }
     }
 }
+
 .modal-video {
     position: absolute !important;
 }
-.fade:not(.show){
+
+.fade:not(.show) {
     opacity: 1;
 }
+
 .input-counter {
     max-width: 130px;
     min-width: 130px;
@@ -6934,13 +7818,16 @@ Back To Top CSS
         &.minus-btn {
             left: 0;
         }
+
         &.plus-btn {
             right: 0;
         }
+
         &:hover {
             color: var(--blackColor);
         }
     }
+
     input {
         height: 45px;
         color: var(--blackColor);
@@ -6950,34 +7837,43 @@ Back To Top CSS
         background-color: #f8f8f8;
         text-align: center;
         width: 100%;
+
         font: {
             size: 17px;
             weight: 600;
         }
+
         &::placeholder {
             color: var(--blackColor);
         }
     }
 }
+
 .thank-you-area {
     text-align: center;
+
     padding: {
         top: 150px;
         bottom: 150px;
     }
+
     h1 {
         margin-bottom: 15px;
     }
 }
+
 .modal-video-close-btn {
     cursor: pointer;
 }
+
 .join-img {
     text-align: center;
 }
+
 .text-right {
     text-align: right;
 }
+
 textarea.form-control {
     height: auto !important;
 }

@@ -1,7 +1,5 @@
 import React from 'react';
-import Navbar from '@components/Layouts/Navbar';
-import Footer from '@components/Layouts/Footer';
-import Banner from '@components/Saas/Banner';
+import Banner from '@Modules/Home/Components/Banner';
 import Features from '@components/Saas/Features';
 import Overview from '@components/Saas/Overview';
 import JoinCard from '@components/Saas/JoinCard';
@@ -15,8 +13,7 @@ import Feedback from '@components/Saas/Feedback';
 import Partner from '@components/Saas/Partner';
 const Home = () => {
   return (
-    <>
-      {/* <Navbar /> */}
+    <div className="home__page">
       <Banner />
       <Features />
       <Overview />
@@ -30,7 +27,7 @@ const Home = () => {
       <Feedback />
       <Partner />
       {/* <Footer /> */}
-    </>
+    </div>
   );
 };
 export default Home;
