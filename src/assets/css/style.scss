@@ -428,18 +428,21 @@ Navbar CSS
     background: var(--whiteColor);
     width: 100%;
     z-index: 666;
-    height: auto;
+    height: 92px;
 
     .navbar-toggler {
         box-shadow: none;
     }
 
     nav {
+        padding-top: 6px;
+        padding-bottom: 6px;
         .navbar-brand {
             img {
                 max-width: 100px;
-                height: auto;
+                height: 80px;
             }
+            padding: 0px;
         }
 
         ul {
@@ -456,9 +459,9 @@ Navbar CSS
                 a {
                     font: {
                         weight: 600;
-                        size: 17px;
+                        size: 14px;
                     }
-
+                    line-height: 20px;
                     color: var(--darkColor) !important;
                     padding: 0 0 !important;
                     margin: 0 17px;
