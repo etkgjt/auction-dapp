@@ -29,25 +29,15 @@ const Banner = () => {
                 <span>Giới thiệu siêu trí nhớ học đường</span>
               </div>
             </div>
-            <div className="row h-100 justify-content-center align-items-center">
-
-            </div>
+            <div className="row h-100 justify-content-center align-items-center"></div>
           </div>
         </div>
       </div>
 
       <div className="bg-gray shape-1"></div>
-      <div className="shape1">
-        <img src={require('@src/assets/images/shape1.png').default} alt="img" />
-      </div>
-      <div className="shape2">
-        <img src={require('@src/assets/images/shape2.png').default} alt="img" />
-      </div>
-      <div className="shape3">
-        <img src={require('@src/assets/images/shape3.png').default} alt="img" />
-      </div>
+
       <div className="shape4 rotateme">
-        <img src={require('@src/assets/images/shape4.png').default} alt="img" />
+        <img src={require('@src/assets/images/star.svg').default} alt="img" />
       </div>
     </div>
   );
