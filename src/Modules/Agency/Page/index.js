@@ -5,15 +5,11 @@ import Banner from '@components/Agency/Banner';
 import Partner from '@components/Agency/Partner';
 import Features from '@components/Agency/Features';
 import Overview from '@components/Agency/Overview';
-import Funfact from '@components/Agency/Funfact';
 import SaasTools from '@components/Agency/SaasTools';
 import Works from '@components/Agency/Works';
-import Team from '@components/Agency/Team';
 import Pricing from '@components/Agency/Pricing';
 import Download from '@components/Agency/Download';
-import Blog from '@components/Agency/Blog';
 import CtaCard from '@components/Agency/CtaCard';
-import Feedback from '@components/Agency/Feedback';
 import GetStarted from '@components/Agency/GetStarted';
 import Platform from '@components/Agency/Platform';
 
@@ -25,15 +21,11 @@ const Agency = () => {
       <Partner />
       <Features />
       <Overview />
-      <Funfact />
       <SaasTools />
       <Works />
-      <Team />
       <Pricing />
       <Download />
-      <Blog />
       <CtaCard />
-      <Feedback />
       <GetStarted />
       <Platform />
       <Footer />

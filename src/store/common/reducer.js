@@ -3,19 +3,22 @@ import { persistReducer } from 'redux-persist';
 import * as Actions from './constants';
 
 const initState = {
-  onBoardScreen: true,
-  infoDevice: {},
-  statusModalLogout: false,
+  language: "vi",
+  codeLanguage: "vi-VN",
 };
 
 const CommonReducer = (state = initState, action = {}) => {
   switch (action.type) {
-    case Actions.SET_ON_BOARD:
-      return { ...state, onBoardScreen: false };
-    case Actions.SET_INFO_DEVICE:
-      return { ...state, infoDevice: { ...action.payload } };
-    case Actions.SET_STATUS_MODAL_LOGOUT:
-      return { ...state, statusModalLogout: action.payload };
+    case Actions.SET_LANGUAGE:
+      const {code} = action.payload
+      switch (code) {
+        case "vi-VN":
+          return {...state, language: "vi", codeLanguage: code, itemsLanguageSelect: action.payload}
+        case "en-US":
+          return {...state, language: "en", codeLanguage: code, itemsLanguageSelect: action.payload}
+        default:
+          return {...state}
+      }
     default:
       return state;
   }
