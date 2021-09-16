@@ -1,5 +1,4 @@
-import React from 'react';
-import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel3';
 
@@ -31,101 +30,132 @@ const options = {
   },
 };
 
-class Partner extends React.Component {
-  state = { display: false };
+const Partner = () => {
+  const [display, setDisplay] = useState(false);
 
-  componentDidMount() {
-    this.setState({ display: true });
-  }
-
-  render() {
-    return (
-      <div className="partner-area app-partner">
-        <div className="container">
-          <div className="row">
-            {this.state.display ? (
-              <OwlCarousel
-                className="partner-slides owl-carousel owl-theme"
-                {...options}
-              >
-                <div className="col-lg-12">
-                  <div className="item">
-                    <Link href="/#">
-                      <a>
-                        <img src="/images/partner-1.png" alt="partner" />
-                      </a>
-                    </Link>
-                  </div>
+  useEffect(() => {
+    setDisplay(true);
+  }, []);
+  return (
+    <div className="partner-area app-partner">
+      <div className="container">
+        <div className="row">
+          {display ? (
+            <OwlCarousel
+              className="partner-slides owl-carousel owl-theme"
+              {...options}
+            >
+              <div className="col-lg-12">
+                <div className="item">
+                  <Link to="/#">
+                    <a>
+                      <img
+                        src={
+                          require('@src/assets/images/partner-1.png').default
+                        }
+                        alt="partner"
+                      />
+                    </a>
+                  </Link>
                 </div>
+              </div>
 
-                <div className="col-lg-12">
-                  <div className="item">
-                    <Link href="/#">
-                      <a>
-                        <img src="/images/partner-2.png" alt="partner" />
-                      </a>
-                    </Link>
-                  </div>
+              <div className="col-lg-12">
+                <div className="item">
+                  <Link to="/#">
+                    <a>
+                      <img
+                        src={
+                          require('@src/assets/images/partner-2.png').default
+                        }
+                        alt="partner"
+                      />
+                    </a>
+                  </Link>
                 </div>
+              </div>
 
-                <div className="col-lg-12">
-                  <div className="item">
-                    <Link href="/#">
-                      <a>
-                        <img src="/images/partner-3.png" alt="partner" />
-                      </a>
-                    </Link>
-                  </div>
+              <div className="col-lg-12">
+                <div className="item">
+                  <Link to="/#">
+                    <a>
+                      <img
+                        src={
+                          require('@src/assets/images/partner-3.png').default
+                        }
+                        alt="partner"
+                      />
+                    </a>
+                  </Link>
                 </div>
+              </div>
 
-                <div className="col-lg-12">
-                  <div className="item">
-                    <Link href="/#">
-                      <a>
-                        <img src="/images/partner-4.png" alt="partner" />
-                      </a>
-                    </Link>
-                  </div>
+              <div className="col-lg-12">
+                <div className="item">
+                  <Link to="/#">
+                    <a>
+                      <img
+                        src={
+                          require('@src/assets/images/partner-4.png').default
+                        }
+                        alt="partner"
+                      />
+                    </a>
+                  </Link>
                 </div>
+              </div>
 
-                <div className="col-lg-12">
-                  <div className="item">
-                    <Link href="/#">
-                      <a>
-                        <img src="/images/partner-5.png" alt="partner" />
-                      </a>
-                    </Link>
-                  </div>
+              <div className="col-lg-12">
+                <div className="item">
+                  <Link to="/#">
+                    <a>
+                      <img
+                        src={
+                          require('@src/assets/images/partner-5.png').default
+                        }
+                        alt="partner"
+                      />
+                    </a>
+                  </Link>
                 </div>
+              </div>
 
-                <div className="col-lg-12">
-                  <div className="item">
-                    <Link href="/#">
-                      <a>
-                        <img src="/images/partner-6.png" alt="partner" />
-                      </a>
-                    </Link>
-                  </div>
+              <div className="col-lg-12">
+                <div className="item">
+                  <Link to="/#">
+                    <a>
+                      <img
+                        src={
+                          require('@src/assets/images/partner-6.png').default
+                        }
+                        alt="partner"
+                      />
+                    </a>
+                  </Link>
                 </div>
+              </div>
 
-                <div className="col-lg-12">
-                  <div className="item">
-                    <Link href="/#">
-                      <a>
-                        <img src="/images/partner-7.png" alt="partner" />
-                      </a>
-                    </Link>
-                  </div>
+              <div className="col-lg-12">
+                <div className="item">
+                  <Link to="/#">
+                    <a>
+                      <img
+                        src={
+                          require('@src/assets/images/partner-7.png').default
+                        }
+                        alt="partner"
+                      />
+                    </a>
+                  </Link>
                 </div>
-              </OwlCarousel>
-            ) : (
-              ''
-            )}
-          </div>
+              </div>
+            </OwlCarousel>
+          ) : (
+            ''
+          )}
         </div>
       </div>
-    );
-  }
-}
-
+    </div>
+  );
+};
 export default Partner;

@@ -3,9 +3,9 @@ import intlMessagesVi from './i18n/localization/vi.json';
 // import initReducer from './Store/initReducer';
 
 export default {
-  name: 'Contact',
-  dir: 'Contact',
-  pathRoot: 'contact',
+  name: 'App',
+  dir: 'App',
+  pathRoot: 'app',
   routes: [
     {
       url: '',
@@ -15,8 +15,8 @@ export default {
         authRoute: true,
       },
       props: {
-        title: 'Liên hệ | Siêu Trí Nhớ Học Đường',
-        titleI18n: 'Contact:title',
+        title: 'Ứng dụng | Siêu Trí Nhớ Học Đường',
+        titleI18n: 'App:title',
       },
     },
   ],

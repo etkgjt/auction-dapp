@@ -21,6 +21,6 @@ export default {
     },
   ],
   lang: { vi: intlMessagesVi, en: intlMessagesEN },
-  isAuthenticate: false,
+  isAuthenticate: 'Any',
   // redux: initReducer,
 };
