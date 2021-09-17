@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useRouteMatch } from 'react-router';
 
 /*Navigation*/
 import navigation from '@src/navigation';
@@ -14,11 +15,11 @@ import navigation from '@src/navigation';
 import * as actionsCommon from '@store/common/actions';
 import { getCodeLanguage } from '@store/common/selectors';
 
-const Navbar = (props) => {
-  const { t, i18n } = useTranslation();
+const Navbar = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const pathname = window.location.pathname;
+  const { url } = useRouteMatch();
 
   /*Selectors*/
   const lang = useSelector((state) => getCodeLanguage(state));
@@ -26,7 +27,6 @@ const Navbar = (props) => {
   /*State*/
   const [collapsed, setCollapsed] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
-  const [activeMenu, setActiveMenu] = useState();
 
   const layOutCls = '';
   const logo = require('@src/assets/images/logo.png').default;
@@ -57,15 +57,9 @@ const Navbar = (props) => {
     };
   }, []);
 
-  useEffect(() => {
-    setActiveMenu(pathname);
-  }, [pathname]);
-
   const handleOnSubmit = (e) => {
     dispatch(actionsCommon.setLanguage(e.target.value));
   };
-
-  console.log('A', props);
 
   return (
     <header id="header">
@@ -96,9 +90,7 @@ const Navbar = (props) => {
                 <ul className="navbar-nav nav ms-auto">
                   {navigation.map((item) => (
                     <li
-                      className={`nav-item ${
-                        item.to === activeMenu ? 'active' : ''
-                      }`}
+                      className={`nav-item ${item.to === url ? 'active' : ''}`}
                       key={item.id}
                     >
                       <Link className="nav-link" to={item.to}>
@@ -128,7 +120,7 @@ const Navbar = (props) => {
                     <div className="select-box">
                       <select
                         className="selectpicker form-select"
-                        value={lang}
+                        defaultValue={lang}
                         id="lang"
                       >
                         <option value="vi" className="vietnam__flag">

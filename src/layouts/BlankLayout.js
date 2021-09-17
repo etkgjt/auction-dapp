@@ -17,7 +17,21 @@ const BlankLayout = ({ children, ...rest }) => {
     return null;
   }
 
-  return <div className="blank-page">{children}</div>;
+  return (
+    <div className="home__page">
+      <div className="app-content content">
+        <div className="content-wrapper">
+          <div className="content-header">
+            <Navbar />
+          </div>
+          <div className="content-body">{children}</div>
+          <div className="content-footer">
+            <Footer />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default BlankLayout;

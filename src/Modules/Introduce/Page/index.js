@@ -2,6 +2,8 @@ import '../bootstrap.scss';
 
 import React from 'react';
 import Banner from '@Modules/Introduce/Components/Banner';
+import BoxesBenefit from '@Modules/Introduce/Components/BoxesBenefit';
+import CourseElite from '@Modules/Introduce/Components/CourseElite';
 import Features from '@components/Saas/Features';
 import Overview from '@components/Saas/Overview';
 import JoinCard from '@components/Saas/JoinCard';
@@ -17,6 +19,8 @@ const Introduce = () => {
   return (
     <div className="introduce__page">
       <Banner />
+      <BoxesBenefit />
+      <CourseElite />
       <Features />
       <Overview />
       <JoinCard />
