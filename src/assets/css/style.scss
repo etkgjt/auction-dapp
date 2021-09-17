@@ -5367,6 +5367,125 @@ Platform Connect CSS
     }
 }
 
+
+/*================================================
+List course CSS
+=================================================*/
+.list-course-area {
+    background: transparent;
+
+
+    &.list-course-section {
+        .list-course-area__title {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 60px;
+
+            span {
+                font-style: normal;
+                font-weight: 800;
+                font-size: 54px;
+                line-height: 140%;
+                text-align: center;
+                text-transform: uppercase;
+                color: var(--primaryColor)
+            }
+        }
+
+        .list-course__item {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 0 0.75rem;
+
+
+            .list-course_image {
+                width: 256px;
+                height: 256px;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                display: flex;
+                margin: auto;
+                margin-bottom: 24px;
+                border-radius: 26px;
+
+            }
+
+            .list-course__title {
+                margin-bottom: 16px;
+
+                span {
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 28px;
+                    line-height: 140%;
+                    text-align: center;
+                    letter-spacing: 0.01em;
+                }
+            }
+
+            .list-course__content {
+                margin-bottom: 16px;
+                min-height: 168px;
+
+                p {
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 150%;
+                    text-align: center;
+                    color: #7C7C80;
+                }
+            }
+
+            .list-course__action {
+                .list-course__btn {
+                    border-radius: 20px;
+                    padding: 16px 32px;
+                    color: var(--whiteColor);
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 140%;
+                    letter-spacing: 0.01em;
+                }
+            }
+        }
+    }
+
+    .owl-theme {
+        .owl-nav {
+            margin-top: 20px;
+
+            [class*=owl-] {
+                color: var(--templateColor2);
+                font-size: 30px;
+                margin: 0 3px;
+                padding: 3px 5px 0;
+                background: transparent !important;
+                display: inline-block;
+                cursor: pointer;
+                border-radius: 0;
+                transition: .4s;
+                border: 1px solid #eee;
+                line-height: 1;
+
+                &:hover {
+                    color: var(--templateColor);
+                }
+            }
+        }
+
+        .owl-controls {
+            line-height: .1;
+        }
+    }
+}
+
 /*================================================
 Blog CSS
 =================================================*/

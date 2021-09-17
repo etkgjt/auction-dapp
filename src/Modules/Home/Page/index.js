@@ -5,6 +5,7 @@ import Banner from '@Modules/Home/Components/Banner';
 import Features from '@Modules/Home/Components/Features';
 import BuyNow from '@Modules/Home/Components/BuyNow';
 import BuyCourse from '@Modules/Home/Components/BuyCourse';
+import ListCourse from '@Modules/Home/Components/ListCourse';
 import Overview from '@components/Saas/Overview';
 import JoinCard from '@components/Saas/JoinCard';
 import CtaCard from '@components/Saas/CtaCard';
@@ -22,6 +23,7 @@ const Home = () => {
       <Features />
       <BuyNow />
       <BuyCourse />
+      <ListCourse />
       <Overview />
       <JoinCard />
       <CtaCard />

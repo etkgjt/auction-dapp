@@ -2,236 +2,220 @@ import React, { Component } from 'react';
 
 const ListCourse = () => {
   return (
-    <section className="blog-area blog-section ptb-100">
+    <section className="list-course-area list-course-section ptb-100">
       <div className="container">
+        <div className="list-course-area__title">
+          <span>Bộ Công cụ hỗ trợ học tập Giúp con học nhanh nhớ lâu</span>
+        </div>
         <div className="row">
           <div className="col-lg-4 col-md-6">
-            <div className="single-blog-post">
-              <a href="/#" className="post-image">
+            <div className="list-course__item">
+              <div
+                className="list-course_image"
+                style={{ backgroundColor: '#FCECF3' }}
+              >
                 <img
-                  src={require('@src/assets/images/blog-img1.jpg').default}
+                  src={
+                    require('@src/assets/images/list-course-img-1.png').default
+                  }
                   alt="blog-image"
                 />
-              </a>
-
-              <div className="blog-post-content">
-                <ul>
-                  <li>
-                    <i className="icofont-user-male"></i> <a href="/#">Admin</a>
-                  </li>
-                  <li>
-                    <i className="icofont-wall-clock"></i> January 23, 2019
-                  </li>
-                </ul>
-                <h3>
-                  <a href="/#">The Most Popular New Business Apps</a>
-                </h3>
+              </div>
+              <div className="list-course__title" style={{ color: '#D74A96' }}>
+                <span>Sách Siêu Trí Nhớ</span>
+              </div>
+              <div className="list-course__content">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                  turpis massa, dapibus nec libero vitae.
+                  180 trang sách với 10 kỹ thuật ghi nhớ cơ bản do Thầy Nguyễn
+                  Phùng Phong đúc kết từ việc nghiên cứu những phương pháp học
+                  tập giảng dạy bởi những người thầy nổi tiếng thế giới như:
+                  Tony Buzan, Dominic O'Brien, Biswaroop, Erant Katz…
                 </p>
-                <a href="/#" className="read-more-btn">
-                  Read More <i className="icofont-rounded-double-right"></i>
+              </div>
+              <div className="list-course__action">
+                <a
+                  className="list-course__btn"
+                  style={{ backgroundColor: '#D74A96' }}
+                  href="/#"
+                >
+                  Xem chi tiết
                 </a>
               </div>
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6">
-            <div className="single-blog-post">
-              <a href="/#" className="post-image">
+            <div className="list-course__item">
+              <div
+                className="list-course_image"
+                style={{ backgroundColor: '#EAF8FD' }}
+              >
                 <img
-                  src={require('@src/assets/images/blog-img2.jpg').default}
+                  src={
+                    require('@src/assets/images/list-course-img-2.png').default
+                  }
                   alt="blog-image"
                 />
-              </a>
-
-              <div className="blog-post-content">
-                <ul>
-                  <li>
-                    <i className="icofont-user-male"></i> <a href="/#">Admin</a>
-                  </li>
-                  <li>
-                    <i className="icofont-wall-clock"></i> January 16, 2019
-                  </li>
-                </ul>
-                <h3>
-                  <a href="/#">The Best Marketing Management Tools</a>
-                </h3>
+              </div>
+              <div className="list-course__title" style={{ color: '#6195FD' }}>
+                <span>Video Kỹ Thuật Ghi Nhớ</span>
+              </div>
+              <div className="list-course__content">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                  turpis massa, dapibus nec libero vitae.
+                  Huấn luyện viên trưởng Đội tuyển Siêu Trí Nhớ Việt Nam - Thầy
+                  Nguyễn Phùng Phong chia sẻ Quy trình học thông minh chỉ với
+                  Quy tắc 6-3-4. Các bạn cùng theo dõi nhé!
                 </p>
-                <a href="/#" className="read-more-btn">
-                  Read More <i className="icofont-rounded-double-right"></i>
+              </div>
+              <div className="list-course__action">
+                <a
+                  className="list-course__btn"
+                  style={{ backgroundColor: '#6195FD' }}
+                  href="/#"
+                >
+                  Xem chi tiết
                 </a>
               </div>
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6">
-            <div className="single-blog-post">
-              <a href="/#" className="post-image">
+            <div className="list-course__item">
+              <div
+                className="list-course_image"
+                style={{ backgroundColor: '#EAF8FD' }}
+              >
                 <img
-                  src={require('@src/assets/images/blog-img3.jpg').default}
+                  src={
+                    require('@src/assets/images/list-course-img-3.png').default
+                  }
                   alt="blog-image"
                 />
-              </a>
-
-              <div className="blog-post-content">
-                <ul>
-                  <li>
-                    <i className="icofont-user-male"></i> <a href="/#">Admin</a>
-                  </li>
-                  <li>
-                    <i className="icofont-wall-clock"></i> January 14, 2019
-                  </li>
-                </ul>
-                <h3>
-                  <a href="/#">3 WooCommerce Plugins to Boost Sales</a>
-                </h3>
+              </div>
+              <div className="list-course__title" style={{ color: '#24B6B1' }}>
+                <span>Sách Siêu Trí Nhớ</span>
+              </div>
+              <div className="list-course__content">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                  turpis massa, dapibus nec libero vitae.
+                  180 trang sách với 10 kỹ thuật ghi nhớ cơ bản do Thầy Nguyễn
+                  Phùng Phong đúc kết từ việc nghiên cứu những phương pháp học
+                  tập giảng dạy bởi những người thầy nổi tiếng thế giới như:
+                  Tony Buzan, Dominic O'Brien, Biswaroop, Erant Katz…
                 </p>
-                <a href="/#" className="read-more-btn">
-                  Read More <i className="icofont-rounded-double-right"></i>
+              </div>
+              <div className="list-course__action">
+                <a
+                  className="list-course__btn"
+                  style={{ backgroundColor: '#24B6B1' }}
+                  href="/#"
+                >
+                  Xem chi tiết
                 </a>
               </div>
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6">
-            <div className="single-blog-post">
-              <a href="/#" className="post-image">
+            <div className="list-course__item">
+              <div
+                className="list-course_image"
+                style={{ backgroundColor: '#F4F5B9' }}
+              >
                 <img
-                  src={require('@src/assets/images/blog-img4.jpg').default}
+                  src={
+                    require('@src/assets/images/list-course-img-4.png').default
+                  }
                   alt="blog-image"
                 />
-              </a>
-
-              <div className="blog-post-content">
-                <ul>
-                  <li>
-                    <i className="icofont-user-male"></i> <a href="/#">Admin</a>
-                  </li>
-                  <li>
-                    <i className="icofont-wall-clock"></i> January 06, 2019
-                  </li>
-                </ul>
-                <h3>
-                  <a href="/#">CakeMail Review – Emails Design</a>
-                </h3>
+              </div>
+              <div className="list-course__title" style={{ color: '#47821C' }}>
+                <span>Sơ đồ tư duy bài giảng SGK</span>
+              </div>
+              <div className="list-course__content">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                  turpis massa, dapibus nec libero vitae.
+                  4000 bản tóm tắt kiến thức theo sơ đồ tư duy (Mindmap) được
+                  thầy Nguyễn Phùng Phong cùng đội ngũ cộng sự biên soạn.
                 </p>
-                <a href="/#" className="read-more-btn">
-                  Read More <i className="icofont-rounded-double-right"></i>
+              </div>
+              <div className="list-course__action">
+                <a
+                  className="list-course__btn"
+                  style={{ backgroundColor: '#47821C' }}
+                  href="/#"
+                >
+                  Xem chi tiết
                 </a>
               </div>
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6">
-            <div className="single-blog-post">
-              <a href="/#" className="post-image">
+            <div className="list-course__item">
+              <div
+                className="list-course_image"
+                style={{ backgroundColor: '#EAF8FD' }}
+              >
                 <img
-                  src={require('@src/assets/images/blog-img5.jpg').default}
+                  src={
+                    require('@src/assets/images/list-course-img-5.png').default
+                  }
                   alt="blog-image"
                 />
-              </a>
-
-              <div className="blog-post-content">
-                <ul>
-                  <li>
-                    <i className="icofont-user-male"></i> <a href="/#">Admin</a>
-                  </li>
-                  <li>
-                    <i className="icofont-wall-clock"></i> January 04, 2019
-                  </li>
-                </ul>
-                <h3>
-                  <a href="/#">The Most Popular New Apps in 2019</a>
-                </h3>
+              </div>
+              <div className="list-course__title" style={{ color: '#7B70FF' }}>
+                <span>Diễn đàn học tập</span>
+              </div>
+              <div className="list-course__content">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                  turpis massa, dapibus nec libero vitae.
+                  Diễn đàn học tập giải đáp thắc mắc và gỡ rối những câu hỏi khó
+                  nhớ chỉ cần gửi ngay lên diễn đàn. Biệt đội Siêu trí tuệ, Siêu
+                  trí nhớ và Thầy cô sẽ luôn tiếp nhận và hỗ trợ.
                 </p>
-                <a href="/#" className="read-more-btn">
-                  Read More <i className="icofont-rounded-double-right"></i>
+              </div>
+              <div className="list-course__action">
+                <a
+                  className="list-course__btn"
+                  style={{ backgroundColor: '#7B70FF' }}
+                  href="/#"
+                >
+                  Xem chi tiết
                 </a>
               </div>
             </div>
           </div>
-
           <div className="col-lg-4 col-md-6">
-            <div className="single-blog-post">
-              <a href="/#" className="post-image">
+            <div className="list-course__item">
+              <div
+                className="list-course_image"
+                style={{ backgroundColor: '#FFE8AE' }}
+              >
                 <img
-                  src={require('@src/assets/images/blog-img3.jpg').default}
+                  src={
+                    require('@src/assets/images/list-course-img-6.png').default
+                  }
                   alt="blog-image"
                 />
-              </a>
-
-              <div className="blog-post-content">
-                <ul>
-                  <li>
-                    <i className="icofont-user-male"></i> <a href="/#">Admin</a>
-                  </li>
-                  <li>
-                    <i className="icofont-wall-clock"></i> January 26, 2019
-                  </li>
-                </ul>
-                <h3>
-                  <a href="/#">The Fastest Growing Apps in 2019</a>
-                </h3>
+              </div>
+              <div className="list-course__title" style={{ color: '#FFC736' }}>
+                <span>5 Phút Thuộc Bài</span>
+              </div>
+              <div className="list-course__content">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-                  turpis massa, dapibus nec libero vitae.
+                  Cuộc thi 5 Phút thuộc bài-Sân chơi bổ ích dành cho học sinh từ
+                  lớp 1 đến lớp 12 diễn ra hàng tuần. Các bạn học sinh được vừa
+                  học vừa chơi, tranh tài và ứng dụng phương pháp học tập thông
+                  minh khiến việc học trở nên đầy thú vị.
                 </p>
-                <a href="/#" className="read-more-btn">
-                  Read More <i className="icofont-rounded-double-right"></i>
+              </div>
+              <div className="list-course__action">
+                <a
+                  className="list-course__btn"
+                  style={{ backgroundColor: '#FFC736' }}
+                  href="/#"
+                >
+                  Xem chi tiết
                 </a>
               </div>
-            </div>
-          </div>
-
-          <div className="col-lg-12 col-md-12">
-            <div className="pagination-area">
-              <nav aria-label="Page navigation example">
-                <ul className="pagination justify-content-center">
-                  <li className="page-item">
-                    <a className="page-link" href="/#">
-                      <i className="icofont-double-left"></i>
-                    </a>
-                  </li>
-
-                  <li className="page-item active">
-                    <a className="page-link" href="/#">
-                      1
-                    </a>
-                  </li>
-
-                  <li className="page-item">
-                    <a className="page-link" href="/#">
-                      2
-                    </a>
-                  </li>
-
-                  <li className="page-item">
-                    <a className="page-link" href="/#">
-                      3
-                    </a>
-                  </li>
-
-                  <li className="page-item">
-                    <a className="page-link" href="/#">
-                      <i className="icofont-double-right"></i>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
             </div>
           </div>
         </div>
