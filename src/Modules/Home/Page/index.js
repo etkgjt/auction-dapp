@@ -9,6 +9,7 @@ import Experience from '@Modules/Home/Components/Experience';
 import PaymentList from '@Modules/Home/Components/PaymentList';
 import Navbar from '@layouts/components/navbar';
 import Footer from '@layouts/components/footer';
+import Spinner from '@components/spinner/fallback-spinner';
 
 const Home = () => {
   return (
