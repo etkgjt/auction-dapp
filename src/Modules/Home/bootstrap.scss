@@ -1,15 +1,38 @@
 .home__page {
-    .main-banner {
-        .owl-carousel {
-            position: relative;
+    .buy-course-section {
+        .buyourse__content {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
 
-            .owl-dots {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
+    }
+
+    .features-area {
+        .features-inner-area {
+            .mobiles-image {
+                text-align: center;
+            }
+        }
+
+        .main-banner {
+            .owl-carousel {
+                position: relative;
+
+                .owl-dots {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                }
             }
         }
     }
+
 
 }

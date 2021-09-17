@@ -2,7 +2,9 @@ import '../bootstrap.scss';
 
 import React from 'react';
 import Banner from '@Modules/Home/Components/Banner';
-import Features from '@components/Saas/Features';
+import Features from '@Modules/Home/Components/Features';
+import BuyNow from '@Modules/Home/Components/BuyNow';
+import BuyCourse from '@Modules/Home/Components/BuyCourse';
 import Overview from '@components/Saas/Overview';
 import JoinCard from '@components/Saas/JoinCard';
 import CtaCard from '@components/Saas/CtaCard';
@@ -16,8 +18,10 @@ import Partner from '@components/Saas/Partner';
 const Home = () => {
   return (
     <div className="home__page">
-      <Banner />
+      {/* <Banner /> */}
       <Features />
+      <BuyNow />
+      <BuyCourse />
       <Overview />
       <JoinCard />
       <CtaCard />
