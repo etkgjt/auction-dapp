@@ -5,7 +5,7 @@ const BuyCourse = () => {
   return (
     <Fragment>
       <section className="overview-section buy-course-section">
-        <div class="creative-shape-relative">
+        <div className="creative-shape-relative">
           <div className="container buyourse__content">
             <div className="buycourse-box">
               <div className="row h-100 justify-content-center align-items-center">

@@ -1,40 +1,36 @@
 import '../bootstrap.scss';
 
 import React from 'react';
-import Banner from '@Modules/Home/Components/Banner';
 import Features from '@Modules/Home/Components/Features';
 import BuyNow from '@Modules/Home/Components/BuyNow';
 import BuyCourse from '@Modules/Home/Components/BuyCourse';
 import ListCourse from '@Modules/Home/Components/ListCourse';
-import Overview from '@components/Saas/Overview';
-import JoinCard from '@components/Saas/JoinCard';
-import CtaCard from '@components/Saas/CtaCard';
-import SaasTools from '@components/Saas/SaasTools';
-import Funfact from '@components/Saas/Funfact';
-import WorkProcess from '@components/Saas/WorkProcess';
-import PricingPlan from '@components/Saas/PricingPlan';
-import GetStarted from '@components/Saas/GetStarted';
-import Feedback from '@components/Saas/Feedback';
-import Partner from '@components/Saas/Partner';
+import Experience from '@Modules/Home/Components/Experience';
+import PaymentList from '@Modules/Home/Components/PaymentList';
+import Navbar from '@layouts/components/navbar';
+import Footer from '@layouts/components/footer';
+
 const Home = () => {
   return (
     <div className="home__page">
-      {/* <Banner /> */}
-      <Features />
-      <BuyNow />
-      <BuyCourse />
-      <ListCourse />
-      <Overview />
-      <JoinCard />
-      <CtaCard />
-      <SaasTools />
-      <Funfact />
-      <WorkProcess />
-      <PricingPlan />
-      <GetStarted />
-      <Feedback />
-      <Partner />
-      {/* <Footer /> */}
+      <div className="app-content content">
+        <div className="content-wrapper">
+          <div className="content-header">
+            <Navbar />
+          </div>
+          <div className="content-body">
+            <Features />
+            <BuyNow />
+            <BuyCourse />
+            <ListCourse />
+            <Experience />
+            <PaymentList />
+          </div>
+          <div className="content-footer">
+            <Footer />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

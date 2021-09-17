@@ -4,7 +4,6 @@ import Navbar from '@layouts/components/navbar';
 import Footer from '@layouts/components/footer';
 
 const BlankLayout = ({ children, ...rest }) => {
-
   // ** States
   const [isMounted, setIsMounted] = useState(false);
 
@@ -18,21 +17,7 @@ const BlankLayout = ({ children, ...rest }) => {
     return null;
   }
 
-  return (
-    <div className="blank-page">
-      <div className="app-content content">
-        <div className="content-wrapper">
-          <div className="content-header">
-            <Navbar />
-          </div>
-          <div className="content-body">{children}</div>
-          <div className="content-footer">
-            <Footer />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return <div className="blank-page">{children}</div>;
 };
 
 export default BlankLayout;

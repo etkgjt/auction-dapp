@@ -14,9 +14,10 @@ import navigation from '@src/navigation';
 import * as actionsCommon from '@store/common/actions';
 import { getCodeLanguage } from '@store/common/selectors';
 
-const Navbar = () => {
+const Navbar = (props) => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
+
   const pathname = window.location.pathname;
 
   /*Selectors*/
@@ -25,13 +26,10 @@ const Navbar = () => {
   /*State*/
   const [collapsed, setCollapsed] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
+  const [activeMenu, setActiveMenu] = useState();
 
   const layOutCls = '';
   const logo = require('@src/assets/images/logo.png').default;
-  if (pathname === '/digital-marketing') {
-    layOutCls = 'marketing-navbar';
-    logo = require('@src/assets/images/logo2.png').default;
-  }
 
   const classOne = collapsed
     ? 'collapse navbar-collapse'
@@ -59,9 +57,15 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setActiveMenu(pathname);
+  }, [pathname]);
+
   const handleOnSubmit = (e) => {
     dispatch(actionsCommon.setLanguage(e.target.value));
   };
+
+  console.log('A', props);
 
   return (
     <header id="header">
@@ -93,7 +97,7 @@ const Navbar = () => {
                   {navigation.map((item) => (
                     <li
                       className={`nav-item ${
-                        item.to === pathname ? 'active' : ''
+                        item.to === activeMenu ? 'active' : ''
                       }`}
                       key={item.id}
                     >
@@ -123,7 +127,7 @@ const Navbar = () => {
                   <form onChange={handleOnSubmit}>
                     <div className="select-box">
                       <select
-                        class="selectpicker form-select"
+                        className="selectpicker form-select"
                         value={lang}
                         id="lang"
                       >

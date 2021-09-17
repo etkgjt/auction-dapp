@@ -6,7 +6,7 @@ const isServer = typeof window === 'undefined';
 const WOW = !isServer ? require('wowjs') : null;
 
 const options = {
-  autoplay: false,
+  autoplay: true,
   nav: false,
   loop: true,
   mouseDrag: true,

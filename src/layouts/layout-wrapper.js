@@ -1,11 +1,5 @@
-// ** React Imports
-import { Fragment, useEffect } from 'react';
-
 // ** Third Party Components
 import classnames from 'classnames';
-
-// ** Store & Actions
-import { useSelector, useDispatch } from 'react-redux';
 
 // ** Styles
 import 'animate.css/animate.css';
@@ -20,8 +14,6 @@ const LayoutWrapper = (props) => {
         [wrapperClass]: wrapperClass,
       })}
     >
-      <div className="content-overlay"></div>
-      <div className="header-navbar-shadow" />
       <div>{children}</div>
     </div>
   );

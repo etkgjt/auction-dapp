@@ -29,6 +29,8 @@ import InitApp from './InitApp';
 /*Api*/
 import apiMethod from '@utility/ApiMethod';
 
+import Spinner from '@components/spinner/fallback-spinner';
+
 const Bootstrap = () => {
   const [loaded, setLoaded] = useState(false);
   const auth = JSON.parse(localStorage.getItem('persist:Auth'));
@@ -128,7 +130,7 @@ const Bootstrap = () => {
     /*End Setup language*/
     return (
       <Provider store={store}>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Spinner />}>
           <PersistGate loading={null} persistor={persist}>
             <I18nextProvider i18n={i18next}>
               <InitApp
