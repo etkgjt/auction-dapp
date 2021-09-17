@@ -74,44 +74,6 @@ const Features = () => {
           </div>
         </div>
       </div>
-
-      <div className="shape7">
-        <img
-          src={require('@src/assets/images/shape7.png').default}
-          alt="shape"
-        />
-      </div>
-      <div className="shape3">
-        <img src={require('@src/assets/images/shape3.png').default} alt="img" />
-      </div>
-      <div className="bg-gray shape-1"></div>
-      <div className="shape6">
-        <img src={require('@src/assets/images/shape6.png').default} alt="img" />
-      </div>
-      <div className="shape8 rotateme">
-        <img
-          src={require('@src/assets/images/shape8.svg').default}
-          alt="shape"
-        />
-      </div>
-      <div className="shape9">
-        <img
-          src={require('@src/assets/images/shape9.svg').default}
-          alt="shape"
-        />
-      </div>
-      <div className="shape10">
-        <img
-          src={require('@src/assets/images/shape10.svg').default}
-          alt="shape"
-        />
-      </div>
-      <div className="shape11 rotateme">
-        <img
-          src={require('@src/assets/images/shape11.svg').default}
-          alt="shape"
-        />
-      </div>
     </section>
   );
 };
