@@ -46,6 +46,9 @@ const Banner = () => {
             <div className="row h-100 justify-content-center align-items-center">
               <div className="d-title">
                 <span>{t("Introduce:bannerTitle")}</span>
+                <div style={{marginBottom: "10px"}} className="section-title">
+                  <div className="bar"></div>
+                </div>
               </div>
               <div className={"banner-frame-video"}>
                 <img
@@ -57,14 +60,42 @@ const Banner = () => {
                     src={require('../assets/images/star.png').default}
                     className="wow fadeInDown frame-video-star"
                     alt="frame-video"
-                    data-wow-delay="0.6s"
+                    data-wow-delay="0.3s"
                 />
                 <img
                     src={require('../assets/images/star-2.png').default}
                     className="wow fadeInDown frame-video-star-2"
                     alt="frame-video"
-                    data-wow-delay="0.6s"
+                    data-wow-delay="0.3s"
                 />
+
+                <img
+                    src={require('../assets/images/avatar.png').default}
+                    className="wow zoomIn frame-video-avatar"
+                    alt="frame-video"
+                    data-wow-delay="0.8s"
+                />
+                <img
+                    src={require('../assets/images/title-1.png').default}
+                    className="wow zoomInRight frame-video-title-1"
+                    alt="frame-video"
+                    data-wow-delay="0.8s"
+                />
+                <img
+                    src={require('../assets/images/title-2.png').default}
+                    className="wow zoomInLeft frame-video-title-2"
+                    alt="frame-video"
+                    data-wow-delay="0.8s"
+                />
+                <img
+                    src={require('../assets/images/title-3.png').default}
+                    className="wow zoomIn frame-video-title-3"
+                    alt="frame-video"
+                    data-wow-delay="0.8s"
+                />
+                <h2 data-wow-delay="0.5s" className="wow zoomIn frame-video-title-main">
+                  Giới thiệu Siêu trí nhớ học đường
+                </h2>
               </div>
             </div>
           </div>
