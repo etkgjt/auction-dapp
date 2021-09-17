@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-owl-carousel3';
+import {useTranslation} from "react-i18next";
 
 const isServer = typeof window === 'undefined';
 const WOW = !isServer ? require('wowjs') : null;
@@ -21,6 +22,8 @@ const options = {
 
 const Banner = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const {t} = useTranslation();
+
   useEffect(() => {
     new WOW.WOW({
       boxClass: 'wow',
@@ -36,60 +39,36 @@ const Banner = () => {
   };
 
   return (
-    <div className="main-banner saas-home">
+    <div className="wrap-frame-video">
       <div className="d-table">
         <div className="d-table-cell">
-          <div className="container top__padding">
-            <div className="row h-100 justify-content-center align-items-center">
-              <div className="d-title">
-                <span>Giới thiệu siêu trí nhớ học đường</span>
+          <div className="container">
+            <div className="row justify-content-center align-items-center">
+              <div className="frame-title">
+                <h1>{t("Introduce:bannerTitle")}</h1>
               </div>
-              <div className="d-carousel">
-                <Carousel
-                  className="blog-slides owl-carousel owl-theme"
-                  {...options}
-                >
-                  <div className="col-lg-12 col-md-12">
-                    <div className="container bg__slider">
-                      <img
-                        src={
-                          require('@src/assets/images/slider-img1.png').default
-                        }
-                        alt="blog-image"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-12 col-md-12">
-                    <div className="bg__slider">
-                      <img
-                        src={
-                          require('@src/assets/images/slider-img1.png').default
-                        }
-                        alt="blog-image"
-                      />
-                    </div>
-                  </div>{' '}
-                  <div className="col-lg-12 col-md-12">
-                    <div className="bg__slider">
-                      <img
-                        src={
-                          require('@src/assets/images/slider-img1.png').default
-                        }
-                        alt="blog-image"
-                      />
-                    </div>
-                  </div>{' '}
-                  <div className="col-lg-12 col-md-12">
-                    <div className="bg__slider">
-                      <img
-                        src={
-                          require('@src/assets/images/slider-img1.png').default
-                        }
-                        alt="blog-image"
-                      />
-                    </div>
-                  </div>{' '}
-                </Carousel>
+              <div className={"banner-frame-video"}>
+                <img
+                    src={require('../assets/images/frame-video.png').default}
+                    className="wow zoomIn frame-video-frame"
+                    alt="frame video"
+                />
+                <img
+                    src={require('../assets/images/star.png').default}
+                    className="wow fadeInDown frame-video-star"
+                    alt="frame-video"
+                    data-wow-delay="0.6s"
+                />
+                <img
+                    src={require('../assets/images/star-2.png').default}
+                    className="wow fadeInDown frame-video-star-2"
+                    alt="frame-video"
+                    data-wow-delay="0.6s"
+                />
+                <div className={"frame-video-content"}>
+                  <h1 className={"frame-video-title"}>Giới Thiệu Siêu Trí Nhớ Học Đường</h1>
+                </div>
+
               </div>
             </div>
           </div>
