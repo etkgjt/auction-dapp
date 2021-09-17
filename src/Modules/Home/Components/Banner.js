@@ -53,7 +53,7 @@ const Banner = () => {
               alt="blog-image"
             />
           </div>
-        </div>{' '}
+        </div>
         <div className="col-lg-12 col-md-12">
           <div className="bg__slider">
             <img
@@ -61,7 +61,7 @@ const Banner = () => {
               alt="blog-image"
             />
           </div>
-        </div>{' '}
+        </div>
         <div className="col-lg-12 col-md-12">
           <div className="bg__slider">
             <img
@@ -69,7 +69,7 @@ const Banner = () => {
               alt="blog-image"
             />
           </div>
-        </div>{' '}
+        </div>
       </Carousel>
     </div>
   );
