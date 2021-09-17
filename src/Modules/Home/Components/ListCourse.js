@@ -33,11 +33,7 @@ const ListCourse = () => {
                 </p>
               </div>
               <div className="list-course__action">
-                <a
-                  className="list-course__btn"
-                  style={{ backgroundColor: '#D74A96' }}
-                  href="/#"
-                >
+                <a className="list-course__btn btn btn-pink" href="/#">
                   Xem chi tiết
                 </a>
               </div>
@@ -68,11 +64,7 @@ const ListCourse = () => {
                 </p>
               </div>
               <div className="list-course__action">
-                <a
-                  className="list-course__btn"
-                  style={{ backgroundColor: '#6195FD' }}
-                  href="/#"
-                >
+                <a className="list-course__btn btn btn-light-blue" href="/#">
                   Xem chi tiết
                 </a>
               </div>
@@ -104,11 +96,7 @@ const ListCourse = () => {
                 </p>
               </div>
               <div className="list-course__action">
-                <a
-                  className="list-course__btn"
-                  style={{ backgroundColor: '#24B6B1' }}
-                  href="/#"
-                >
+                <a className="list-course__btn btn btn-mint" href="/#">
                   Xem chi tiết
                 </a>
               </div>
@@ -138,11 +126,7 @@ const ListCourse = () => {
                 </p>
               </div>
               <div className="list-course__action">
-                <a
-                  className="list-course__btn"
-                  style={{ backgroundColor: '#47821C' }}
-                  href="/#"
-                >
+                <a className="list-course__btn btn btn-green" href="/#">
                   Xem chi tiết
                 </a>
               </div>
@@ -173,11 +157,7 @@ const ListCourse = () => {
                 </p>
               </div>
               <div className="list-course__action">
-                <a
-                  className="list-course__btn"
-                  style={{ backgroundColor: '#7B70FF' }}
-                  href="/#"
-                >
+                <a className="list-course__btn btn btn-purple" href="/#">
                   Xem chi tiết
                 </a>
               </div>
@@ -208,11 +188,7 @@ const ListCourse = () => {
                 </p>
               </div>
               <div className="list-course__action">
-                <a
-                  className="list-course__btn"
-                  style={{ backgroundColor: '#FFC736' }}
-                  href="/#"
-                >
+                <a className="list-course__btn btn btn-yellow" href="/#">
                   Xem chi tiết
                 </a>
               </div>
