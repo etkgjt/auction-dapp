@@ -39,19 +39,19 @@ const Banner = () => {
   };
 
   return (
-    <div className="wrap-frame-video">
+    <div className="main-banner saas-home">
       <div className="d-table">
         <div className="d-table-cell">
-          <div className="container">
-            <div className="row justify-content-center align-items-center">
-              <div className="frame-title">
-                <h1>{t("Introduce:bannerTitle")}</h1>
+          <div className="container top__padding">
+            <div className="row h-100 justify-content-center align-items-center">
+              <div className="d-title">
+                <span>{t("Introduce:bannerTitle")}</span>
               </div>
               <div className={"banner-frame-video"}>
                 <img
                     src={require('../assets/images/frame-video.png').default}
-                    className="wow zoomIn frame-video-frame"
-                    alt="frame video"
+                    className="wow zoomIn"
+                    alt="frame-video"
                 />
                 <img
                     src={require('../assets/images/star.png').default}
@@ -65,10 +65,6 @@ const Banner = () => {
                     alt="frame-video"
                     data-wow-delay="0.6s"
                 />
-                <div className={"frame-video-content"}>
-                  <h1 className={"frame-video-title"}>Giới Thiệu Siêu Trí Nhớ Học Đường</h1>
-                </div>
-
               </div>
             </div>
           </div>
