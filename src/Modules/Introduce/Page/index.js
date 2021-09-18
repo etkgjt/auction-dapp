@@ -9,15 +9,10 @@ import MainAuthor from '@Modules/Introduce/Components/MainAuthor';
 import MainVideo from '@Modules/Introduce/Components/MainVideo';
 import TeacherList from '@Modules/Introduce/Components/TeacherList';
 import ButtonFixed from '@components/ButtonFixed';
-import JoinCard from '@components/Saas/JoinCard';
-import CtaCard from '@components/Saas/CtaCard';
-import SaasTools from '@components/Saas/SaasTools';
-import Funfact from '@components/Saas/Funfact';
-import WorkProcess from '@components/Saas/WorkProcess';
-import PricingPlan from '@components/Saas/PricingPlan';
-import GetStarted from '@components/Saas/GetStarted';
-import Feedback from '@components/Saas/Feedback';
-import Partner from '@components/Saas/Partner';
+import ExcellenceStudent from '@Modules/Introduce/Components/ExcellenceStudent';
+import Certification from '@Modules/Introduce/Components/Certification';
+import Partners from '@Modules/Introduce/Components/Partners';
+
 const Introduce = () => {
   return (
     <div className="introduce__page">
@@ -29,15 +24,9 @@ const Introduce = () => {
       <MainVideo />
       <TeacherList />
       <ButtonFixed />
-      {/* <JoinCard />
-      <CtaCard />
-      <SaasTools />
-      <Funfact />
-      <WorkProcess />
-      <PricingPlan />
-      <GetStarted />
-      <Feedback />
-      <Partner /> */}
+      <ExcellenceStudent />
+      <Certification />
+      <Partners />
     </div>
   );
 };

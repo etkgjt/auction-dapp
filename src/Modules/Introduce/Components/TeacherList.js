@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import ModalVideo from 'react-modal-video';
-import { PlayButtonIcon } from '@Modules/Introduce/assets/svg';
 
 const TeacherList = () => {
   const [isOpen, setIsOpen] = useState(false);
