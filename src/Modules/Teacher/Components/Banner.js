@@ -490,6 +490,42 @@ const Banner = () => {
           </div>
         </div>
       </div>
+      <div className="shape1">
+        <img
+          src={require('@Modules/Teacher/assets/images/star-1.png').default}
+          alt="img"
+        />
+      </div>
+      <div className="shape2">
+        <img
+          src={require('@Modules/Teacher/assets/images/star-2.png').default}
+          alt="img"
+        />
+      </div>
+      <div className="shape3">
+        <img
+          src={require('@Modules/Teacher/assets/images/star-3.png').default}
+          alt="img"
+        />
+      </div>
+      <div className="shape6">
+        <img
+          src={require('@Modules/Teacher/assets/images/star-1.png').default}
+          alt="img"
+        />
+      </div>
+      <div className="shape8 rotateme">
+        <img
+          src={require('@Modules/Teacher/assets/images/star-4.png').default}
+          alt="shape"
+        />
+      </div>
+      <div className="shape9">
+        <img
+          src={require('@Modules/Teacher/assets/images/star-3.png').default}
+          alt="shape"
+        />
+      </div>
     </section>
   );
 };
