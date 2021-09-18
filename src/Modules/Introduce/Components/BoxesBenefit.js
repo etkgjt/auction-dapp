@@ -202,6 +202,7 @@ const Boxes = () => {
           />
         </div>
       </div>
+      
     </section>
   );
 };

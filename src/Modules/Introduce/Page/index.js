@@ -4,6 +4,9 @@ import React from 'react';
 import Banner from '@Modules/Introduce/Components/Banner';
 import BoxesBenefit from '@Modules/Introduce/Components/BoxesBenefit';
 import CourseElite from '@Modules/Introduce/Components/CourseElite';
+import Advisory from '@Modules/Introduce/Components/Advisory';
+import MainAuthor from '@Modules/Introduce/Components/MainAuthor';
+import MainVideo from '@Modules/Introduce/Components/MainVideo';
 import Features from '@components/Saas/Features';
 import Overview from '@components/Saas/Overview';
 import JoinCard from '@components/Saas/JoinCard';
@@ -21,7 +24,9 @@ const Introduce = () => {
       <Banner />
       <BoxesBenefit />
       <CourseElite />
-      <Features />
+      <Advisory />
+      <MainAuthor />
+      <MainVideo />
       <Overview />
       <JoinCard />
       <CtaCard />

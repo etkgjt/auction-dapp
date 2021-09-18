@@ -15,3 +15,39 @@ export const PlayIcon = () => (
     />
   </svg>
 );
+
+export const PlayButtonIcon = () => (
+  <svg
+    width="54"
+    height="50"
+    viewBox="0 0 54 50"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M49.3263 25.0002C49.3263 36.5061 39.4472 45.8335 27.2607 45.8335C15.0742 45.8335 5.19507 36.5061 5.19507 25.0002C5.19507 13.4943 15.0742 4.16687 27.2607 4.16687C39.4472 4.16687 49.3263 13.4943 49.3263 25.0002ZM36.0868 25.0002L22.8474 16.6669V33.3335L36.0868 25.0002Z"
+      fill="#EFF0F7"
+    />
+  </svg>
+);
+
+export const TickIcon = () => (
+  <svg
+    width="31"
+    height="31"
+    viewBox="0 0 31 31"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="15.0018" cy="15.501" r="15" fill="#4A50FF" />
+    <path
+      d="M6.83252 15.5011L12.2803 20.9466L23.1713 10.0557"
+      stroke="white"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
