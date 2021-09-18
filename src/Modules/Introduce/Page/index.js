@@ -7,7 +7,7 @@ import CourseElite from '@Modules/Introduce/Components/CourseElite';
 import Advisory from '@Modules/Introduce/Components/Advisory';
 import MainAuthor from '@Modules/Introduce/Components/MainAuthor';
 import MainVideo from '@Modules/Introduce/Components/MainVideo';
-import Features from '@components/Saas/Features';
+import TeacherList from '@Modules/Introduce/Components/TeacherList';
 import Overview from '@components/Saas/Overview';
 import JoinCard from '@components/Saas/JoinCard';
 import CtaCard from '@components/Saas/CtaCard';
@@ -27,8 +27,8 @@ const Introduce = () => {
       <Advisory />
       <MainAuthor />
       <MainVideo />
-      <Overview />
-      <JoinCard />
+      <TeacherList />
+      {/* <JoinCard />
       <CtaCard />
       <SaasTools />
       <Funfact />
@@ -36,7 +36,7 @@ const Introduce = () => {
       <PricingPlan />
       <GetStarted />
       <Feedback />
-      <Partner />
+      <Partner /> */}
     </div>
   );
 };

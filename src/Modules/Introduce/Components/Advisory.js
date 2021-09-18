@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ModalVideo from 'react-modal-video';
 import { PlayButtonIcon } from '@Modules/Introduce/assets/svg';
 
-const CourseElite = () => {
+const Advisory = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -217,4 +217,4 @@ const CourseElite = () => {
   );
 };
 
-export default CourseElite;
+export default Advisory;
