@@ -10,7 +10,6 @@ export default {
     {
       url: 'details/:id',
       component: 'Page/Details',
-      layout: 'StickyLayout',
       meta: {
         authRoute: true,
       },
@@ -20,9 +19,8 @@ export default {
       },
     },
     {
-      url: ':id',
+      url: '',
       component: 'Page/index',
-      layout: 'StickyLayout',
       meta: {
         authRoute: true,
       },

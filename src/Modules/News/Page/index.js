@@ -6,20 +6,18 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 
 /*Components*/
-import BlogOne from '../Components/BlogOne';
-import BlogTwo from '../Components/BlogTwo';
+import BlogList from '@Modules/News/Components/BlogList';
 
 const translateKey = 'News';
 
-const News = ({ match: { params } }) => {
+const News = () => {
   const { t } = useTranslation();
 
-  switch (params.id) {
-    case 'two':
-      return <BlogTwo />;
-    default:
-      return <BlogOne />;
-  }
+  return (
+    <div className="news__page">
+      <BlogList />
+    </div>
+  );
 };
 
 export default News;

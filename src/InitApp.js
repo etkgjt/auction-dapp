@@ -16,6 +16,8 @@ const InitApp = ({ DefaultRoute, listRoutes, listNav }) => {
   const { i18n } = useTranslation();
   const [loaded, setLoaded] = useState(false);
 
+  console.log('roúe', listRoutes);
+
   /*Selectors*/
   const lang = useSelector((state) => getCodeLanguage(state));
 
