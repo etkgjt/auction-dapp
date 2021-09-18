@@ -1,0 +1,119 @@
+.fixed__left-button {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+
+    .btn-action {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        text-transform: uppercase;
+        position: relative;
+        border: 2px solid #FFBC17;
+        box-sizing: border-box;
+        z-index: 1;
+        transition: .9s;
+        height: 108px;
+        width: 180px;
+        background-color: #FFFFFF;
+        border-top-right-radius: 48px;
+        border-bottom-right-radius: 48px;
+
+        .btn-fixed__label {
+            max-width: 123px;
+            display: none;
+            opacity: 0;
+            transition: visibility 0s linear 300ms, opacity 300ms;
+
+            span {
+                font-style: normal;
+                font-weight: bold;
+                font-size: 18px;
+                line-height: 140%;
+                letter-spacing: 0.01em;
+                color: #FFC736;
+
+            }
+        }
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 0;
+            transition: .4s;
+            z-index: -1;
+        }
+
+        &:hover {
+            width: 300px;
+            border-radius: 48px;
+
+            .btn-fixed__img {
+
+
+                &::after {
+                    transition: .4s;
+                    animation: slide-in 0.5s forwards;
+                    -webkit-animation: slide-in 0.5s forwards;
+                }
+
+                &::before {
+                    transition: .4s;
+                    animation: slide-out 0.5s forwards;
+                    -webkit-animation: slide-out 0.5s forwards;
+                }
+            }
+
+            .btn-fixed__label {
+                display: block;
+                opacity: 1;
+                transition: visibility 0s linear 0s, opacity 300ms;
+
+
+            }
+        }
+    }
+}
+
+
+@keyframes slide-in {
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes slide-in {
+    100% {
+        -webkit-transform: translateX(0%);
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes slide-out {
+    0% {
+        -webkit-transform: translateX(0%);
+    }
+
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
+}

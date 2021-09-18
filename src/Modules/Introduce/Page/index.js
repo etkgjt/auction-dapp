@@ -8,7 +8,7 @@ import Advisory from '@Modules/Introduce/Components/Advisory';
 import MainAuthor from '@Modules/Introduce/Components/MainAuthor';
 import MainVideo from '@Modules/Introduce/Components/MainVideo';
 import TeacherList from '@Modules/Introduce/Components/TeacherList';
-import Overview from '@components/Saas/Overview';
+import ButtonFixed from '@components/ButtonFixed';
 import JoinCard from '@components/Saas/JoinCard';
 import CtaCard from '@components/Saas/CtaCard';
 import SaasTools from '@components/Saas/SaasTools';
@@ -28,6 +28,7 @@ const Introduce = () => {
       <MainAuthor />
       <MainVideo />
       <TeacherList />
+      <ButtonFixed />
       {/* <JoinCard />
       <CtaCard />
       <SaasTools />
