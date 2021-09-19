@@ -8,7 +8,7 @@ export default {
   pathRoot: 'news',
   routes: [
     {
-      url: 'details/:id',
+      url: ':id',
       component: 'Page/Details',
       meta: {
         authRoute: true,
