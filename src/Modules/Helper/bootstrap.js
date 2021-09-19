@@ -8,17 +8,6 @@ export default {
   pathRoot: 'help',
   routes: [
     {
-      url: 'payment-policy',
-      component: 'Page/Payment',
-      meta: {
-        authRoute: true,
-      },
-      props: {
-        title: 'Chính sách thanh toán | Siêu Trí Nhớ Học Đường',
-        titleI18n: 'Helper:title',
-      },
-    },
-    {
       url: 'payment-term',
       component: 'Page/Payment',
       meta: {
@@ -40,20 +29,10 @@ export default {
         titleI18n: 'Helper:title',
       },
     },
-    {
-      url: 'payment-term',
-      component: 'Page/Payment',
-      meta: {
-        authRoute: true,
-      },
-      props: {
-        title: 'Điều khoản thanh toán | Siêu Trí Nhớ Học Đường',
-        titleI18n: 'Helper:title',
-      },
-    },
+
     {
       url: 'private-policy',
-      component: 'Page/Payment',
+      component: 'Page/Private',
       meta: {
         authRoute: true,
       },

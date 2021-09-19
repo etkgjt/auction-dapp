@@ -133,6 +133,63 @@ const PaymentDetail = () => {
               </li>
             </ul>
           </div>
+          <div className="helper-title">
+            <div className="left-devider"></div>
+            <div className="hepler-title-text">
+              <span>Ghi chú khi chuyển khoản</span>
+            </div>
+          </div>
+          <div className="helper-content">
+            <p>
+              Tại mục “Ghi chú” khi chuyển khoản, bạn ghi rõ:{' '}
+              <span className="bold">
+                Số điện thoại – Họ và tên – Mã đơn hàng{' '}
+              </span>
+            </p>
+            <p>
+              <span className="bold">Ví dụ:</span> 0909090909 –Huong Lan –
+              000009
+            </p>
+            <p>
+              Sau khi xác nhận thanh toán thành công, thẻ cào sẽ được gửi về địa
+              chỉ của bạn.
+            </p>
+          </div>
+          <div className="helper-title">
+            <div className="left-devider"></div>
+            <div className="hepler-title-text">
+              <span>Phương thức 4: Thanh toán tại văn phòng</span>
+            </div>
+          </div>
+          <div className="helper-content">
+            <p>
+              <span className="bold">Địa chỉ văn phòng: </span>
+              778/11 Nguyễn Kiệm, Phường 4, Quận Phú Nhuận, Tp. Hồ Chí Minh
+            </p>
+            <p>Thời gian làm việc từ:</p>
+            <p>
+              08:00 – 18:00 thứ Hai đến thứ Sáu
+              <br />
+              08:00 – 12:00 thứ Bảy.
+              <br />
+              Chủ nhật và ngày lễ: Nghỉ
+              <br />
+            </p>
+          </div>
+          <div className="helper-title">
+            <div className="left-devider"></div>
+            <div className="hepler-title-text">
+              <span>CHÍNH SÁCH GIAO HÀNG</span>
+            </div>
+          </div>
+          <div className="helper-content">
+            <p>
+              Sau khi thanh toán thành công, hệ thống sẽ gửi cho quý khách một
+              thông báo xác nhận thanh toán thành công và quý khách có thể bắt
+              đầu tham gia khóa học.{' '}
+            </p>
+          </div>
+          <div className="devider-dash"></div>
         </div>
       </div>
     </section>

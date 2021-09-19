@@ -49,6 +49,7 @@
 
     .helper-area {
         position: relative;
+        margin-top: 35px;
         z-index: 1;
 
         .helper-banner-wrapper {
@@ -129,6 +130,18 @@
                 .helper-content {
                     margin-bottom: 40px;
 
+                    .helper-content-with-icon {
+                        display: flex;
+                        flex: 1;
+                        margin-bottom: 24px;
+
+                        .helper-content-icon {
+                            margin-right: 35px;
+                        }
+
+                    }
+
+
                     ul {
                         &.paragraph {
                             margin-bottom: 10px;
@@ -148,6 +161,13 @@
                             font-weight: bold;
                         }
                     }
+                }
+
+                .devider-dash {
+                    margin-top: 40px;
+                    margin-bottom: 68px;
+                    border-top: 1px dashed #000000;
+                    width: 100%;
                 }
             }
         }
