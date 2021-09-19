@@ -1,8 +1,6 @@
 @import '@assets/css/_variables.scss';
 
 .news__page {
-
-
     .pencil {
         position: absolute;
         top: 0;
@@ -10,10 +8,6 @@
     }
 
     .blog-area {
-
-        &.blog-detail-area {
-            background-image: url('@Modules/News/assets/images/bg-news.png') !important;
-        }
 
         .tabs {
             display: flex;

@@ -73,6 +73,11 @@ body {
     padding: 0;
     margin: 0;
 
+    background-color: #F8F8FC;
+    background-image: url('@src/assets/images/bg-frame.png');
+
+
+
     &::-webkit-scrollbar {
         width: 6px;
         height: 6px;
@@ -6189,7 +6194,6 @@ List course CSS
                 content: '';
                 position: absolute;
                 z-index: -1;
-                background: var(--whiteColor);
                 width: 96%;
                 opacity: .62;
                 height: 50%;
@@ -6823,7 +6827,6 @@ Analysis CSS
 Partner CSS
 =================================================*/
 .partner-area {
-    padding: 50px 0;
     border-top: 1px solid #edf5ff;
 
     .item {
