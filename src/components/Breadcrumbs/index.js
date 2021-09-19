@@ -9,44 +9,45 @@ import { BackIcon } from '@src/assets/svg';
 
 const BreadCrumbs = (props) => {
   // ** Props
-  const { breadCrumbs, backTo } = props;
+  const { breadCrumbs, backTo, rightComponent } = props;
 
   return (
     <div className="breadcrumb-wrapper">
-      <div class="page">
-        <div class="page__section">
-          {backTo && (
-            <div className="breadcrumb-back">
-              <Link to={backTo}>
-                <BackIcon />
-              </Link>
-            </div>
-          )}
-          <nav class="breadcrumb breadcrumb_type" aria-label="Breadcrumb">
-            <ol class="breadcrumb__list r-list">
-              {breadCrumbs?.length &&
-                breadCrumbs.map((item, index) => (
-                  <li key={`breadcrumb-${index}`} class="breadcrumb__group">
-                    {item.to ? (
-                      <Link class="breadcrumb__point r-link" to={item.to}>
-                        {item.title}
-                      </Link>
-                    ) : (
-                      <span class="breadcrumb__point" aria-current="page">
-                        {item.title}
-                      </span>
-                    )}
-                    {index + 1 < breadCrumbs.length && (
-                      <span class="breadcrumb__divider" aria-hidden="true">
-                        |
-                      </span>
-                    )}
-                  </li>
-                ))}
-            </ol>
-          </nav>
-        </div>
+      <div className="page__section">
+        {backTo && (
+          <div className="breadcrumb-back">
+            <Link to={backTo}>
+              <BackIcon />
+            </Link>
+          </div>
+        )}
+        <nav className="breadcrumb breadcrumb_type" aria-label="Breadcrumb">
+          <ol className="breadcrumb__list r-list">
+            {breadCrumbs?.length &&
+              breadCrumbs.map((item, index) => (
+                <li key={`breadcrumb-${index}`} className="breadcrumb__group">
+                  {item.to ? (
+                    <Link className="breadcrumb__point r-link" to={item.to}>
+                      {item.title}
+                    </Link>
+                  ) : (
+                    <span className="breadcrumb__point" aria-current="page">
+                      {item.title}
+                    </span>
+                  )}
+                  {index + 1 < breadCrumbs.length && (
+                    <span className="breadcrumb__divider" aria-hidden="true">
+                      |
+                    </span>
+                  )}
+                </li>
+              ))}
+          </ol>
+        </nav>
       </div>
+      {rightComponent && (
+        <div className="right-component">{rightComponent}</div>
+      )}
     </div>
   );
 };
