@@ -10,6 +10,11 @@
     }
 
     .blog-area {
+
+        &.blog-detail-area {
+            background-image: url('@Modules/News/assets/images/bg-news.png') !important;
+        }
+
         .tabs {
             display: flex;
             flex-direction: row;

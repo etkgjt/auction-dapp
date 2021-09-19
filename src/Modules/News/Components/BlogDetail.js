@@ -3,7 +3,7 @@ import BreadCrumbs from '@components/Breadcrumbs';
 
 const BlogDetail = () => {
   return (
-    <section className="blog-area blog-section">
+    <section className="blog-area blog-section blog-detail-area">
       <div className="container blog-header">
         <BreadCrumbs
           backTo="/news"
