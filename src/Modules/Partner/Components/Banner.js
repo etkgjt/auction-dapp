@@ -9,7 +9,7 @@ import PartnerList from './Tabs/PartnerList';
 import PartnerPolicy from './Tabs/PartnerPolicy';
 
 const Banner = () => {
-  const [activeKey, setActiveKey] = useState();
+  const [activeKey, setActiveKey] = useState('partnerList');
   return (
     <section className="partner-area">
       <div className="partner-banner">

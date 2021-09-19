@@ -481,4 +481,66 @@
         }
 
     }
+
+    .partner-level-tab-area{
+        .header-tab {
+            display: flex;
+            flex: 1;
+            margin-bottom: 70px;
+
+            .tabs-level {
+                display: flex;
+                flex: 1;
+                flex-direction: row;
+
+                .tab-item {
+                    flex: 1;
+                    align-items: center;
+                    background: #FFFFFF;
+                    padding: 16px;
+                    border: 2px solid #EFF0F7;
+                    box-sizing: border-box;
+                    border-radius: 20px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0px 24px;
+
+                    &.active,
+                    &:hover,
+                    &:focus {
+                        border: 2px solid var(--primaryColor2);
+
+                        .tab-label {
+                            span {
+                                color: var(--primaryColor2);
+                            }
+
+                        }
+
+                    }
+
+                    .tab-ico {
+                        margin-right: 16;
+                    }
+
+                    .tab-label {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        span {
+                            font-style: normal;
+                            font-weight: bold;
+                            font-size: 20px;
+                            line-height: 140%;
+                            text-align: center;
+                            color: #7C7C80;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import BreadCrumbs from '@components/Breadcrumbs';
-
 const Tabs = ({ tabs = [], defaultActiveKey, onChange, children }) => {
   const [active, setActive] = useState();
 
@@ -19,23 +17,6 @@ const Tabs = ({ tabs = [], defaultActiveKey, onChange, children }) => {
   return (
     <section className="partner-tab-area">
       <div className="container ptb-100 partner-list">
-        <div className="partner-header">
-          <BreadCrumbs
-            breadCrumbs={[
-              {
-                to: '/',
-                title: 'Trang chủ',
-              },
-              {
-                title: 'Đối tác',
-              },
-              {
-                title: 'Chính sách đối tác',
-              },
-            ]}
-            rightComponent={<a className="btn btn-blue">Đăng ký đối tác</a>}
-          />
-        </div>
         <div className="tabs">
           {tabs.map((item) => (
             <a
