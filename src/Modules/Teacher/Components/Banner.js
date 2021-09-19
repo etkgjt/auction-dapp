@@ -22,10 +22,10 @@ const Banner = () => {
                 <div className="search-icon">
                   <SearchIcon />
                 </div>
-                <div class="form-input">
+                <div className="form-input">
                   <input
                     type="text"
-                    class="search-control"
+                    className="search-control"
                     placeholder="Search"
                   />
                 </div>
@@ -35,7 +35,7 @@ const Banner = () => {
               <div className="search-box">
                 <div className="search-select">
                   <select
-                    class="form-select"
+                    className="form-select"
                     aria-label="Default select example"
                   >
                     <option selected>Open this select menu</option>
@@ -491,28 +491,16 @@ const Banner = () => {
         </div>
       </div>
       <div className="shape1">
-        <img
-          src={require('@src/assets/images/star-1.png').default}
-          alt="img"
-        />
+        <img src={require('@src/assets/images/star-1.png').default} alt="img" />
       </div>
       <div className="shape2">
-        <img
-          src={require('@src/assets/images/star-2.png').default}
-          alt="img"
-        />
+        <img src={require('@src/assets/images/star-2.png').default} alt="img" />
       </div>
       <div className="shape3">
-        <img
-          src={require('@src/assets/images/star-3.png').default}
-          alt="img"
-        />
+        <img src={require('@src/assets/images/star-3.png').default} alt="img" />
       </div>
       <div className="shape6">
-        <img
-          src={require('@src/assets/images/star-1.png').default}
-          alt="img"
-        />
+        <img src={require('@src/assets/images/star-1.png').default} alt="img" />
       </div>
       <div className="shape8 rotateme">
         <img

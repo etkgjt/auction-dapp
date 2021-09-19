@@ -1,17 +1,14 @@
+import '../bootstrap.scss';
+
 import React from 'react';
-import Navbar from '@components/Layouts/Navbar';
-import Footer from '@components/Layouts/Footer';
-import BannerTwo from '@components/Blog/BannerTwo';
-import DetailsContent from '@components/Blog/DetailsContent';
+
+import BlogDetail from '@Modules/News/Components/BlogDetail';
 
 const BlogDetails = () => {
   return (
-    <>
-      <Navbar />
-      <BannerTwo />
-      <DetailsContent />
-      <Footer />
-    </>
+    <div className="news__page">
+      <BlogDetail />
+    </div>
   );
 };
 

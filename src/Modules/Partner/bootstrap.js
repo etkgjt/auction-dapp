@@ -3,21 +3,10 @@ import intlMessagesVi from './i18n/localization/vi.json';
 // import initReducer from './Store/initReducer';
 
 export default {
-  name: 'News',
-  dir: 'News',
-  pathRoot: 'news',
+  name: 'Partner',
+  dir: 'Partner',
+  pathRoot: 'partners',
   routes: [
-    {
-      url: ':id',
-      component: 'Page/Details',
-      meta: {
-        authRoute: true,
-      },
-      props: {
-        title: 'Tin tức | Siêu Trí Nhớ Học Đường',
-        titleI18n: 'News:title',
-      },
-    },
     {
       url: '',
       component: 'Page/index',
@@ -25,8 +14,8 @@ export default {
         authRoute: true,
       },
       props: {
-        title: 'Tin tức | Siêu Trí Nhớ Học Đường',
-        titleI18n: 'News:title',
+        title: 'Đối tác | Siêu Trí Nhớ Học Đường',
+        titleI18n: 'Partner:title',
       },
     },
   ],
