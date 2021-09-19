@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Carousel from 'react-owl-carousel3';
 
 const isServer = typeof window === 'undefined';
@@ -12,7 +11,7 @@ const options = {
   mouseDrag: true,
   autoplayHoverPause: true,
   responsiveClass: true,
-  margin: 30,
+  margin: 0,
   dots: true,
   lazyLoad: true,
   items: 1,
@@ -36,7 +35,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="main-banner saas-home">
+    <div style={{background: "white"}} className="main-banner saas-home">
       <Carousel className="blog-slides owl-carousel owl-theme" {...options}>
         <div className="col-lg-12 col-md-12">
           <div className="bg__slider">

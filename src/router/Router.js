@@ -98,7 +98,7 @@ const Router = ({ Routes }) => {
                       });
 
                       return (
-                        <Suspense fallback={null}>
+                          <Suspense fallback={<div style={{height: "100vh"}}></div>}>
                           {/* Layout Wrapper to add classes based on route's layout, appLayout and className */}
                           <LayoutWrapper
                             layout={DefaultLayout}
