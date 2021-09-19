@@ -8,6 +8,17 @@ export default {
   pathRoot: 'support',
   routes: [
     {
+      url: ':id',
+      component: 'Page/Child',
+      meta: {
+        authRoute: true,
+      },
+      props: {
+        title: 'Hỗ trợ | Siêu Trí Nhớ Học Đường',
+        titleI18n: 'Support:title',
+      },
+    },
+    {
       url: '',
       component: 'Page/index',
       meta: {
