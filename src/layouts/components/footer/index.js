@@ -128,22 +128,22 @@ const Footer = () => {
 
                 <ul className="list">
                   <li>
-                    <Link to="#">Hỗ trợ</Link>
+                    <Link to="/support">Hỗ trợ</Link>
                   </li>
                   <li>
-                    <Link to="#">Hướng dẫn mua hàng</Link>
+                    <Link to="/help/buy-guide">Hướng dẫn mua hàng</Link>
                   </li>
                   <li>
-                    <Link to="/pricing-one">Điều khoản mua hàng</Link>
+                    <Link to="/help/payment-term">Điều khoản mua hàng</Link>
                   </li>
                   <li>
-                    <Link to="/#">Chính sách bảo mật</Link>
+                    <Link to="/help/private-policy">Chính sách bảo mật</Link>
                   </li>
                   <li>
-                    <Link to="/signup">Chính sách khiếu nại</Link>
+                    <Link to="/help/complain-policy">Chính sách khiếu nại</Link>
                   </li>
                   <li>
-                    <Link to="#">Chính sách đổi trả</Link>
+                    <Link to="/help/return-policy">Chính sách đổi trả</Link>
                   </li>
                 </ul>
               </div>

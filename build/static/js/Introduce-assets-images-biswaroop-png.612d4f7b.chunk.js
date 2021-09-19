@@ -1,0 +1,2 @@
+(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[167],{294:function(t,i,a){"use strict";a.r(i),i.default=a.p+"static/media/biswaroop.20e47cbb.png"}}]);
+//# sourceMappingURL=Introduce-assets-images-biswaroop-png.612d4f7b.chunk.js.map

@@ -1,0 +1,2 @@
+(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[231],{374:function(t,i,a){"use strict";a.r(i),i.default=a.p+"static/media/monitor.09eccd49.png"}}]);
+//# sourceMappingURL=Partner-assets-images-saas-shape-monitor-png.1283e98f.chunk.js.map

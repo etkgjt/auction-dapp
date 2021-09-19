@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 import { SearchIcon } from '@Modules/Partner/assets/svg';
 
@@ -10,6 +10,15 @@ import PartnerPolicy from './Tabs/PartnerPolicy';
 
 const Banner = () => {
   const [activeKey, setActiveKey] = useState('partnerList');
+
+  const tabs = useMemo(
+    () => [
+      { key: 'partnerList', title: 'Danh sách đối tác' },
+      { key: 'partnerPolicy', title: 'Chính sách đối tác' },
+    ],
+    []
+  );
+
   return (
     <section className="partner-area">
       <div className="partner-banner">
@@ -24,7 +33,7 @@ const Banner = () => {
 
         <div className="container partner-banner__search">
           <div className="row search-box">
-            <div className="col-lg-6 col-md-9">
+            <div className="col-lg-4 col-md-10">
               <div className="search-input">
                 <div className="search-icon">
                   <SearchIcon />
@@ -38,24 +47,28 @@ const Banner = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 col-md-8">
+            <div className="col-lg-4 col-md-7">
               <div className="search-box">
                 <div className="search-select">
-                  <select
-                    className="form-select"
-                    aria-label="Default select example"
-                  >
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                  <select className="form-select" aria-label="Chọn">
+                    <option selected>Tỉnh/Thành phố</option>
+                    <option value="1">TPHCM</option>
+                    <option value="2">Hà Nội</option>
+                    <option value="3">Đà Nẵng</option>
                   </select>
                 </div>
               </div>
             </div>
-            <div className="col-lg-2 col-md-7">
-              <div className="search-submit">
-                <a className="btn btn-primary btn-search">Tìm kiếm</a>
+            <div className="col-lg-4 col-md-7">
+              <div className="search-box">
+                <div className="search-select">
+                  <select className="form-select" aria-label="Chọn">
+                    <option selected>Quận/Huyện</option>
+                    <option value="1">TPHCM</option>
+                    <option value="2">Hà Nội</option>
+                    <option value="3">Đà Nẵng</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
@@ -81,17 +94,14 @@ const Banner = () => {
                 title: 'Đối tác',
               },
               {
-                title: 'Chính sách đối tác',
+                title: tabs.find((item) => item.key === activeKey)?.title,
               },
             ]}
             rightComponent={<a className="btn btn-blue">Đăng ký đối tác</a>}
           />
         </div>
         <Tabs
-          tabs={[
-            { key: 'partnerList', title: 'Danh sách đối tác' },
-            { key: 'partnerPolicy', title: 'Chính sách đối tác' },
-          ]}
+          tabs={tabs}
           defaultActiveKey="partnerList"
           onChange={setActiveKey}
         >

@@ -9,7 +9,6 @@
     align-items: center;
 
     .page__section {
-        background-color: var(--whiteColor);
         color: var(--darkColor);
         border-radius: 2px;
         display: flex;
@@ -61,7 +60,7 @@
                             font-weight: bold;
                             font-size: 20px;
                             line-height: 140%;
-                            color: #29292E;
+                            color: var(--primaryColor);
                         }
                     }
                 }

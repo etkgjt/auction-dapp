@@ -73,6 +73,11 @@ body {
     padding: 0;
     margin: 0;
 
+    background-color: #F8F8FC;
+    background-image: url('@src/assets/images/bg-frame.png');
+
+
+
     &::-webkit-scrollbar {
         width: 6px;
         height: 6px;
@@ -555,7 +560,6 @@ button {
 
     border: none;
     padding: 13px 31px;
-
     text-transform: uppercase;
     position: relative;
     box-shadow: 0 13px 27px 0 rgba(163, 48, 53, .25);
@@ -564,7 +568,7 @@ button {
 
 
     &.btn-primary {
-        border-radius: 5px;
+        border-radius: 20px;
 
         &::after,
         &::before {
@@ -576,7 +580,7 @@ button {
             transition: .4s;
             background: var(--templateColor);
             z-index: -1;
-            border-radius: 5px;
+            border-radius: 20px;
         }
     }
 
@@ -2928,8 +2932,10 @@ Features CSS
 
     .features-inner-content {
         max-width: 660px;
+
         .features-title {
             margin-bottom: 24px;
+
             span {
                 font-style: normal;
                 font-weight: 800;
@@ -6185,23 +6191,8 @@ List course CSS
             margin-bottom: 60px;
             padding: 0.75rem;
 
-            &::before {
-                content: '';
-                position: absolute;
-                z-index: -1;
-                background: var(--whiteColor);
-                width: 96%;
-                opacity: .62;
-                height: 50%;
-                bottom: -6px;
-                left: 0;
-                right: 0;
-                margin: auto;
-                border-radius: 20px;
-                transition: .4s;
-            }
-
             &:hover {
+                border-radius: 20px;
                 box-shadow: 0 10px 25px 5px rgba(137, 173, 255, .35);
                 transform: translate(0, -10px);
                 background-color: var(--whiteColor);
@@ -6823,7 +6814,6 @@ Analysis CSS
 Partner CSS
 =================================================*/
 .partner-area {
-    padding: 50px 0;
     border-top: 1px solid #edf5ff;
 
     .item {
@@ -9318,6 +9308,6 @@ textarea.form-control {
     height: auto !important;
 }
 
-.content-body{
+.content-body {
     min-height: 100vh;
 }
