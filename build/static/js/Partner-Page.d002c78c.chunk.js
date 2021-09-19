@@ -1,0 +1,2 @@
+(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[43,234],{328:function(t,e,a){},78:function(t,e,a){"use strict";a.r(e);a(328),a(1);var n=a(171),c=a(5);e.default=function(){return Object(c.jsx)("div",{className:"partner__page",children:Object(c.jsx)(n.default,{})})}}}]);
+//# sourceMappingURL=Partner-Page.d002c78c.chunk.js.map
