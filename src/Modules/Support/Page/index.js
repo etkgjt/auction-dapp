@@ -23,7 +23,7 @@ const Support = () => {
       </div>
       <div className="shape8 rotateme">
         <img
-          src={require('@src/assets/images/star-5.png').default}
+          src={require('@src/assets/images/star-4.png').default}
           alt="shape"
         />
       </div>

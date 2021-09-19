@@ -25,7 +25,218 @@ const Banner = () => {
           <span>Câu hỏi thường gặp</span>
         </div>
         <div className="bar" />
-        <div className="row"></div>
+        <div className="cotainer faq-box">
+          <div className="faq-item">
+            <div className="faq-item-title">
+              <span>ĐẶT HÀNG VÀ THANH TOÁN</span>
+            </div>
+            <ul className="faq-list">
+              <div className="row">
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+              </div>
+            </ul>
+          </div>
+          <div className="faq-item">
+            <div className="faq-item-title">
+              <span>DỊCH VỤ VÀ CHƯƠNG TRÌNH</span>
+            </div>
+            <ul className="faq-list">
+              <div className="row">
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Chương Trình "Rẻ Hơn Hoàn Tiền"</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+              </div>
+            </ul>
+          </div>
+          <div className="faq-item">
+            <div className="faq-item-title">
+              <span>ĐỔI TRẢ, BẢO HÀNH VÀ BỒI HOÀN</span>
+            </div>
+            <ul className="faq-list">
+              <div className="row">
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+              </div>
+            </ul>
+          </div>
+          <div className="faq-item">
+            <div className="faq-item-title">
+              <span>TÀI KHOẢN CỦA TÔI</span>
+            </div>
+            <ul className="faq-list">
+              <div className="row">
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+              </div>
+            </ul>
+          </div>
+          <div className="faq-item">
+            <div className="faq-item-title">
+              <span>TÀI KHOẢN CỦA TÔI</span>
+            </div>
+            <ul className="faq-list">
+              <div className="row">
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+                <div className="col-lg-4 col-md-6">
+                  <li>
+                    <a>Các câu hỏi thưởng gặp</a>
+                  </li>
+                  <li>
+                    <a>Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a>Thanh toán tại Tiki</a>
+                  </li>
+                </div>
+              </div>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );
