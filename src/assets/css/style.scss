@@ -2399,7 +2399,7 @@ Main Banner CSS
     left: 0;
     width: 100%;
     height: auto;
-    z-index: -1;
+    z-index: 1;
 
     img {
         width: 100%;
@@ -2927,11 +2927,9 @@ Features CSS
     margin-top: 60px;
 
     .features-inner-content {
-        max-width: 640px;
-
+        max-width: 660px;
         .features-title {
             margin-bottom: 24px;
-
             span {
                 font-style: normal;
                 font-weight: 800;
@@ -9318,4 +9316,8 @@ Back To Top CSS
 
 textarea.form-control {
     height: auto !important;
+}
+
+.content-body{
+    min-height: 100vh;
 }

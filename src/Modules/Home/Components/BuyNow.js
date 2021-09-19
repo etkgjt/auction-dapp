@@ -1,33 +1,58 @@
-import React, { Fragment } from 'react';
+import React, {Fragment, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import {useTranslation} from "react-i18next";
+const isServer = typeof window === 'undefined';
+const WOW = !isServer ? require('wowjs') : null;
 
 const BuyNow = () => {
+  const { t } = useTranslation();
+  useEffect(() => {
+    new WOW.WOW({
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 20,
+      mobile: true,
+      live: true,
+    }).init();
+  }, []);
+
   return (
     <Fragment>
-      <section className="overview-section">
+      <section className="overview-section home_buy_now">
+        <img
+            className="home-line-2 wow slideInRight"
+            src={
+              require('../assets/images/line-2.png').default
+            }
+            alt="line 1"
+        />
         <div className="container">
           <div className="overview-box">
             <div className="row h-100 justify-content-center align-items-center">
-              <div className="col-lg-6 col-md-6 overview-content">
-                <div className="overview-content__title">
-                  <span>Phiên bản mới giúp học tập hiệu quả</span>
+              <div style={{maxWidth: "500px", position: "relative", zIndex: 3}} className="col-lg-4 col-md-4 overview-content">
+                <div className="wow slideInLeft overview-content__title">
+                  <span>
+                    {t("Home:buyNowVersionNew")}
+                  </span>
                 </div>
-                <div className="overview-content__main">
+                <div data-wow-delay="0.5s" className="wow zoomIn overview-content__main">
                   <p>
-                    Với 2 phiên bản desktop và mobile giúp bạn thoải mái. học
-                    mọi lúc mọi nơi, tiết kiệm thời gian tuyệt đối
+                    {t("Home:buyNowContent")}
                   </p>
                 </div>
 
-                <Link to="/#">
-                  <a className="btn btn-blue">Mua ngay</a>
+                <Link data-wow-delay="0.5s" className="wow zoomIn btn-buy-now" to="/#">
+                  <a className="btn btn-blue">
+                    {t("Home:buyNowBtn")}
+                  </a>
                 </Link>
               </div>
 
-              <div className="col-lg-6 col-md-6 overview-img">
+              <div className="col-lg-8 col-md-8 overview-img buy-now-image">
                 <img
+                    data-wow-delay="0.2s" data-wow-offset="300" className="wow slideInDown"
                   src={
-                    require('@src/assets/images/mobile-template1.png').default
+                    require('../assets/images/buynow-avatar.png').default
                   }
                   alt="mobile-template"
                 />
