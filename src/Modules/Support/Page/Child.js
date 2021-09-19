@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 /*Components*/
 import Banner from '@Modules/Support/Components/Banner';
 import Student from '@Modules/Support/Components/GuideStudents';
+import RateEdit from '@Modules/Support/Components/RateEdit';
 
 /*Api*/
 
@@ -18,6 +19,8 @@ const CreateEdit = ({ match: { params } }) => {
     switch (params.id) {
       case 'student':
         return <Student />;
+      case 'rate-edit':
+        return <RateEdit />;
       default:
         return <Student />;
     }
