@@ -41,16 +41,16 @@ const BuyNow = () => {
                   </p>
                 </div>
 
-                <Link data-wow-delay="0.5s" className="wow zoomIn btn-buy-now" to="/#">
-                  <a className="btn btn-blue">
-                    {t("Home:buyNowBtn")}
-                  </a>
+                <Link data-wow-delay="0.5s" className="wow zoomIn btn-buy-now btn btn-blue" to="/#">
+                  {t("Home:buyNowBtn")}
                 </Link>
               </div>
 
               <div className="col-lg-8 col-md-8 overview-img buy-now-image">
                 <img
-                    data-wow-delay="0.2s" data-wow-offset="300" className="wow slideInDown"
+                    data-wow-delay="0.2s"
+                    data-wow-offset="300"
+                    className="wow slideInDown"
                   src={
                     require('../assets/images/buynow-avatar.png').default
                   }
