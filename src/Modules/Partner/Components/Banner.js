@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 import { SearchIcon } from '@Modules/Partner/assets/svg';
 
@@ -10,6 +10,15 @@ import PartnerPolicy from './Tabs/PartnerPolicy';
 
 const Banner = () => {
   const [activeKey, setActiveKey] = useState('partnerList');
+
+  const tabs = useMemo(
+    () => [
+      { key: 'partnerList', title: 'Danh sách đối tác' },
+      { key: 'partnerPolicy', title: 'Chính sách đối tác' },
+    ],
+    []
+  );
+
   return (
     <section className="partner-area">
       <div className="partner-banner">
@@ -81,17 +90,14 @@ const Banner = () => {
                 title: 'Đối tác',
               },
               {
-                title: 'Chính sách đối tác',
+                title: tabs.find((item) => item.key === activeKey)?.title,
               },
             ]}
             rightComponent={<a className="btn btn-blue">Đăng ký đối tác</a>}
           />
         </div>
         <Tabs
-          tabs={[
-            { key: 'partnerList', title: 'Danh sách đối tác' },
-            { key: 'partnerPolicy', title: 'Chính sách đối tác' },
-          ]}
+          tabs={tabs}
           defaultActiveKey="partnerList"
           onChange={setActiveKey}
         >

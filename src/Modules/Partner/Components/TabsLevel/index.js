@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 const TabsLevel = ({ tabs = [], defaultActiveKey, onChange, children }) => {
-  console.log('tab', tabs);
   const [active, setActive] = useState();
 
   useEffect(() => {
