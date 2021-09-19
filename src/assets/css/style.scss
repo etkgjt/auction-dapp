@@ -2933,8 +2933,10 @@ Features CSS
 
     .features-inner-content {
         max-width: 660px;
+
         .features-title {
             margin-bottom: 24px;
+
             span {
                 font-style: normal;
                 font-weight: 800;
@@ -6190,22 +6192,8 @@ List course CSS
             margin-bottom: 60px;
             padding: 0.75rem;
 
-            &::before {
-                content: '';
-                position: absolute;
-                z-index: -1;
-                width: 96%;
-                opacity: .62;
-                height: 50%;
-                bottom: -6px;
-                left: 0;
-                right: 0;
-                margin: auto;
-                border-radius: 20px;
-                transition: .4s;
-            }
-
             &:hover {
+                border-radius: 20px;
                 box-shadow: 0 10px 25px 5px rgba(137, 173, 255, .35);
                 transform: translate(0, -10px);
                 background-color: var(--whiteColor);
@@ -9321,6 +9309,6 @@ textarea.form-control {
     height: auto !important;
 }
 
-.content-body{
+.content-body {
     min-height: 100vh;
 }
