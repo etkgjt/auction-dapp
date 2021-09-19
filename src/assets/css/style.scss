@@ -560,7 +560,6 @@ button {
 
     border: none;
     padding: 13px 31px;
-
     text-transform: uppercase;
     position: relative;
     box-shadow: 0 13px 27px 0 rgba(163, 48, 53, .25);
@@ -569,7 +568,7 @@ button {
 
 
     &.btn-primary {
-        border-radius: 5px;
+        border-radius: 20px;
 
         &::after,
         &::before {
@@ -581,7 +580,7 @@ button {
             transition: .4s;
             background: var(--templateColor);
             z-index: -1;
-            border-radius: 5px;
+            border-radius: 20px;
         }
     }
 

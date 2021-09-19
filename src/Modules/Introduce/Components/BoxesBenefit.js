@@ -197,7 +197,7 @@ const Boxes = () => {
         </div>
         <div className="bear-creative">
           <img
-            src={require('@Modules/Introduce/assets/images/bear.svg').default}
+            src={require('@src/assets/svg/bear.svg').default}
             alt="bear"
           />
         </div>
