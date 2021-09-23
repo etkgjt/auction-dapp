@@ -1,54 +1,158 @@
-@import '@assets/css/_variables.scss';
+@import "@assets/css/_variables.scss";
 
+.header-inner {
+  width: 100vw;
+}
 .navbar {
-    .nav__select {
-        margin-bottom: 0;
-
-        .form-select {
-            background: #EFF0F7;
-            border: none;
-            border-radius: 10px;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-image: url('@src/assets/images/arrow-select.svg');
-            background-repeat: no-repeat;
-            background-position-x: 100%;
-            background-position-y: bottom;
-
-            #lang option[id="vi"] {
-                background-image: url('@src/assets/images/vietnam-flag.svg');
-                background-repeat: no-repeat;
-                background-position-x: 100%;
-                background-position-y: bottom;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-            }
-
-            #lang option[id="en"] {
-                background-image: url('@src/assets/images/us-flag.svg');
-                background-repeat: no-repeat;
-                background-position-x: 100%;
-                background-position-y: bottom;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-            }
-
-
-            &:hover,
-            &:focus,
-            &:active {
-                border: 1px solid var(--primaryColor);
-            }
-
+  background: var(--lightOrange);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 16px 30px 16px 30px;
+  height: 90px;
+  .others-option {
+    display: flex;
+    flex-direction: row;
+    .nav-user-progress-container {
+      display: flex;
+      flex-direction: row;
+      margin-right: 66px;
+      align-items: center;
+      .user-point-wrapper {
+        position: relative;
+        & > span {
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 29px;
+          text-align: center;
+          color: #ffffff;
+          position: absolute;
+          left: 50%;
+          top: 25%;
         }
-
-
-        .select__language {
-            width: 80px;
-
-
-
+      }
+      .progress-info-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        & > span {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 22px;
+          color: var(--primaryColor);
+          margin-bottom: 4px;
         }
+        .progress-bar-wrapper {
+          position: relative;
+          .done-progress-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+      }
     }
-
+  }
+  .nav__select {
+    margin-bottom: 0;
+    cursor: pointer;
+    background: var(--orange1);
+    position: relative;
+    height: 45px;
+    padding: 12px 45px 12px 16px;
+    border-radius: 10px;
+    &.login {
+      padding: 0px 0px 0px 0px;
+    }
+    .nav__select-text {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      color: white;
+    }
+    .user-icon-wrapper {
+      position: absolute;
+      top: -6px;
+      right: -20px;
+      width: 56px;
+      height: 56px;
+      z-index: 99;
+    }
+    .nav-dropdown-container {
+      position: absolute;
+      top: 20px;
+      right: 0px;
+      min-height: 375px;
+      width: 300px;
+      background: white;
+      border-radius: 40px 0px 40px 40px;
+      .info-dropdown-container {
+        padding: 45px 24px 30px 24px;
+        .info-dropdown__item {
+          color: #1e3d74;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 22px;
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          &.active {
+            color: var(--primaryColor);
+          }
+          &:hover {
+            color: var(--primaryColor2);
+            transform: translateX(5px);
+            transition: transform 0.1s ease-in-out;
+          }
+        }
+      }
+      .signin-form-container {
+        padding: 45px 26px 30px 26px;
+        .signin-form__signin-button {
+          position: relative;
+          &:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease-in-out;
+          }
+          & > span {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+            text-align: center;
+            color: #ffffff;
+          }
+        }
+        .signin-form__forgot-password-button {
+          font-style: italic;
+          text-align: center;
+          font-size: 18px;
+          line-height: 22px;
+          color: #1e3d74;
+          margin-bottom: 10px;
+          font-weight: 300;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        .signin-form__signup-button {
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 22px;
+          text-align: center;
+          color: #1e3d74;
+          margin-top: 30px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }

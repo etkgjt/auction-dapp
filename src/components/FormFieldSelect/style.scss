@@ -1,0 +1,23 @@
+.form-label {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #7c7c80;
+  margin-bottom: 8px;
+}
+.select__control {
+  height: 52px;
+}
+.select__control--is-focused {
+  border: 1px solid #6dc6eb;
+}
+.select__placeholder {
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: #7c7c80;
+  margin-bottom: 0px;
+}
+.select__indicator-separator {
+  background-color: white;
+}

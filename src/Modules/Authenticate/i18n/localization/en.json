@@ -1,0 +1,100 @@
+{
+  "FormSignIn": {
+    "title": "Log in",
+    "forgot_user_name": "Forget username",
+    "forgot_password": "Forget password",
+    "not_have_acc": "No account yet? ",
+    "btn_sign_in": "Log in",
+    "btn_sign_up": "Register",
+    "field": {
+      "user_name": "Username",
+      "password": "Password"
+    },
+    "errors": {
+      "user_name_or_password.wrong": "Incorrect username or password."
+    }
+  },
+  "FormSignUp": {
+    "title": "Register for Super Memory for Schools",
+    "sub_title": "Log in details",
+    "forgot_user_name": "Forget username",
+    "forgot_password": "Forget password",
+    "not_have_acc": "No account yet?  ",
+    "btn_confirm": "Xác nhận",
+    "btn_sign_in": "Log in",
+    "btn_sign_up": "Register",
+    "field": {
+      "user_name": "Username",
+      "password": "Password",
+      "confirm_password": "Confirm Password",
+      "parent_fullname": "Parent's full name",
+      "parent_name": "Parent's name",
+      "student_name": "Student's name",
+      "school_name": "School",
+      "class_name": "Grade",
+      "children_name": "Student's name",
+      "name_placeholder": "Enter name...",
+      "user_name_placeholder": "Enter username...",
+      "password_placeholder": "Enter password...",
+      "confirm_password_placeholder": "Re-enter password...",
+      "school_placeholder": "Enter School name...",
+      "class_placeholder": "Enter grade..."
+    },
+    "errors": {
+      "user_name_or_password.wrong": "Incorrect username or password.",
+      "confirm_password_not_match": "Confirm password doesn't match"
+    }
+  },
+  "FormForgotPassword": {
+    "title": "Forget password",
+    "title_description": "Please enter Username and Phone number \nor Email to recover password",
+    "btn_forgot_password": "Forgot password",
+    "field": {
+      "user_name": "Username",
+      "number_phone_or_email": "Phone number or Email"
+    },
+    "errors": {
+      "info.wrong": "Incorrect information, please check."
+    }
+  },
+  "FormForgotUsername": {
+    "title": "Forget Username",
+    "title_description": "Please enter Username and Phone number \nor Email to recover username",
+    "btn_forgot_user_name": "Forgot username",
+    "field": {
+      "number_phone_or_email": "Phone number or Email"
+    },
+    "errors": {
+      "info.wrong": "Incorrect information, please check."
+    }
+  },
+  "FormVerifyAccount": {
+    "title": "Verify Account",
+    "title_description_phone": "Please enter OTP sent to \n{_Phone_} to verify",
+    "title_description_email": "Please enter OTP sent to \n{_Email_} to verify",
+    "btn_verify": "Verify",
+    "field": {
+      "otp": "OTP"
+    },
+    "info": {
+      "verify.success": "Successfully Verified."
+    },
+    "errors": {
+      "otp.wrong": "Incorrect OTP."
+    }
+  },
+  "YourAccountInformation": {
+    "title": "Your account information",
+    "all": "All",
+    "new": "Latest",
+    "10_days_ago": "10 Days ago",
+    "field": {
+      "full_name": "Full name",
+      "user_name": "Username",
+      "password": "Password",
+      "registration_date": "Registration Date",
+      "last_login_date": "Last login date",
+      "course_activated": "Course activated"
+    }
+  }
+}

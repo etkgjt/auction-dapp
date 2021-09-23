@@ -1,20 +1,21 @@
 // ** React Imports
-import { useEffect, useState } from 'react';
-import Navbar from '@layouts/components/navbar';
-import Footer from '@layouts/components/footer';
+import { useEffect, useState } from "react"
+import Navbar from "@layouts/components/navbar"
+import Footer from "@layouts/components/footer"
+import "./styles.scss"
 
 const BlankLayout = ({ children, ...rest }) => {
   // ** States
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false)
 
   //** ComponentDidMount
   useEffect(() => {
-    setIsMounted(true);
-    return () => setIsMounted(false);
-  }, []);
+    setIsMounted(true)
+    return () => setIsMounted(false)
+  }, [])
 
   if (!isMounted) {
-    return null;
+    return null
   }
 
   return (
@@ -31,7 +32,7 @@ const BlankLayout = ({ children, ...rest }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default BlankLayout;
+export default BlankLayout

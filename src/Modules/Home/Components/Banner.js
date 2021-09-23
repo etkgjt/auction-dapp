@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Carousel from 'react-owl-carousel3';
+import React, { useState, useEffect } from "react"
+import Carousel from "react-owl-carousel3"
 
-const isServer = typeof window === 'undefined';
-const WOW = !isServer ? require('wowjs') : null;
+const isServer = typeof window === "undefined"
+const WOW = !isServer ? require("wowjs") : null
 
 const options = {
   autoplay: true,
@@ -15,32 +15,36 @@ const options = {
   dots: true,
   lazyLoad: true,
   items: 1,
-  autoHeight: true,
-};
+  autoHeight: true
+}
 
 const Banner = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     new WOW.WOW({
-      boxClass: 'wow',
-      animateClass: 'animated',
+      boxClass: "wow",
+      animateClass: "animated",
       offset: 20,
       mobile: true,
-      live: true,
-    }).init();
-  }, []);
+      live: true
+    }).init()
+  }, [])
 
   const openModal = () => {
-    setIsOpen(true);
-  };
+    setIsOpen(true)
+  }
 
   return (
-    <div style={{background: "white"}} className="main-banner saas-home">
-      <Carousel className="blog-slides owl-carousel owl-theme" {...options}>
+    <div style={{ background: "white" }} className="main-banner saas-home">
+      <Carousel
+        className="blog-slides owl-carousel owl-theme"
+        {...options}
+        // dotsClass="home-banner-dots-container"
+      >
         <div className="col-lg-12 col-md-12">
           <div className="bg__slider">
             <img
-              src={require('@src/assets/images/home-banner1.png').default}
+              src={require("@src/assets/images/home-banner1.png").default}
               alt="blog-image"
             />
           </div>
@@ -48,7 +52,7 @@ const Banner = () => {
         <div className="col-lg-12 col-md-12">
           <div className="bg__slider">
             <img
-              src={require('@src/assets/images/home-banner1.png').default}
+              src={require("@src/assets/images/home-banner1.png").default}
               alt="blog-image"
             />
           </div>
@@ -56,7 +60,7 @@ const Banner = () => {
         <div className="col-lg-12 col-md-12">
           <div className="bg__slider">
             <img
-              src={require('@src/assets/images/home-banner1.png').default}
+              src={require("@src/assets/images/home-banner1.png").default}
               alt="blog-image"
             />
           </div>
@@ -64,14 +68,14 @@ const Banner = () => {
         <div className="col-lg-12 col-md-12">
           <div className="bg__slider">
             <img
-              src={require('@src/assets/images/home-banner1.png').default}
+              src={require("@src/assets/images/home-banner1.png").default}
               alt="blog-image"
             />
           </div>
         </div>
       </Carousel>
     </div>
-  );
-};
+  )
+}
 
-export default Banner;
+export default Banner

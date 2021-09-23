@@ -1,4 +1,9 @@
-import { ENV_ENVIRONMENT_BASE_URL_API } from './environment';
-export const BASE_URL_API = ENV_ENVIRONMENT_BASE_URL_API;
+import { ENV_ENVIRONMENT_BASE_URL_API } from "./environment"
+export const BASE_URL_API = ENV_ENVIRONMENT_BASE_URL_API
 
-export default {};
+export default {
+  /*Common*/ GET_COMMON_GET_CITY: "/Province",
+  GET_COMMON_GET_DISTRICT: "/District",
+  GET_LIST_CLASS: "/SchoolClass"
+  /*End Common*/
+}

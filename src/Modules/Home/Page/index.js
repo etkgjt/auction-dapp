@@ -1,25 +1,19 @@
-import '../bootstrap.scss';
+import "../bootstrap.scss"
 
-import React from 'react';
-import Banner from '@Modules/Home/Components/Banner';
-import Features from '@Modules/Home/Components/Features';
-import BuyNow from '@Modules/Home/Components/BuyNow';
-import BuyCourse from '@Modules/Home/Components/BuyCourse';
-import ListCourse from '@Modules/Home/Components/ListCourse';
-import Experience from '@Modules/Home/Components/Experience';
-import PaymentList from '@Modules/Home/Components/PaymentList';
+import React from "react"
+import Banner from "@Modules/Home/Components/Banner"
+import Reason from "@Modules/Home/Components/Reason"
+import Rules from "@Modules/Home/Components/Rules"
+import News from "@Modules/Home/Components/News"
 
 const Home = () => {
   return (
     <div className="home__page">
       <Banner />
-      <Features />
-      <BuyNow />
-      <BuyCourse />
-      <ListCourse />
-      <Experience />
-      <PaymentList />
+      <Reason />
+      <Rules />
+      <News />
     </div>
-  );
-};
-export default Home;
+  )
+}
+export default Home
