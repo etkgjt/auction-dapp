@@ -1,4 +1,9 @@
 export default [
+  { key: "Achievement" },
+  { key: "Profile" },
+  { key: "Ranking" },
+  { key: "Rules" },
+  { key: "Ambassador" },
   { key: "Authenticate" },
   { key: "About" },
   { key: "Contact" },

@@ -1,16 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import { Formik } from "formik"
 import { useTranslation } from "react-i18next"
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardTitle,
-  Form,
-  Row,
-  Col,
-  Button
-} from "reactstrap"
+import { Form, Row, Col, Button } from "reactstrap"
 import FormField from "../../../components/FormField"
 import { Camera } from "react-feather"
 
@@ -41,6 +32,12 @@ import {
 } from "../store/auth/selectors"
 import "../styles/index.scss"
 
+import {
+  FormSignupInfoWrapper,
+  FormSignUpAccountInfoWrapper,
+  ForgotPasswordButton
+} from "../assets/icon"
+
 const Signup = () => {
   const { i18n } = useTranslation()
   const history = useHistory()
@@ -53,6 +50,8 @@ const Signup = () => {
   const [keyCity, setKeyCity] = useState(1)
   const [itemsDistrict, setItemsDistrict] = useState([])
   const [keyDistrict, setKeyDistrict] = useState(1)
+  const [itemsClass, setItemsClass] = useState([])
+  const [keyClass, setKeyClass] = useState(1)
 
   const codeLanguage = useSelector((state) => state.common?.codeLanguage || [])
   const [loadingOtp, setLoadingOtp] = useState(false)
@@ -90,6 +89,17 @@ const Signup = () => {
       setItemsCity([])
     }
     setKeyCity(keyCity + 1)
+  }
+
+  const getListClass = async () => {
+    try {
+      const res = await apiCommon.getListClass()
+      setItemsClass(
+        res.data?.data?.map((item) => ({ label: item?.name, value: item?.id }))
+      )
+    } catch (err) {
+      setItemsClass([])
+    }
   }
 
   const getListDistrict = async (field) => {
@@ -176,9 +186,8 @@ const Signup = () => {
   }, [formSubmitSuccess, error])
 
   useEffect(() => {
-    dispatch(getProvince())
-    // dispatch(getDistrict(1))
-    dispatch(getSchoolClass())
+    getListCity()
+    getListClass()
   }, [])
 
   useEffect(() => {
@@ -206,6 +215,12 @@ const Signup = () => {
     }
   }, [userAvatar])
 
+  React.useEffect(() => {
+    if (keyCity) {
+      getListDistrict(keyCity)
+    }
+  }, [keyCity])
+
   return (
     <Formik
       innerRef={formRef}
@@ -215,250 +230,182 @@ const Signup = () => {
     >
       {(formik) => {
         return (
-          <Form className="px-3" onSubmit={(ev) => ev.preventDefault()}>
-            <Card>
-              <CardHeader className="m-auto">
-                <CardTitle className="card-head-title text-danger">
-                  {i18n.t("FormSignUp:title")}
-                </CardTitle>
-              </CardHeader>
-              <CardBody>
-                <Row>
-                  <Col xs={12} md={9}>
-                    <Card className="card-gray mb-1">
-                      <CardBody>
-                        <CustomLabel type="subtitles" className="mb-2">
-                          {i18n.t("FormSignUp:sub_title")}
-                        </CustomLabel>
-                        <Row>
-                          <Col xs={12} lg={6}>
-                            <FormField
-                              field="username"
-                              {...formik}
-                              label={i18n.t(`FormSignUp:field:user_name`)}
-                              placeholder={i18n.t(`FormSignUp:field:user_name`)}
-                              className="mb-2"
-                            ></FormField>
-                          </Col>
-                          <Col xs={12} lg={6}>
-                            <FormField
-                              field="password"
-                              type="password"
-                              {...formik}
-                              label={i18n.t(`FormSignUp:field:password`)}
-                              placeholder={i18n.t(`FormSignUp:field:password`)}
-                            ></FormField>
-                          </Col>
-                          <Col xs={12} lg={6}>
-                            <FormField
-                              field="confirm_password"
-                              type="password"
-                              {...formik}
-                              label={i18n.t(
-                                `FormSignUp:field:confirm_password`
-                              )}
-                              placeholder={i18n.t(
-                                `FormSignUp:field:confirm_password`
-                              )}
-                            ></FormField>
-                          </Col>
-                        </Row>
-                      </CardBody>
-                    </Card>
-                    <Card className="card-gray mb-1">
-                      <CardBody>
-                        <CustomLabel type="subtitles" className="mb-2">
-                          {i18n.t("FormSignUp:student_information")}
-                        </CustomLabel>
-                        <Row>
-                          <Col xs={12} lg={6}>
-                            <FormField
-                              field="parent_fullname"
-                              {...formik}
-                              label={i18n.t(`FormSignUp:field:parent_fullname`)}
-                              placeholder={i18n.t(
-                                `FormSignUp:field:parent_fullname`
-                              )}
-                              className="mb-2"
-                            ></FormField>
-                          </Col>
-                          <Col xs={12} lg={6}>
-                            <FormField
-                              field="student_name"
-                              {...formik}
-                              label={i18n.t(`FormSignUp:field:student_name`)}
-                              placeholder={i18n.t(
-                                `FormSignUp:field:student_name`
-                              )}
-                            ></FormField>
-                          </Col>
-                          <Col xs={12} lg={6}>
-                            <FormField
-                              field="school_name"
-                              {...formik}
-                              label={i18n.t(`FormSignUp:field:school_name`)}
-                              placeholder={i18n.t(
-                                `FormSignUp:field:school_name`
-                              )}
-                              className="mb-2"
-                            ></FormField>
-                          </Col>
-                          <Col xs={12} lg={6}>
-                            <FormFieldSelect
-                              borderLight
-                              field="class_name"
-                              {...formik}
-                              valueDefault={formik.values.class_name}
-                              handleChange={(value) =>
-                                formik.setFieldValue("class_name", value)
-                              }
-                              label={i18n.t(`FormSignUp:field:class_name`)}
-                              placeholder={i18n.t(
-                                `FormSignUp:field:class_name`
-                              )}
-                              options={[]}
-                              className="mb-2"
-                            ></FormFieldSelect>
-                          </Col>
-                          <Col xs={12} lg={6}>
-                            <FormFieldSelect
-                              borderLight
-                              field="city"
-                              {...formik}
-                              valueDefault={formik.values.city}
-                              handleChange={(value) => {
-                                formik.setValues({
-                                  ...formik.values,
-                                  city: value,
-                                  district: ""
-                                })
-                                dispatch(getDistrict(value))
-                              }}
-                              label={i18n.t(`common:city`)}
-                              placeholder={i18n.t(`common:city`)}
-                              options={itemsDistrict}
-                              className="mb-2"
-                            ></FormFieldSelect>
-                          </Col>
-                          <Col xs={12} lg={6}>
-                            <FormFieldSelect
-                              borderLight
-                              field="district"
-                              {...formik}
-                              valueDefault={formik.values.district}
-                              handleChange={(value) =>
-                                formik.setFieldValue("district", value)
-                              }
-                              label={i18n.t(`common:district`)}
-                              placeholder={i18n.t(`common:district`)}
-                              options={itemsDistrict}
-                            ></FormFieldSelect>
-                          </Col>
-                          <Col xs={12}>
-                            <FormField
-                              field="address"
-                              {...formik}
-                              label={i18n.t(`common:address`)}
-                              placeholder={i18n.t(`common:address`)}
-                            ></FormField>
-                          </Col>
-                        </Row>
-                      </CardBody>
-                    </Card>
-                    <Card className="card-gray mb-1">
-                      <CardBody>
-                        <CustomLabel type="subtitles" className="mb-2">
-                          {i18n.t("FormSignUp:enter_credentials")}
-                        </CustomLabel>
-                        <Row>
-                          <Col xs={12} lg={6}>
-                            <FormField
-                              field="email"
-                              {...formik}
-                              label={i18n.t(`common:email`)}
-                              placeholder={i18n.t(`common:email`)}
-                              className="mb-2"
-                            ></FormField>
-                          </Col>
-                          <Col xs={12} lg={6}>
-                            <div className="d-flex">
-                              <FormField
-                                className="mr-1 w-100"
-                                field="phone"
-                                {...formik}
-                                label={i18n.t(`common:phone`)}
-                                placeholder={i18n.t(`common:phone`)}
-                              ></FormField>
-                              <Button
-                                style={{
-                                  marginTop: 25,
-                                  width: 100,
-                                  height: 52
-                                }}
-                                color="orange"
-                                disabled={Boolean(formik.errors.phone)}
-                                loading={loadingOtp}
-                                onClick={() => getOtp(formik.values.phone)}
-                              >
-                                {i18n.t("FormSignUp:send_otp")}
-                              </Button>
-                            </div>
-                          </Col>
-                          <Col xs={12}>
-                            <FormField
-                              field="otp"
-                              {...formik}
-                              label={i18n.t(`FormSignUp:field:otp`)}
-                              placeholder={i18n.t(`FormSignUp:field:otp`)}
-                            ></FormField>
-                          </Col>
-                        </Row>
-                      </CardBody>
-                    </Card>
-                  </Col>
-                </Row>
-                <Row className="d-flex flex-row justify-content-end">
-                  <div className="w-75 d-flex flex-row justify-content-end">
-                    <div className="w-50 d-flex flex-row">
-                      <Col
-                        className="d-flex justify-content-end"
-                        style={{ height: 48 }}
-                      >
+          <Form
+            autocomplete="chrome-off"
+            className="px-3"
+            onSubmit={(ev) => ev.preventDefault()}
+          >
+            <div className="form-signup-container">
+              <div className="form-signup__login-info-container">
+                <FormSignUpAccountInfoWrapper />
+                <div className="form-signup__login-info-field-wrapper">
+                  <FormField
+                    field="username"
+                    {...formik}
+                    placeholder={i18n.t(`FormSignUp:field:user_name`)}
+                  />
+                  <FormField
+                    field="password"
+                    type="password"
+                    {...formik}
+                    placeholder={i18n.t(`FormSignUp:field:password`)}
+                  />
+                  <FormField
+                    field="confirm_password"
+                    type="password"
+                    {...formik}
+                    placeholder={i18n.t(`FormSignUp:field:confirm_password`)}
+                  />
+                  <FormField
+                    field="invite_code"
+                    {...formik}
+                    placeholder={"Mã giới thiệu (nếu có)"}
+                  />
+                  <span className="form-signup-description">
+                    Vui lòng nhớ Tên đăng nhập để đăng nhập vào Tài Khoản
+                  </span>
+                </div>
+              </div>
+              <div className="form-signup__user-info-container">
+                <FormSignupInfoWrapper />
+                <div className="form-signup__user-info-field-container">
+                  <Row>
+                    <Col xl="3" lg="3" md="3">
+                      <span className="form-signup-field-label">
+                        Họ và tên
+                        <br /> Học viên
+                      </span>
+                    </Col>
+                    <Col xl="9" lg="9" md="9">
+                      <FormField
+                        field="student_name"
+                        {...formik}
+                        placeholder={i18n.t(`FormSignUp:field:student_name`)}
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xl="3" lg="3" md="3">
+                      <span className="form-signup-field-label">
+                        Trường <br />
+                        đang học
+                      </span>
+                    </Col>
+                    <Col xl="6" lg="6" md="6">
+                      <FormField field="school_name" {...formik} />
+                    </Col>
+                    <Col xl="3" lg="3" md="3">
+                      <FormFieldSelect
+                        borderLight
+                        field="class_name"
+                        {...formik}
+                        valueDefault={formik.values.class_name}
+                        handleChange={(value) =>
+                          formik.setFieldValue("class_name", value)
+                        }
+                        placeholder={"Lớp"}
+                        options={itemsClass}
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xl="3" lg="3" md="3">
+                      <span className="form-signup-field-label">
+                        Địa chỉ <br />
+                        đang ở
+                      </span>
+                    </Col>
+                    <Col xl="5" lg="5" md="5">
+                      <FormFieldSelect
+                        borderLight
+                        field="city"
+                        {...formik}
+                        valueDefault={formik.values.city}
+                        handleChange={(value) => {
+                          formik.setValues({
+                            ...formik.values,
+                            city: value,
+                            district: ""
+                          })
+                          setKeyCity(value)
+                        }}
+                        placeholder={"Tỉnh/ Thành phố"}
+                        options={itemsCity}
+                      />
+                    </Col>
+                    <Col xl="4" lg="5" md="6">
+                      <FormFieldSelect
+                        borderLight
+                        field="district"
+                        {...formik}
+                        valueDefault={formik.values.district}
+                        handleChange={(value) =>
+                          formik.setFieldValue("district", value)
+                        }
+                        placeholder={"Quận/ Huyện"}
+                        options={itemsDistrict}
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xl="3" lg="3" md="3">
+                      <span className="form-signup-field-label">
+                        Họ và tên
+                        <br /> Phụ huynh
+                      </span>
+                    </Col>
+                    <Col xl="9" lg="9" md="9">
+                      <FormField
+                        field="parent_fullname"
+                        {...formik}
+                        placeholder={i18n.t(`FormSignUp:field:parent_fullname`)}
+                      />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xl="6" lg="6" md="6">
+                      <FormField
+                        field="email"
+                        {...formik}
+                        placeholder={"Email"}
+                      />
+                    </Col>
+                    <Col xl="6" lg="6" md="6">
+                      <FormField
+                        className="mr-1 w-100"
+                        field="phone"
+                        {...formik}
+                        placeholder={"Điện thoại"}
+                      />
+                    </Col>
+                  </Row>
+                  <Row className="d-flex flex-row justify-content-center">
+                    <Col xl="8" lg="8" md="8">
+                      <div className="form-signup-otp-input-wrapper">
+                        <FormField
+                          field="otp"
+                          {...formik}
+                          placeholder={"Mã OTP xác thực"}
+                          className="m-0 w-100"
+                        />
                         <Button
-                          className="buttonWhite"
-                          onClick={() => {
-                            history.push("/home")
-                          }}
-                          block
+                          className="send-otp-button"
+                          // disabled={Boolean(formik.errors.phone)}
+                          loading={loadingOtp}
+                          onClick={() => getOtp(formik.values.phone)}
                         >
-                          {i18n.t("FormActive:cancel")}
+                          {"Gửi OTP"}
                         </Button>
-                      </Col>
-                      <Col
-                        className="d-flex justify-content-end"
-                        style={{ height: 48 }}
-                      >
-                        <Button
-                          onClick={() => {
-                            if (cropImageRef.current?.submitCrop) {
-                              cropImageRef.current?.submitCrop()
-                              return
-                            }
-                            formik.handleSubmit()
-                          }}
-                          type="submit"
-                          color="danger"
-                          block
-                        >
-                          {i18n.t("FormSignUp:btn_sign_up")}
-                        </Button>
-                      </Col>
-                    </div>
-                  </div>
-                </Row>
-              </CardBody>
-            </Card>
-            <div className="paddingView" />
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+              </div>
+              <div className="form-signup__submit-button">
+                <ForgotPasswordButton />
+                <span>Hoàn thành đăng ký</span>
+              </div>
+            </div>
           </Form>
         )
       }}

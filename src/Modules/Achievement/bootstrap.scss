@@ -1,0 +1,237 @@
+@import "../../assets/css/variables";
+.profile-area {
+  padding-left: 8vw;
+  padding-right: 8vw;
+  margin-top: 120px;
+  margin-bottom: 80px;
+  .profile-progress-area {
+    padding: 48px 20px 48px 20px;
+    background: #ffc61a;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .profile-progress__title {
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 36px;
+      text-align: center;
+      color: #ffffff;
+    }
+    .profile-progress__point-wrapper {
+      position: relative;
+      margin-top: 32px;
+      .profile-progress__point {
+        position: absolute;
+        font-weight: bold;
+        font-size: 50px;
+        line-height: 60px;
+        text-align: center;
+        color: #ffffff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-10%, -50%);
+      }
+    }
+    .profile-progress__progress-bar-wrapper {
+      width: 100%;
+      margin-top: 56px;
+
+      position: relative;
+      .profile-progress__done-progress-wrapper {
+        overflow: hidden;
+        border-radius: 20px;
+        position: absolute;
+        top: 10px;
+        left: 6px;
+      }
+      .profile-progress__left-icon-wrapper {
+        position: absolute;
+        top: 0;
+        left: -10px;
+      }
+      .profile-progress__right-icon-wrapper {
+        position: absolute;
+        top: 0;
+        right: -20px;
+      }
+    }
+    .profile-progress__button-wrapper {
+      margin-top: 30px;
+      position: relative;
+      cursor: pointer;
+      &:active {
+        transform: scale(0.9);
+        transition: transform 0.2s ease-in-out;
+      }
+      .profile-progress__button-text {
+        user-select: none;
+        position: absolute;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        color: #ffffff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+      }
+    }
+  }
+
+  .achievement-container {
+    padding: 140px 10% 180px 10%;
+    background: #f16c1c;
+    border-radius: 40px;
+    position: relative;
+    .achievement-top-header-wrapper {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translate(-50%);
+    }
+    .achievement-footer {
+      position: absolute;
+      bottom: 0;
+      background: #ffc61a;
+      border-bottom-right-radius: 40px;
+      border-bottom-left-radius: 40px;
+      width: 100%;
+      left: 0;
+      padding: 25px 40px 25px 40px;
+      .copy-btn-title {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: #f16c1c;
+        margin-bottom: 6px;
+      }
+      .copy-field {
+        background: #fff;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 10px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: #c4c4c4;
+        .copy-code-button {
+          background: #555aff;
+          border-radius: 20px;
+          color: #fff;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 22px;
+          padding: 16px;
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+      }
+    }
+    .achievement-wrapper {
+      position: relative;
+      .form-profile-field-label {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: #ffffff;
+      }
+      .change-password-header-title {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 36px;
+        color: #ffffff;
+        text-align: center;
+        margin-top: 90px;
+        margin-bottom: 20px;
+      }
+      .group-btn-wrapper {
+        margin-top: 90px;
+      }
+      .update-profile-button-wrapper {
+        position: relative;
+        cursor: pointer;
+        &:active {
+          transform: scale(0.9);
+          transition: transform 0.1s ease-in;
+        }
+        .update-profile-button-label {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 22px;
+          text-align: center;
+          color: #ffffff;
+          user-select: none;
+        }
+        .update-profile-button-label-red {
+          user-select: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 22px;
+          text-align: center;
+          color: #f68317;
+        }
+      }
+    }
+    .achivement-item-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      background-color: #fff;
+      border-radius: 20px;
+      padding-right: 30px;
+      margin-bottom: 24px;
+      .achivement-item-image {
+        width: 130px;
+        height: auto;
+      }
+      .achivement-item-info-wrapper {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        .achivement-item-title {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 22px;
+          color: #f16c1c;
+          margin-bottom: 6px;
+        }
+        .achivement-item-subtitle {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 17px;
+          color: #c4c4c4;
+          margin-bottom: 6px;
+        }
+        .achivement-item-point {
+          font-weight: bold;
+          font-size: 24px;
+          line-height: 29px;
+          color: #ffc61a;
+          margin-bottom: 0;
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+}

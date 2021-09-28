@@ -1,42 +1,42 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from "react"
 /*Store state Redux Saga */
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import { persistStore, persistReducer } from 'redux-persist';
-import immutableTransform from 'redux-persist-transform-immutable';
-import { all } from '@redux-saga/core/effects';
-import storage from 'redux-persist/lib/storage';
+import { Provider } from "react-redux"
+import { PersistGate } from "redux-persist/integration/react"
+import { composeWithDevTools } from "redux-devtools-extension"
+import { createStore, applyMiddleware, compose, combineReducers } from "redux"
+import createSagaMiddleware from "redux-saga"
+import { persistStore, persistReducer } from "redux-persist"
+import immutableTransform from "redux-persist-transform-immutable"
+import { all } from "@redux-saga/core/effects"
+import storage from "redux-persist/lib/storage"
 
-import initRedux from '@store/redux';
-import initSagas from '@store/sagas';
-import { initApp } from '@utility/AppProvider';
+import initRedux from "@store/redux"
+import initSagas from "@store/sagas"
+import { initApp } from "@utility/AppProvider"
 
 /* Language */
-import { I18nextProvider, initReactI18next } from 'react-i18next';
-import i18next from 'i18next';
-import intlMessagesEn from '@src/i18n/localization/en.json';
-import intlMessagesVi from '@src/i18n/localization/vi.json';
+import { I18nextProvider, initReactI18next } from "react-i18next"
+import i18next from "i18next"
+import intlMessagesEn from "@src/i18n/localization/en.json"
+import intlMessagesVi from "@src/i18n/localization/vi.json"
 
 // ** Router Default
-import { DefaultRoute, Routes } from '@src/router/routes';
+import { DefaultRoute, Routes } from "@src/router/routes"
 
 //** Load App
-import InitApp from './InitApp';
+import InitApp from "./InitApp"
 
 /*Api*/
-import apiMethod from '@utility/ApiMethod';
+import apiMethod from "@utility/ApiMethod"
 
-import Spinner from '@components/spinner/fallback-spinner';
+import Spinner from "@components/spinner/fallback-spinner"
 
 const Bootstrap = () => {
-  const [loaded, setLoaded] = useState(false);
-  const auth = JSON.parse(localStorage.getItem('persist:Auth'));
-  let accessToken = auth?.accessToken;
+  const [loaded, setLoaded] = useState(false)
+  const auth = JSON.parse(localStorage.getItem("persist:Auth"))
+  let accessToken = auth?.accessToken
   if (accessToken) {
-    accessToken = JSON.parse(accessToken);
+    accessToken = JSON.parse(accessToken)
   }
   // const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -46,29 +46,29 @@ const Bootstrap = () => {
     listRedux: initRedux,
     listSagas: initSagas,
     listLangVi: intlMessagesVi,
-    listLangEn: intlMessagesEn,
-  });
+    listLangEn: intlMessagesEn
+  })
 
   useEffect(() => {
-    const isAuthenticated = accessToken ? true : false;
+    const isAuthenticated = accessToken ? true : false
     if (isAuthenticated) {
-      apiMethod.defaults.headers.common['Authorization'] = accessToken;
+      apiMethod.defaults.headers.common["Authorization"] = accessToken
     }
     const setupApp = async () => {
-      const res = await initApp(isAuthenticated);
-      const { resModules } = res;
+      const res = await initApp(isAuthenticated)
+      const { resModules } = res
       setModules({
         listRoutes: [...Routes, ...resModules.listRoutes],
         listCache: Object.values({ ...resModules.listCache }),
         listRedux: { ...initRedux, ...resModules.listRedux },
         listSagas: [...initSagas, ...resModules.listSagas],
         listLangVi: { ...intlMessagesVi, ...resModules.listLangVi },
-        listLangEn: { ...intlMessagesEn, ...resModules.listLangEn },
-      });
-      setLoaded(true);
-    };
-    setupApp().then();
-  }, [JSON.stringify(accessToken)]);
+        listLangEn: { ...intlMessagesEn, ...resModules.listLangEn }
+      })
+      setLoaded(true)
+    }
+    setupApp().then()
+  }, [JSON.stringify(accessToken)])
 
   const {
     listRedux,
@@ -77,56 +77,56 @@ const Bootstrap = () => {
     listCache,
     listLangVi,
     listLangEn,
-    listNav,
-  } = modules;
-
+    listNav
+  } = modules
+  console.log(listRoutes)
   if (loaded) {
     /*setup redux*/
     const persistConfig = {
-      key: 'root',
+      key: "root",
       transforms: [immutableTransform()],
       storage,
-      blacklist: listCache,
-    };
+      blacklist: listCache
+    }
     const composeEnhancers =
-      process.env.NODE_ENV === 'development'
+      process.env.NODE_ENV === "development"
         ? composeWithDevTools({
-            realtime: true,
+            realtime: true
           })
-        : compose;
-    const rootReducer = combineReducers(listRedux);
+        : compose
+    const rootReducer = combineReducers(listRedux)
     const rootSaga = function* () {
-      yield all(listSagas);
-    };
-    const sagaMiddleware = createSagaMiddleware();
-    const persistedReducer = persistReducer(persistConfig, rootReducer);
-    const middleware = [];
-    middleware.push(sagaMiddleware);
-    const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
-    const store = createStore(persistedReducer, enhancer);
-    const persist = persistStore(store);
-    sagaMiddleware.run(rootSaga);
+      yield all(listSagas)
+    }
+    const sagaMiddleware = createSagaMiddleware()
+    const persistedReducer = persistReducer(persistConfig, rootReducer)
+    const middleware = []
+    middleware.push(sagaMiddleware)
+    const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware))
+    const store = createStore(persistedReducer, enhancer)
+    const persist = persistStore(store)
+    sagaMiddleware.run(rootSaga)
     /*End redux*/
 
     /*Setup language*/
     i18next.use(initReactI18next).init({
-      fallbackLng: 'vi',
-      lng: 'vi',
+      fallbackLng: "vi",
+      lng: "vi",
       resources: {
         en: listLangEn,
-        vi: listLangVi,
+        vi: listLangVi
       },
       // have a common namespace used around the full app
-      ns: ['common'],
-      defaultNS: 'common',
+      ns: ["common"],
+      defaultNS: "common",
       debug: false,
       // cache: {
       //   enabled: true
       // },
       interpolation: {
-        escapeValue: false, // not needed for react as it does escape per default to prevent xss!
-      },
-    });
+        escapeValue: false // not needed for react as it does escape per default to prevent xss!
+      }
+    })
     /*End Setup language*/
     return (
       <Provider store={store}>
@@ -142,8 +142,8 @@ const Bootstrap = () => {
           </PersistGate>
         </Suspense>
       </Provider>
-    );
+    )
   }
-  return null;
-};
-export default Bootstrap;
+  return null
+}
+export default Bootstrap

@@ -7,17 +7,24 @@
 }
 .select__control {
   height: 52px;
+  border-radius: 20px;
 }
 .select__control--is-focused {
   border: 1px solid #6dc6eb;
 }
 .select__placeholder {
-  font-size: 14px;
-  line-height: 21px;
-  font-weight: 400;
-  color: #7c7c80;
-  margin-bottom: 0px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #1e3d74 !important;
 }
 .select__indicator-separator {
   background-color: white;
+}
+.select__dropdown-indicator > svg {
+  color: #f68317;
+}
+.select__menu {
+  min-width: 200px;
+  z-index: 999;
 }

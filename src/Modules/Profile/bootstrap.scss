@@ -1,0 +1,334 @@
+@import "../../assets/css/variables";
+.profile-area {
+  padding-left: 8vw;
+  padding-right: 8vw;
+  margin-top: 120px;
+  margin-bottom: 80px;
+  .profile-progress-area {
+    padding: 48px 20px 48px 20px;
+    background: #ffc61a;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .profile-progress__title {
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 36px;
+      text-align: center;
+      color: #ffffff;
+    }
+    .profile-progress__point-wrapper {
+      position: relative;
+      margin-top: 32px;
+      .profile-progress__point {
+        position: absolute;
+        font-weight: bold;
+        font-size: 50px;
+        line-height: 60px;
+        text-align: center;
+        color: #ffffff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-10%, -50%);
+      }
+    }
+    .profile-progress__progress-bar-wrapper {
+      width: 100%;
+      margin-top: 56px;
+
+      position: relative;
+      .profile-progress__done-progress-wrapper {
+        overflow: hidden;
+        border-radius: 20px;
+        position: absolute;
+        top: 10px;
+        left: 6px;
+      }
+      .profile-progress__left-icon-wrapper {
+        position: absolute;
+        top: 0;
+        left: -10px;
+      }
+      .profile-progress__right-icon-wrapper {
+        position: absolute;
+        top: 0;
+        right: -20px;
+      }
+    }
+    .profile-progress__button-wrapper {
+      margin-top: 30px;
+      position: relative;
+      cursor: pointer;
+      &:active {
+        transform: scale(0.9);
+        transition: transform 0.2s ease-in-out;
+      }
+      .profile-progress__button-text {
+        user-select: none;
+        position: absolute;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        color: #ffffff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+      }
+    }
+  }
+  .profile-armorial-area {
+    background: #ffffff;
+    border: 5px solid #f2f2f2;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px 20px 36px 20px;
+    margin-top: 42px;
+    .profile-armorial__title {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 36px;
+      text-align: center;
+      color: #f16c1c;
+    }
+    .profile-armorial__list-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+      .profile-armorial__img1 {
+        max-width: 130px;
+      }
+      .profile-armorial__img2 {
+        max-width: 130px;
+      }
+      .profile-armorial__img3 {
+        max-width: 130px;
+      }
+      .profile-armorial__img4 {
+        max-width: 130px;
+      }
+    }
+  }
+  .profile-friendlist-area {
+    margin-top: 32px;
+    .profile-friendlist-container {
+      position: relative;
+      .profile-friendlist-inner {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & > h1 {
+          font-weight: bold;
+          font-size: 30px;
+          line-height: 36px;
+          text-align: center;
+          color: #ffffff;
+          margin-top: 120px;
+          margin-bottom: 50px;
+        }
+        .friendlist-item-wrapper {
+          display: flex;
+          flex-direction: row;
+          padding-left: 40px;
+          padding-right: 40px;
+          align-items: center;
+          margin-bottom: 20px;
+          height: 80px;
+          .friendlist-item-rank {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 35px;
+            line-height: 42px;
+            text-align: center;
+            color: #ffffff;
+            margin-right: 16px;
+            text-shadow: #ffb42b 3px 0px 0px, #ffb42b 2.83487px 0.981584px 0px,
+              #ffb42b 2.35766px 1.85511px 0px, #ffb42b 1.62091px 2.52441px 0px,
+              #ffb42b 0.705713px 2.91581px 0px,
+              #ffb42b -0.287171px 2.98622px 0px,
+              #ffb42b -1.24844px 2.72789px 0px, #ffb42b -2.07227px 2.16926px 0px,
+              #ffb42b -2.66798px 1.37182px 0px, #ffb42b -2.96998px 0.42336px 0px,
+              #ffb42b -2.94502px -0.571704px 0px,
+              #ffb42b -2.59586px -1.50383px 0px,
+              #ffb42b -1.96093px -2.27041px 0px,
+              #ffb42b -1.11013px -2.78704px 0px,
+              #ffb42b -0.137119px -2.99686px 0px,
+              #ffb42b 0.850987px -2.87677px 0px,
+              #ffb42b 1.74541px -2.43999px 0px, #ffb42b 2.44769px -1.73459px 0px,
+              #ffb42b 2.88051px -0.838247px 0px;
+          }
+          .friendlist-item-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+            background: #c4c4c4;
+            border: 3px solid #fff;
+            margin-right: 20px;
+          }
+          .friendlist-item-info {
+            display: flex;
+            flex-direction: column;
+            .friendlist-item-level {
+              font-style: normal;
+              font-weight: bold;
+              font-size: 18px;
+              line-height: 22px;
+              color: #ffc61a;
+            }
+            .friendlist-item-point {
+              font-style: normal;
+              font-weight: 800;
+              font-size: 24px;
+              line-height: 29px;
+              color: #ffc61a;
+            }
+            .friendlist-item-name {
+              font-style: normal;
+              font-weight: 800;
+              font-size: 18px;
+              line-height: 22px;
+              color: #ffffff;
+              margin-top: 4px;
+              margin-bottom: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .profile-form-container {
+    padding: 265px 10% 180px 10%;
+    background: #f16c1c;
+    border-radius: 40px;
+    position: relative;
+    .profile-form-avatar-wrapper {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translate(-50%);
+      .profile-form-edit-avatar-button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        cursor: pointer;
+        &:active {
+          transform: scale(0.9);
+          transition: transform 0.1s ease-in;
+        }
+      }
+    }
+    .profile-form-footer {
+      position: absolute;
+      bottom: 0;
+      background: #ffc61a;
+      border-bottom-right-radius: 40px;
+      border-bottom-left-radius: 40px;
+      width: 100%;
+      left: 0;
+      padding: 25px 40px 25px 40px;
+      .copy-btn-title {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: #f16c1c;
+        margin-bottom: 6px;
+      }
+      .copy-field {
+        background: #fff;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 10px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: #c4c4c4;
+        .copy-code-button {
+          background: #555aff;
+          border-radius: 20px;
+          color: #fff;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 22px;
+          padding: 16px;
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+      }
+    }
+    .profile-form-wrapper {
+      position: relative;
+      .form-profile-field-label {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: #ffffff;
+      }
+      .change-password-header-title {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 36px;
+        color: #ffffff;
+        text-align: center;
+        margin-top: 90px;
+        margin-bottom: 20px;
+      }
+      .group-btn-wrapper {
+        margin-top: 90px;
+      }
+      .update-profile-button-wrapper {
+        position: relative;
+        cursor: pointer;
+        &:active {
+          transform: scale(0.9);
+          transition: transform 0.1s ease-in;
+        }
+        .update-profile-button-label {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 22px;
+          text-align: center;
+          color: #ffffff;
+          user-select: none;
+        }
+        .update-profile-button-label-red {
+          user-select: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 22px;
+          text-align: center;
+          color: #f68317;
+        }
+      }
+    }
+  }
+}

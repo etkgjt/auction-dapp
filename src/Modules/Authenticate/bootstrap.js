@@ -32,7 +32,6 @@ export default {
     {
       url: "signup",
       component: "Page/Signup",
-      layout: "VerticalLayout",
       meta: {
         authRoute: true
       },
