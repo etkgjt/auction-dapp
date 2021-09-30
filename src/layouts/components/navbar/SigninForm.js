@@ -23,7 +23,7 @@ import {
   authSignIn,
   signInReset
 } from "../../../Modules/Authenticate/store/auth/actions"
-const SignInForm = () => {
+const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
   const { i18n } = useTranslation()
   const history = useHistory()
   const dispatch = useDispatch()
@@ -50,6 +50,7 @@ const SignInForm = () => {
       dispatch(signInReset())
     }
   }, [loginSuccess, error])
+
   return (
     <div className="signin-form-container">
       <Formik
@@ -80,7 +81,12 @@ const SignInForm = () => {
                   className="w-100"
                   placeholder={i18n.t(`FormSignIn:field:password`)}
                 ></FormField>
-                <Link to="/forgot-password">
+                <Link
+                  to="/forgot-password"
+                  onClick={() => {
+                    setIsDropdownOpen(false)
+                  }}
+                >
                   <span className="signin-form__forgot-password-button">
                     Quên mật khẩu
                   </span>
@@ -95,7 +101,12 @@ const SignInForm = () => {
                 </div>
 
                 <p className="d-block text-center pb-2" size="lg">
-                  <Link to="/signup">
+                  <Link
+                    to="/signup"
+                    onClick={() => {
+                      setIsDropdownOpen(false)
+                    }}
+                  >
                     <p className="signin-form__signup-button">
                       Chưa có tài khoản?
                       <br /> Đăng ký ngay

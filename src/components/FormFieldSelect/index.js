@@ -50,7 +50,7 @@ const FormFieldSelect = ({
   }, [valueDefault, options])
 
   const InputField = (
-    <Select    
+    <Select
       defaultValue={value}
       value={value}
       className={classnames({
@@ -65,10 +65,10 @@ const FormFieldSelect = ({
         handleChange(option.value)
         setValue(option.value)
       }}
-      
     />
   )
-  const ErrorField = touch && error ? <StyledError>{error}</StyledError> : null
+  const ErrorField =
+    touch && error ? <p className="field-error">{error}</p> : null
   return (
     <>
       <FormGroup

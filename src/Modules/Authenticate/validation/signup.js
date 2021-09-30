@@ -73,11 +73,6 @@ export const validationSchema = (i18n) => {
       .required(
         messageError(i18n.t("validation:required"), i18n.t("common:district"))
       ),
-    address: Yup.string()
-      .nullable()
-      .required(
-        messageError(i18n.t("validation:required"), i18n.t("common:address"))
-      ),
     email: Yup.string()
       .nullable()
       .required(

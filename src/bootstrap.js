@@ -79,7 +79,6 @@ const Bootstrap = () => {
     listLangEn,
     listNav
   } = modules
-  console.log(listRoutes)
   if (loaded) {
     /*setup redux*/
     const persistConfig = {

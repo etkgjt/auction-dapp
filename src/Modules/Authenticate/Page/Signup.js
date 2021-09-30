@@ -3,10 +3,8 @@ import { Formik } from "formik"
 import { useTranslation } from "react-i18next"
 import { Form, Row, Col, Button } from "reactstrap"
 import FormField from "../../../components/FormField"
-import { Camera } from "react-feather"
 
 import { getValueForm, validationSchema } from "../validation/signup"
-import CustomLabel from "../../../components/CustomLabel"
 
 import { actions } from "../store/formSignUp/reducer"
 import { toast } from "react-toastify"
@@ -24,7 +22,6 @@ import FormFieldSelect from "../../../components/FormFieldSelect"
 import { sendOtp } from "../store/auth/service"
 import { useHistory } from "react-router-dom"
 
-import { authSignIn, signInReset } from "../store/auth/actions"
 import {
   errorSelector,
   loadingSelector,
@@ -37,6 +34,9 @@ import {
   FormSignUpAccountInfoWrapper,
   ForgotPasswordButton
 } from "../assets/icon"
+
+import { checkInviteCode, syncUserInfo } from "../store/formSignUp/service"
+import { RETCODE_SUCCESS } from "../../../configs/contants"
 
 const Signup = () => {
   const { i18n } = useTranslation()
@@ -60,15 +60,42 @@ const Signup = () => {
   )
   const [userAvatar, setUserAvatar] = useState("")
   const [formData, setFormData] = useState({})
+  const [disabledInviteCode, setDisableIntiveCode] = useState(false)
 
   const loginError = useSelector((state) => errorSelector(state))
   const loginLoading = useSelector((state) => loadingSelector(state))
   const loginSuccess = useSelector((state) => loginSuccessSelector(state))
 
-  const cropImageRef = useRef()
   const formRef = useRef()
 
-  const [shouldGoToActiveAccount, setShouldGoToActiveAccount] = useState(false)
+  const checkValidInviteCode = async (code = "") => {
+    try {
+      if (code) {
+        const res = await checkInviteCode(code)
+        if (res?.data?.retCode !== RETCODE_SUCCESS) {
+          toast.error(res.data.retText, {
+            position: "top-center",
+            autoClose: 5000,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+          })
+          formRef.current.setFieldValue("invite_code", "")
+        } else {
+          toast.success("Mã giới thiệu hợp lệ", {
+            position: "top-center",
+            autoClose: 5000,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+          })
+          setDisableIntiveCode(true)
+        }
+      }
+    } catch (err) {}
+  }
 
   const getListCity = async (payload = {}) => {
     try {
@@ -128,7 +155,7 @@ const Signup = () => {
       setFormData(values)
       dispatch(actions.formSignUpFnMethod({ ...values, avartar: null }))
     } catch (err) {
-      console.log("SUBMIT ERR", err)
+      console.log("submit err", err)
     }
   }
 
@@ -158,13 +185,39 @@ const Signup = () => {
     setLoadingOtp(false)
   }
 
-  const autoLogin = () => {
-    dispatch(
-      authSignIn({
-        username: formData?.username,
-        password: formData?.password
+  const fetchSyncUserInfo = async (payload) => {
+    try {
+      const res = await syncUserInfo(payload)
+
+      if (res.data.retCode === RETCODE_SUCCESS) {
+        toast.success("Đăng ký thành công", {
+          position: "top-center",
+          autoClose: 5000,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined
+        })
+      } else {
+        toast.error(res.data.retText, {
+          position: "top-center",
+          autoClose: 5000,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined
+        })
+      }
+    } catch (err) {
+      toast.error(err, {
+        position: "top-center",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
       })
-    )
+    }
   }
 
   useEffect(() => {
@@ -179,6 +232,12 @@ const Signup = () => {
       })
     }
     if (formSubmitSuccess) {
+      fetchSyncUserInfo({
+        ...response,
+        InviteCode: formRef.current?.values?.invite_code
+          ? formRef.current?.values?.invite_code
+          : ""
+      })
     }
     return () => {
       dispatch(actions.formSignUpFnReset())
@@ -189,31 +248,6 @@ const Signup = () => {
     getListCity()
     getListClass()
   }, [])
-
-  useEffect(() => {
-    if (loginError) {
-      toast.error(i18n.t(`FormSignIn:errors:user_name_or_password.wrong`), {
-        position: "top-center",
-        autoClose: 3000
-      })
-    }
-    if (loginSuccess) {
-      toast.dismiss()
-      history.push("/home")
-      if (shouldGoToActiveAccount) {
-        history.push("/accounts/active/0")
-      }
-    }
-    return () => {
-      dispatch(signInReset())
-    }
-  }, [loginError, loginSuccess])
-
-  React.useEffect(() => {
-    if (userAvatar?.imgSrc) {
-      formRef.current?.handleSubmit()
-    }
-  }, [userAvatar])
 
   React.useEffect(() => {
     if (keyCity) {
@@ -259,6 +293,10 @@ const Signup = () => {
                   <FormField
                     field="invite_code"
                     {...formik}
+                    disabled={disabledInviteCode}
+                    onBlurCustom={() => {
+                      checkValidInviteCode(formik.values["invite_code"])
+                    }}
                     placeholder={"Mã giới thiệu (nếu có)"}
                   />
                   <span className="form-signup-description">
@@ -401,7 +439,13 @@ const Signup = () => {
                   </Row>
                 </div>
               </div>
-              <div className="form-signup__submit-button">
+              <div
+                className="form-signup__submit-button"
+                onClick={() => {
+                  console.log(formik.errors)
+                  formik.handleSubmit()
+                }}
+              >
                 <ForgotPasswordButton />
                 <span>Hoàn thành đăng ký</span>
               </div>

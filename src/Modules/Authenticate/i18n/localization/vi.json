@@ -108,5 +108,8 @@
       "last_login_date": "Ngày đăng nhập cuối",
       "course_activated": "Đã kích hoạt khóa học"
     }
+  },
+  "validation": {
+    "required": "Không được bỏ trống"
   }
 }

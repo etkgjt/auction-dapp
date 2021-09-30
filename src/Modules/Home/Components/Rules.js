@@ -3,6 +3,7 @@ import { Col, Row } from "reactstrap"
 import banner from "../assets/images/rule-top-banner.png"
 
 import { HornorTable, ButtonSvg } from "../assets/icon"
+import { useHistory } from "react-router"
 
 const data = [
   {
@@ -33,6 +34,8 @@ const data = [
 ]
 
 const Rules = () => {
+  const history = useHistory()
+
   const getHornorTableWidth = () => {
     const width = window.innerWidth
     const paddingWidth = width * 0.8
@@ -42,7 +45,9 @@ const Rules = () => {
     const ratio = 461 / 841
     return getHornorTableWidth() / ratio
   }
-
+  const onSeemorePress = () => {
+    history.push("/rules")
+  }
   return (
     <div className="rules-area">
       <div className="rules-container">
@@ -102,10 +107,16 @@ const Rules = () => {
                     <li className="rule-subtitle">
                       Bước 3: Gửi tin nhắn mời bạn bè cùng tham gia{" "}
                     </li>
+                    <li className="rule-subtitle">
+                      Giải thưởng trị giá 5.000.000đ dành cho người tham gia may
+                      mắn trong Chương trình VÒNG QUAY MAY MẮN - chương trình
+                      nằm trong khuôn khổ Đại Sứ Siêu Trí Nhớ Học Đường được tổ
+                      chức vào 21h ngày thứ 5 cuối cùng mỗi tháng.
+                    </li>
                   </ul>
                 </li>
               </ul>
-              <div className="seemore-button">
+              <div className="seemore-button" onClick={onSeemorePress}>
                 <ButtonSvg />
                 <p className="seemore-button__text">Xem thêm</p>
               </div>

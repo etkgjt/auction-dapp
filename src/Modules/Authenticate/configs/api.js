@@ -13,6 +13,8 @@ export default {
   POST_AUTH_VERIFY_ACCOUNT: "/AccountHelper/OTPConfirmAccount",
   POST_AUTH_VERIFY_PASSWORD: "/AccountHelper/OTPConfirmPassword",
   LOG_OUT: "",
-  POST_SYNC_USER_INFO: "/mypage/SyncInfo"
+  POST_SYNC_USER_INFO: "/mypage/SyncInfo",
+  CHECK_INVITE_CODE: "/user/CheckInviteCode",
+  POST_REGISTER_DAISU: "/DaiSuSTNHD/RegisterUserDaiSu"
   /*End Auth SuperSchoolMemory*/
 }

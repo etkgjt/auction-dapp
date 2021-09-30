@@ -121,7 +121,7 @@ export const generateListSagas = (actions, service) => {
         // console.log("GET LIST CALL GENERATE FUC", payload)
         yield put(actions.setListLoading(true))
         yield put(actions.setPageListDefault())
-        const codeLanguage = yield select(getCodeLanguage)
+        const codeLanguage = ""
         // console.log("CODE LANG", codeLanguage)
         const res = yield call(service.getListService, {
           payload,

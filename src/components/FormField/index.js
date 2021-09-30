@@ -35,7 +35,8 @@ const FormField = ({
   handleSubmit,
   submitOnEnter,
   disabled = false,
-  multiline = false
+  multiline = false,
+  onBlurCustom
 }) => {
   const touch = touched[field]
   const error = errors[field]
@@ -46,7 +47,7 @@ const FormField = ({
       disabled={disabled}
       className={"form-field-rounded " + innerClass}
       invalid={Boolean(error && touch)}
-      onBlur={handleBlur(field)}
+      onBlur={onBlurCustom || handleBlur(field)}
       onChange={handleChange(field)}
       value={value}
       placeholder={placeholder}
@@ -61,7 +62,7 @@ const FormField = ({
       }
     />
   )
-  const ErrorField = touch && <FormFeedback>{error}</FormFeedback>
+  const ErrorField = touch && <p className="field-error">{error}</p>
 
   return (
     <>
@@ -70,6 +71,7 @@ const FormField = ({
           [className]: true,
           borderless
         })}
+        style={{ position: "relative" }}
       >
         {label && <Label className="form-label">{label}</Label>}
         {append || prepend ? (

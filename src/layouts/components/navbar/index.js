@@ -77,6 +77,7 @@ const Navbar = () => {
   const handleOnSubmit = (e) => {
     dispatch(actionsCommon.setLanguage(e.target.value))
   }
+  const toggle = () => setIsDropdownOpen((prevState) => !prevState)
 
   return (
     <header id="header" className="header-inner">
@@ -136,6 +137,7 @@ const Navbar = () => {
                 >
                   <UserIcon />
                 </div>
+
                 {isDropdownOpen ? (
                   <Dropdown
                     setIsDropdownOpen={setIsDropdownOpen}

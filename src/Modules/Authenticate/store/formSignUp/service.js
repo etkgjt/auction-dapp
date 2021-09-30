@@ -1,12 +1,13 @@
 import API from "../../configs/api"
 import apiMethod from "@utility/ApiMethod"
+import apiMethodSTNHD from "@utility/ApiMethodSuperSchoolMemory"
 
 export const formSignUpCallMethod = ({ payload, codeLanguage }) => {
-  console.log("PAYLOAD", payload)
-  return apiMethod.post(codeLanguage + API.POST_SIGN_UP_TRIAL_ACCOUNT, {
+  return apiMethodSTNHD.post(codeLanguage + API.POST_REGISTER_DAISU, {
     avartar: payload.avartar,
     userName: payload.username,
     password: payload.password,
+    referralCode: payload?.invite_code,
     fullName: payload.parent_fullname,
     childFullName1: payload.student_name,
     child1_SchoolName: payload.school_name,
@@ -18,4 +19,10 @@ export const formSignUpCallMethod = ({ payload, codeLanguage }) => {
     phone: payload.phone,
     otp: payload.otp
   })
+}
+export const checkInviteCode = (code) => {
+  return apiMethod.get(API.CHECK_INVITE_CODE + `/${code}`)
+}
+export const syncUserInfo = (payload) => {
+  return apiMethod.post(API.POST_SYNC_USER_INFO, payload)
 }
