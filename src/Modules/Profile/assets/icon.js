@@ -7,7 +7,7 @@ export const DoneProgressBar = ({ width = 952 }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_profile_done_progress)">
+      <g clipPath="url(#clip0_profile_done_progress)">
         <path
           d="M7.98823 25.2005C-0.72573 22.6291 0.000433911 7.71482 6.53591 4.11482C13.0714 0.514821 923.68 0.000535308 941.108 1.80054C953.453 3.08625 952.001 22.372 944.013 24.6862C936.025 27.0005 14.5237 27.0005 7.98823 25.2005Z"
           fill="url(#paint0_linear_done_progress)"
@@ -40,10 +40,10 @@ export const DoneProgressBar = ({ width = 952 }) => {
           y2="0.644163"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#4A50FF" />
-          <stop offset="0.0244284" stop-color="#4A50FF" />
-          <stop offset="0.2833" stop-color="#4A50FF" />
-          <stop offset="1" stop-color="#6C71FF" />
+          <stop stopColor="#4A50FF" />
+          <stop offset="0.0244284" stopColor="#4A50FF" />
+          <stop offset="0.2833" stopColor="#4A50FF" />
+          <stop offset="1" stopColor="#6C71FF" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_done_progress"
@@ -53,8 +53,8 @@ export const DoneProgressBar = ({ width = 952 }) => {
           y2="0"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7398FF" />
-          <stop offset="1" stop-color="#5A60FF" />
+          <stop stopColor="#7398FF" />
+          <stop offset="1" stopColor="#5A60FF" />
         </linearGradient>
         <clipPath id="clip0_profile_done_progress">
           <rect width="952" height="27" fill="white" />
@@ -202,8 +202,8 @@ export const UserPointWrapper = () => (
       d="M84.9348 55.1662C84.5211 55.0283 84.1074 54.8904 83.5558 54.8904C83.1421 54.8904 82.7284 54.8904 82.3147 54.8904L76.7986 55.1662C76.9365 54.3388 77.0744 53.5113 77.2123 52.6839L83.28 52.546C83.8316 52.546 84.3832 52.4081 84.7969 52.2702C85.2106 52.1323 85.3485 51.8565 85.4864 51.5807C85.4864 50.6154 85.4864 49.6501 85.3485 48.6848C85.3485 48.409 85.2106 48.2711 84.7969 48.1332C84.3832 47.9953 83.9695 47.8574 83.4179 47.8574C83.0042 47.8574 82.5905 47.8574 82.1768 47.8574L78.1776 47.9953C78.4534 46.2026 78.8671 44.5477 79.1429 42.755C79.2808 42.4792 79.2808 42.2034 79.2808 42.0655C79.5566 40.9623 79.6945 39.8591 79.8324 38.8938C79.9703 38.0664 79.6945 37.3769 79.2808 36.8253C78.8671 36.4115 78.1776 36.1357 77.3502 36.1357C75.2817 36.1357 73.3511 36.2736 71.2825 36.2736C69.9035 36.4115 69.214 37.1011 68.9382 38.3422C68.8003 38.7559 68.8003 39.1696 68.6624 39.5833C68.6624 39.8591 68.6624 40.1349 68.5245 40.2728C68.2487 42.4792 67.835 44.5477 67.4213 46.6163C67.0076 49.5122 66.456 52.2702 66.0423 55.0283C65.9044 56.1315 65.7665 57.0968 65.4907 58.0621C65.2149 60.1306 64.8012 62.0612 64.5254 64.1298C64.5254 64.2677 64.3875 64.4056 64.2496 64.6814L64.1117 64.8193C64.1117 64.6814 63.9738 64.6814 63.9738 64.6814C63.8359 64.5435 63.8359 64.4056 63.8359 64.2677C63.698 64.1298 63.698 63.854 63.698 63.7161C63.0084 60.4064 62.181 57.2347 61.4915 53.925C60.3883 48.9606 59.2851 43.9961 58.044 39.0317C57.9061 38.2043 57.4924 37.6527 57.0787 37.239C56.665 36.8252 55.9755 36.6873 55.1481 36.6873C53.2174 36.6873 51.4247 36.8253 49.4941 36.8253C48.5288 36.9632 47.8393 37.239 47.4256 37.7906C47.0119 38.3422 47.0119 39.1696 47.1498 40.1349C47.2877 40.5486 47.4256 40.9623 47.4256 41.376C47.9772 43.8582 48.6667 46.3405 49.2183 48.6848L45.7707 48.8227C45.357 48.8227 44.9433 48.8227 44.5296 48.8227C43.8401 48.8227 43.4264 48.9606 43.0127 49.0985C42.599 49.2364 42.7369 49.9259 42.7369 50.2017C42.7369 51.167 42.7369 52.1323 42.8748 52.9597C42.8748 53.2355 43.1506 53.3734 43.5643 53.5113C43.978 53.6492 44.5296 53.6492 45.0812 53.6492L50.7352 53.5113C50.8731 54.3388 51.1489 55.1662 51.2868 55.8557L46.3223 55.9936C45.9086 55.9936 45.4949 55.9936 45.0812 55.9936C44.3917 55.9936 43.978 56.1315 43.5643 56.2694C43.1506 56.4073 43.0127 56.6831 43.0127 56.9589C43.0127 57.9242 43.0127 58.8895 43.1506 59.7169C43.1506 59.9927 43.4264 60.1306 43.8401 60.2685C44.2538 60.4064 44.8054 60.4064 45.357 60.4064L52.5279 60.1306C54.7343 68.9563 57.0787 77.782 59.2851 86.6077C59.5609 87.573 59.8367 88.1246 60.3883 88.5383C60.9399 88.9521 61.6294 89.09 62.5947 89.09C63.1463 89.09 63.8359 89.09 64.3875 89.09H65.2149H66.1802C66.7318 89.09 67.4213 89.09 68.1108 89.09C69.0761 88.9521 69.7656 88.8142 70.1793 88.4004C70.593 87.9867 70.8688 87.2972 71.0067 86.3319C71.2825 84.815 71.5583 83.436 71.8341 81.9191C71.972 80.9538 72.2478 79.9885 72.3858 79.0231C72.6616 77.3683 72.9374 75.7135 73.3511 74.0587C74.3164 69.2321 75.1438 64.4056 76.1091 59.4411L83.6937 59.1653C84.2453 59.1653 84.7969 59.0274 85.2106 58.8895C85.6243 58.7516 85.7622 58.4758 85.9001 58.2C85.9001 57.2347 85.9001 56.2694 85.7622 55.3041C85.6243 55.5799 85.3485 55.3041 84.9348 55.1662Z"
       fill="#FFA300"
       stroke="#FFA300"
-      stroke-width="2.1596"
-      stroke-miterlimit="10"
+      strokeWidth="2.1596"
+      strokeMiterlimit="10"
     />
     <path
       d="M83.1424 53.6488C82.7287 53.5109 82.315 53.373 81.7634 53.373C81.3497 53.373 80.936 53.373 80.5223 53.373L74.8683 53.5109C75.0062 52.6835 75.1441 51.8561 75.282 51.0287L81.3497 50.8908C81.9013 50.8908 82.4529 50.7529 82.8666 50.615C83.2803 50.4771 83.4182 50.2013 83.5561 49.9254C83.5561 48.9601 83.5561 47.9948 83.4182 47.0295C83.4182 46.7537 83.2803 46.6158 82.8666 46.4779C82.4529 46.34 82.0392 46.2021 81.4876 46.2021C81.0739 46.2021 80.6602 46.2021 80.2465 46.2021L76.2474 46.34C76.5232 44.5473 76.9369 42.8925 77.2127 41.0997C77.3506 40.8239 77.3506 40.5481 77.3506 40.4102C77.6264 39.307 77.7643 38.2038 77.9022 37.2385C78.0401 36.4111 77.7643 35.7216 77.3506 35.17C76.9369 34.7563 76.2474 34.4805 75.4199 34.4805C73.3514 34.4805 71.4208 34.6184 69.3523 34.6184C67.9733 34.7563 67.2837 35.4458 67.0079 36.6869C66.87 37.1006 66.87 37.5143 66.7321 37.928C66.7321 38.2038 66.7321 38.4796 66.5942 38.6175C66.3184 40.8239 65.9047 42.8925 65.491 44.961C65.0773 47.8569 64.5257 50.615 64.112 53.373C63.9741 54.4762 63.8362 55.4415 63.5604 56.4068C63.2846 58.4753 62.8709 60.406 62.5951 62.4745C62.5951 62.6124 62.4572 62.7503 62.3193 63.0261L62.1814 63.164C62.1814 63.0261 62.0435 63.0261 62.0435 63.0261C61.9056 62.8882 61.9056 62.7503 61.9056 62.6124C62.0435 62.8882 62.0435 62.7503 62.0435 62.4745C61.354 59.1649 60.5266 55.9931 59.8371 52.6835C58.7339 47.719 57.6306 42.7546 56.3895 37.7901C56.2516 36.9627 55.8379 36.4111 55.4242 35.9974C55.0105 35.5837 54.321 35.4458 53.4936 35.4458C51.563 35.4458 49.7702 35.5837 47.8396 35.5837C46.8743 35.7216 46.1848 35.9974 45.7711 36.549C45.3574 37.1006 45.3574 37.928 45.4953 38.8933C45.6332 39.307 45.7711 39.7207 45.7711 40.1344C46.3227 42.6167 47.0122 45.0989 47.5638 47.4432L44.1163 47.719C43.7026 47.719 43.2889 47.719 42.8752 47.719C42.1857 47.719 41.772 47.8569 41.3582 47.9948C40.9445 48.1327 40.8066 48.4085 40.8066 48.6843C40.8066 49.6496 40.8066 50.615 40.9445 51.4424C40.9445 51.7182 41.2203 51.8561 41.6341 51.994C42.0478 52.1319 42.5994 52.1319 43.151 52.1319L48.8049 51.994C48.9428 52.8214 49.2186 53.6488 49.3565 54.3383L44.3921 54.4762C43.9784 54.4762 43.5647 54.4762 43.151 54.4762C42.4615 54.4762 42.0478 54.6141 41.6341 54.752C41.2203 54.8899 41.0824 55.1657 41.0824 55.4415C41.0824 56.4068 41.0824 57.3721 41.2203 58.1995C41.2203 58.4753 41.4961 58.6132 41.9099 58.7511C42.3236 58.8891 42.8752 58.8891 43.4268 58.8891L50.5977 58.6132C52.8041 67.439 55.1484 76.2647 57.3548 85.0904C57.6306 86.0557 57.9064 86.6073 58.458 87.021C59.0097 87.4347 59.6992 87.5726 60.6645 87.5726C61.2161 87.5726 61.9056 87.5726 62.4572 87.5726H63.2846H64.2499C64.8015 87.5726 65.491 87.5726 66.1805 87.5726C67.1458 87.4347 67.8354 87.2968 68.2491 86.8831C68.6628 86.4694 68.9386 85.7799 69.0765 84.8146C69.3523 83.2976 69.6281 81.9186 69.9039 80.4017C70.0418 79.4364 70.3176 78.4711 70.4555 77.5058C70.7313 75.851 71.0071 74.1961 71.4208 72.5413C72.3861 67.7148 73.2135 62.8882 74.1788 57.9237L81.7634 57.6479C82.315 57.6479 82.8666 57.51 83.2803 57.3721C83.694 57.2342 83.8319 56.9584 83.9698 56.6826C83.9698 55.7173 83.9698 54.752 83.8319 53.7867C83.694 53.9246 83.5561 53.7867 83.1424 53.6488Z"
@@ -218,11 +218,11 @@ export const UserPointWrapper = () => (
         y2="-51.9179"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA300" />
-        <stop offset="0.1909" stop-color="#FD9B04" />
-        <stop offset="0.4927" stop-color="#F7840D" />
-        <stop offset="0.8656" stop-color="#EE5F1D" />
-        <stop offset="1" stop-color="#EA5023" />
+        <stop stopColor="#FFA300" />
+        <stop offset="0.1909" stopColor="#FD9B04" />
+        <stop offset="0.4927" stopColor="#F7840D" />
+        <stop offset="0.8656" stopColor="#EE5F1D" />
+        <stop offset="1" stopColor="#EA5023" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_user_profile_point_Wrapper"
@@ -232,8 +232,8 @@ export const UserPointWrapper = () => (
         y2="19.9935"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD8C23" />
-        <stop offset="1" stop-color="#FFBC30" />
+        <stop stopColor="#FD8C23" />
+        <stop offset="1" stopColor="#FFBC30" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_user_profile_point_Wrapper"
@@ -243,11 +243,11 @@ export const UserPointWrapper = () => (
         y2="60.0772"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA300" />
-        <stop offset="0.1909" stop-color="#FD9B04" />
-        <stop offset="0.4927" stop-color="#F7840D" />
-        <stop offset="0.8656" stop-color="#EE5F1D" />
-        <stop offset="1" stop-color="#EA5023" />
+        <stop stopColor="#FFA300" />
+        <stop offset="0.1909" stopColor="#FD9B04" />
+        <stop offset="0.4927" stopColor="#F7840D" />
+        <stop offset="0.8656" stopColor="#EE5F1D" />
+        <stop offset="1" stopColor="#EA5023" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_user_profile_point_Wrapper"
@@ -257,11 +257,11 @@ export const UserPointWrapper = () => (
         y2="10.2546"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FEB32C" />
-        <stop offset="0.00304192" stop-color="#FEB22C" />
-        <stop offset="0.0667296" stop-color="#FEA827" />
-        <stop offset="0.1452" stop-color="#FEA525" />
-        <stop offset="1" stop-color="#FEB336" />
+        <stop stopColor="#FEB32C" />
+        <stop offset="0.00304192" stopColor="#FEB22C" />
+        <stop offset="0.0667296" stopColor="#FEA827" />
+        <stop offset="0.1452" stopColor="#FEA525" />
+        <stop offset="1" stopColor="#FEB336" />
       </linearGradient>
       <linearGradient
         id="paint4_linear_user_profile_point_Wrapper"
@@ -271,8 +271,8 @@ export const UserPointWrapper = () => (
         y2="59.9381"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFCB44" />
-        <stop offset="1" stop-color="#FFDE6C" />
+        <stop stopColor="#FFCB44" />
+        <stop offset="1" stopColor="#FFDE6C" />
       </linearGradient>
       <linearGradient
         id="paint5_linear_user_profile_point_Wrapper"
@@ -282,8 +282,8 @@ export const UserPointWrapper = () => (
         y2="19.9935"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD8C23" />
-        <stop offset="1" stop-color="#FFBC30" />
+        <stop stopColor="#FD8C23" />
+        <stop offset="1" stopColor="#FFBC30" />
       </linearGradient>
       <linearGradient
         id="paint6_linear_user_profile_point_Wrapper"
@@ -293,8 +293,8 @@ export const UserPointWrapper = () => (
         y2="69.8792"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFDF48" />
-        <stop offset="1" stop-color="#FFB42B" />
+        <stop stopColor="#FFDF48" />
+        <stop offset="1" stopColor="#FFB42B" />
       </linearGradient>
       <linearGradient
         id="paint7_linear_user_profile_point_Wrapper"
@@ -304,8 +304,8 @@ export const UserPointWrapper = () => (
         y2="37.5498"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA516" />
-        <stop offset="1" stop-color="#FF8C09" />
+        <stop stopColor="#FFA516" />
+        <stop offset="1" stopColor="#FF8C09" />
       </linearGradient>
       <linearGradient
         id="paint8_linear_user_profile_point_Wrapper"
@@ -315,10 +315,10 @@ export const UserPointWrapper = () => (
         y2="56.6564"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFDF48" />
-        <stop offset="0.2563" stop-color="#FFD03E" />
-        <stop offset="0.7028" stop-color="#FFBB30" />
-        <stop offset="1" stop-color="#FFB42B" />
+        <stop stopColor="#FFDF48" />
+        <stop offset="0.2563" stopColor="#FFD03E" />
+        <stop offset="0.7028" stopColor="#FFBB30" />
+        <stop offset="1" stopColor="#FFB42B" />
       </linearGradient>
       <linearGradient
         id="paint9_linear_user_profile_point_Wrapper"
@@ -328,8 +328,8 @@ export const UserPointWrapper = () => (
         y2="82.8138"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA516" />
-        <stop offset="1" stop-color="#FF8C09" />
+        <stop stopColor="#FFA516" />
+        <stop offset="1" stopColor="#FF8C09" />
       </linearGradient>
       <linearGradient
         id="paint10_linear_user_profile_point_Wrapper"
@@ -339,8 +339,8 @@ export const UserPointWrapper = () => (
         y2="42.2345"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA516" />
-        <stop offset="1" stop-color="#FF8C09" />
+        <stop stopColor="#FFA516" />
+        <stop offset="1" stopColor="#FF8C09" />
       </linearGradient>
       <linearGradient
         id="paint11_linear_user_profile_point_Wrapper"
@@ -350,8 +350,8 @@ export const UserPointWrapper = () => (
         y2="42.0764"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFDF48" />
-        <stop offset="1" stop-color="#FFB42B" />
+        <stop stopColor="#FFDF48" />
+        <stop offset="1" stopColor="#FFB42B" />
       </linearGradient>
       <linearGradient
         id="paint12_linear_user_profile_point_Wrapper"
@@ -361,8 +361,8 @@ export const UserPointWrapper = () => (
         y2="22.3203"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFFE7F" />
-        <stop offset="1" stop-color="#FFC248" />
+        <stop stopColor="#FFFE7F" />
+        <stop offset="1" stopColor="#FFC248" />
       </linearGradient>
       <linearGradient
         id="paint13_linear_user_profile_point_Wrapper"
@@ -372,8 +372,8 @@ export const UserPointWrapper = () => (
         y2="67.1405"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFFE7F" />
-        <stop offset="1" stop-color="#FFC248" />
+        <stop stopColor="#FFFE7F" />
+        <stop offset="1" stopColor="#FFC248" />
       </linearGradient>
       <linearGradient
         id="paint14_linear_user_profile_point_Wrapper"
@@ -383,8 +383,8 @@ export const UserPointWrapper = () => (
         y2="57.3329"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFFE7F" />
-        <stop offset="1" stop-color="#FFC248" />
+        <stop stopColor="#FFFE7F" />
+        <stop offset="1" stopColor="#FFC248" />
       </linearGradient>
       <linearGradient
         id="paint15_linear_user_profile_point_Wrapper"
@@ -394,8 +394,8 @@ export const UserPointWrapper = () => (
         y2="75.0812"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA516" />
-        <stop offset="1" stop-color="#FF8C09" />
+        <stop stopColor="#FFA516" />
+        <stop offset="1" stopColor="#FF8C09" />
       </linearGradient>
       <linearGradient
         id="paint16_linear_user_profile_point_Wrapper"
@@ -405,8 +405,8 @@ export const UserPointWrapper = () => (
         y2="94.7279"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFCC48" />
-        <stop offset="1" stop-color="#FFB42B" />
+        <stop stopColor="#FFCC48" />
+        <stop offset="1" stopColor="#FFB42B" />
       </linearGradient>
       <linearGradient
         id="paint17_linear_user_profile_point_Wrapper"
@@ -416,8 +416,8 @@ export const UserPointWrapper = () => (
         y2="71.1823"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFCC48" />
-        <stop offset="1" stop-color="#FFB42B" />
+        <stop stopColor="#FFCC48" />
+        <stop offset="1" stopColor="#FFB42B" />
       </linearGradient>
       <linearGradient
         id="paint18_linear_user_profile_point_Wrapper"
@@ -427,8 +427,8 @@ export const UserPointWrapper = () => (
         y2="106.567"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFFE7F" />
-        <stop offset="1" stop-color="#FFC248" />
+        <stop stopColor="#FFFE7F" />
+        <stop offset="1" stopColor="#FFC248" />
       </linearGradient>
       <linearGradient
         id="paint19_linear_user_profile_point_Wrapper"
@@ -438,8 +438,8 @@ export const UserPointWrapper = () => (
         y2="60.799"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFDF48" />
-        <stop offset="1" stop-color="#FFB42B" />
+        <stop stopColor="#FFDF48" />
+        <stop offset="1" stopColor="#FFB42B" />
       </linearGradient>
     </defs>
   </svg>
@@ -487,10 +487,10 @@ export const ButtonWrapper = () => (
         y2="60.2212"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#F68317" />
-        <stop offset="0.2581" stop-color="#F57D18" />
-        <stop offset="0.6054" stop-color="#F16C1C" />
-        <stop offset="1" stop-color="#EA5023" />
+        <stop stopColor="#F68317" />
+        <stop offset="0.2581" stopColor="#F57D18" />
+        <stop offset="0.6054" stopColor="#F16C1C" />
+        <stop offset="1" stopColor="#EA5023" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_user_profile_button_wrapper"
@@ -500,8 +500,8 @@ export const ButtonWrapper = () => (
         y2="0"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD8C23" />
-        <stop offset="1" stop-color="#FFBC30" />
+        <stop stopColor="#FD8C23" />
+        <stop offset="1" stopColor="#FFBC30" />
       </linearGradient>
     </defs>
   </svg>
@@ -567,11 +567,11 @@ export const ListFriendWrapper = ({ width = 558, height = 949 }) => {
           y2="22.9036"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="1" stop-color="#FEB336" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="1" stopColor="#FEB336" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_profile_listfriend"
@@ -581,8 +581,8 @@ export const ListFriendWrapper = ({ width = 558, height = 949 }) => {
           y2="40.5989"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFCB44" />
-          <stop offset="1" stop-color="#FFDE6C" />
+          <stop stopColor="#FFCB44" />
+          <stop offset="1" stopColor="#FFDE6C" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_profile_listfriend"
@@ -592,10 +592,10 @@ export const ListFriendWrapper = ({ width = 558, height = 949 }) => {
           y2="66.1832"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F68317" />
-          <stop offset="0.2581" stop-color="#F57D18" />
-          <stop offset="0.6054" stop-color="#F16C1C" />
-          <stop offset="1" stop-color="#EA5023" />
+          <stop stopColor="#F68317" />
+          <stop offset="0.2581" stopColor="#F57D18" />
+          <stop offset="0.6054" stopColor="#F16C1C" />
+          <stop offset="1" stopColor="#EA5023" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_profile_listfriend"
@@ -605,8 +605,8 @@ export const ListFriendWrapper = ({ width = 558, height = 949 }) => {
           y2="903.294"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA525" />
-          <stop offset="1" stop-color="#FEA526" />
+          <stop stopColor="#FEA525" />
+          <stop offset="1" stopColor="#FEA526" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_profile_listfriend"
@@ -616,8 +616,8 @@ export const ListFriendWrapper = ({ width = 558, height = 949 }) => {
           y2="924.34"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FEA52A" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FEA52A" />
         </linearGradient>
       </defs>
     </svg>
@@ -702,8 +702,8 @@ export const ButtonWrapperWhite = () => (
         y2="0"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#E5E5E5" />
-        <stop offset="1" stop-color="#F2F2F2" />
+        <stop stopColor="#E5E5E5" />
+        <stop offset="1" stopColor="#F2F2F2" />
       </linearGradient>
     </defs>
   </svg>
@@ -753,13 +753,13 @@ export const AvatarWrapper = () => {
           y2="16.4392"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="0.2281" stop-color="#FEA92A" />
-          <stop offset="0.696" stop-color="#FFBC3F" />
-          <stop offset="1" stop-color="#FFC347" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="0.2281" stopColor="#FEA92A" />
+          <stop offset="0.696" stopColor="#FFBC3F" />
+          <stop offset="1" stopColor="#FFC347" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_profile_avatarwrapper"
@@ -769,8 +769,8 @@ export const AvatarWrapper = () => {
           y2="1.07525"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FFBC30" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FFBC30" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_profile_avatarwrapper"
@@ -780,8 +780,8 @@ export const AvatarWrapper = () => {
           y2="90.5676"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFFE7F" />
-          <stop offset="1" stop-color="#FFC248" />
+          <stop stopColor="#FFFE7F" />
+          <stop offset="1" stopColor="#FFC248" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_profile_avatarwrapper"
@@ -791,11 +791,11 @@ export const AvatarWrapper = () => {
           y2="43.5551"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="1" stop-color="#FEB336" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="1" stopColor="#FEB336" />
         </linearGradient>
       </defs>
     </svg>
@@ -832,7 +832,7 @@ export const EditAvatarButton = () => {
         d="M3.79113 34.6663C-2.14826 24.5199 2.65982 7.32751 19.6295 2.53618C30.0942 -0.423169 43.8113 3.52263 49.3265 14.3736C49.3265 14.3736 49.1851 14.0917 48.9022 13.669C42.2558 3.38171 25.4275 -1.83238 11.7103 7.60935C8.88204 9.72317 -2.85533 21.5606 3.79113 34.6663Z"
         fill="#FFE58F"
       />
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0)">
         <path
           d="M16.8374 32.513C16.7641 32.2397 16.8166 31.9912 16.9947 31.7677L30.7463 14.2532C31.6776 13.0661 33.343 12.6198 34.7432 13.1823C35.737 13.5606 36.5528 14.1624 37.1758 14.9331C38.1527 16.1363 38.2036 17.8807 37.2314 19.1374L23.1791 37.0841C23.001 37.3076 22.6825 37.4515 22.3757 37.4165C22.0688 37.3815 21.7735 37.1677 21.7003 36.8943C21.2407 35.8454 21.068 35.4229 19.5368 35.4816C19.0634 35.4912 18.6833 35.1829 18.6069 34.6759C18.4951 33.5925 18.0857 33.1748 17.7233 33.1547C17.3756 33.1892 17.0803 32.9754 16.896 32.7317C16.8667 32.6224 16.852 32.5677 16.8374 32.513ZM32.1526 15.2828L19.1134 31.9032C19.5637 32.2513 20.0171 32.8331 20.196 33.7227C21.4643 33.7931 22.1397 34.3153 22.5931 34.8971L35.8104 18.0532C36.3038 17.4521 36.2506 16.5874 35.7972 16.0057C35.3439 15.4239 34.7679 15.0509 34.0956 14.7622C33.4232 14.4736 32.5905 14.6967 32.1526 15.2828Z"
           fill="white"
@@ -859,13 +859,13 @@ export const EditAvatarButton = () => {
           y2="3.28768"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="0.2281" stop-color="#FEA92A" />
-          <stop offset="0.696" stop-color="#FFBC3F" />
-          <stop offset="1" stop-color="#FFC347" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="0.2281" stopColor="#FEA92A" />
+          <stop offset="0.696" stopColor="#FFBC3F" />
+          <stop offset="1" stopColor="#FFC347" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_profile_edit_Avatar_button"
@@ -875,8 +875,8 @@ export const EditAvatarButton = () => {
           y2="0.182571"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FFBC30" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FFBC30" />
         </linearGradient>
         <clipPath id="clip0">
           <rect

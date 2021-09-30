@@ -22,7 +22,7 @@ export const UserIcon = () => (
       opacity="0.5"
       d="M53.769 20.0254C50.4194 7.44307 36.845 -1.24047 23.9757 0.531678C12.1641 2.12662 1.41033 12.2279 0.881453 24.8102C0.705161 28.5317 1.58662 32.076 2.99695 35.4431C14.1033 27.114 32.2614 20.0254 53.769 20.0254Z"
       fill="#FFC61A"
-      fill-opacity="0.5"
+      fillOpacity="0.5"
     />
     <path
       opacity="0.71"
@@ -55,8 +55,8 @@ export const UserIcon = () => (
         y2="0"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FF8C09" />
-        <stop offset="1" stop-color="#F16C1C" />
+        <stop stopColor="#FF8C09" />
+        <stop offset="1" stopColor="#F16C1C" />
       </linearGradient>
     </defs>
   </svg>
@@ -105,10 +105,10 @@ export const SignInButton = () => {
           y2="60.6838"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F68317" />
-          <stop offset="0.2581" stop-color="#F57D18" />
-          <stop offset="0.6054" stop-color="#F16C1C" />
-          <stop offset="1" stop-color="#EA5023" />
+          <stop stopColor="#F68317" />
+          <stop offset="0.2581" stopColor="#F57D18" />
+          <stop offset="0.6054" stopColor="#F16C1C" />
+          <stop offset="1" stopColor="#EA5023" />
         </linearGradient>
         <linearGradient
           id="paint1_linear"
@@ -118,8 +118,8 @@ export const SignInButton = () => {
           y2="0"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FFBC30" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FFBC30" />
         </linearGradient>
       </defs>
     </svg>
@@ -174,13 +174,13 @@ export const StarIcon = () => (
         y2="0.490978"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FEB32C" />
-        <stop offset="0.00304192" stop-color="#FEB22C" />
-        <stop offset="0.0667296" stop-color="#FEA827" />
-        <stop offset="0.1452" stop-color="#FEA525" />
-        <stop offset="0.2281" stop-color="#FEA92A" />
-        <stop offset="0.696" stop-color="#FFBC3F" />
-        <stop offset="1" stop-color="#FFC347" />
+        <stop stopColor="#FEB32C" />
+        <stop offset="0.00304192" stopColor="#FEB22C" />
+        <stop offset="0.0667296" stopColor="#FEA827" />
+        <stop offset="0.1452" stopColor="#FEA525" />
+        <stop offset="0.2281" stopColor="#FEA92A" />
+        <stop offset="0.696" stopColor="#FFBC3F" />
+        <stop offset="1" stopColor="#FFC347" />
       </linearGradient>
       <linearGradient
         id="paint1_linear"
@@ -190,8 +190,8 @@ export const StarIcon = () => (
         y2="0.0571437"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD8C23" />
-        <stop offset="1" stop-color="#FFBC30" />
+        <stop stopColor="#FD8C23" />
+        <stop offset="1" stopColor="#FFBC30" />
       </linearGradient>
     </defs>
   </svg>
@@ -311,8 +311,8 @@ export const UserPointerWrapper = () => (
       d="M39.4638 25.4988C39.2726 25.435 39.0814 25.3713 38.8264 25.3713C38.6352 25.3713 38.444 25.3713 38.2527 25.3713L35.7031 25.4988C35.7669 25.1163 35.8306 24.7339 35.8944 24.3515L38.6989 24.2877C38.9539 24.2877 39.2088 24.224 39.4001 24.1602C39.5913 24.0965 39.655 23.969 39.7188 23.8415C39.7188 23.3954 39.7188 22.9492 39.655 22.503C39.655 22.3755 39.5913 22.3118 39.4001 22.248C39.2088 22.1843 39.0176 22.1206 38.7627 22.1206C38.5714 22.1206 38.3802 22.1206 38.189 22.1206L36.3405 22.1843C36.468 21.3557 36.6592 20.5908 36.7867 19.7622C36.8505 19.6347 36.8505 19.5072 36.8505 19.4435C36.9779 18.9335 37.0417 18.4236 37.1054 17.9774C37.1692 17.595 37.0417 17.2763 36.8505 17.0213C36.6592 16.8301 36.3405 16.7026 35.9581 16.7026C35.002 16.7026 34.1096 16.7664 33.1535 16.7664C32.5161 16.8301 32.1974 17.1488 32.0699 17.7225C32.0062 17.9137 32.0062 18.1049 31.9425 18.2961C31.9425 18.4236 31.9425 18.5511 31.8787 18.6148C31.7512 19.6347 31.56 20.5908 31.3688 21.5469C31.1776 22.8854 30.9226 24.1602 30.7314 25.435C30.6677 25.945 30.6039 26.3912 30.4764 26.8373C30.349 27.7934 30.1577 28.6858 30.0302 29.6419C30.0302 29.7056 29.9665 29.7694 29.9028 29.8969L29.839 29.9606C29.839 29.8969 29.7753 29.8969 29.7753 29.8969C29.7116 29.8331 29.7115 29.7694 29.7115 29.7056C29.6478 29.6419 29.6478 29.5144 29.6478 29.4507C29.3291 27.9209 28.9467 26.4549 28.628 24.9251C28.118 22.6305 27.6081 20.3358 27.0345 18.0412C26.9707 17.6587 26.7795 17.4038 26.5883 17.2126C26.3971 17.0213 26.0784 16.9576 25.6959 16.9576C24.8036 16.9576 23.9749 17.0213 23.0826 17.0213C22.6364 17.0851 22.3177 17.2126 22.1265 17.4675C21.9352 17.7225 21.9352 18.1049 21.999 18.5511C22.0627 18.7423 22.1265 18.9335 22.1265 19.1248C22.3814 20.2721 22.7001 21.4194 22.9551 22.503L21.3616 22.5667C21.1704 22.5667 20.9791 22.5667 20.7879 22.5667C20.4692 22.5667 20.278 22.6305 20.0868 22.6942C19.8956 22.758 19.9593 23.0767 19.9593 23.2041C19.9593 23.6503 19.9593 24.0965 20.023 24.4789C20.023 24.6064 20.1505 24.6702 20.3417 24.7339C20.533 24.7976 20.7879 24.7976 21.0429 24.7976L23.6562 24.7339C23.72 25.1163 23.8474 25.4988 23.9112 25.8175L21.6165 25.8812C21.4253 25.8812 21.2341 25.8812 21.0429 25.8812C20.7242 25.8812 20.533 25.945 20.3417 26.0087C20.1505 26.0724 20.0868 26.1999 20.0868 26.3274C20.0868 26.7736 20.0868 27.2198 20.1505 27.6022C20.1505 27.7297 20.278 27.7934 20.4692 27.8572C20.6604 27.9209 20.9154 27.9209 21.1704 27.9209L24.4848 27.7934C25.5047 31.8728 26.5883 35.9522 27.6081 40.0316C27.7356 40.4777 27.8631 40.7327 28.118 40.9239C28.373 41.1151 28.6917 41.1789 29.1379 41.1789C29.3928 41.1789 29.7115 41.1789 29.9665 41.1789H30.349H30.7951C31.0501 41.1789 31.3688 41.1789 31.6875 41.1789C32.1337 41.1151 32.4524 41.0514 32.6436 40.8602C32.8348 40.669 32.9623 40.3503 33.026 39.9041C33.1535 39.2029 33.281 38.5655 33.4085 37.8644C33.4722 37.4182 33.5997 36.972 33.6634 36.5258C33.7909 35.761 33.9184 34.9961 34.1096 34.2312C34.5558 32.0003 34.9382 29.7694 35.3844 27.4747L38.8901 27.3473C39.1451 27.3473 39.4001 27.2835 39.5913 27.2198C39.7825 27.156 39.8462 27.0286 39.91 26.9011C39.91 26.4549 39.91 26.0087 39.8462 25.5625C39.7825 25.69 39.655 25.5625 39.4638 25.4988Z"
       fill="#FFA300"
       stroke="#FFA300"
-      stroke-width="2.1596"
-      stroke-miterlimit="10"
+      strokeWidth="2.1596"
+      strokeMiterlimit="10"
     />
     <path
       d="M38.636 24.7976C38.4448 24.7339 38.2536 24.6702 37.9986 24.6702C37.8074 24.6702 37.6162 24.6702 37.4249 24.6702L34.8116 24.7339C34.8753 24.3515 34.9391 23.969 35.0028 23.5866L37.8074 23.5228C38.0623 23.5228 38.3173 23.4591 38.5085 23.3954C38.6997 23.3316 38.7635 23.2041 38.8272 23.0766C38.8272 22.6305 38.8272 22.1843 38.7635 21.7381C38.7635 21.6106 38.6997 21.5469 38.5085 21.4831C38.3173 21.4194 38.1261 21.3557 37.8711 21.3557C37.6799 21.3557 37.4887 21.3557 37.2975 21.3557L35.449 21.4194C35.5765 20.5908 35.7677 19.8259 35.8952 18.9973C35.9589 18.8698 35.9589 18.7423 35.9589 18.6786C36.0864 18.1687 36.1501 17.6587 36.2139 17.2125C36.2776 16.8301 36.1501 16.5114 35.9589 16.2564C35.7677 16.0652 35.449 15.9377 35.0665 15.9377C34.1104 15.9377 33.2181 16.0015 32.262 16.0015C31.6246 16.0652 31.3059 16.3839 31.1784 16.9576C31.1147 17.1488 31.1147 17.34 31.0509 17.5312C31.0509 17.6587 31.0509 17.7862 30.9872 17.85C30.8597 18.8698 30.6685 19.8259 30.4772 20.782C30.286 22.1205 30.0311 23.3954 29.8398 24.6702C29.7761 25.1801 29.7124 25.6263 29.5849 26.0724C29.4574 27.0285 29.2662 27.9209 29.1387 28.877C29.1387 28.9407 29.075 29.0045 29.0112 29.132L28.9475 29.1957C28.9475 29.132 28.8837 29.132 28.8837 29.132C28.82 29.0682 28.82 29.0045 28.82 28.9408C28.8837 29.0682 28.8837 29.0045 28.8837 28.877C28.565 27.3472 28.1826 25.8812 27.8639 24.3515C27.354 22.0568 26.8441 19.7622 26.2704 17.4675C26.2067 17.0851 26.0154 16.8301 25.8242 16.6389C25.633 16.4477 25.3143 16.3839 24.9318 16.3839C24.0395 16.3839 23.2109 16.4477 22.3185 16.4477C21.8723 16.5114 21.5536 16.6389 21.3624 16.8938C21.1712 17.1488 21.1712 17.5313 21.2349 17.9774C21.2987 18.1687 21.3624 18.3599 21.3624 18.5511C21.6174 19.6984 21.9361 20.8457 22.191 21.9293L20.5975 22.0568C20.4063 22.0568 20.2151 22.0568 20.0239 22.0568C19.7052 22.0568 19.5139 22.1205 19.3227 22.1843C19.1315 22.248 19.0677 22.3755 19.0677 22.503C19.0677 22.9492 19.0677 23.3953 19.1315 23.7778C19.1315 23.9053 19.259 23.969 19.4502 24.0328C19.6414 24.0965 19.8964 24.0965 20.1513 24.0965L22.7647 24.0328C22.8284 24.4152 22.9559 24.7976 23.0196 25.1163L20.725 25.1801C20.5338 25.1801 20.3426 25.1801 20.1513 25.1801C19.8326 25.1801 19.6414 25.2438 19.4502 25.3076C19.259 25.3713 19.1952 25.4988 19.1952 25.6263C19.1952 26.0724 19.1952 26.5186 19.259 26.9011C19.259 27.0285 19.3864 27.0923 19.5777 27.156C19.7689 27.2198 20.0239 27.2198 20.2788 27.2198L23.5933 27.0923C24.6131 31.1717 25.6967 35.251 26.7166 39.3304C26.8441 39.7766 26.9715 40.0315 27.2265 40.2228C27.4815 40.414 27.8002 40.4777 28.2463 40.4777C28.5013 40.4777 28.82 40.4777 29.075 40.4777H29.4574H29.9036C30.1585 40.4777 30.4772 40.4777 30.7959 40.4777C31.2421 40.414 31.5608 40.3502 31.7521 40.159C31.9433 39.9678 32.0708 39.6491 32.1345 39.2029C32.262 38.5018 32.3895 37.8644 32.5169 37.1632C32.5807 36.7171 32.7082 36.2709 32.7719 35.8247C32.8994 35.0598 33.0269 34.2949 33.2181 33.53C33.6643 31.2991 34.0467 29.0682 34.4929 26.7736L37.9986 26.6461C38.2536 26.6461 38.5085 26.5824 38.6997 26.5186C38.891 26.4549 38.9547 26.3274 39.0184 26.1999C39.0184 25.7537 39.0184 25.3076 38.9547 24.8614C38.891 24.9251 38.8272 24.8614 38.636 24.7976Z"
@@ -327,11 +327,11 @@ export const UserPointerWrapper = () => (
         y2="-23.9973"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA300" />
-        <stop offset="0.1909" stop-color="#FD9B04" />
-        <stop offset="0.4927" stop-color="#F7840D" />
-        <stop offset="0.8656" stop-color="#EE5F1D" />
-        <stop offset="1" stop-color="#EA5023" />
+        <stop stopColor="#FFA300" />
+        <stop offset="0.1909" stopColor="#FD9B04" />
+        <stop offset="0.4927" stopColor="#F7840D" />
+        <stop offset="0.8656" stopColor="#EE5F1D" />
+        <stop offset="1" stopColor="#EA5023" />
       </linearGradient>
       <linearGradient
         id="paint101_linear"
@@ -341,8 +341,8 @@ export const UserPointerWrapper = () => (
         y2="9.24143"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD8C23" />
-        <stop offset="1" stop-color="#FFBC30" />
+        <stop stopColor="#FD8C23" />
+        <stop offset="1" stopColor="#FFBC30" />
       </linearGradient>
       <linearGradient
         id="paint2_linear"
@@ -352,11 +352,11 @@ export const UserPointerWrapper = () => (
         y2="27.7686"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA300" />
-        <stop offset="0.1909" stop-color="#FD9B04" />
-        <stop offset="0.4927" stop-color="#F7840D" />
-        <stop offset="0.8656" stop-color="#EE5F1D" />
-        <stop offset="1" stop-color="#EA5023" />
+        <stop stopColor="#FFA300" />
+        <stop offset="0.1909" stopColor="#FD9B04" />
+        <stop offset="0.4927" stopColor="#F7840D" />
+        <stop offset="0.8656" stopColor="#EE5F1D" />
+        <stop offset="1" stopColor="#EA5023" />
       </linearGradient>
       <linearGradient
         id="paint3_linear"
@@ -366,11 +366,11 @@ export const UserPointerWrapper = () => (
         y2="4.73987"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FEB32C" />
-        <stop offset="0.00304192" stop-color="#FEB22C" />
-        <stop offset="0.0667296" stop-color="#FEA827" />
-        <stop offset="0.1452" stop-color="#FEA525" />
-        <stop offset="1" stop-color="#FEB336" />
+        <stop stopColor="#FEB32C" />
+        <stop offset="0.00304192" stopColor="#FEB22C" />
+        <stop offset="0.0667296" stopColor="#FEA827" />
+        <stop offset="0.1452" stopColor="#FEA525" />
+        <stop offset="1" stopColor="#FEB336" />
       </linearGradient>
       <linearGradient
         id="paint4_linear"
@@ -380,8 +380,8 @@ export const UserPointerWrapper = () => (
         y2="27.7043"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFCB44" />
-        <stop offset="1" stop-color="#FFDE6C" />
+        <stop stopColor="#FFCB44" />
+        <stop offset="1" stopColor="#FFDE6C" />
       </linearGradient>
       <linearGradient
         id="paint5_linear"
@@ -391,8 +391,8 @@ export const UserPointerWrapper = () => (
         y2="9.24143"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD8C23" />
-        <stop offset="1" stop-color="#FFBC30" />
+        <stop stopColor="#FD8C23" />
+        <stop offset="1" stopColor="#FFBC30" />
       </linearGradient>
       <linearGradient
         id="paint6_linear"
@@ -402,8 +402,8 @@ export const UserPointerWrapper = () => (
         y2="32.2995"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFDF48" />
-        <stop offset="1" stop-color="#FFB42B" />
+        <stop stopColor="#FFDF48" />
+        <stop offset="1" stopColor="#FFB42B" />
       </linearGradient>
       <linearGradient
         id="paint7_linear"
@@ -413,8 +413,8 @@ export const UserPointerWrapper = () => (
         y2="17.3565"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA516" />
-        <stop offset="1" stop-color="#FF8C09" />
+        <stop stopColor="#FFA516" />
+        <stop offset="1" stopColor="#FF8C09" />
       </linearGradient>
       <linearGradient
         id="paint8_linear"
@@ -424,10 +424,10 @@ export const UserPointerWrapper = () => (
         y2="26.1877"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFDF48" />
-        <stop offset="0.2563" stop-color="#FFD03E" />
-        <stop offset="0.7028" stop-color="#FFBB30" />
-        <stop offset="1" stop-color="#FFB42B" />
+        <stop stopColor="#FFDF48" />
+        <stop offset="0.2563" stopColor="#FFD03E" />
+        <stop offset="0.7028" stopColor="#FFBB30" />
+        <stop offset="1" stopColor="#FFB42B" />
       </linearGradient>
       <linearGradient
         id="paint9_linear"
@@ -437,8 +437,8 @@ export const UserPointerWrapper = () => (
         y2="38.2781"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA516" />
-        <stop offset="1" stop-color="#FF8C09" />
+        <stop stopColor="#FFA516" />
+        <stop offset="1" stopColor="#FF8C09" />
       </linearGradient>
       <linearGradient
         id="paint10_linear"
@@ -448,8 +448,8 @@ export const UserPointerWrapper = () => (
         y2="19.5217"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA516" />
-        <stop offset="1" stop-color="#FF8C09" />
+        <stop stopColor="#FFA516" />
+        <stop offset="1" stopColor="#FF8C09" />
       </linearGradient>
       <linearGradient
         id="paint11_linear"
@@ -459,8 +459,8 @@ export const UserPointerWrapper = () => (
         y2="19.4486"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFDF48" />
-        <stop offset="1" stop-color="#FFB42B" />
+        <stop stopColor="#FFDF48" />
+        <stop offset="1" stopColor="#FFB42B" />
       </linearGradient>
       <linearGradient
         id="paint12_linear"
@@ -470,8 +470,8 @@ export const UserPointerWrapper = () => (
         y2="10.317"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFFE7F" />
-        <stop offset="1" stop-color="#FFC248" />
+        <stop stopColor="#FFFE7F" />
+        <stop offset="1" stopColor="#FFC248" />
       </linearGradient>
       <linearGradient
         id="paint13_linear"
@@ -481,8 +481,8 @@ export const UserPointerWrapper = () => (
         y2="31.0335"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFFE7F" />
-        <stop offset="1" stop-color="#FFC248" />
+        <stop stopColor="#FFFE7F" />
+        <stop offset="1" stopColor="#FFC248" />
       </linearGradient>
       <linearGradient
         id="paint14_linear"
@@ -492,8 +492,8 @@ export const UserPointerWrapper = () => (
         y2="26.5003"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFFE7F" />
-        <stop offset="1" stop-color="#FFC248" />
+        <stop stopColor="#FFFE7F" />
+        <stop offset="1" stopColor="#FFC248" />
       </linearGradient>
       <linearGradient
         id="paint15_linear"
@@ -503,8 +503,8 @@ export const UserPointerWrapper = () => (
         y2="34.7036"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFA516" />
-        <stop offset="1" stop-color="#FF8C09" />
+        <stop stopColor="#FFA516" />
+        <stop offset="1" stopColor="#FF8C09" />
       </linearGradient>
       <linearGradient
         id="paint16_linear"
@@ -514,8 +514,8 @@ export const UserPointerWrapper = () => (
         y2="43.7848"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFCC48" />
-        <stop offset="1" stop-color="#FFB42B" />
+        <stop stopColor="#FFCC48" />
+        <stop offset="1" stopColor="#FFB42B" />
       </linearGradient>
       <linearGradient
         id="paint17_linear"
@@ -525,8 +525,8 @@ export const UserPointerWrapper = () => (
         y2="32.9017"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFCC48" />
-        <stop offset="1" stop-color="#FFB42B" />
+        <stop stopColor="#FFCC48" />
+        <stop offset="1" stopColor="#FFB42B" />
       </linearGradient>
       <linearGradient
         id="paint18_linear"
@@ -536,8 +536,8 @@ export const UserPointerWrapper = () => (
         y2="49.2569"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFFE7F" />
-        <stop offset="1" stop-color="#FFC248" />
+        <stop stopColor="#FFFE7F" />
+        <stop offset="1" stopColor="#FFC248" />
       </linearGradient>
       <linearGradient
         id="paint19_linear"
@@ -547,8 +547,8 @@ export const UserPointerWrapper = () => (
         y2="28.1026"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FFDF48" />
-        <stop offset="1" stop-color="#FFB42B" />
+        <stop stopColor="#FFDF48" />
+        <stop offset="1" stopColor="#FFB42B" />
       </linearGradient>
     </defs>
   </svg>
@@ -592,10 +592,10 @@ export const DoneProgress = ({ width = 250 }) => (
         y2="0.338304"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#4A50FF" />
-        <stop offset="0.0244284" stop-color="#4A50FF" />
-        <stop offset="0.2833" stop-color="#4A50FF" />
-        <stop offset="1" stop-color="#6C71FF" />
+        <stop stopColor="#4A50FF" />
+        <stop offset="0.0244284" stopColor="#4A50FF" />
+        <stop offset="0.2833" stopColor="#4A50FF" />
+        <stop offset="1" stopColor="#6C71FF" />
       </linearGradient>
       <linearGradient
         id="paint111_linear"
@@ -605,8 +605,8 @@ export const DoneProgress = ({ width = 250 }) => (
         y2="0"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#7398FF" />
-        <stop offset="1" stop-color="#5A60FF" />
+        <stop stopColor="#7398FF" />
+        <stop offset="1" stopColor="#5A60FF" />
       </linearGradient>
     </defs>
   </svg>

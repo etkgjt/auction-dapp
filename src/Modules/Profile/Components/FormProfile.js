@@ -1,6 +1,6 @@
 import { Formik } from "formik"
 import FormField from "../../../components/FormField"
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Form, Row, Col } from "reactstrap"
 import FormFieldSelect from "../../../components/FormFieldSelect"
 import { useTranslation } from "react-i18next"
@@ -12,9 +12,99 @@ import {
   EditAvatarButton
 } from "../assets/icon"
 
+import { getUserData, user } from "../../../store/user/selector"
+import { useDispatch, useSelector } from "react-redux"
+
+import { getValueForm, validationSchema } from "../validation"
+import { authLogout } from "../../Authenticate/store/auth/actions"
+import * as apiCommon from "../../../store/common/services"
+
 const FormProfile = () => {
+  const dispatch = useDispatch()
+  const userData = useSelector(getUserData)
+
+  const [itemsClass, setItemsClass] = useState([])
+  const [keyClass, setKeyClass] = useState(1)
+  const [itemsCity, setItemsCity] = useState([])
+  const [keyCity, setKeyCity] = useState()
+  const [itemsDistrict, setItemsDistrict] = useState([])
+  const [keyDistrict, setKeyDistrict] = useState()
+
+  const fetchListClass = async () => {
+    try {
+      const res = await apiCommon.getListClass()
+      if (res.status === 200) {
+        setItemsClass(
+          res.data.data.map((item) => ({ label: item.name, value: item.id }))
+        )
+      } else {
+        setItemsClass([])
+      }
+    } catch (err) {
+      setItemsClass([])
+    }
+  }
+
+  const getListCity = async (payload = {}) => {
+    try {
+      const items = await apiCommon.getListCity({
+        params: {
+          where: payload
+        }
+      })
+
+      if (items.status === 200) {
+        setItemsCity(
+          items.data.data.map((item) => ({ label: item.name, value: item.id }))
+        )
+      } else {
+        setItemsCity([])
+      }
+    } catch (e) {
+      setItemsCity([])
+    }
+    setKeyCity(keyCity + 1)
+  }
+
+  const getListDistrict = async (field) => {
+    try {
+      const items = await apiCommon.getListDistrict({
+        params: {
+          ProvinceId: field
+        }
+      })
+
+      if (items.status === 200) {
+        setItemsDistrict(
+          items.data.data.map((item) => ({ label: item.name, value: item.id }))
+        )
+      } else {
+        setItemsDistrict([])
+      }
+    } catch (e) {
+      setItemsDistrict([])
+    }
+    setKeyDistrict(keyDistrict + 1)
+  }
+
   const onSubmit = () => {}
   const { i18n } = useTranslation()
+
+  const _handleLogout = () => {
+    dispatch(authLogout())
+  }
+
+  useEffect(async () => {
+    await fetchListClass()
+    await getListCity()
+  }, [])
+
+  useEffect(() => {
+    if (keyCity) {
+      getListDistrict(keyCity)
+    }
+  }, [keyCity])
+  // console.log(userData)
   return (
     <div className="profile-form-container">
       <div className="profile-form-avatar-wrapper">
@@ -27,8 +117,19 @@ const FormProfile = () => {
       </div>
       <Formik
         onSubmit={onSubmit}
-        // validationSchema={validationSchema(i18n)}
-        // initialValues={getValueForm({})}
+        validationSchema={validationSchema(i18n)}
+        initialValues={getValueForm({
+          children_fullname: userData?.childFullName1,
+          gender: userData?.gender,
+          birth_day: userData?.dayofbirth,
+          district: userData?.districtId,
+          city: userData?.cityId,
+          email: userData?.email,
+          phone_number: userData?.phone,
+          parent_fullname: userData?.fullName,
+          class: userData?.child1ClassId
+        })}
+        enableReinitialize
       >
         {(formik) => {
           return (
@@ -43,7 +144,7 @@ const FormProfile = () => {
                   </Col>
                   <Col xl="9" lg="9" md="9">
                     <FormField
-                      field="student_name"
+                      field="children_fullname"
                       {...formik}
                       placeholder={i18n.t(`FormSignUp:field:student_name`)}
                     />
@@ -93,14 +194,14 @@ const FormProfile = () => {
                       <Col xl="6" lg="6" md="6">
                         <FormFieldSelect
                           borderLight
-                          field="class_name"
+                          field="class"
                           {...formik}
                           valueDefault={formik.values?.class_name}
                           handleChange={(value) =>
-                            formik.setFieldValue("class_name", value)
+                            formik.setFieldValue("class", value)
                           }
                           placeholder={"Lớp"}
-                          options={[]}
+                          options={itemsClass}
                         />
                       </Col>
                     </Row>
@@ -130,7 +231,7 @@ const FormProfile = () => {
                             setKeyCity(value)
                           }}
                           placeholder={"Tỉnh/ Thành phố"}
-                          options={[]}
+                          options={itemsCity}
                         />
                       </Col>
                       <Col xl="12" lg="12" md="12">
@@ -143,7 +244,7 @@ const FormProfile = () => {
                             formik.setFieldValue("district", value)
                           }
                           placeholder={"Quận/ Huyện"}
-                          options={[]}
+                          options={itemsDistrict}
                         />
                       </Col>
                     </Row>
@@ -186,7 +287,7 @@ const FormProfile = () => {
                   <Col xl="6" lg="6" md="6">
                     <FormField
                       className="mr-1 w-100"
-                      field="phone"
+                      field="phone_number"
                       {...formik}
                       placeholder={"Điện thoại"}
                     />
@@ -264,7 +365,10 @@ const FormProfile = () => {
                 <Row className="group-btn-wrapper">
                   <Col xl="12" md="12" lg="12">
                     <span className="d-flex flex-row justify-content-center w-100">
-                      <div className="update-profile-button-wrapper">
+                      <div
+                        className="update-profile-button-wrapper"
+                        onClick={_handleLogout}
+                      >
                         <ButtonWrapperBlue />
                         <span className="update-profile-button-label">
                           Đăng xuất
@@ -293,7 +397,7 @@ const FormProfile = () => {
           <Col xl="6" lg="6">
             <span className="copy-btn-title">Mã giới thiệu</span>
             <div className="copy-field">
-              XX-XXX
+              {userData?.codeInvite}
               <div className="copy-code-button">Sao chép</div>
             </div>
           </Col>

@@ -169,11 +169,11 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="89.2605"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="1" stop-color="#FEB336" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="1" stopColor="#FEB336" />
         </linearGradient>
         <linearGradient
           id="paint1_linearr"
@@ -183,8 +183,8 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="103.621"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFCB44" />
-          <stop offset="1" stop-color="#FFDE6C" />
+          <stop stopColor="#FFCB44" />
+          <stop offset="1" stopColor="#FFDE6C" />
         </linearGradient>
         <linearGradient
           id="paint2_linearr"
@@ -194,10 +194,10 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="804.2"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F68317" />
-          <stop offset="0.2581" stop-color="#F57D18" />
-          <stop offset="0.6054" stop-color="#F16C1C" />
-          <stop offset="1" stop-color="#EA5023" />
+          <stop stopColor="#F68317" />
+          <stop offset="0.2581" stopColor="#F57D18" />
+          <stop offset="0.6054" stopColor="#F16C1C" />
+          <stop offset="1" stopColor="#EA5023" />
         </linearGradient>
         <linearGradient
           id="paint3_linearr"
@@ -207,8 +207,8 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="803.749"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA525" />
-          <stop offset="1" stop-color="#FEA526" />
+          <stop stopColor="#FEA525" />
+          <stop offset="1" stopColor="#FEA526" />
         </linearGradient>
         <linearGradient
           id="paint4_linearr"
@@ -218,8 +218,8 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="820.829"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FEA52A" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FEA52A" />
         </linearGradient>
         <linearGradient
           id="paint5_linearr"
@@ -229,8 +229,8 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="1.52595"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA624" />
-          <stop offset="1" stop-color="#FEA624" />
+          <stop stopColor="#FEA624" />
+          <stop offset="1" stopColor="#FEA624" />
         </linearGradient>
         <linearGradient
           id="paint6_linearr"
@@ -240,8 +240,8 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="19.0076"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA624" />
-          <stop offset="1" stop-color="#FEA624" />
+          <stop stopColor="#FEA624" />
+          <stop offset="1" stopColor="#FEA624" />
         </linearGradient>
         <linearGradient
           id="paint7_linearr"
@@ -251,8 +251,8 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="22.4417"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA624" />
-          <stop offset="1" stop-color="#FEA624" />
+          <stop stopColor="#FEA624" />
+          <stop offset="1" stopColor="#FEA624" />
         </linearGradient>
         <linearGradient
           id="paint8_linearr"
@@ -262,13 +262,13 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="1.47664"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="0.2281" stop-color="#FEA92A" />
-          <stop offset="0.696" stop-color="#FFBC3F" />
-          <stop offset="1" stop-color="#FFC347" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="0.2281" stopColor="#FEA92A" />
+          <stop offset="0.696" stopColor="#FFBC3F" />
+          <stop offset="1" stopColor="#FFC347" />
         </linearGradient>
         <linearGradient
           id="paint9_linearr"
@@ -278,8 +278,8 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="0.000206099"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FFBC30" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FFBC30" />
         </linearGradient>
         <linearGradient
           id="paint10_linearr"
@@ -289,13 +289,13 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="19.5151"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="0.2281" stop-color="#FEA92A" />
-          <stop offset="0.696" stop-color="#FFBC3F" />
-          <stop offset="1" stop-color="#FFC347" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="0.2281" stopColor="#FEA92A" />
+          <stop offset="0.696" stopColor="#FFBC3F" />
+          <stop offset="1" stopColor="#FFC347" />
         </linearGradient>
         <linearGradient
           id="paint11_linearr"
@@ -305,8 +305,8 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="18.204"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FFBC30" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FFBC30" />
         </linearGradient>
         <linearGradient
           id="paint12_linearr"
@@ -316,13 +316,13 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="21.8215"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="0.2281" stop-color="#FEA92A" />
-          <stop offset="0.696" stop-color="#FFBC3F" />
-          <stop offset="1" stop-color="#FFC347" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="0.2281" stopColor="#FEA92A" />
+          <stop offset="0.696" stopColor="#FFBC3F" />
+          <stop offset="1" stopColor="#FFC347" />
         </linearGradient>
         <linearGradient
           id="paint13_linearr"
@@ -332,8 +332,8 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
           y2="20.5351"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FFBC30" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FFBC30" />
         </linearGradient>
         <clipPath id="clip0">
           <rect width="461" height="841" fill="white" />
@@ -386,10 +386,10 @@ export const ButtonSvg = () => {
           y2="60.6838"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F68317" />
-          <stop offset="0.2581" stop-color="#F57D18" />
-          <stop offset="0.6054" stop-color="#F16C1C" />
-          <stop offset="1" stop-color="#EA5023" />
+          <stop stopColor="#F68317" />
+          <stop offset="0.2581" stopColor="#F57D18" />
+          <stop offset="0.6054" stopColor="#F16C1C" />
+          <stop offset="1" stopColor="#EA5023" />
         </linearGradient>
         <linearGradient
           id="paint1_linear"
@@ -399,8 +399,8 @@ export const ButtonSvg = () => {
           y2="0"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FFBC30" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FFBC30" />
         </linearGradient>
       </defs>
     </svg>
@@ -446,13 +446,13 @@ export const ArrowRightIcon = () => {
           y2="1.14442"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="0.2281" stop-color="#FEA92A" />
-          <stop offset="0.696" stop-color="#FFBC3F" />
-          <stop offset="1" stop-color="#FFC347" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="0.2281" stopColor="#FEA92A" />
+          <stop offset="0.696" stopColor="#FFBC3F" />
+          <stop offset="1" stopColor="#FFC347" />
         </linearGradient>
         <linearGradient
           id="paint1_lineararrowicon"
@@ -462,8 +462,8 @@ export const ArrowRightIcon = () => {
           y2="-0.0122957"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FFBC30" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FFBC30" />
         </linearGradient>
       </defs>
     </svg>
@@ -513,13 +513,13 @@ export const ArrowLeftIcon = () => (
         y2="1.72987"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FEB32C" />
-        <stop offset="0.00304192" stop-color="#FEB22C" />
-        <stop offset="0.0667296" stop-color="#FEA827" />
-        <stop offset="0.1452" stop-color="#FEA525" />
-        <stop offset="0.2281" stop-color="#FEA92A" />
-        <stop offset="0.696" stop-color="#FFBC3F" />
-        <stop offset="1" stop-color="#FFC347" />
+        <stop stopColor="#FEB32C" />
+        <stop offset="0.00304192" stopColor="#FEB22C" />
+        <stop offset="0.0667296" stopColor="#FEA827" />
+        <stop offset="0.1452" stopColor="#FEA525" />
+        <stop offset="0.2281" stopColor="#FEA92A" />
+        <stop offset="0.696" stopColor="#FFBC3F" />
+        <stop offset="1" stopColor="#FFC347" />
       </linearGradient>
       <linearGradient
         id="paint1_lineararrowleft"
@@ -529,8 +529,8 @@ export const ArrowLeftIcon = () => (
         y2="0"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FD8C23" />
-        <stop offset="1" stop-color="#FFBC30" />
+        <stop stopColor="#FD8C23" />
+        <stop offset="1" stopColor="#FFBC30" />
       </linearGradient>
     </defs>
   </svg>

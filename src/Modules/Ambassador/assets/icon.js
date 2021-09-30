@@ -47,10 +47,10 @@ export const MacOSIcon = () => (
         y2="135.479"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#F68317" />
-        <stop offset="0.2581" stop-color="#F57D18" />
-        <stop offset="0.6054" stop-color="#F16C1C" />
-        <stop offset="1" stop-color="#EA5023" />
+        <stop stopColor="#F68317" />
+        <stop offset="0.2581" stopColor="#F57D18" />
+        <stop offset="0.6054" stopColor="#F16C1C" />
+        <stop offset="1" stopColor="#EA5023" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_macos_download"
@@ -60,10 +60,10 @@ export const MacOSIcon = () => (
         y2="139.905"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#F68317" />
-        <stop offset="0.2581" stop-color="#F57D18" />
-        <stop offset="0.6054" stop-color="#F16C1C" />
-        <stop offset="1" stop-color="#EA5023" />
+        <stop stopColor="#F68317" />
+        <stop offset="0.2581" stopColor="#F57D18" />
+        <stop offset="0.6054" stopColor="#F16C1C" />
+        <stop offset="1" stopColor="#EA5023" />
       </linearGradient>
       <clipPath id="clip0">
         <rect
@@ -133,10 +133,10 @@ export const GooglePlayIcon = () => (
         y2="134.919"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#F68317" />
-        <stop offset="0.2581" stop-color="#F57D18" />
-        <stop offset="0.6054" stop-color="#F16C1C" />
-        <stop offset="1" stop-color="#EA5023" />
+        <stop stopColor="#F68317" />
+        <stop offset="0.2581" stopColor="#F57D18" />
+        <stop offset="0.6054" stopColor="#F16C1C" />
+        <stop offset="1" stopColor="#EA5023" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_google_play_icon"
@@ -146,10 +146,10 @@ export const GooglePlayIcon = () => (
         y2="139.345"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#F68317" />
-        <stop offset="0.2581" stop-color="#F57D18" />
-        <stop offset="0.6054" stop-color="#F16C1C" />
-        <stop offset="1" stop-color="#EA5023" />
+        <stop stopColor="#F68317" />
+        <stop offset="0.2581" stopColor="#F57D18" />
+        <stop offset="0.6054" stopColor="#F16C1C" />
+        <stop offset="1" stopColor="#EA5023" />
       </linearGradient>
       <clipPath id="clip0">
         <rect
@@ -207,10 +207,10 @@ export const DesktopIcon = () => (
         y2="134.919"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#F68317" />
-        <stop offset="0.2581" stop-color="#F57D18" />
-        <stop offset="0.6054" stop-color="#F16C1C" />
-        <stop offset="1" stop-color="#EA5023" />
+        <stop stopColor="#F68317" />
+        <stop offset="0.2581" stopColor="#F57D18" />
+        <stop offset="0.6054" stopColor="#F16C1C" />
+        <stop offset="1" stopColor="#EA5023" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_desktop_icon"
@@ -220,10 +220,10 @@ export const DesktopIcon = () => (
         y2="139.345"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#F68317" />
-        <stop offset="0.2581" stop-color="#F57D18" />
-        <stop offset="0.6054" stop-color="#F16C1C" />
-        <stop offset="1" stop-color="#EA5023" />
+        <stop stopColor="#F68317" />
+        <stop offset="0.2581" stopColor="#F57D18" />
+        <stop offset="0.6054" stopColor="#F16C1C" />
+        <stop offset="1" stopColor="#EA5023" />
       </linearGradient>
       <clipPath id="clip0">
         <rect

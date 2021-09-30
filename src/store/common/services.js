@@ -1,5 +1,5 @@
 import API from "../../configs/api"
-import apiMethod from "../../utility/ApiMethod"
+import apiMethod from "../../utility/ApiMethodSuperSchoolMemory"
 
 export const getListCity = (payload) => {
   return apiMethod.get(API.GET_COMMON_GET_CITY, payload)

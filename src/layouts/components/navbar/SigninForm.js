@@ -17,10 +17,15 @@ import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
 
 import { SignInButton } from "./icon"
+import { useHistory } from "react-router"
 
+import {
+  authSignIn,
+  signInReset
+} from "../../../Modules/Authenticate/store/auth/actions"
 const SignInForm = () => {
   const { i18n } = useTranslation()
-
+  const history = useHistory()
   const dispatch = useDispatch()
 
   const error = useSelector((state) => errorSelector(state))
@@ -29,6 +34,22 @@ const SignInForm = () => {
   const onSubmit = (values) => {
     dispatch(authSignIn(values))
   }
+
+  React.useEffect(() => {
+    if (error) {
+      // toast.error(i18n.t(`FormSignIn:errors:user_name_or_password.wrong`), {
+      //   position: "top-center",
+      //   autoClose: 3000
+      // })
+      console.log(" LOGIN FAILED")
+    }
+    if (loginSuccess) {
+      history.push("/home")
+    }
+    return () => {
+      dispatch(signInReset())
+    }
+  }, [loginSuccess, error])
   return (
     <div className="signin-form-container">
       <Formik

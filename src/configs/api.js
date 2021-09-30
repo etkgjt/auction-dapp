@@ -1,5 +1,9 @@
-import { ENV_ENVIRONMENT_BASE_URL_API } from "./environment"
+import {
+  ENV_ENVIRONMENT_BASE_URL_API,
+  ENV_ENVIRONMENT_BASE_URL_API_STNHD
+} from "./environment"
 export const BASE_URL_API = ENV_ENVIRONMENT_BASE_URL_API
+export const BASE_URL_API_STNHD = ENV_ENVIRONMENT_BASE_URL_API_STNHD
 
 export default {
   /*Common*/

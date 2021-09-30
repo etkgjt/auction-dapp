@@ -14,6 +14,8 @@ import navigation from "@src/navigation"
 /*Redux*/
 import * as actionsCommon from "@store/common/actions"
 import { getCodeLanguage } from "@store/common/selectors"
+import { getUserData } from "../../../store/user/selector"
+import { loginSuccessSelector } from "../../../Modules/Authenticate/store/auth/selectors"
 
 import {
   UserIcon,
@@ -35,6 +37,8 @@ const Navbar = () => {
 
   /*Selectors*/
   const lang = useSelector((state) => getCodeLanguage(state))
+  const userData = useSelector(getUserData)
+  const isLogin = useSelector(loginSuccessSelector)
 
   /*State*/
   const [collapsed, setCollapsed] = useState(true)
@@ -73,7 +77,7 @@ const Navbar = () => {
   const handleOnSubmit = (e) => {
     dispatch(actionsCommon.setLanguage(e.target.value))
   }
-  const isLogin = false
+
   return (
     <header id="header" className="header-inner">
       <div id="navbar" className={`crake-nav ${layOutCls}`}>
@@ -132,7 +136,12 @@ const Navbar = () => {
                 >
                   <UserIcon />
                 </div>
-                {isDropdownOpen ? <Dropdown isLogin={isLogin} /> : null}
+                {isDropdownOpen ? (
+                  <Dropdown
+                    setIsDropdownOpen={setIsDropdownOpen}
+                    isLogin={isLogin}
+                  />
+                ) : null}
               </div>
             </div>
           </nav>

@@ -12,6 +12,7 @@ export default {
   POST_AUTH_FORGOT_PASSWORD: "/AccountHelper/ForgetPassword",
   POST_AUTH_VERIFY_ACCOUNT: "/AccountHelper/OTPConfirmAccount",
   POST_AUTH_VERIFY_PASSWORD: "/AccountHelper/OTPConfirmPassword",
-  LOG_OUT: ""
+  LOG_OUT: "",
+  POST_SYNC_USER_INFO: "/mypage/SyncInfo"
   /*End Auth SuperSchoolMemory*/
 }
