@@ -23,6 +23,7 @@ import {
   authSignIn,
   signInReset
 } from "../../../Modules/Authenticate/store/auth/actions"
+import { toast } from "react-toastify"
 const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
   const { i18n } = useTranslation()
   const history = useHistory()
@@ -37,14 +38,15 @@ const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
 
   React.useEffect(() => {
     if (error) {
-      // toast.error(i18n.t(`FormSignIn:errors:user_name_or_password.wrong`), {
-      //   position: "top-center",
-      //   autoClose: 3000
-      // })
-      console.log(" LOGIN FAILED")
+      console.log("ERROR NE", error)
+      toast.error(i18n.t(`FormSignIn:errors:user_name_or_password.wrong`), {
+        position: "top-center",
+        autoClose: 3000
+      })
     }
     if (loginSuccess) {
       history.push("/home")
+      setIsDropdownOpen(false)
     }
     return () => {
       dispatch(signInReset())

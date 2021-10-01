@@ -7,11 +7,7 @@ import { getCodeLanguage } from "../common/selectors"
 const getInfoUser = function* ({ payload }) {
   try {
     yield put(actions.setLoading(true))
-
-    const codeLanguage = yield select(getCodeLanguage)
-
-    const res = yield call(service.getInfoUser, { payload, codeLanguage })
-
+    const res = yield call(service.getInfoUser, { payload })
     const { data } = res
     if (res.status === SUCCESS && data.retCode === RETCODE_SUCCESS) {
       yield put(actions.setInfoData(res.data.data))

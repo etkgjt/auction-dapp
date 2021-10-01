@@ -5,6 +5,9 @@ import Banner from "@Modules/Rules/Components/Banner"
 import Rules from "@Modules/Rules/Components/Rules"
 
 const Home = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="home__page">
       <Banner />

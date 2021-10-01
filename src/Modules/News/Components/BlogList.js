@@ -1,13 +1,32 @@
 import React, { Component } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router"
 import { Col, Row } from "reactstrap"
 import { ButtonBlue, ButtonOrange } from "../assets/icons"
+import { getListLoadingSelector, getListSelector } from "../Store/News/selector"
+
+import { actions } from "../Store/News/reducer"
+import AsyncImage from "../../../components/AsyncImage"
 
 const BlogOne = () => {
+  const dispatch = useDispatch()
+
+  const listNews = useSelector(getListSelector)
+  const listNewsLoading = useSelector(getListLoadingSelector)
+
   const history = useHistory()
   const onItemPress = (id) => {
     history.push(`/news/${id}`)
   }
+
+  React.useEffect(() => {
+    dispatch(
+      actions.getList({
+        page: 1,
+        limit: 12
+      })
+    )
+  }, [])
   return (
     <div className="news-list-area">
       <div className="news-list-wrapper">
@@ -25,37 +44,26 @@ const BlogOne = () => {
           </div>
         </div>
         <Row>
-          {Array.apply(null, {
-            length: 8
-          }).map((item, index) => (
+          {listNews?.map((item, index) => (
             <Col xl="3" lg="3">
               <div
                 className="news-item-wrapper"
                 onClick={() => {
-                  onItemPress(index)
+                  onItemPress(item?.id)
                 }}
               >
-                <div className="news-item-image-wrapper"></div>
-                <div className="news-item-title">
-                  {`Thông báo lịch quay số tuần ${index + 1}`}
+                <div className="news-item-image-wrapper">
+                  <AsyncImage
+                    src={item?.urlImage}
+                    className="news-item-image"
+                    placeholderClassName="news-item-image-loading"
+                  />
                 </div>
-                <span className="news-item-subtitle">
-                  Một phần nội dung hiển thị của bài viết... Một phần nội dung
-                  hiển thị của bài viết...
-                </span>
+                <div className="news-item-title">{item?.title}</div>
+                <span className="news-item-subtitle">{item?.content}</span>
               </div>
             </Col>
           ))}
-        </Row>
-        <Row>
-          <div className="news-detail-button-wrapper">
-            <ButtonOrange />
-            <span className="news-detail-button__text">Quay về</span>
-          </div>
-          <div className="news-detail-button-wrapper">
-            <ButtonBlue />
-            <span className="news-detail-button__text">Quay về</span>
-          </div>
         </Row>
       </div>
     </div>

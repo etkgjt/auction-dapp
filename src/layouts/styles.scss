@@ -8,3 +8,44 @@
   align-items: center;
   z-index: 999;
 }
+
+@-webkit-keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+@keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+.invite-friend-button {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: fixed;
+  right: 50px;
+  bottom: 10vh;
+  z-index: 99999;
+  cursor: pointer;
+  &:active {
+    transform: scale(0.9);
+    transition: transform ease-in;
+  }
+}
+.invite-friend-button:hover,
+.invite-friend-button:focus,
+.invite-friend-button:active {
+  -webkit-animation-name: hvr-pop;
+  animation-name: hvr-pop;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}

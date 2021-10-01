@@ -1,7 +1,7 @@
-import API from '../../configs/api'
-import apiMethod from '@utility/ApiMethod'
+import API from "../../configs/api"
+import apiMethod from "@utility/ApiMethodSuperSchoolMemory"
 
-export const formForgotPasswordCallMethod = ({payload}) => {
+export const formForgotPasswordCallMethod = ({ payload }) => {
   const body = {
     userName: payload.username,
     phone: payload.number_phone_or_email

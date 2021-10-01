@@ -25,7 +25,8 @@ function* fetchSignInSaga({ payload }) {
         "Authorization"
       ] = `Bearer ${data.data.token}`
       const resSync = yield call(syncUserInfo, {
-        ...data.data
+        ...data.data,
+        IsActive: true
       })
 
       if (
@@ -33,7 +34,9 @@ function* fetchSignInSaga({ payload }) {
         resSync.data.retCode === RETCODE_SUCCESS
       ) {
         yield put({ type: Actions.SIGN_IN_SUCCESS, payload: resSync.data.data })
-        yield put(ActionsUser.setInfoData(resSync.data.data))
+        yield put(ActionsUser.getInfoUser({ id: resSync.data.data.id }))
+        // yield put(ActionsUser.setInfoData(resSync.data.data))
+
         apiMethod.defaults.headers.common[
           "Authorization"
         ] = `Bearer ${resSync.data.data.token}`

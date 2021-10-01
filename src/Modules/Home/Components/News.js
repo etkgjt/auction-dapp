@@ -1,6 +1,8 @@
 import React, { useRef } from "react"
 import Carousel from "react-owl-carousel3"
 import { useDispatch, useSelector } from "react-redux"
+import { useHistory } from "react-router"
+import AsyncImage from "../../../components/AsyncImage"
 import { ArrowLeftIcon, ArrowRightIcon } from "../assets/icon"
 
 import { actions } from "../Store/News/reducer"
@@ -8,6 +10,7 @@ import { getListSelector, getListLoadingSelector } from "../Store/News/selector"
 
 const News = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const listNews = useSelector(getListSelector)
   const listNewsLoading = useSelector(getListLoadingSelector)
 
@@ -21,7 +24,9 @@ const News = () => {
       })
     )
   }, [])
-  console.log("LIST NEWS", listNews)
+  const onItemPress = (id) => {
+    history.push(`/news/${id}`)
+  }
   return (
     <div className="news-area">
       <div className="news-container">
@@ -52,21 +57,18 @@ const News = () => {
           )}
 
           <Carousel ref={carouselRef} items={4}>
-            {/* {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
-              <div className="news-item__container">
-                <div className="news-item__image"></div>
-                <p className="news-item__title">{`Thông báo lịch quay số tuần${item}`}</p>
-                <p className="news-item__subtitle">
-                  Một phần nội dung hiển thị của bài viết...Một phần nội dung
-                  hiển thị của bài viết... Một phần nội dung hiển thị của bài
-                  viết...{" "}
-                </p>
-              </div>
-            ))} */}
             {listNews.map((item, index) => (
-              <div className="news-item__container" key={item?.id}>
+              <div
+                className="news-item__container"
+                onClick={() => onItemPress(item?.id)}
+                key={item?.id}
+              >
                 <div className="news-item__image">
-                  <img src={item?.urlImage} alt="news-image" />
+                  <AsyncImage
+                    src={item?.urlImage}
+                    alt="news-image"
+                    placeholderClassName="news-item__image-loading"
+                  />
                 </div>
                 <p className="news-item__title">{item?.title}</p>
                 <p className="news-item__subtitle">{item?.content}</p>

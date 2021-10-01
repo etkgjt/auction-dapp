@@ -3,7 +3,10 @@ import apiMethodSTNHD from "@utility/ApiMethodSuperSchoolMemory"
 import apiMethod from "../../../../utility/ApiMethod"
 
 export const signIn = ({ codeLanguage, payload }) => {
-  return apiMethodSTNHD.post(codeLanguage + API.POST_AUTH_SIGN_IN, payload)
+  return apiMethodSTNHD.post(codeLanguage + API.POST_AUTH_SIGN_IN, {
+    ...payload,
+    IsActive: true
+  })
 }
 export const sendOtp = ({ codeLanguage, payload }) => {
   return apiMethodSTNHD.post(codeLanguage + API.POST_SEND_OTP, {

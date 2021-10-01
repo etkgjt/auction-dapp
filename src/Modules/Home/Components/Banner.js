@@ -28,7 +28,6 @@ const Banner = () => {
   const listBanner = useSelector(getListSelector)
   const listBannerLoading = useSelector(getListLoadingSelector)
 
-  console.log("LIST BANNER", listBanner)
   const openModal = () => {
     setIsOpen(true)
   }
@@ -45,7 +44,7 @@ const Banner = () => {
   return (
     <div style={{ background: "white" }} className="main-banner saas-home">
       <Carousel className="blog-slides owl-carousel owl-theme" {...options}>
-        {listBanner?.map((item) => (
+        {listBanner?.listData?.map((item) => (
           <div key={item?.id} className="col-lg-12 col-md-12">
             <div className="bg__slider">
               <img

@@ -1,15 +1,18 @@
-import '../bootstrap.scss';
+import "../bootstrap.scss"
 
-import React from 'react';
+import React from "react"
 
-import BlogDetail from '@Modules/News/Components/BlogDetail';
+import BlogDetail from "@Modules/News/Components/BlogDetail"
 
 const BlogDetails = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="news__page">
       <BlogDetail />
     </div>
-  );
-};
+  )
+}
 
-export default BlogDetails;
+export default BlogDetails

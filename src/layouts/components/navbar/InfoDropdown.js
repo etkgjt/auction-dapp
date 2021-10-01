@@ -1,7 +1,14 @@
 import React from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useLocation } from "react-router"
-import { StarIcon } from "./icon"
 
+/*REDUX */
+import { actions as NotiAction } from "../../../Modules/Notification/Store/Notification/reducer"
+import { getCountNotiSelector } from "../../../Modules/Notification/Store/Notification/selector"
+import { getUserData } from "../../../store/user/selector"
+
+/*STYLE ASSET*/
+import { StarIcon } from "./icon"
 import "./index.scss"
 const data = [
   {
@@ -16,7 +23,8 @@ const data = [
     onClick: (history) => {
       history.push("/notifications")
     },
-    key: "/notifications"
+    key: "/notifications",
+    flag: "noti"
   },
   {
     title: "Thành tựu voi",
@@ -48,7 +56,9 @@ const data = [
   },
   {
     title: "Siêu Trí Nhớ\nHọc Đường",
-    onClick: () => {},
+    onClick: () => {
+      window.location.assign("https://sieutrinhohocduong.com/")
+    },
     icon: <StarIcon />
   },
   {
@@ -58,9 +68,22 @@ const data = [
 ]
 
 const InfoDropdown = ({ setIsDropdownOpen = () => {} }) => {
-  const activeItem = 1
+  //HOOK
+  const dispatch = useDispatch()
   const history = useHistory()
   const location = useLocation()
+  //SELECTOR
+  const userData = useSelector(getUserData)
+  const countNoti = useSelector(getCountNotiSelector)
+
+  React.useEffect(() => {
+    dispatch(
+      NotiAction.getCountUnreadNoti({
+        userid: 1
+      })
+    )
+  }, [])
+
   return (
     <div className="info-dropdown-container">
       <ul className="p-0">
@@ -81,6 +104,9 @@ const InfoDropdown = ({ setIsDropdownOpen = () => {} }) => {
             >
               {item.title}
               {item?.icon}
+              {item?.flag === "noti" && countNoti ? (
+                <div className="noti-badge" />
+              ) : null}
             </span>
           </li>
         ))}

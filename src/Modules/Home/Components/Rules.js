@@ -5,6 +5,21 @@ import banner from "../assets/images/rule-top-banner.png"
 import { HornorTable, ButtonSvg } from "../assets/icon"
 import { useHistory } from "react-router"
 
+import {
+  getListLoadingSelector,
+  getListSelector
+} from "../Store/Rules/selector"
+
+import {
+  getListLoadingSelector as getListRankLoadingSelector,
+  getListSelector as getListRankSelector
+} from "../Store/Ranking/selector"
+
+import { actions } from "../Store/Rules/reducer"
+import { actions as rankActions } from "../Store/Ranking/reducer"
+import { useDispatch, useSelector } from "react-redux"
+import AsyncImage from "../../../components/AsyncImage"
+
 const data = [
   {
     level: 10,
@@ -32,22 +47,37 @@ const data = [
     point: 132000
   }
 ]
+const getHornorTableWidth = () => {
+  const width = window.innerWidth
+  const paddingWidth = width * 0.8
+  return (paddingWidth / 12) * 5
+}
+const getHornorTableHeight = () => {
+  const ratio = 461 / 841
+  return getHornorTableWidth() / ratio
+}
 
 const Rules = () => {
   const history = useHistory()
+  const dispatch = useDispatch()
 
-  const getHornorTableWidth = () => {
-    const width = window.innerWidth
-    const paddingWidth = width * 0.8
-    return (paddingWidth / 12) * 5
-  }
-  const getHornorTableHeight = () => {
-    const ratio = 461 / 841
-    return getHornorTableWidth() / ratio
-  }
+  const rules = useSelector(getListSelector)
+  const rulesLoading = useSelector(getListLoadingSelector)
+
+  const listRank = useSelector(getListRankSelector)
+  const listRankLoading = useSelector(getListRankLoadingSelector)
+
   const onSeemorePress = () => {
     history.push("/rules")
   }
+
+  React.useEffect(() => {
+    dispatch(actions.getList())
+    dispatch(rankActions.getList())
+  }, [])
+
+  console.log("LIST RANK", listRank)
+
   return (
     <div className="rules-area">
       <div className="rules-container">
@@ -55,67 +85,7 @@ const Rules = () => {
           <Col xl="7" lg="7" md="7">
             <div className="rules-board">
               <img src={banner} alt="banner" className="rule-top-banner" />
-              <ul>
-                <li className="rule-title">Mục đích ý nghĩa:</li>
-                <li className="rule-title">
-                  <ul>
-                    <li className="rule-subtitle">
-                      Thu hút học sinh tham gia vào hoạt động học tập thực tế và
-                      hữu ích khi học Siêu Trí Nhớ Học Đường.
-                    </li>
-                    <li className="rule-subtitle">
-                      Lan tỏa giá trị của Siêu Trí Nhớ Học Đường đến với cộng
-                      đồng.
-                    </li>
-                  </ul>
-                </li>
-
-                <li className="rule-title rule-margin">Thời gian tổ chức:</li>
-                <li className="rule-title">
-                  <ul>
-                    <li className="rule-subtitle">
-                      Kể từ ngày 16/09/2021 đến ngày 14/10/2021
-                    </li>
-                  </ul>
-                </li>
-
-                <li className="rule-title rule-margin">
-                  Đối tượng tham gia Chương trình:
-                </li>
-                <li className="rule-title">
-                  <ul>
-                    <li className="rule-subtitle">
-                      Tất cả các bạn học sinh trên cả nước từ lớp 1 đến lớp 12
-                    </li>
-                  </ul>
-                </li>
-
-                <li className="rule-title rule-margin">
-                  Cách thức tham gia chương trình:
-                </li>
-                <li className="rule-title">
-                  <ul>
-                    <li className="rule-subtitle">
-                      Bước 1: Đăng nhập tài khoản vào trang
-                      <span className="rule_subtitle_red">
-                        &nbsp;www.stnhd.com
-                      </span>
-                    </li>
-                    <li className="rule-subtitle">
-                      Bước 2: Copy đường dẫn Mời bạn mới{" "}
-                    </li>
-                    <li className="rule-subtitle">
-                      Bước 3: Gửi tin nhắn mời bạn bè cùng tham gia{" "}
-                    </li>
-                    <li className="rule-subtitle">
-                      Giải thưởng trị giá 5.000.000đ dành cho người tham gia may
-                      mắn trong Chương trình VÒNG QUAY MAY MẮN - chương trình
-                      nằm trong khuôn khổ Đại Sứ Siêu Trí Nhớ Học Đường được tổ
-                      chức vào 21h ngày thứ 5 cuối cùng mỗi tháng.
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+              <div dangerouslySetInnerHTML={{ __html: rules?.description }} />
               <div className="seemore-button" onClick={onSeemorePress}>
                 <ButtonSvg />
                 <p className="seemore-button__text">Xem thêm</p>
@@ -128,7 +98,12 @@ const Rules = () => {
                 width={getHornorTableWidth()}
                 height={getHornorTableHeight()}
               />
-              <div className="seemore-button">
+              <div
+                className="seemore-button"
+                onClick={() => {
+                  history.push("/rankings")
+                }}
+              >
                 <ButtonSvg />
                 <p className="seemore-button__text">Xem thêm</p>
               </div>
@@ -137,16 +112,20 @@ const Rules = () => {
                   Bảng <br />
                   xếp hạng
                 </h1>
-                {data.map((item, index) => (
+                {listRank?.map((item, index) => (
                   <div key={index} className="hornor-item-wrapper">
                     <p className="item-rank">{index + 1}</p>
-                    <div className="item-avatar"></div>
+                    <div className="item-avatar">
+                      <AsyncImage
+                        src={item?.avatar}
+                        className="item-rank-avatar-img"
+                        placeholderClassName="item-rank-avatar-loading"
+                      />
+                    </div>
                     <div className="item-info">
                       <span className="item-level">{"Cấp " + item.level}</span>
-                      <span className="item-name">{item.name}</span>
-                      <span className="item-point">{`${Math.round(
-                        item.point / 1000
-                      )}k`}</span>
+                      <span className="item-name">{item.fullName}</span>
+                      <span className="item-point">{`${item.totalPoint}k`}</span>
                     </div>
                   </div>
                 ))}

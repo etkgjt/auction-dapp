@@ -20,7 +20,7 @@ import * as apiCommon from "../../../store/common/services"
 
 import FormFieldSelect from "../../../components/FormFieldSelect"
 import { sendOtp } from "../store/auth/service"
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 
 import {
   errorSelector,
@@ -39,32 +39,31 @@ import { checkInviteCode, syncUserInfo } from "../store/formSignUp/service"
 import { RETCODE_SUCCESS } from "../../../configs/contants"
 
 const Signup = () => {
+  //HOOK
   const { i18n } = useTranslation()
   const history = useHistory()
   const dispatch = useDispatch()
-  const error = useSelector((state) => formSubmitErrorSelector(state))
-  const response = useSelector((state) => formSubmitDataResponseSelector(state))
-  const loading = useSelector((state) => formSubmitLoadingSelector(state))
-
+  const { invite_code } = useParams()
+  //STATE
   const [itemsCity, setItemsCity] = useState([])
   const [keyCity, setKeyCity] = useState(1)
   const [itemsDistrict, setItemsDistrict] = useState([])
   const [keyDistrict, setKeyDistrict] = useState(1)
   const [itemsClass, setItemsClass] = useState([])
   const [keyClass, setKeyClass] = useState(1)
-
-  const codeLanguage = useSelector((state) => state.common?.codeLanguage || [])
   const [loadingOtp, setLoadingOtp] = useState(false)
-  const formSubmitSuccess = useSelector((state) =>
-    formSubmitSuccessSelector(state)
-  )
   const [userAvatar, setUserAvatar] = useState("")
   const [formData, setFormData] = useState({})
   const [disabledInviteCode, setDisableIntiveCode] = useState(false)
-
-  const loginError = useSelector((state) => errorSelector(state))
-  const loginLoading = useSelector((state) => loadingSelector(state))
-  const loginSuccess = useSelector((state) => loginSuccessSelector(state))
+  //SELECTOR
+  const error = useSelector(formSubmitErrorSelector)
+  const response = useSelector(formSubmitDataResponseSelector)
+  const loading = useSelector(formSubmitLoadingSelector)
+  const codeLanguage = useSelector((state) => state.common?.codeLanguage || [])
+  const formSubmitSuccess = useSelector(formSubmitSuccessSelector)
+  const loginError = useSelector(errorSelector)
+  const loginLoading = useSelector(loadingSelector)
+  const loginSuccess = useSelector(loginSuccessSelector)
 
   const formRef = useRef()
 
@@ -198,6 +197,7 @@ const Signup = () => {
           draggable: true,
           progress: undefined
         })
+        history.push("/")
       } else {
         toast.error(res.data.retText, {
           position: "top-center",
@@ -255,12 +255,20 @@ const Signup = () => {
     }
   }, [keyCity])
 
+  React.useEffect(() => {
+    if (invite_code) {
+      checkValidInviteCode(invite_code)
+    }
+  }, [invite_code])
+
   return (
     <Formik
       innerRef={formRef}
       onSubmit={onSubmit}
       validationSchema={validationSchema(i18n)}
-      initialValues={getValueForm({})}
+      initialValues={getValueForm({
+        invite_code: invite_code
+      })}
     >
       {(formik) => {
         return (

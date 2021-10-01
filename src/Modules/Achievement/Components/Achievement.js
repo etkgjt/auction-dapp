@@ -10,6 +10,8 @@ import voi1 from "../assets/images/voicon.png"
 import voi2 from "../assets/images/voichamchi.png"
 import voi3 from "../assets/images/voidaisu-silver.png"
 import voi4 from "../assets/images/voidaisu-gold.png"
+import { getUserData } from "../../../store/user/selector"
+import { useSelector } from "react-redux"
 
 const data = [
   {
@@ -43,6 +45,8 @@ const data = [
 ]
 
 const Achievement = () => {
+  const userData = useSelector(getUserData)
+
   return (
     <div className="achievement-container">
       <div className="achievement-top-header-wrapper">
@@ -70,15 +74,31 @@ const Achievement = () => {
           <Col xl="6" lg="6">
             <span className="copy-btn-title">Mã giới thiệu</span>
             <div className="copy-field">
-              XX-XXX
-              <div className="copy-code-button">Sao chép</div>
+              <p>{userData?.codeInvite}</p>
+              <div
+                onClick={() => {
+                  navigator.clipboard.writeText(userData?.codeInvite)
+                }}
+                className="copy-code-button"
+              >
+                Sao chép
+              </div>
             </div>
           </Col>
           <Col xl="6" lg="6">
             <span className="copy-btn-title">Link giới thiệu</span>
             <div className="copy-field">
-              XX-XXX
-              <div className="copy-code-button">Sao chép</div>
+              <p>{`${window.location.origin}/signup/${userData?.codeInvite}`}</p>
+              <div
+                onClick={() => {
+                  navigator.clipboard.writeText(
+                    `${window.location.origin}/signup/${userData?.codeInvite}`
+                  )
+                }}
+                className="copy-code-button"
+              >
+                Sao chép
+              </div>
             </div>
           </Col>
         </Row>

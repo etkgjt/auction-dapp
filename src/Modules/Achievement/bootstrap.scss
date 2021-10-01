@@ -116,11 +116,20 @@
         justify-content: space-between;
         align-items: center;
         padding-left: 10px;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 22px;
-        color: #c4c4c4;
+        & > p {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 22px;
+          color: #c4c4c4;
+          margin-bottom: 0;
+          max-width: 50%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 1; /* number of lines to show */
+          -webkit-box-orient: vertical;
+        }
         .copy-code-button {
           background: #555aff;
           border-radius: 20px;

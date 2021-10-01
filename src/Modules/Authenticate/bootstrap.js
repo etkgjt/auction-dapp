@@ -6,12 +6,14 @@ import formSignUpSaga from "./store/formSignUp/sagas"
 import formForgotPasswordSaga from "./store/formForgotPassword/sagas"
 import formVerifyAccountSaga from "./store/formVerifyAccount/sagas"
 import formForgotUsernameSaga from "./store/formForgotUsername/sagas"
+import accountListSaga from "./store/accountList/sagas"
 
 import authRedux from "./store/auth/reducer"
 import formSignUpReducer from "./store/formSignUp/reducer"
 import formForgotPasswordReducer from "./store/formForgotPassword/reducer"
 import formVerifyAccountReducer from "./store/formVerifyAccount/reducer"
 import formForgotUsernameReducer from "./store/formForgotUsername/reducer"
+import AccountListReducer from "./store/accountList/reducer"
 
 export default {
   name: "Authenticate",
@@ -30,7 +32,7 @@ export default {
       }
     },
     {
-      url: "signup",
+      url: "signup/:invite_code",
       component: "Page/Signup",
       meta: {
         authRoute: true
@@ -59,13 +61,15 @@ export default {
     formSignUpSaga(),
     formForgotPasswordSaga(),
     formVerifyAccountSaga(),
-    formForgotUsernameSaga()
+    formForgotUsernameSaga(),
+    accountListSaga()
   ],
   redux: {
     auth: authRedux,
     formSignUp: formSignUpReducer,
     formForgotPassword: formForgotPasswordReducer,
     formVerifyAccount: formVerifyAccountReducer,
-    formForgotUsername: formForgotUsernameReducer
+    formForgotUsername: formForgotUsernameReducer,
+    accountListReducer: AccountListReducer
   }
 }

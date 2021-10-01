@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Form, Button } from "reactstrap"
+import { Form, Button, Input } from "reactstrap"
 import { Formik } from "formik"
 import FormField from "../../../components/FormField"
 import { ForgotPasswordWrapper, ForgotPasswordButton } from "../assets/icon"
@@ -15,11 +15,20 @@ import {
   formSubmitLoadingSelector,
   formSubmitSuccessSelector
 } from "../store/formForgotPassword/selector"
+import {
+  formSubmitErrorSelector as formVerifyAccountErrorSelector,
+  formSubmitDataResponseSelector as formVerifyResponseSelector,
+  formSubmitLoadingSelector as formVerifyLoadingSelector,
+  formSubmitSuccessSelector as formVerifySuccessSelector
+} from "../store/formVerifyAccount/selector"
+
 import { toast } from "react-toastify"
 import { validationSchema, getValueForm } from "../validation/forgotPassword"
 import { actions } from "../store/formForgotPassword/reducer"
+import { actions as verifyActions } from "../store/formVerifyAccount/reducer"
 
 import "../styles/index.scss"
+import { sendOtp } from "../store/auth/service"
 
 const ForgotPassword = () => {
   const { i18n } = useTranslation()
@@ -27,7 +36,9 @@ const ForgotPassword = () => {
   const dispatch = useDispatch()
 
   const [otpSent, setOtpSent] = useState(false)
-
+  const [otpCode, setOtpCode] = useState()
+  const [formData, setFormData] = useState({})
+  const [listAccount, setListAccount] = useState()
   const [startCountDown, setStartCountDown] = React.useState(false)
   const [countDown, setCountDown] = React.useState(60)
 
@@ -38,10 +49,38 @@ const ForgotPassword = () => {
     formSubmitSuccessSelector(state)
   )
 
+  const verifyError = useSelector(formVerifyAccountErrorSelector)
+  const verifyResponse = useSelector(formVerifyResponseSelector)
+  const verifyLoading = useSelector(formVerifyLoadingSelector)
+  const verifySuccess = useSelector(formVerifySuccessSelector)
+
   const onSubmit = (values) => {
-    setOtpSent(true)
-    setStartCountDown(true)
+    setFormData(values)
     dispatch(actions.formForgotPasswordFnMethod(values))
+  }
+
+  const getOtp = async (phoneNumber) => {
+    const res = await sendOtp({ codeLanguage: "vi-VN", payload: phoneNumber })
+    const data = res.data
+    if (data.retCode === 0) {
+      toast.success(data.retText, {
+        position: "top-center",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      })
+    } else {
+      toast.error(data.retText, {
+        position: "top-center",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      })
+    }
   }
 
   React.useEffect(() => {
@@ -67,25 +106,72 @@ const ForgotPassword = () => {
         position: "top-center",
         autoClose: 3000
       })
+      setOtpSent(false)
       dispatch(actions.formForgotPasswordFnReset())
       return () => {
         dispatch(actions.formForgotPasswordFnReset())
       }
     }
     if (formSubmitSuccess) {
-      toast.dismiss()
-      history.push("/verify/0")
-      return () => {
-        dispatch(
-          actions.formForgotPasswordFnReset({
-            keepDataResponse: true
-          })
-        )
-      }
+      setOtpSent(true)
+      setStartCountDown(true)
+    }
+    return () => {
+      dispatch(actions.formForgotPasswordFnReset())
     }
   }, [formSubmitSuccess, error])
+  const onOtpSubmit = () => {
+    dispatch(
+      verifyActions.formVerifyAccountFnMethod({
+        otp: otpCode,
+        phone: formData?.number_phone_or_email,
+        userName: formData?.username
+      })
+    )
+  }
+  useEffect(() => {
+    if (verifyError) {
+      toast.error(verifyResponse.error?.retText, {
+        position: "top-center",
+        autoClose: 3000
+      })
+    } else if (verifySuccess) {
+      setListAccount(verifyResponse)
+      setStartCountDown(false)
+    }
+    return () => {
+      dispatch(verifyActions.formVerifyAccountFnReset())
+    }
+  }, [verifyError, verifyResponse])
 
-  return !otpSent ? (
+  return listAccount?.length ? (
+    <div className="forgot-password-page-wrapper">
+      <h1 className="forgot-password-page__header">Tài khoản của bạn</h1>
+      <div style={{ position: "relative" }}>
+        <ForgotPasswordWrapper />
+
+        <div className="forgot-password__form-wrapper">
+          <div className="d-flex flex-column">
+            <span className="result-account__text">{`Tài khoản: ${listAccount[0]?.userName}`}</span>
+            <span className="result-account__text">{`Mật khẩu: ${listAccount[0]?.password}`}</span>
+            <span className="result-account__text">{`${listAccount[0]?.activeCourse}`}</span>
+          </div>
+
+          <div
+            onClick={() => {
+              history.push("/")
+            }}
+            className="forgot-password-form__signin_button mt-5"
+          >
+            <ForgotPasswordButton />
+            <span className="forgot-password-form_button-text">
+              Trờ về trang chủ
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : !otpSent ? (
     <Formik
       onSubmit={onSubmit}
       validationSchema={validationSchema(i18n)}
@@ -102,7 +188,7 @@ const ForgotPassword = () => {
                   <FormField
                     field="username"
                     {...formik}
-                    className="mb-2"
+                    className="mt-2"
                     innerClass="text-center"
                     placeholder={i18n.t(`FormForgotPassword:field:user_name`)}
                   ></FormField>
@@ -110,7 +196,7 @@ const ForgotPassword = () => {
                   <FormField
                     field="number_phone_or_email"
                     {...formik}
-                    className="mb-2"
+                    className="mt-2"
                     innerClass="text-center"
                     placeholder={i18n.t(
                       `FormForgotPassword:field:number_phone_or_email`
@@ -139,71 +225,40 @@ const ForgotPassword = () => {
       }}
     </Formik>
   ) : (
-    <Formik
-      onSubmit={onSubmit}
-      validationSchema={validationSchema(i18n)}
-      initialValues={getValueForm({})}
-    >
-      {(formik) => {
-        return (
-          <Form onSubmit={(ev) => ev.preventDefault()}>
-            <div className="forgot-password-page-wrapper">
-              <h1 className="forgot-password-page__header">Quên mật khẩu</h1>
-              <div style={{ position: "relative" }}>
-                <ForgotPasswordWrapper />
-                <div className="forgot-password__form-wrapper">
-                  <FormField
-                    field="otp"
-                    {...formik}
-                    className="mb-2"
-                    innerClass="text-center"
-                    placeholder={"Nhập OTP"}
-                  ></FormField>
-                  <p className="forgot-password-form_description">
-                    {`Có hiệu lực trong ${countDown}s`} <br />
-                    Chưa nhận được ?{" "}
-                    <span
-                      onClick={() => {
-                        setStartCountDown(true)
-                      }}
-                      className="forgot-password-form__resend_otp"
-                    >
-                      Gửi lại
-                    </span>
-                  </p>
-
-                  <FormField
-                    field="password"
-                    {...formik}
-                    className="mb-2"
-                    innerClass="text-center"
-                    placeholder={"Mật khẩu mới"}
-                  ></FormField>
-                  <FormField
-                    field="repassword"
-                    {...formik}
-                    className="mb-2"
-                    innerClass="text-center"
-                    placeholder={"Nhập lại mật khẩu mới"}
-                  ></FormField>
-                </div>
-                <div
-                  onClick={() => {
-                    formik.handleSubmit()
-                  }}
-                  className="forgot-password-form__signin_button"
-                >
-                  <ForgotPasswordButton />
-                  <span className="forgot-password-form_button-text">
-                    Đăng nhập
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Form>
-        )
-      }}
-    </Formik>
+    <div className="forgot-password-page-wrapper">
+      <h1 className="forgot-password-page__header">Quên mật khẩu</h1>
+      <div style={{ position: "relative" }}>
+        <ForgotPasswordWrapper />
+        <div className="forgot-password__form-wrapper">
+          <Input
+            className="form-field-rounded text-center"
+            onChange={(e) => setOtpCode(e.target.value)}
+            value={otpCode}
+            placeholder="Nhập mã OTP"
+          />
+          <p className="forgot-password-form_description">
+            {`Có hiệu lực trong ${countDown}s`} <br />
+            Chưa nhận được ?{" "}
+            <span
+              onClick={() => {
+                setStartCountDown(true)
+                getOtp(formData?.number_phone_or_email)
+              }}
+              className="forgot-password-form__resend_otp"
+            >
+              Gửi lại
+            </span>
+          </p>
+          <div
+            onClick={onOtpSubmit}
+            className="forgot-password-form__signin_button mt-2"
+          >
+            <ForgotPasswordButton />
+            <span className="forgot-password-form_button-text">Xác nhận</span>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 

@@ -1,40 +1,61 @@
-import React from "react"
+import React, { useState } from "react"
+import { useParams } from "react-router"
 import { Row } from "reactstrap"
+import AsyncImage from "../../../components/AsyncImage"
+import { RETCODE_SUCCESS } from "../../../configs/contants"
 import { ButtonBlue, ButtonOrange } from "../assets/icons"
+import { getNewsDetails } from "../Store/News/service"
+
 const BlogDetail = () => {
+  const { id } = useParams()
+  const [loading, setLoading] = useState(false)
+  const [dataDetail, setDataDetail] = useState()
+
+  const fetchNewsDetail = async () => {
+    try {
+      setLoading(true)
+      const res = await getNewsDetails(id * 1)
+      if (res.data.retCode === RETCODE_SUCCESS) {
+        setDataDetail(res.data.data)
+      }
+    } catch (err) {
+    } finally {
+      setLoading(false)
+    }
+  }
+  React.useEffect(() => {
+    fetchNewsDetail()
+  }, [id])
+  console.log(dataDetail)
   return (
     <div className="news-detail-area">
       <div className="news-detail-wrapper">
         <div className="news-detail-header">
-          <div className="news-detail-image-wrapper"></div>
-          <div className="news-detail-info-wrapper">
-            <span className="news-detail-date">11:30 | 09/09/2021</span>
-            <h1 className="news-detail-title">
-              THÔNG BÁO LỊCH QUAY SỐ TUẦN 02
-            </h1>
-            <span className="news-detail-poster">Đăng bởi Admin</span>
+          <div className="news-detail-image-wrapper">
+            <AsyncImage
+              src={dataDetail?.urlImage}
+              className="news-detail-image"
+              placeholderClassName="news-item-image-loading"
+            />
+          </div>
+          <div className="news-detail-info-wrapper w-100">
+            <span className="news-detail-date">{dataDetail?.createdAt}</span>
+            <h1 className="news-detail-title">{dataDetail?.title}</h1>
+            <span className="news-detail-poster">
+              Đăng bởi {dataDetail?.userCreated}
+            </span>
           </div>
         </div>
-        <div className="news-detail-content">
-          <span>
-            Đến hẹn lại lên thôi các bạn ơi! Đừng quên rằng chúng ta sẽ có hẹn
-            với nhau tại VÒNG QUAY MAY MẮN cùng cơ hội sở hữu những phần thưởng
-            trị giá đến 5.000.000 VNĐ. BTC xin gửi thông tin Chương trình quay
-            số “VÒNG QUAY MAY MẮN” đến với các bạn như sau:
-            <br /> - Thời gian: 19h Thứ 5 hằng tuần
-            <br /> - Hình thức: Livestream rên các Fanpage và Youtube Siêu Trí
-            Nhớ Học Đường, Tâm Trí Lực, Nguyễn Phùng Phong
-            <br />
-            Trong tuần này, bạn đã kêu gọi được bao nhiêu người bạn tham gia
-            cuộc thi “Đại sứ Thương hiệu của Siêu Trí Nhớ Học Đường rồi? Hãy nổ
-            lực thật nhiều để kêu gọi 5 người bạn mới cùng tham gia cuộc thi.
-            Sau khi hoàn thành nhiệm vụ trên, bạn sẽ được nhận ngay chiếc vé
-            tham gia Chương trình “VÒNG QUAY MAY MẮN” là một con số may mắn đến
-            từ BTC! NHANH TAY CHIA SẺ - NHẬN NGAY QUÀ HAY
-          </span>
+        <div className="news-detail-content w-100">
+          <p>{dataDetail?.content}</p>
         </div>
         <div className="news-detail-footer">
-          <div className="news-detail-button-wrapper">
+          <div
+            className="news-detail-button-wrapper"
+            onClick={() => {
+              history.back()
+            }}
+          >
             <ButtonOrange />
             <span className="news-detail-button__text">Quay về</span>
           </div>

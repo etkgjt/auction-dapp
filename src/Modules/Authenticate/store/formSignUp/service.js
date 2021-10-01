@@ -17,7 +17,8 @@ export const formSignUpCallMethod = ({ payload, codeLanguage }) => {
     address: payload.address,
     email: payload.email,
     phone: payload.phone,
-    otp: payload.otp
+    otp: payload.otp,
+    IsActive: false
   })
 }
 export const checkInviteCode = (code) => {

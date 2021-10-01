@@ -172,15 +172,19 @@
         text-decoration: underline;
       }
     }
+    .result-account__text {
+      color: #fff;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
   }
 }
 .forgot-password-form__signin_button {
   cursor: pointer;
-  position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translate(-50%, 0);
   z-index: 999;
+  position: relative;
   .forgot-password-form_button-text {
     font-style: normal;
     font-weight: 700;
@@ -196,9 +200,8 @@
   }
 
   &:active {
-    transform: scale(0.9) translate(-50%);
+    transform: scale(0.9);
     transition: transform 0.1s ease-in-out;
-    transform-origin: left;
   }
 }
 .form-signup-container {

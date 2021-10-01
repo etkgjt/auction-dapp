@@ -7,6 +7,9 @@ import Rules from "@Modules/Home/Components/Rules"
 import News from "@Modules/Home/Components/News"
 
 const Home = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="home__page">
       <Banner />

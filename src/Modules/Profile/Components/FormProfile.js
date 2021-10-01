@@ -18,10 +18,14 @@ import { useDispatch, useSelector } from "react-redux"
 import { getValueForm, validationSchema } from "../validation"
 import { authLogout } from "../../Authenticate/store/auth/actions"
 import * as apiCommon from "../../../store/common/services"
+import SlideInModal from "../../../components/SlideInModal"
+import PopupLogout from "./PopupLogout"
+import { useHistory } from "react-router"
 
 const FormProfile = () => {
   const dispatch = useDispatch()
   const userData = useSelector(getUserData)
+  const history = useHistory()
 
   const [itemsClass, setItemsClass] = useState([])
   const [keyClass, setKeyClass] = useState(1)
@@ -91,7 +95,19 @@ const FormProfile = () => {
   const { i18n } = useTranslation()
 
   const _handleLogout = () => {
-    dispatch(authLogout())
+    SlideInModal.show(
+      () => {},
+      <PopupLogout
+        onSubmitPress={() => {
+          SlideInModal.hide()
+          setTimeout(() => {
+            dispatch(authLogout())
+            history.push("/")
+          }, 200)
+        }}
+      />,
+      "logout-popup-modal-wrapper"
+    )
   }
 
   useEffect(async () => {
@@ -397,15 +413,31 @@ const FormProfile = () => {
           <Col xl="6" lg="6">
             <span className="copy-btn-title">Mã giới thiệu</span>
             <div className="copy-field">
-              {userData?.codeInvite}
-              <div className="copy-code-button">Sao chép</div>
+              <p>{userData?.codeInvite}</p>
+              <div
+                className="copy-code-button"
+                onClick={() => {
+                  navigator.clipboard.writeText(userData?.codeInvite)
+                }}
+              >
+                Sao chép
+              </div>
             </div>
           </Col>
           <Col xl="6" lg="6">
             <span className="copy-btn-title">Link giới thiệu</span>
             <div className="copy-field">
-              XX-XXX
-              <div className="copy-code-button">Sao chép</div>
+              <p>{`${window.location.origin}/signup/${userData?.codeInvite}`}</p>
+              <div
+                className="copy-code-button"
+                onClick={() => {
+                  navigator.clipboard.writeText(
+                    `${window.location.origin}/signup/${userData?.codeInvite}`
+                  )
+                }}
+              >
+                Sao chép
+              </div>
             </div>
           </Col>
         </Row>

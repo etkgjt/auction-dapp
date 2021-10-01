@@ -10,6 +10,7 @@ export default {
   GET_COMMON_GET_CITY: "/Province",
   GET_COMMON_GET_DISTRICT: "/District",
   GET_LIST_CLASS: "/SchoolClass",
-  POST_SEND_OTP: "/vi-VN/SieuTriNhoHocDuong/SendOTP"
+  POST_SEND_OTP: "/vi-VN/SieuTriNhoHocDuong/SendOTP",
+  GET_USER_PROFILE: "/mypage/Getprofile"
   /*End Common*/
 }

@@ -5,6 +5,9 @@ import Banner from "@Modules/Ranking/Components/Banner"
 import RankingTable from "@Modules/Ranking/Components/RankingTable"
 
 const Home = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="home__page">
       <Banner />

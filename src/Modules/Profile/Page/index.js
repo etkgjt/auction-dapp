@@ -5,6 +5,9 @@ import Banner from "@Modules/Profile/Components/Banner"
 import Profile from "@Modules/Profile/Components/Profile"
 
 const Home = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="home__page">
       <Banner />

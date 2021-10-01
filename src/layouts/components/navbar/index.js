@@ -17,6 +17,7 @@ import { getCodeLanguage } from "@store/common/selectors"
 import { getUserData } from "../../../store/user/selector"
 import { loginSuccessSelector } from "../../../Modules/Authenticate/store/auth/selectors"
 
+/*COMPONENT*/
 import {
   UserIcon,
   UserPointerWrapper,
@@ -68,16 +69,12 @@ const Navbar = () => {
     //     elementId.classList.remove('is-sticky');
     //   }
     // });
+
     window.scrollTo(0, 0)
     return () => {
       setIsMounted(true)
     }
   }, [])
-
-  const handleOnSubmit = (e) => {
-    dispatch(actionsCommon.setLanguage(e.target.value))
-  }
-  const toggle = () => setIsDropdownOpen((prevState) => !prevState)
 
   return (
     <header id="header" className="header-inner">
@@ -107,7 +104,7 @@ const Navbar = () => {
               {isLogin ? (
                 <div className="nav-user-progress-container">
                   <div className="progress-info-wrapper">
-                    <span>Cấp 10 | Voi con thông minh</span>
+                    <span>{userData?.level}</span>
                     <div className="progress-bar-wrapper">
                       <div className="done-progress-wrapper">
                         <DoneProgress width={PROGRES_DONE_LENGTH} />
@@ -117,10 +114,11 @@ const Navbar = () => {
                   </div>
                   <div className="user-point-wrapper">
                     <UserPointerWrapper />
-                    <span>340K</span>
+                    <span>{`${userData?.totalPoint || 0}k`}</span>
                   </div>
                 </div>
               ) : null}
+
               <div className={"nav__select" + (isLogin ? " login" : "")}>
                 {isLogin ? null : (
                   <span
