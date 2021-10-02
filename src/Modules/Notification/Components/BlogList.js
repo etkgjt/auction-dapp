@@ -69,7 +69,7 @@ const BlogOne = () => {
     <div className="notification-area">
       <div className="notification-wrapper">
         <Row className="w-100">
-          {listNoti?.map((item, index) => (
+          {listNoti?.listData?.map((item, index) => (
             <Col
               xl="12"
               lg="12"

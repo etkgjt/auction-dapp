@@ -44,7 +44,7 @@ const BlogOne = () => {
           </div>
         </div>
         <Row>
-          {listNews?.map((item, index) => (
+          {listNews?.listData?.map((item, index) => (
             <Col xl="3" lg="3">
               <div
                 className="news-item-wrapper"

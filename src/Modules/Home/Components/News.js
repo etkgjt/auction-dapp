@@ -15,7 +15,7 @@ const News = () => {
   const listNewsLoading = useSelector(getListLoadingSelector)
 
   const carouselRef = useRef()
-
+  console.log("LIST NEWS", listNews)
   React.useEffect(() => {
     dispatch(
       actions.getList({
@@ -35,7 +35,7 @@ const News = () => {
           Theo dõi để không bỏ lỡ cơ hội nhận và đổi hàng nghìn quà tặng hấp dẫn
         </h1>
         <div style={{ position: "relative" }}>
-          {listNews?.length < 5 ? null : (
+          {listNews?.listData?.length < 5 ? null : (
             <>
               <div
                 onClick={() => {
@@ -57,7 +57,7 @@ const News = () => {
           )}
 
           <Carousel ref={carouselRef} items={4}>
-            {listNews.map((item, index) => (
+            {listNews?.listData?.map((item, index) => (
               <div
                 className="news-item__container"
                 onClick={() => onItemPress(item?.id)}
