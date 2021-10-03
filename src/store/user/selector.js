@@ -8,7 +8,4 @@ export const getUserData = createSelector(user, (data) => data?.userData)
 //   data => data?.generalInfoMenu || null,
 // );
 
-export const getGeneralMenuLoading = createSelector(
-  user,
-  (data) => data?.loading || null
-)
+// export

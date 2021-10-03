@@ -15,7 +15,7 @@ const News = () => {
   const listNewsLoading = useSelector(getListLoadingSelector)
 
   const carouselRef = useRef()
-  console.log("LIST NEWS", listNews)
+
   React.useEffect(() => {
     dispatch(
       actions.getList({

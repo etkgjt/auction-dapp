@@ -76,8 +76,6 @@ const Rules = () => {
     dispatch(rankActions.getList())
   }, [])
 
-  console.log("LIST RANK", listRank)
-
   return (
     <div className="rules-area">
       <div className="rules-container">

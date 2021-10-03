@@ -7,23 +7,27 @@ import {
 } from "../assets/icon"
 import voiSilver from "../assets/images/voidaisu-silver.png"
 import voiGold from "../assets/images/voidaisu-gold.png"
+import { getUserData } from "../../../store/user/selector"
+import { useSelector } from "react-redux"
 const ORIGIN_WIDTH = 952
-const PROGRESS_WIDTH = (window.innerWidth * 0.84) / 2 - 70
+const PROGRESS_WIDTH = (window.innerWidth * 0.84) / 2 - 100
 
 const ratio = PROGRESS_WIDTH / ORIGIN_WIDTH
 
 const Progress = () => {
-  const percent = 55
+  const userData = useSelector(getUserData)
+
+  const percent = userData?.levelProgress * 100
   const getProgessbarWidth = () => {
     return parseInt((ORIGIN_WIDTH / 100) * percent) * ratio
   }
-
+  console.log("USER DATA", userData)
   return (
     <div className="profile-progress-area">
       <h1 className="profile-progress__title">Hành trình</h1>
       <div className="profile-progress__point-wrapper">
         <UserPointWrapper />
-        <p className="profile-progress__point">340K</p>
+        <p className="profile-progress__point">{`${userData?.totalPoint}k`}</p>
       </div>
       <div className="profile-progress__progress-bar-wrapper">
         <div style={{ width: "100%", overflow: "hidden" }}>

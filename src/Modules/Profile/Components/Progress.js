@@ -17,7 +17,7 @@ const ratio = PROGRESS_WIDTH / ORIGIN_WIDTH
 
 const Progress = () => {
   const userData = useSelector(getUserData)
-  const percent = 55
+  const percent = userData?.levelProgress * 100
   const getProgessbarWidth = () => {
     return parseInt((ORIGIN_WIDTH / 100) * percent) * ratio
   }

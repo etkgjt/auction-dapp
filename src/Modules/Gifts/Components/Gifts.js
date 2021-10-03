@@ -1,10 +1,30 @@
-import React, { useState } from "react"
-import { Col, Row } from "reactstrap"
+import React, { useEffect, useState } from "react"
 import { GiftsHeaderTitle, GoldIcon } from "../assets/icon"
 import voi1 from "../assets/images/voicon.png"
-import voi2 from "../assets/images/voichamchi.png"
-import voi3 from "../assets/images/voidaisu-silver.png"
-import voi4 from "../assets/images/voidaisu-gold.png"
+
+import { actions as allGiftActions } from "../Store/AllGifts/reducer"
+import { actions as myGiftActions } from "../Store/MyGifts/reducer"
+import { actions as usedGiftActions } from "../Store/UsedGifts/reducer"
+
+import {
+  getListSelector as getAllGiftsSelector,
+  getListLoadingSelector as getAllGiftLoadingSelector
+} from "../Store/AllGifts/selector"
+
+import {
+  getListSelector as getMyGiftsSelector,
+  getListLoadingSelector as getMyGiftLoadingSelector
+} from "../Store/MyGifts/selector"
+
+import {
+  getListSelector as getUsedGiftsSelector,
+  getListLoadingSelector as getUsedGiftLoadingSelector
+} from "../Store/UsedGifts/selector"
+import { useDispatch, useSelector } from "react-redux"
+import { getUserData } from "../../../store/user/selector"
+import GiftItem from "./GiftItem"
+
+import moment from "moment"
 
 const data = [
   {
@@ -38,7 +58,75 @@ const data = [
 ]
 
 const Gifts = () => {
+  const dispatch = useDispatch()
+
   const [activeTab, setActiveTabs] = useState(0)
+  const userData = useSelector(getUserData)
+
+  const allGift = useSelector(getAllGiftsSelector)
+  const allGiftLoading = useSelector(getAllGiftLoadingSelector)
+  const myGift = useSelector(getMyGiftsSelector)
+  const myGiftLoading = useSelector(getMyGiftLoadingSelector)
+  const usedGift = useSelector(getUsedGiftsSelector)
+  const usedGiftLoading = useSelector(getUsedGiftLoadingSelector)
+
+  const listAllGift = allGift?.listData || []
+  const listUsedGift = usedGift?.listData || []
+  const listMyGift = myGift?.listData || []
+
+  useEffect(() => {
+    dispatch(
+      allGiftActions.getList({
+        page: 1,
+        limit: 25
+      })
+    )
+    dispatch(
+      usedGiftActions.getList({
+        page: 1,
+        limit: 25,
+        status: 1,
+        userid: userData?.userId
+      })
+    )
+    dispatch(
+      myGiftActions.getList({
+        page: 1,
+        limit: 25,
+        userid: userData?.userId
+      })
+    )
+  }, [])
+
+  const renderAllGift = React.useMemo(() => {
+    return listAllGift.map((item, index) => {
+      return (
+        <GiftItem
+          setActiveTab={setActiveTabs}
+          item={item}
+          index={index}
+          key={item?.id}
+          isTrade={true}
+        />
+      )
+    })
+  }, [JSON.stringify(listAllGift)])
+  const renderMyGift = React.useMemo(() => {
+    return listMyGift.map((item, index) => {
+      return <GiftItem item={item} index={index} key={item?.id} />
+    })
+  }, [JSON.stringify(listMyGift)])
+  const renderUsedGift = React.useMemo(() => {
+    return listUsedGift?.length ? (
+      listUsedGift.map((item, index) => {
+        return (
+          <GiftItem item={item} index={index} key={item?.id} isUsed={true} />
+        )
+      })
+    ) : (
+      <p className="text-center mt-2">Không có dữ liệu</p>
+    )
+  }, [JSON.stringify(listUsedGift)])
 
   return (
     <div className="gifts-container">
@@ -66,36 +154,11 @@ const Gifts = () => {
         </span>
       </div>
       <div className="list-gifts-wrapper">
-        {data.map((item, index) => {
-          return (
-            <div className="d-flex flex-row justify-content-between">
-              <div key={index} className="gifts-item-wrapper">
-                <div className="d-flex flex-row ticket-left">
-                  <img className="gifts-item-image" src={item.img} />
-                  <div className="gifts-item-info-wrapper">
-                    <p className="gifts-item-title">{item.title}</p>
-                    <p className="gifts-item-subtitle">{item.subtitle}</p>
-                    {item.type === "code" ? (
-                      <span className="d-flex flex-row">
-                        <p className="gifts-item-point">{`+${item.code}`}</p>
-                        <GoldIcon />
-                      </span>
-                    ) : (
-                      <p className="gifts-item-point">{`+${item.value}k`}</p>
-                    )}
-                  </div>
-                </div>
-                {activeTab === 0 ? null : (
-                  <div className="ticket-right">
-                    <p>
-                      Sử <br /> dụng
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-          )
-        })}
+        {activeTab === 0
+          ? renderUsedGift
+          : activeTab === 1
+          ? renderMyGift
+          : renderAllGift}
       </div>
     </div>
   )

@@ -27,8 +27,6 @@ import {
 import Dropdown from "./Dropdown"
 
 const PROGRESS_LENGTH = 250
-const PROGRESS_DONE_PERCENT = 90
-const PROGRES_DONE_LENGTH = parseInt((250 * PROGRESS_DONE_PERCENT) / 100)
 
 const Navbar = () => {
   const { t } = useTranslation()
@@ -61,21 +59,15 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    // const elementId = document.getElementById('navbar');
-    // document.addEventListener('scroll', () => {
-    //   if (window.scrollY > 170) {
-    //     elementId.classList.add('is-sticky');
-    //   } else {
-    //     elementId.classList.remove('is-sticky');
-    //   }
-    // });
-
     window.scrollTo(0, 0)
     return () => {
       setIsMounted(true)
     }
   }, [])
 
+  const PROGRES_DONE_LENGTH = parseInt(
+    (250 * (userData?.levelProgress * 100)) / 100
+  )
   return (
     <header id="header" className="header-inner">
       <div id="navbar" className={`crake-nav ${layOutCls}`}>
@@ -104,7 +96,7 @@ const Navbar = () => {
               {isLogin ? (
                 <div className="nav-user-progress-container">
                   <div className="progress-info-wrapper">
-                    <span>{userData?.level}</span>
+                    <span>{`${userData?.level?.name}` || ""}</span>
                     <div className="progress-bar-wrapper">
                       <div className="done-progress-wrapper">
                         <DoneProgress width={PROGRES_DONE_LENGTH} />

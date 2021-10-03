@@ -1,21 +1,25 @@
 import React from "react"
+import { useSelector } from "react-redux"
+import SlideInModal from "../../../components/SlideInModal"
+import { getUserData } from "../../../store/user/selector"
 import {
   UserPointWrapper,
   ButtonWrapper,
   ButtonWrapperWhite,
   ButtonWrapperBlue
 } from "../assets/icon"
-import voiSilver from "../assets/images/voidaisu-silver.png"
-import voiGold from "../assets/images/voidaisu-gold.png"
+import PopupHistory from "./PopupHistory"
+
 const ORIGIN_WIDTH = 952
 const PROGRESS_WIDTH = (window.innerWidth * 0.84) / 2 - 70
 
 const ratio = PROGRESS_WIDTH / ORIGIN_WIDTH
 
 const Progress = () => {
-  const percent = 55
-  const getProgessbarWidth = () => {
-    return parseInt((ORIGIN_WIDTH / 100) * percent) * ratio
+  const userData = useSelector(getUserData)
+
+  const onHistoryPress = () => {
+    SlideInModal.show(() => {}, <PopupHistory />, "popup-history-modal-wrapper")
   }
 
   return (
@@ -23,7 +27,7 @@ const Progress = () => {
       <div className="gifts-progress__point-container">
         <div className="gifts-progress__point-wrapper">
           <UserPointWrapper />
-          <p className="gifts-progress__point">340K</p>
+          <p className="gifts-progress__point">{`${userData?.totalPoint}k`}</p>
         </div>
       </div>
 
@@ -31,7 +35,7 @@ const Progress = () => {
         <ButtonWrapper />
         <p className="gifts-progress__button-text">Nhận thêm voi Coin</p>
       </div>
-      <div className="gifts-progress__button-wrapper">
+      <div className="gifts-progress__button-wrapper" onClick={onHistoryPress}>
         <ButtonWrapperBlue />
         <p className="gifts-progress__button-text">Lịch sử nhận/ đổi Voicoin</p>
       </div>

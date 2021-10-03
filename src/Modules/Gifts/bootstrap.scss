@@ -142,6 +142,7 @@
       border-bottom-left-radius: 40px;
       border-bottom-right-radius: 40px;
       padding-top: 40px;
+      min-height: 40vh;
       .gifts-item-wrapper {
         display: flex;
         flex-direction: row;
@@ -164,7 +165,9 @@
             aspect-ratio: 1;
             border-radius: 20px;
             margin-right: 20px;
-            object-fit: cover;
+            object-fit: contain;
+            background-color: #fff;
+            padding: 12px;
           }
           .gifts-item-info-wrapper {
             padding-top: 16px;
@@ -198,9 +201,9 @@
       }
 
       .ticket-right {
-        background-image: linear-gradient(white 33%, rgba(255, 255, 255, 0) 0%);
+        background-image: linear-gradient(#fff 33%, rgba(255, 255, 255, 0) 0%);
         background-position: left;
-        background-size: 1px 12px;
+        background-size: 2px 12px;
         background-repeat: repeat-y;
         height: 100%;
         aspect-ratio: 1;
@@ -218,6 +221,137 @@
           text-align: center;
           color: #ffffff;
         }
+      }
+    }
+  }
+}
+.popup-usegift-container {
+  position: relative;
+  .popup-usegift-close-button {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    cursor: pointer;
+    & :active {
+      transform: scale(0.9);
+      transition: transform 0.1s ease-in;
+    }
+  }
+  .popup-usegift-content-wrapper {
+    user-select: none;
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    & > h1 {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 36px;
+      text-align: center;
+      color: #ffffff;
+    }
+    & > p {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 150%;
+      text-align: center;
+      color: #ffffff;
+    }
+    .popup-usegift-copyfield-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-left: 15px;
+      justify-content: center;
+      .use-button {
+        position: relative;
+        cursor: pointer;
+        &:active {
+          transform: scale(0.9);
+          transition: transform 0.1s ease-in;
+        }
+        .use-button-text {
+          user-select: none;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 22px;
+          text-align: center;
+          color: #ffffff;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}
+.popup-usegift-modal-wrapper {
+  min-width: 30vw !important;
+  min-height: 40vh !important;
+  background: transparent;
+  border: none;
+}
+.popup-history-modal-wrapper {
+  min-width: 30vw !important;
+  min-height: 40vh !important;
+  background: transparent;
+  border: none;
+}
+.popup-history-container {
+  background-color: white;
+  border: 5px solid #f2f2f2;
+  border-radius: 40px;
+  min-height: 80vh;
+  min-width: 40vw;
+  position: relative;
+  padding: 45px;
+  .popup-history__close-button {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    cursor: pointer;
+    &:active {
+      transform: scale(0.9);
+      transition: transform 0.1s ease-in;
+    }
+  }
+  .history-list-wrapper {
+    .history-item-wrapper {
+      .history-item-date {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        color: #c4c4c4;
+        margin-bottom: 10px;
+      }
+      .history-item-title {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        color: #1e3d74;
+      }
+      .history-item-subtitle {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: #c4c4c4;
+      }
+      .history-item-point {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        text-align: right;
+        color: #ffc61a;
       }
     }
   }

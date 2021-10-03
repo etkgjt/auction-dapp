@@ -131,26 +131,26 @@ const FormProfile = () => {
           </div>
         </div>
       </div>
-      <Formik
-        onSubmit={onSubmit}
-        validationSchema={validationSchema(i18n)}
-        initialValues={getValueForm({
-          children_fullname: userData?.childFullName1,
-          gender: userData?.gender,
-          birth_day: userData?.dayofbirth,
-          district: userData?.districtId,
-          city: userData?.cityId,
-          email: userData?.email,
-          phone_number: userData?.phone,
-          parent_fullname: userData?.fullName,
-          class: userData?.child1ClassId
-        })}
-        enableReinitialize
-      >
-        {(formik) => {
-          return (
-            <Form onSubmit={(e) => e.preventDefault()}>
-              <div className="profile-form-wrapper">
+      <div className="profile-form-wrapper">
+        <Formik
+          onSubmit={onSubmit}
+          validationSchema={validationSchema(i18n)}
+          initialValues={getValueForm({
+            children_fullname: userData?.childFullName1,
+            gender: userData?.gender,
+            birth_day: userData?.dayofbirth,
+            district: userData?.districtId,
+            city: userData?.cityId,
+            email: userData?.email,
+            phone_number: userData?.phone,
+            parent_fullname: userData?.fullName,
+            class: userData?.child1ClassId
+          })}
+          enableReinitialize
+        >
+          {(formik) => {
+            return (
+              <Form onSubmit={(e) => e.preventDefault()}>
                 <Row>
                   <Col xl="3" lg="3" md="3">
                     <span className="form-profile-field-label">
@@ -319,6 +319,19 @@ const FormProfile = () => {
                     </div>
                   </span>
                 </Row>
+              </Form>
+            )
+          }}
+        </Formik>
+        <Formik
+          onSubmit={onSubmit}
+          validationSchema={validationSchema(i18n)}
+          initialValues={getValueForm({})}
+          enableReinitialize
+        >
+          {(formik) => {
+            return (
+              <Form onSubmit={(e) => e.preventDefault()}>
                 <h1 className="change-password-header-title">
                   Thay đổi mật khẩu
                 </h1>
@@ -403,11 +416,11 @@ const FormProfile = () => {
                     </span>
                   </Col>
                 </Row>
-              </div>
-            </Form>
-          )
-        }}
-      </Formik>
+              </Form>
+            )
+          }}
+        </Formik>
+      </div>
       <div className="profile-form-footer">
         <Row>
           <Col xl="6" lg="6">
