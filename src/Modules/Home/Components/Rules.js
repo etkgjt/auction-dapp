@@ -121,7 +121,9 @@ const Rules = () => {
                       />
                     </div>
                     <div className="item-info">
-                      <span className="item-level">{"Cấp " + item.level}</span>
+                      <span className="item-level">
+                        {item?.level?.name || ""}
+                      </span>
                       <span className="item-name">{item.fullName}</span>
                       <span className="item-point">{`${item.totalPoint}k`}</span>
                     </div>

@@ -1,36 +1,51 @@
-import React from "react"
-import goldRank from "../assets/images/gold.png"
-import silverRank from "../assets/images/silver.png"
-import diamondRank from "../assets/images/diamond.png"
-import rank1 from "../assets/images/rank1.png"
-import rank2 from "../assets/images/rank2.png"
-import rank3 from "../assets/images/rank3.png"
+import React, { useEffect } from "react"
+import QuarterRank from "./QuarterRank"
+import MonthRank from "./MonthRank"
+import WeekRank from "./WeekRank"
 
-import { SeemoreButton, RankingTopBannerTitle, CoinIcon } from "../assets/icon"
-import { Col, Row } from "reactstrap"
+import { actions as quarterRankActions } from "../Store/QuarterRank/reducer"
+import { actions as monthRankActions } from "../Store/MonthRank/reducer"
+import { actions as weekRankActions } from "../Store/WeekRank/reducer"
 
-import YearRank from "./YearRank"
-import QuaterRank from "./QuaterRank"
+import {
+  getListSelector as listQuarterRankSelector,
+  getListLoadingSelector as listQuarterRankLoadingSelector
+} from "../Store/QuarterRank/selector"
+import {
+  getListSelector as listMonthRankSelector,
+  getListLoadingSelector as listMonthRankLoadingSelector
+} from "../Store/MonthRank/selector"
+import {
+  getListSelector as listWeekRankSelector,
+  getListLoadingSelector as listWeekRankLoadingSelector
+} from "../Store/WeekRank/selector"
+import { useDispatch, useSelector } from "react-redux"
 
 const RankingTable = () => {
+  const dispatch = useDispatch()
+
+  const listQuarterRank = useSelector(listQuarterRankSelector)
+  const listQuarterRankLoading = useSelector(listQuarterRankLoadingSelector)
+
+  const listMonthRank = useSelector(listMonthRankSelector)
+  const listMonthRankLoading = useSelector(listMonthRankLoadingSelector)
+
+  const listWeekRank = useSelector(listWeekRankSelector)
+  const listWeekRankLoading = useSelector(listWeekRankLoadingSelector)
+
+  useEffect(() => {
+    dispatch(quarterRankActions.getList({}))
+    dispatch(monthRankActions.getList({}))
+    dispatch(weekRankActions.getList({}))
+  }, [])
+
+  console.log("LIST", listQuarterRank, listMonthRank, listWeekRank)
+
   return (
     <div className="ranking-area">
-      <YearRank />
-      <QuaterRank
-        topLabel={
-          <>
-            Tháng 9 <br /> năm 2021
-          </>
-        }
-      />
-      <QuaterRank
-        topLabel={
-          <>
-            Tuần 02 <br /> XX-xx/09 <br />
-            năm 2021
-          </>
-        }
-      />
+      <QuarterRank data={listQuarterRank} />
+      <MonthRank data={listMonthRank} />
+      <WeekRank data={listWeekRank} />
     </div>
   )
 }

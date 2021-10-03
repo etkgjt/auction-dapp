@@ -41,6 +41,42 @@
       align-items: center;
       .medal-image-wrapper {
         position: relative;
+        .top-2-avatar {
+          position: absolute;
+          width: 60%;
+          aspect-ratio: 1;
+          top: 195px;
+          left: 50%;
+          transform: translate(-50%);
+          border-radius: 50%;
+        }
+        .top-2-avatar-loading {
+          position: absolute;
+          width: 60%;
+          aspect-ratio: 1;
+          top: 195px;
+          left: 50%;
+          transform: translate(-50%);
+          border-radius: 50%;
+        }
+        .top-1-avatar {
+          position: absolute;
+          width: 40%;
+          aspect-ratio: 1;
+          top: 23%;
+          left: 50%;
+          transform: translate(-50%);
+          border-radius: 50%;
+        }
+        .top-1-avatar-loading {
+          position: absolute;
+          width: 40%;
+          aspect-ratio: 1;
+          top: 23%;
+          left: 50%;
+          transform: translate(-50%);
+          border-radius: 50%;
+        }
       }
       .diamon-rank-text {
         position: absolute;
@@ -114,6 +150,12 @@
         border-radius: 40px;
         margin-left: 10px;
         margin-right: 20px;
+        .rank-item_avatar {
+          border-radius: 50%;
+        }
+        .rank-item_avatar-loading {
+          border-radius: 50%;
+        }
       }
       .rank-item__level {
         font-style: normal;
@@ -203,6 +245,42 @@
       align-items: center;
       .medal-image-wrapper {
         position: relative;
+        .top-2-avatar {
+          position: absolute;
+          width: 60%;
+          aspect-ratio: 1;
+          top: 195px;
+          left: 50%;
+          transform: translate(-50%);
+          border-radius: 50%;
+        }
+        .top-2-avatar-loading {
+          position: absolute;
+          width: 60%;
+          aspect-ratio: 1;
+          top: 195px;
+          left: 50%;
+          transform: translate(-50%);
+          border-radius: 50%;
+        }
+        .top-1-avatar {
+          position: absolute;
+          width: 40%;
+          aspect-ratio: 1;
+          top: 23%;
+          left: 50%;
+          transform: translate(-50%);
+          border-radius: 50%;
+        }
+        .top-1-avatar-loading {
+          position: absolute;
+          width: 40%;
+          aspect-ratio: 1;
+          top: 23%;
+          left: 50%;
+          transform: translate(-50%);
+          border-radius: 50%;
+        }
       }
       .diamon-rank-text {
         position: absolute;
@@ -276,6 +354,12 @@
         border-radius: 40px;
         margin-left: 10px;
         margin-right: 20px;
+        .rank-item_avatar {
+          border-radius: 50%;
+        }
+        .rank-item_avatar-loading {
+          border-radius: 50%;
+        }
       }
       .rank-item__level {
         font-style: normal;

@@ -65,9 +65,7 @@ const Navbar = () => {
     }
   }, [])
 
-  const PROGRES_DONE_LENGTH = parseInt(
-    (250 * (userData?.levelProgress * 100)) / 100
-  )
+  const PROGRES_DONE_LENGTH = parseInt((250 * userData?.levelProgress) / 100)
   return (
     <header id="header" className="header-inner">
       <div id="navbar" className={`crake-nav ${layOutCls}`}>

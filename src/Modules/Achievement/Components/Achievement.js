@@ -18,35 +18,35 @@ const data = [
     title: "Lần đầu đăng nhập",
     subtitle: "Nhận Huy Hiệu Voi Con",
     point: 5,
-    done: true,
-    img: voi1
+    img: voi1,
+    numToReach: 0
   },
   {
     title: "Mời thành công 05 bạn",
     subtitle: "Nhận Huy Hiệu Voi Chăm Chỉ",
     point: 5,
-    done: true,
-    img: voi2
+    img: voi2,
+    numToReach: 5
   },
   {
     title: "Mời thành công 15 bạn",
     subtitle: "Nhận Huy Hiệu Voi Thông Minh",
     point: 10,
-    done: true,
-    img: voi4
+    img: voi4,
+    numToReach: 15
   },
   {
     title: "Mời thành công 30 bạn",
     subtitle: "Nhận Huy Hiệu Voi Đại Sứ",
     point: 15,
-    done: false,
-    img: voi3
+    img: voi3,
+    numToReach: 30
   }
 ]
 
 const Achievement = () => {
   const userData = useSelector(getUserData)
-
+  console.log("USER DATA", userData)
   return (
     <div className="achievement-container">
       <div className="achievement-top-header-wrapper">
@@ -64,7 +64,11 @@ const Achievement = () => {
                 <GoldIcon />
               </span>
             </div>
-            {item.done ? <CheckedIcon /> : <UnCheckIcon />}
+            {item.numToReach <= userData?.inviteUserCount ? (
+              <CheckedIcon />
+            ) : (
+              <UnCheckIcon />
+            )}
           </div>
         )
       })}

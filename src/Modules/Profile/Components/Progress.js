@@ -1,11 +1,13 @@
 import React from "react"
 import {
   UserPointWrapper,
-  DoneProgressBar,
+  // DoneProgressBar,
   PendingProgressBar,
   ButtonWrapper
 } from "../assets/icon"
 import { getUserData, user } from "../../../store/user/selector"
+
+import { DoneProgressBar } from "../../Achievement/assets/icon"
 
 import voiSilver from "../assets/images/voidaisu-silver.png"
 import voiGold from "../assets/images/voidaisu-gold.png"
@@ -17,7 +19,7 @@ const ratio = PROGRESS_WIDTH / ORIGIN_WIDTH
 
 const Progress = () => {
   const userData = useSelector(getUserData)
-  const percent = userData?.levelProgress * 100
+  const percent = userData?.levelProgress
   const getProgessbarWidth = () => {
     return parseInt((ORIGIN_WIDTH / 100) * percent) * ratio
   }

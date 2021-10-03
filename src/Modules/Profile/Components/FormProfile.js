@@ -21,6 +21,7 @@ import * as apiCommon from "../../../store/common/services"
 import SlideInModal from "../../../components/SlideInModal"
 import PopupLogout from "./PopupLogout"
 import { useHistory } from "react-router"
+import UploadImage from "../../../components/UploadImage"
 
 const FormProfile = () => {
   const dispatch = useDispatch()
@@ -125,10 +126,7 @@ const FormProfile = () => {
     <div className="profile-form-container">
       <div className="profile-form-avatar-wrapper">
         <div style={{ position: "relative" }}>
-          <AvatarWrapper />
-          <div className="profile-form-edit-avatar-button">
-            <EditAvatarButton />
-          </div>
+          <UploadImage />
         </div>
       </div>
       <div className="profile-form-wrapper">

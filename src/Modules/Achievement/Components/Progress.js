@@ -10,18 +10,18 @@ import voiGold from "../assets/images/voidaisu-gold.png"
 import { getUserData } from "../../../store/user/selector"
 import { useSelector } from "react-redux"
 const ORIGIN_WIDTH = 952
-const PROGRESS_WIDTH = (window.innerWidth * 0.84) / 2 - 100
+const PROGRESS_WIDTH = (window.innerWidth * 0.84) / 2 - 70
 
 const ratio = PROGRESS_WIDTH / ORIGIN_WIDTH
 
 const Progress = () => {
   const userData = useSelector(getUserData)
 
-  const percent = userData?.levelProgress * 100
+  const percent = userData?.levelProgress
   const getProgessbarWidth = () => {
     return parseInt((ORIGIN_WIDTH / 100) * percent) * ratio
   }
-  console.log("USER DATA", userData)
+
   return (
     <div className="profile-progress-area">
       <h1 className="profile-progress__title">Hành trình</h1>
