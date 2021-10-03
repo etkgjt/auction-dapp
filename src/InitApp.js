@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 /*Redux*/
 import * as actionsCommon from '@store/common/actions';
 import { getCodeLanguage } from '@store/common/selectors';
+import FireBaseSetup from './Firebase/setup';
 
 const InitApp = ({ DefaultRoute, listRoutes, listNav }) => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ const InitApp = ({ DefaultRoute, listRoutes, listNav }) => {
 
   useEffect(() => {
     const setupInitApp = async () => {
+      await FireBaseSetup.initApi();
       setLoaded(true);
     };
     setupInitApp().then();
