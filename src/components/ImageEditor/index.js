@@ -68,20 +68,21 @@ const ImageEditor = (props, ref) => {
               setOldSrc(null)
             }}
             style={{
-              width: 20,
-              height: 20,
+              width: 30,
+              height: 30,
               background: "red",
-              borderRadius: 10,
+              borderRadius: 15,
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               position: "absolute",
-              top: 10,
-              right: 10,
-              cursor: "pointer"
+              top: -10,
+              right: -10,
+              cursor: "pointer",
+              zIndex: 999
             }}
           >
-            <X color="#fff" size="16" />
+            <X color="#fff" size="20" />
           </div>
         ) : null}
 
@@ -115,7 +116,7 @@ const ImageEditor = (props, ref) => {
                 image={currentImg}
                 className="editor-canvas"
                 disableCanvasRotation={stateImg.disableCanvasRotation}
-                color={[248, 248, 252, 1]}
+                color={[255, 198, 26, 1]}
                 style={{ borderRadius: 20 }}
               />
             </div>

@@ -13,7 +13,7 @@ export const HornorTable = ({ width = 461, height = 841 }) => {
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="none"
     >
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0)">
         <path
           d="M5.191 104.663C-4.32417 113.028 -0.828801 818.628 16.2597 826.604C41.8923 838.665 409.877 849.365 440.17 830.884C463.084 816.877 465.608 122.755 455.122 109.915C416.479 62.0583 60.5343 55.2494 5.191 104.663Z"
           fill="url(#paint0_linearr)"

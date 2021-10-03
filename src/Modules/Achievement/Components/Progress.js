@@ -9,6 +9,9 @@ import voiSilver from "../assets/images/voidaisu-silver.png"
 import voiGold from "../assets/images/voidaisu-gold.png"
 import { getUserData } from "../../../store/user/selector"
 import { useSelector } from "react-redux"
+import PopupInvite from "../../../layouts/components/popupInvite"
+import PopupNewBie from "../../../layouts/components/popupNewbie"
+import SlideInModal from "../../../components/SlideInModal"
 const ORIGIN_WIDTH = 952
 const PROGRESS_WIDTH = (window.innerWidth * 0.84) / 2 - 70
 
@@ -22,6 +25,13 @@ const Progress = () => {
     return parseInt((ORIGIN_WIDTH / 100) * percent) * ratio
   }
 
+  const onVoicoinClick = () => {
+    if (userData?.flagDaisu === 1) {
+      SlideInModal.show(() => {}, <PopupInvite />, "invite-popup-modal-wrapper")
+    } else {
+      SlideInModal.show(() => {}, <PopupNewBie />, "invite-popup-modal-wrapper")
+    }
+  }
   return (
     <div className="profile-progress-area">
       <h1 className="profile-progress__title">Hành trình</h1>
@@ -43,7 +53,10 @@ const Progress = () => {
           <img src={voiGold} alt="icon" width={78} height={50} />
         </div>
       </div>
-      <div className="profile-progress__button-wrapper">
+      <div
+        className="profile-progress__button-wrapper"
+        onClick={onVoicoinClick}
+      >
         <ButtonWrapper />
         <p className="profile-progress__button-text">Nhận thêm voi Coin</p>
       </div>

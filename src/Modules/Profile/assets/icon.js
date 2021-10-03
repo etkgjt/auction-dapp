@@ -13,7 +13,7 @@ export const DoneProgressBar = ({ width = 500, height = 27 }) => {
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="none"
     >
-      <g clip-path="url(#clip0_profile_done)">
+      <g clipPath="url(#clip0_profile_done)">
         <path
           d="M4.19561 25.2005C-0.381051 22.6291 0.000337717 7.71482 3.43283 4.11482C6.86533 0.514821 485.126 0.000535308 494.28 1.80054C500.763 3.08625 500 22.372 495.805 24.6862C491.61 27.0005 7.6281 27.0005 4.19561 25.2005Z"
           fill="url(#paint0_linear_profile_done_progress_bar)"
@@ -46,10 +46,10 @@ export const DoneProgressBar = ({ width = 500, height = 27 }) => {
           y2="0.644163"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#4A50FF" />
-          <stop offset="0.0244284" stop-color="#4A50FF" />
-          <stop offset="0.2833" stop-color="#4A50FF" />
-          <stop offset="1" stop-color="#6C71FF" />
+          <stop stopColor="#4A50FF" />
+          <stop offset="0.0244284" stopColor="#4A50FF" />
+          <stop offset="0.2833" stopColor="#4A50FF" />
+          <stop offset="1" stopColor="#6C71FF" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_profile_done_progress_bar"
@@ -59,8 +59,8 @@ export const DoneProgressBar = ({ width = 500, height = 27 }) => {
           y2="0"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7398FF" />
-          <stop offset="1" stop-color="#5A60FF" />
+          <stop stopColor="#7398FF" />
+          <stop offset="1" stopColor="#5A60FF" />
         </linearGradient>
         <clipPath id="clip0">
           <rect width="500" height="27" fill="white" />

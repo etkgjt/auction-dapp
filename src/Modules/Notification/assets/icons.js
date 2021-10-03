@@ -51,13 +51,13 @@ export const ModalCloseButton = () => {
           y2="10.6823"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="0.2281" stop-color="#FEA92A" />
-          <stop offset="0.696" stop-color="#FFBC3F" />
-          <stop offset="1" stop-color="#FFC347" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="0.2281" stopColor="#FEA92A" />
+          <stop offset="0.696" stopColor="#FFBC3F" />
+          <stop offset="1" stopColor="#FFC347" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_noti_mocal_close_btn"
@@ -67,8 +67,8 @@ export const ModalCloseButton = () => {
           y2="4.87702"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FFBC30" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FFBC30" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_noti_mocal_close_btn"
@@ -78,8 +78,8 @@ export const ModalCloseButton = () => {
           y2="75.1148"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA525" />
-          <stop offset="0.859375" stop-color="#F16C1C" />
+          <stop stopColor="#FEA525" />
+          <stop offset="0.859375" stopColor="#F16C1C" />
         </linearGradient>
       </defs>
     </svg>

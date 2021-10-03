@@ -13,7 +13,7 @@ export const DoneProgressBar = ({ width = 500, height = 27 }) => {
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="none"
     >
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0)">
         <path
           d="M4.19561 25.2005C-0.381051 22.6291 0.000337717 7.71482 3.43283 4.11482C6.86533 0.514821 485.126 0.000535308 494.28 1.80054C500.763 3.08625 500 22.372 495.805 24.6862C491.61 27.0005 7.6281 27.0005 4.19561 25.2005Z"
           fill="url(#paint0_linear_achievent_done_progress_bar)"
@@ -46,10 +46,10 @@ export const DoneProgressBar = ({ width = 500, height = 27 }) => {
           y2="0.644163"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#4A50FF" />
-          <stop offset="0.0244284" stop-color="#4A50FF" />
-          <stop offset="0.2833" stop-color="#4A50FF" />
-          <stop offset="1" stop-color="#6C71FF" />
+          <stop stopColor="#4A50FF" />
+          <stop offset="0.0244284" stopColor="#4A50FF" />
+          <stop offset="0.2833" stopColor="#4A50FF" />
+          <stop offset="1" stopColor="#6C71FF" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_achievent_done_progress_bar"
@@ -59,8 +59,8 @@ export const DoneProgressBar = ({ width = 500, height = 27 }) => {
           y2="0"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7398FF" />
-          <stop offset="1" stop-color="#5A60FF" />
+          <stop stopColor="#7398FF" />
+          <stop offset="1" stopColor="#5A60FF" />
         </linearGradient>
         <clipPath id="clip0">
           <rect width="500" height="27" fill="white" />
@@ -522,7 +522,7 @@ export const AchievementHeaderTitle = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0)">
         <path
           d="M2.39086 52.9903C-6.57422 64.9318 22.4876 144.94 35.9352 152.403C44.3026 157.03 120.655 131.207 237.201 129.863C348.144 128.52 435.629 150.761 443.099 147.776C446.237 146.507 476.345 88.7401 475 78.142C474.104 70.7532 465.064 59.3342 460.058 56.4235C429.129 38.4366 321.398 2.01518 225.024 0.746397C116.322 -0.671652 10.0859 42.6908 2.39086 52.9903Z"
           fill="#FFA516"
@@ -776,7 +776,7 @@ export const UnCheckIcon = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_uncheck)">
+      <g clipPath="url(#clip0_uncheck)">
         <path
           d="M38.0781 5.49789C37.998 4.74092 37.1563 2.86841 36.6753 2.19112C35.6732 -0.796931 2.20456 -0.279003 0.72152 2.6692C-0.200371 4.46203 0.120287 17.211 1.04218 26.0557C1.04218 26.1752 1.04218 26.2947 1.04218 26.4142C1.64341 33.7847 3.28678 37.9282 3.88802 38.1672C8.73796 40.2389 35.6732 40.3983 36.6753 38.5656C40.3227 31.8724 38.1583 6.25486 38.0781 5.49789Z"
           fill="#A2A2A2"
@@ -816,7 +816,7 @@ export const GoldIcon = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clip-path="url(#clip0)">
+    <g clipPath="url(#clip0)">
       <path
         d="M24.8901 8.57187C25.6319 9.89055 26.0439 14.4235 25.8791 15.4949C25.6319 16.5664 23.1593 21.5938 22.4176 22.418C22.0879 22.8301 20.7692 23.6543 19.2857 24.4785C17.7198 25.3026 15.9066 26.1268 14.8352 26.2916C12.3626 26.0444 9.72526 25.0554 8.81867 24.1488C7.5824 22.9125 4.69779 16.1543 4.53295 14.8356C4.2857 13.5993 7.0879 6.75868 8.07691 6.09934C8.9835 5.52242 12.2802 4.61582 13.6813 4.36857C13.8461 4.36857 13.9286 4.28615 14.0934 4.28615C15.4945 4.12132 17.8846 4.36857 18.6264 4.36857C19.2033 4.36857 20.522 4.86308 21.2637 5.11033C22.6648 6.26418 24.3956 7.66527 24.8901 8.57187Z"
         fill="url(#paint0_linear_achivement_gold_icon)"

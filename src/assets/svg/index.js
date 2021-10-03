@@ -95,8 +95,8 @@ export const AcceptIcon = () => (
         y2="9.56982"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FEA525" />
-        <stop offset="0.78125" stop-color="#F16C1C" />
+        <stop stopColor="#FEA525" />
+        <stop offset="0.78125" stopColor="#F16C1C" />
       </linearGradient>
     </defs>
   </svg>
@@ -154,13 +154,13 @@ export const CancelIcon = () => {
           y2="5.19552"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="0.2281" stop-color="#FEA92A" />
-          <stop offset="0.696" stop-color="#FFBC3F" />
-          <stop offset="1" stop-color="#FFC347" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="0.2281" stopColor="#FEA92A" />
+          <stop offset="0.696" stopColor="#FFBC3F" />
+          <stop offset="1" stopColor="#FFC347" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_cancel_icon"
@@ -170,8 +170,8 @@ export const CancelIcon = () => {
           y2="0.373355"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FFBC30" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FFBC30" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_cancel_icon"
@@ -181,8 +181,8 @@ export const CancelIcon = () => {
           y2="16.4743"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA525" />
-          <stop offset="0.859375" stop-color="#F16C1C" />
+          <stop stopColor="#FEA525" />
+          <stop offset="0.859375" stopColor="#F16C1C" />
         </linearGradient>
       </defs>
     </svg>
@@ -245,7 +245,7 @@ export const PopupBlockWrapper = ({ width = 607, height = 481 }) => {
           y2="7.62073"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
+          <stop stopColor="#FEB32C" />
           <stop offset="0.00304192" stopColor="#FEB22C" />
           <stop offset="0.0667296" stopColor="#FEA827" />
           <stop offset="0.1452" stopColor="#FEA525" />
@@ -351,11 +351,11 @@ export const PopupNotiWrapper = ({ width = 607, height = 481 }) => {
           y2="12.0784"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="1" stop-color="#FEB336" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="1" stopColor="#FEB336" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_popup_noti_wrapper"
@@ -365,8 +365,8 @@ export const PopupNotiWrapper = ({ width = 607, height = 481 }) => {
           y2="26.7524"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFCB44" />
-          <stop offset="1" stop-color="#FFDE6C" />
+          <stop stopColor="#FFCB44" />
+          <stop offset="1" stopColor="#FFDE6C" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_popup_noti_wrapper"
@@ -376,11 +376,11 @@ export const PopupNotiWrapper = ({ width = 607, height = 481 }) => {
           y2="42.4607"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="1" stop-color="#FEB336" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="1" stopColor="#FEB336" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_popup_noti_wrapper"
@@ -390,8 +390,8 @@ export const PopupNotiWrapper = ({ width = 607, height = 481 }) => {
           y2="437.533"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA525" />
-          <stop offset="1" stop-color="#FEA526" />
+          <stop stopColor="#FEA525" />
+          <stop offset="1" stopColor="#FEA526" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_popup_noti_wrapper"
@@ -401,8 +401,8 @@ export const PopupNotiWrapper = ({ width = 607, height = 481 }) => {
           y2="452.938"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FEA52A" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FEA52A" />
         </linearGradient>
       </defs>
     </svg>
@@ -461,13 +461,13 @@ export const CircleCloseButton = () => {
           y2="10.6823"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEB32C" />
-          <stop offset="0.00304192" stop-color="#FEB22C" />
-          <stop offset="0.0667296" stop-color="#FEA827" />
-          <stop offset="0.1452" stop-color="#FEA525" />
-          <stop offset="0.2281" stop-color="#FEA92A" />
-          <stop offset="0.696" stop-color="#FFBC3F" />
-          <stop offset="1" stop-color="#FFC347" />
+          <stop stopColor="#FEB32C" />
+          <stop offset="0.00304192" stopColor="#FEB22C" />
+          <stop offset="0.0667296" stopColor="#FEA827" />
+          <stop offset="0.1452" stopColor="#FEA525" />
+          <stop offset="0.2281" stopColor="#FEA92A" />
+          <stop offset="0.696" stopColor="#FFBC3F" />
+          <stop offset="1" stopColor="#FFC347" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_circle_close_btn"
@@ -477,8 +477,8 @@ export const CircleCloseButton = () => {
           y2="4.87702"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FD8C23" />
-          <stop offset="1" stop-color="#FFBC30" />
+          <stop stopColor="#FD8C23" />
+          <stop offset="1" stopColor="#FFBC30" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_circle_close_btn"
@@ -488,8 +488,8 @@ export const CircleCloseButton = () => {
           y2="75.1148"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEA525" />
-          <stop offset="0.859375" stop-color="#F16C1C" />
+          <stop stopColor="#FEA525" />
+          <stop offset="0.859375" stopColor="#F16C1C" />
         </linearGradient>
       </defs>
     </svg>
@@ -504,7 +504,7 @@ export const InviteFriendIcon = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0_invite_friend)">
         <path
           d="M33.5082 3.63095C12.5564 11.5198 -2.9202 35.3325 1.24096 58.9991C6.35115 88.2171 39.4944 106.551 67.6735 98.5164C90.0853 92.1615 107.168 69.6636 105.27 46.9466C102.642 15.3912 63.8773 -7.83712 33.5082 3.63095Z"
           fill="url(#paint0_linear_invite_friend)"
@@ -566,13 +566,13 @@ export const InviteFriendIcon = () => {
           y2="6.45489"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#696EFF" />
-          <stop offset="0.0225551" stop-color="#6267FF" />
-          <stop offset="0.0774898" stop-color="#585EFF" />
-          <stop offset="0.1452" stop-color="#555AFF" />
-          <stop offset="0.3866" stop-color="#666CFF" />
-          <stop offset="0.7584" stop-color="#7C80FF" />
-          <stop offset="1" stop-color="#8488FF" />
+          <stop stopColor="#696EFF" />
+          <stop offset="0.0225551" stopColor="#6267FF" />
+          <stop offset="0.0774898" stopColor="#585EFF" />
+          <stop offset="0.1452" stopColor="#555AFF" />
+          <stop offset="0.3866" stopColor="#666CFF" />
+          <stop offset="0.7584" stopColor="#7C80FF" />
+          <stop offset="1" stopColor="#8488FF" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_invite_friend"
@@ -582,8 +582,8 @@ export const InviteFriendIcon = () => {
           y2="0.492655"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#80A1FF" />
-          <stop offset="1" stop-color="#757AFF" />
+          <stop stopColor="#80A1FF" />
+          <stop offset="1" stopColor="#757AFF" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_invite_friend"
@@ -593,11 +593,11 @@ export const InviteFriendIcon = () => {
           y2="16.96"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#696EFF" />
-          <stop offset="0.0225551" stop-color="#6267FF" />
-          <stop offset="0.0774898" stop-color="#585EFF" />
-          <stop offset="0.1452" stop-color="#555AFF" />
-          <stop offset="1" stop-color="#6B6FFF" />
+          <stop stopColor="#696EFF" />
+          <stop offset="0.0225551" stopColor="#6267FF" />
+          <stop offset="0.0774898" stopColor="#585EFF" />
+          <stop offset="0.1452" stopColor="#555AFF" />
+          <stop offset="1" stopColor="#6B6FFF" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_invite_friend"
@@ -607,8 +607,8 @@ export const InviteFriendIcon = () => {
           y2="95.6064"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEAE23" />
-          <stop offset="1" stop-color="#FD8B38" />
+          <stop stopColor="#FEAE23" />
+          <stop offset="1" stopColor="#FD8B38" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_invite_friend"
@@ -618,8 +618,8 @@ export const InviteFriendIcon = () => {
           y2="62.3155"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FEAD38" />
-          <stop offset="1" stop-color="#FFCA58" />
+          <stop stopColor="#FEAD38" />
+          <stop offset="1" stopColor="#FFCA58" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_invite_friend"
@@ -629,10 +629,10 @@ export const InviteFriendIcon = () => {
           y2="63.4424"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFCF53" />
-          <stop offset="1" stop-color="#FFE58F" />
+          <stop stopColor="#FFCF53" />
+          <stop offset="1" stopColor="#FFE58F" />
         </linearGradient>
-        <clipPath id="clip0">
+        <clipPath id="clip0_invite_friend">
           <rect
             width="106"
             height="100.948"

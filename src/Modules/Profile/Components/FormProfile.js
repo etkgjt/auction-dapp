@@ -1,39 +1,82 @@
 import { Formik } from "formik"
 import FormField from "../../../components/FormField"
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { Form, Row, Col } from "reactstrap"
 import FormFieldSelect from "../../../components/FormFieldSelect"
 import { useTranslation } from "react-i18next"
 import {
   ButtonWrapper,
   ButtonWrapperBlue,
-  ButtonWrapperWhite,
-  AvatarWrapper,
-  EditAvatarButton
+  ButtonWrapperWhite
 } from "../assets/icon"
 
 import { getUserData, user } from "../../../store/user/selector"
 import { useDispatch, useSelector } from "react-redux"
 
 import { getValueForm, validationSchema } from "../validation"
+import {
+  getValueForm as getValueFormUpdatePassword,
+  validationSchema as validationSchemaUpdatePassword
+} from "../validation/updatePassword"
+import {
+  formSubmitErrorSelector,
+  formSubmitDataResponseSelector,
+  formSubmitLoadingSelector,
+  formSubmitSuccessSelector
+} from "../Store/formUpdateProfile/selector"
+
+import {
+  formSubmitErrorSelector as formPasswordSubmitErrorSelector,
+  formSubmitDataResponseSelector as formPasswordSubmitDataResponseSelector,
+  formSubmitLoadingSelector as formPasswordSubmitLoadingSelector,
+  formSubmitSuccessSelector as formPasswordSubmitSuccessSelector
+} from "../Store/formUpdatePassword/selector"
+
+import { actions as updatePasswordActions } from "../Store/formUpdatePassword/reducer"
+import { actions } from "../Store/formUpdateProfile/reducer"
+import { actions as actionsUser } from "../../../store/user/reducer"
 import { authLogout } from "../../Authenticate/store/auth/actions"
 import * as apiCommon from "../../../store/common/services"
 import SlideInModal from "../../../components/SlideInModal"
 import PopupLogout from "./PopupLogout"
 import { useHistory } from "react-router"
 import UploadImage from "../../../components/UploadImage"
+import { toast } from "react-toastify"
+import uploadImage from "../../../utility/uploadImage"
 
 const FormProfile = () => {
   const dispatch = useDispatch()
   const userData = useSelector(getUserData)
   const history = useHistory()
-
+  //REf
+  const cropImageRef = useRef()
+  const formRef = useRef()
+  //STATE
   const [itemsClass, setItemsClass] = useState([])
   const [keyClass, setKeyClass] = useState(1)
   const [itemsCity, setItemsCity] = useState([])
   const [keyCity, setKeyCity] = useState()
   const [itemsDistrict, setItemsDistrict] = useState([])
   const [keyDistrict, setKeyDistrict] = useState()
+  const [userAvatar, setUserAvatar] = useState("")
+
+  //SELECTOR
+  //FORM PASSWORD
+  const formPasswordSubmitLoading = useSelector(
+    formPasswordSubmitLoadingSelector
+  )
+  const formPasswordSubmitSuccess = useSelector(
+    formPasswordSubmitSuccessSelector
+  )
+  const formPasswordSubmitError = useSelector(formPasswordSubmitErrorSelector)
+  const formPasswordSubmitDataResponse = useSelector(
+    formPasswordSubmitDataResponseSelector
+  )
+  //FORM PROFILE
+  const formSubmitLoading = useSelector(formSubmitLoadingSelector)
+  const formSubmitSuccess = useSelector(formSubmitSuccessSelector)
+  const formSubmitError = useSelector(formSubmitErrorSelector)
+  const formSubmitDataResponse = useSelector(formSubmitDataResponseSelector)
 
   const fetchListClass = async () => {
     try {
@@ -92,7 +135,42 @@ const FormProfile = () => {
     setKeyDistrict(keyDistrict + 1)
   }
 
-  const onSubmit = () => {}
+  const onSubmitForm = async (values) => {
+    try {
+      dispatch(actions.formUpdateProfileSuperSchoolMemoryFnLoading(true))
+      let uri = null
+      if (userAvatar?.imgSrc) {
+        const file = await fetch(userAvatar?.imgSrc).then((res) => res.blob())
+        const id = Date.now()
+        const fileName = `avatar_${id}.jpg`
+        uri = await uploadImage(
+          file,
+          `/avatar/STNHD/${userData?.userId}`,
+          fileName
+        )
+      }
+
+      dispatch(
+        actions.formUpdateProfileSuperSchoolMemoryFnMethod({
+          ...values,
+          user_name: userData?.userName || "",
+          userId: userData?.userId,
+          avartar: uri ? uri : userData?.avatar
+        })
+      )
+    } catch (err) {
+      console.log("submit err", err)
+    }
+  }
+
+  const onUpdatePasswordSubmit = (values) => {
+    dispatch(
+      updatePasswordActions.formUpdatePasswordSuperSchoolMemoryFnMethod({
+        ...values,
+        userId: userData?.userId
+      })
+    )
+  }
   const { i18n } = useTranslation()
 
   const _handleLogout = () => {
@@ -121,17 +199,93 @@ const FormProfile = () => {
       getListDistrict(keyCity)
     }
   }, [keyCity])
-  // console.log(userData)
+
+  useEffect(() => {
+    if (formPasswordSubmitError) {
+      toast.error(formPasswordSubmitDataResponse.error.retText, {
+        position: "top-center",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      })
+    }
+    if (formPasswordSubmitSuccess) {
+      toast.success("Cập nhật mật khẩu thành công", {
+        position: "top-center",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      })
+    }
+    return () => {
+      dispatch(
+        updatePasswordActions.formUpdatePasswordSuperSchoolMemoryFnReset()
+      )
+    }
+  }, [formPasswordSubmitSuccess, formPasswordSubmitError])
+
+  useEffect(() => {
+    if (formSubmitError) {
+      toast.error(formSubmitDataResponse?.error?.retText, {
+        position: "top-center",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      })
+    }
+    if (formSubmitSuccess) {
+      toast.success("Cập nhật thông tin thành công", {
+        position: "top-center",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      })
+      dispatch(
+        actionsUser.getInfoUser({
+          userId: userData?.userId
+        })
+      )
+      history.goBack()
+    }
+    console.log(formSubmitDataResponse)
+    return () => {
+      dispatch(actions.formUpdateProfileSuperSchoolMemoryFnReset())
+    }
+  }, [formSubmitSuccess, formSubmitError])
+
+  React.useEffect(() => {
+    setKeyCity(userData?.cityId)
+    setKeyDistrict(userData?.districtId)
+  }, [])
+  React.useEffect(() => {
+    if (userAvatar?.imgSrc) {
+      formRef.current?.handleSubmit()
+    }
+  }, [userAvatar])
+
   return (
     <div className="profile-form-container">
       <div className="profile-form-avatar-wrapper">
         <div style={{ position: "relative" }}>
-          <UploadImage />
+          <UploadImage
+            ref={cropImageRef}
+            onChange={(data) => setUserAvatar(data)}
+            value={userAvatar?.imgSrc || userData?.avatar}
+          />
         </div>
       </div>
       <div className="profile-form-wrapper">
         <Formik
-          onSubmit={onSubmit}
+          innerRef={formRef}
+          onSubmit={onSubmitForm}
           validationSchema={validationSchema(i18n)}
           initialValues={getValueForm({
             children_fullname: userData?.childFullName1,
@@ -142,7 +296,8 @@ const FormProfile = () => {
             email: userData?.email,
             phone_number: userData?.phone,
             parent_fullname: userData?.fullName,
-            class: userData?.child1ClassId
+            class: userData?.child1ClassId,
+            street_address: userData?.address
           })}
           enableReinitialize
         >
@@ -178,12 +333,16 @@ const FormProfile = () => {
                         { label: "Nam", value: "nam" },
                         { label: "Nữ", value: "nu" }
                       ]}
+                      valueDefault={formik.values.gender}
+                      handleChange={(val) => {
+                        formik.setFieldValue("gender", val)
+                      }}
                     />
                   </Col>
-                  <Col xl="3" lg="3" md="3">
+                  <Col xl="2" lg="2" md="2" className="p-0">
                     <span className="form-profile-field-label">Ngày sinh</span>
                   </Col>
-                  <Col xl="3" lg="3" md="3">
+                  <Col xl="4" lg="4" md="4">
                     <FormField
                       className="mb-0"
                       field="birth_day"
@@ -210,10 +369,11 @@ const FormProfile = () => {
                           borderLight
                           field="class"
                           {...formik}
-                          valueDefault={formik.values?.class_name}
-                          handleChange={(value) =>
+                          valueDefault={formik.values?.class}
+                          handleChange={(value) => {
+                            console.log("Onchange", value)
                             formik.setFieldValue("class", value)
-                          }
+                          }}
                           placeholder={"Lớp"}
                           options={itemsClass}
                         />
@@ -261,6 +421,13 @@ const FormProfile = () => {
                           options={itemsDistrict}
                         />
                       </Col>
+                      <Col xl="12" lg="12" md="12">
+                        <FormField
+                          field="street_address"
+                          {...formik}
+                          placeholder={"Địa chỉ"}
+                        />
+                      </Col>
                     </Row>
                   </Col>
                 </Row>
@@ -288,6 +455,7 @@ const FormProfile = () => {
                       field="email"
                       {...formik}
                       placeholder={"Email"}
+                      disabled
                     />
                   </Col>
                 </Row>
@@ -304,12 +472,24 @@ const FormProfile = () => {
                       field="phone_number"
                       {...formik}
                       placeholder={"Điện thoại"}
+                      disabled
                     />
                   </Col>
                 </Row>
                 <Row className="mt-2">
                   <span className="d-flex flex-row justify-content-center w-100">
-                    <div className="update-profile-button-wrapper">
+                    <div
+                      className="update-profile-button-wrapper"
+                      onClick={() => {
+                        if (cropImageRef.current?.submitCrop) {
+                          console.log("VAO 1")
+                          cropImageRef.current?.submitCrop()
+                        } else {
+                          console.log("VAO 2", formik.errors)
+                          formik.handleSubmit()
+                        }
+                      }}
+                    >
                       <ButtonWrapper />
                       <span className="update-profile-button-label">
                         Cập nhật
@@ -322,9 +502,9 @@ const FormProfile = () => {
           }}
         </Formik>
         <Formik
-          onSubmit={onSubmit}
-          validationSchema={validationSchema(i18n)}
-          initialValues={getValueForm({})}
+          onSubmit={onUpdatePasswordSubmit}
+          validationSchema={validationSchemaUpdatePassword(i18n)}
+          initialValues={getValueFormUpdatePassword({})}
           enableReinitialize
         >
           {(formik) => {
@@ -371,7 +551,7 @@ const FormProfile = () => {
                   </Col>
                   <Col xl="8" lg="8" md="8">
                     <FormField
-                      field="repassword"
+                      field="confirm_new_password"
                       {...formik}
                       placeholder={"Nhập lại mật khẩu mới"}
                       type="password"
@@ -380,7 +560,10 @@ const FormProfile = () => {
                 </Row>
                 <Row className="mt-2">
                   <span className="d-flex flex-row justify-content-center w-100">
-                    <div className="update-profile-button-wrapper">
+                    <div
+                      className="update-profile-button-wrapper"
+                      onClick={formik.handleSubmit}
+                    >
                       <ButtonWrapper />
                       <span className="update-profile-button-label">
                         Thay đổi

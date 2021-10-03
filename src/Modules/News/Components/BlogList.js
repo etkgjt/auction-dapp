@@ -7,6 +7,7 @@ import { getListLoadingSelector, getListSelector } from "../Store/News/selector"
 
 import { actions } from "../Store/News/reducer"
 import AsyncImage from "../../../components/AsyncImage"
+import { NEWS_LIST_LIMIT_DEFAULT } from "../../../configs/contants"
 
 const BlogOne = () => {
   const dispatch = useDispatch()
@@ -23,7 +24,7 @@ const BlogOne = () => {
     dispatch(
       actions.getList({
         page: 1,
-        limit: 12
+        limit: NEWS_LIST_LIMIT_DEFAULT
       })
     )
   }, [])

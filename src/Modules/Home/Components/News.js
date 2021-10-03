@@ -3,6 +3,7 @@ import Carousel from "react-owl-carousel3"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router"
 import AsyncImage from "../../../components/AsyncImage"
+import { NEWS_LIST_LIMIT_DEFAULT } from "../../../configs/contants"
 import { ArrowLeftIcon, ArrowRightIcon } from "../assets/icon"
 
 import { actions } from "../Store/News/reducer"
@@ -19,7 +20,7 @@ const News = () => {
   React.useEffect(() => {
     dispatch(
       actions.getList({
-        limit: 12,
+        limit: NEWS_LIST_LIMIT_DEFAULT,
         page: 1
       })
     )

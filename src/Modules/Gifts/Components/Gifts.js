@@ -25,37 +25,7 @@ import { getUserData } from "../../../store/user/selector"
 import GiftItem from "./GiftItem"
 
 import moment from "moment"
-
-const data = [
-  {
-    title: "Vé quay số tuần 2",
-    subtitle: "Ngày quay: xx/09/2021",
-    code: "XY34STNHD",
-    img: voi1,
-    type: "code"
-  },
-  {
-    title: "Thẻ cào điện thoại 20k",
-    subtitle: "Hạn sử dụng: xx/09/2021",
-    img: voi1,
-    type: "voucher",
-    value: 30
-  },
-  {
-    title: "E-Voucher 30k",
-    subtitle: "Hạn sử dụng: xx/09/2021",
-    img: "https://nhamayveston.com/wp-content/uploads/2020/10/1571133630-logo-tiki.png",
-    type: "voucher",
-    value: 30
-  },
-  {
-    title: "Voucher Tiki 30k",
-    subtitle: "Hạn sử dụng: xx/09/2021",
-    img: voi1,
-    type: "voucher",
-    value: 30
-  }
-]
+import { GIFT_LIST_LIMIT_DETAULT } from "../../../configs/contants"
 
 const Gifts = () => {
   const dispatch = useDispatch()
@@ -78,13 +48,13 @@ const Gifts = () => {
     dispatch(
       allGiftActions.getList({
         page: 1,
-        limit: 25
+        limit: GIFT_LIST_LIMIT_DETAULT
       })
     )
     dispatch(
       usedGiftActions.getList({
         page: 1,
-        limit: 25,
+        limit: GIFT_LIST_LIMIT_DETAULT,
         status: 1,
         userid: userData?.userId
       })
@@ -92,7 +62,7 @@ const Gifts = () => {
     dispatch(
       myGiftActions.getList({
         page: 1,
-        limit: 25,
+        limit: GIFT_LIST_LIMIT_DETAULT,
         userid: userData?.userId
       })
     )

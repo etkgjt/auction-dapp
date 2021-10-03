@@ -12,7 +12,10 @@ import evoucher from "../assets/images/evoucher.png"
 import { postRequestGift } from "../Store/AllGifts/service"
 import { useDispatch, useSelector } from "react-redux"
 import { getUserData } from "../../../store/user/selector"
-import { RETCODE_SUCCESS } from "../../../configs/contants"
+import {
+  GIFT_LIST_LIMIT_DETAULT,
+  RETCODE_SUCCESS
+} from "../../../configs/contants"
 import SlideInModal from "../../../components/SlideInModal"
 import { actions } from "../Store/MyGifts/reducer"
 import { actions as userActions } from "../../../store/user/reducer"
@@ -100,7 +103,7 @@ const GiftItem = ({
         setActiveTab(1)
         dispatch(
           actions.getList({
-            limit: 25,
+            limit: GIFT_LIST_LIMIT_DETAULT,
             page: 1,
             userid: userData?.userId
           })

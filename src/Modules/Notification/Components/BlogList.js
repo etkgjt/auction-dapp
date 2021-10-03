@@ -10,14 +10,21 @@ import { useDispatch, useSelector } from "react-redux"
 import { ModalCloseButton } from "../assets/icons"
 
 import { getNotificaitonDetails } from "../Store/Notification/service"
-import { RETCODE_SUCCESS } from "../../../configs/contants"
+import {
+  HOME_RANK_LIMIT_DEFAULT,
+  RETCODE_SUCCESS
+} from "../../../configs/contants"
 import { toast } from "react-toastify"
 import AsyncImage from "../../../components/AsyncImage"
 import LoadingIndicator from "../../../components/LoadingIndicator"
+import { getUserData } from "../../../store/user/selector"
 
 const BlogOne = () => {
   const dispatch = useDispatch()
   const history = useHistory()
+
+  const userData = useSelector(getUserData)
+
   const [isOpen, setIsOpen] = useState(false)
   const [notiDetailLoading, setNotiDetailLoading] = useState(false)
   const [dataDetail, setDataDetail] = useState()
@@ -59,8 +66,8 @@ const BlogOne = () => {
     dispatch(
       actions.getList({
         page: 1,
-        limit: 5,
-        userId: 1
+        limit: HOME_RANK_LIMIT_DEFAULT,
+        userId: userData?.userId
       })
     )
   }, [])
@@ -100,7 +107,7 @@ const BlogOne = () => {
           <ModalCloseButton />
         </div>
         <ModalBody>
-          <div className="noti-content-wrapper">
+          <div className="noti-contenyaraast-wrapper">
             {notiDetailLoading ? (
               <LoadingIndicator />
             ) : (

@@ -15,7 +15,10 @@ import { ButtonWrapperBlue } from "../assets/icon"
 import { useDispatch, useSelector } from "react-redux"
 import { getUserData } from "../../../store/user/selector"
 import { postUseCard, postUseVoucher } from "../Store/MyGifts/service"
-import { RETCODE_SUCCESS } from "../../../configs/contants"
+import {
+  GIFT_LIST_LIMIT_DETAULT,
+  RETCODE_SUCCESS
+} from "../../../configs/contants"
 import { toast } from "react-toastify"
 import { actions } from "../Store/MyGifts/reducer"
 import { actions as usedGiftActions } from "../Store/UsedGifts/reducer"
@@ -41,14 +44,14 @@ const PopupUseGift = ({ item }) => {
         })
         dispatch(
           actions.getList({
-            limit: 25,
+            limit: GIFT_LIST_LIMIT_DETAULT,
             page: 1,
             userid: userData?.userId
           })
         )
         dispatch(
           usedGiftActions.getList({
-            limit: 25,
+            limit: GIFT_LIST_LIMIT_DETAULT,
             page: 1,
             userid: userData?.userId
           })
@@ -90,14 +93,14 @@ const PopupUseGift = ({ item }) => {
         })
         dispatch(
           actions.getList({
-            limit: 25,
+            limit: GIFT_LIST_LIMIT_DETAULT,
             page: 1,
             userid: userData?.userId
           })
         )
         dispatch(
           usedGiftActions.getList({
-            limit: 25,
+            limit: GIFT_LIST_LIMIT_DETAULT,
             page: 1,
             userid: userData?.userId
           })

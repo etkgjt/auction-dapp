@@ -32,37 +32,37 @@ export const getValueForm = (valuesDefault = {}) => {
 
 export const validationSchema = (i18n) => {
   return Yup.object().shape({
-    user_name: Yup.string()
-      .nullable()
-      .required(
-        messageError(
-          i18n.t("validation:required"),
-          i18n.t("FormUpdate:field:user_name")
-        )
-      )
-      .matches(
-        usernameRegex,
-        messageError(
-          i18n.t("validation:user_name"),
-          i18n.t("FormUpdate:field:user_name")
-        )
-      )
-      .test(
-        "len",
-        messageError(
-          i18n.t("validation:user_name"),
-          i18n.t("FormUpdate:field:user_name")
-        ),
-        (val) => val?.toString().length > 5
-      )
-      .test(
-        "len",
-        messageError(
-          i18n.t("validation:user_name"),
-          i18n.t("FormUpdate:field:user_name")
-        ),
-        (val) => val?.toString().length < 13
-      ),
+    // user_name: Yup.string()
+    //   .nullable()
+    //   .required(
+    //     messageError(
+    //       i18n.t("validation:required"),
+    //       i18n.t("FormUpdate:field:user_name")
+    //     )
+    //   )
+    //   .matches(
+    //     usernameRegex,
+    //     messageError(
+    //       i18n.t("validation:user_name"),
+    //       i18n.t("FormUpdate:field:user_name")
+    //     )
+    //   )
+    //   .test(
+    //     "len",
+    //     messageError(
+    //       i18n.t("validation:user_name"),
+    //       i18n.t("FormUpdate:field:user_name")
+    //     ),
+    //     (val) => val?.toString().length > 5
+    //   )
+    //   .test(
+    //     "len",
+    //     messageError(
+    //       i18n.t("validation:user_name"),
+    //       i18n.t("FormUpdate:field:user_name")
+    //     ),
+    //     (val) => val?.toString().length < 13
+    //   ),
     parent_fullname: Yup.string()
       .nullable()
       .matches(

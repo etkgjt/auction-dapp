@@ -9,6 +9,7 @@ import {
   AvatarWrapper,
   EditAvatarButton
 } from "../../Modules/Profile/assets/icon"
+import AsyncImage from "../AsyncImage"
 
 const UploadImage = (
   {
@@ -80,7 +81,12 @@ const UploadImage = (
               />
             </div>
           ) : (
-            <img src={src} alt="" className={"upload_image_inner"} />
+            <AsyncImage
+              src={src}
+              alt=""
+              className={"upload_image_inner"}
+              placeholderClassName="upload_image_inner"
+            />
           )}
         </div>
       </Col>

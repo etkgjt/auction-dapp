@@ -1,5 +1,8 @@
-import { ENVIRONMENT_VERSION_DESKTOP, ENVIRONMENT_FIRE_BASE_SECURITY } from './environment';
-export const FIRE_BASE_SECURITY = ENVIRONMENT_FIRE_BASE_SECURITY;
+import {
+  ENVIRONMENT_VERSION_DESKTOP,
+  ENVIRONMENT_FIRE_BASE_SECURITY
+} from "./environment"
+export const FIRE_BASE_SECURITY = ENVIRONMENT_FIRE_BASE_SECURITY
 
 //API STATUS
 export const SUCCESS = 200
@@ -97,3 +100,7 @@ export const BANNER_APP_LINK = {
   VaoTrangMindmap: "/lectures/2",
   VaoTrangDienDan: "/forum"
 }
+export const HOME_RANK_LIMIT_DEFAULT = 5
+export const PROFILE_LIST_LIMIT_DEFAULT = 7
+export const GIFT_LIST_LIMIT_DETAULT = 4
+export const NEWS_LIST_LIMIT_DEFAULT = 12

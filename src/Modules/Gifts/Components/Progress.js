@@ -10,6 +10,9 @@ import {
 } from "../assets/icon"
 import PopupHistory from "./PopupHistory"
 
+import PopupInvite from "../../../layouts/components/popupInvite"
+import PopupNewBie from "../../../layouts/components/popupNewbie"
+
 const ORIGIN_WIDTH = 952
 const PROGRESS_WIDTH = (window.innerWidth * 0.84) / 2 - 70
 
@@ -21,6 +24,13 @@ const Progress = () => {
   const onHistoryPress = () => {
     SlideInModal.show(() => {}, <PopupHistory />, "popup-history-modal-wrapper")
   }
+  const onVoicoinClick = () => {
+    if (userData?.flagDaisu === 1) {
+      SlideInModal.show(() => {}, <PopupInvite />, "invite-popup-modal-wrapper")
+    } else {
+      SlideInModal.show(() => {}, <PopupNewBie />, "invite-popup-modal-wrapper")
+    }
+  }
 
   return (
     <div className="gifts-progress-area">
@@ -31,7 +41,7 @@ const Progress = () => {
         </div>
       </div>
 
-      <div className="gifts-progress__button-wrapper">
+      <div className="gifts-progress__button-wrapper" onClick={onVoicoinClick}>
         <ButtonWrapper />
         <p className="gifts-progress__button-text">Nhận thêm voi Coin</p>
       </div>

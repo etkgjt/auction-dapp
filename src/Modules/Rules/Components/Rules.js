@@ -9,10 +9,6 @@ import {
 } from "../assets/icon"
 
 import coinIcon from "../assets/images/coin-icon.png"
-import bangtinhdiem from "../assets/images/table1.png"
-import bangtuan from "../assets/images/bangtuan.png"
-import bangthang from "../assets/images/bangthang.png"
-import bangnam from "../assets/images/bangquy.png"
 
 import {
   getListLoadingSelector,
@@ -21,14 +17,24 @@ import {
 import { actions } from "../../Home/Store/Rules/reducer"
 import { useDispatch, useSelector } from "react-redux"
 
+import { actions as calendarActions } from "../Store/EventCalendar/reducer"
+import {
+  getListSelector as getCalendar,
+  getListLoadingSelector as getCalendarLoading
+} from "../Store/EventCalendar/selector"
+
 const Rules = () => {
   const dispatch = useDispatch()
 
   const rules = useSelector(getListSelector)
   const rulesLoading = useSelector(getListLoadingSelector)
 
+  const calendar = useSelector(getCalendar)
+  const calendarLoading = useSelector(getCalendarLoading)
+
   React.useEffect(() => {
     dispatch(actions.getList())
+    dispatch(calendarActions.getList())
   }, [])
 
   return (
@@ -56,26 +62,8 @@ const Rules = () => {
 
             <p className="notic">Lưu ý:</p>
 
-            <span className="notic-text-black">
-              1. Khi hoàn thành
-              <span className="notic-text-white">&nbsp;5 lượt mời&nbsp;</span>
-              thành công tính đến 23h59
-              <span className="notic-text-white">&nbsp;ngày 23 hàng tháng</span>
-              , bạn sẽ có cơ hội nhận một lượt quay số trúng thưởng vào
-              <span className="notic-text-white">
-                &nbsp;21h tối thứ 5 cuối cùng trong tháng
-              </span>
-            </span>
-
-            <span className="notic-text-black">
-              2. Một lượt quay bạn nhận được chỉ được áp dụng cho
-              <span className="notic-text-white mt-2">
-                một lần quay số duy nhất trong tháng
-              </span>
-            </span>
-            <span className="notic-text-black my-2">
-              3. Các kênh soical bạn có thể theo dõi lượt quay:
-            </span>
+            <span className="notic-text-black">{calendar?.value}</span>
+            <div className="my-3" />
             <span className="social-link">
               <FacebookIcon size={32} />
               <p>Fanpage Tâm Trí Lực</p>
