@@ -28,6 +28,7 @@ let ENV_ENVIRONMENT_firebaseConfig = {
 
 switch (process.env.NODE_ENV) {
     case 'development':
+        ENV_ENVIRONMENT_BASE_URL_API_STNHD = "https://apidev.stnhd.com/api"
         ENV_ENVIRONMENT_BASE_URL_API = 'https://daotao-apidaisu.stnhd.com/api';
         ENV_ENVIRONMENT_BASE_URL_API_FIRE_BASE =
             'https://us-central1-tamtriluc-76b54.cloudfunctions.net/api';
@@ -54,6 +55,7 @@ switch (process.env.NODE_ENV) {
         };
         break;
     case 'test':
+        ENV_ENVIRONMENT_BASE_URL_API_STNHD = "https://apidev.stnhd.com/api"
         ENV_ENVIRONMENT_BASE_URL_API = 'https://daotao-apidaisu.stnhd.com/api';
         ENV_ENVIRONMENT_BASE_URL_API_FIRE_BASE =
             'https://us-central1-tamtriluc-76b54.cloudfunctions.net/api';
@@ -79,6 +81,7 @@ switch (process.env.NODE_ENV) {
             measurementId: 'G-Y2EFTL9G4H',
         };
     case 'production':
+        ENV_ENVIRONMENT_BASE_URL_API_STNHD = "https://apittl.stnhd.com/api"
         ENV_ENVIRONMENT_BASE_URL_API = 'https://daotao-apidaisu.stnhd.com/api';
         ENV_ENVIRONMENT_BASE_URL_API_FIRE_BASE =
             'https://us-central1-tamtriluc-76b54.cloudfunctions.net/api';
@@ -106,7 +109,7 @@ switch (process.env.NODE_ENV) {
         break;
 }
 
-export const ENV_ENVIRONMENT_BASE_URL_API_STNHD = ENV_ENVIRONMENT_BASE_URL_API_STNHD;
+export const ENVIRONMENT_BASE_URL_API_STNHD = ENV_ENVIRONMENT_BASE_URL_API_STNHD;
 export const ENVIRONMENT_BASE_URL_API = ENV_ENVIRONMENT_BASE_URL_API;
 export const ENVIRONMENT_BASE_URL_API_FIRE_BASE = ENV_ENVIRONMENT_BASE_URL_API_FIRE_BASE;
 export const ENVIRONMENT_FIRE_BASE_SECURITY = ENV_ENVIRONMENT_FIRE_BASE_SECURITY;
