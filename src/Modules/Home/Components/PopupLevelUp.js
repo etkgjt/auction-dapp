@@ -5,8 +5,24 @@ import levelup1 from "../assets/images/levelup1.png"
 import levelup2 from "../assets/images/levelup2.png"
 import levelup3 from "../assets/images/levelup3.png"
 import levelup4 from "../assets/images/levelup4.png"
+const getLevelImage = (level) => {
+  switch (level) {
+    case "level1": {
+      return levelup1
+    }
+    case "level2": {
+      return levelup2
+    }
+    case "level3": {
+      return levelup3
+    }
+    default: {
+      return levelup4
+    }
+  }
+}
 
-const PopupLevelUp = () => {
+const PopupLevelUp = ({ data }) => {
   return (
     <div
       className="popup-levelup-container"
@@ -14,14 +30,10 @@ const PopupLevelUp = () => {
         SlideInModal.hide()
       }}
     >
-      <img src={levelup1} className="popup-levelup-bg" />
+      <img src={getLevelImage(data?.type)} className="popup-levelup-bg" />
       <div className="popup-levelup-content-wrapper">
-        <div>Chào bạn</div>
-        <p>
-          Bạn đã lên cấp độ Voi Chăm Chỉ. Hãy tiếp tục chia sẻ Chương Trình Đại
-          Sứ Siêu Trí Nhớ Học Đường và dùng điểm đổi các món quà hấp dẫn của Tâm
-          Trí Lực nhé!
-        </p>
+        <div>{data?.title}</div>
+        <p>{data?.content}</p>
       </div>
     </div>
   )

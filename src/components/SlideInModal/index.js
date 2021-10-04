@@ -25,6 +25,9 @@ export default class SlideInModal extends React.PureComponent {
 
   static hide = (onHideCb = () => {}) => {
     if (SlideInModal.instance) {
+      if (SlideInModal?.instance?.state?.beforeHideCb) {
+        SlideInModal?.instance?.state?.beforeHideCb()
+      }
       SlideInModal.instance.setState({
         visible: false
       })

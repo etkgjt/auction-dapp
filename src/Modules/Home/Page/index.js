@@ -36,7 +36,7 @@ const Home = () => {
         })
       )
   }, [isLogin])
-
+  console.log("NOTI", notification)
   React.useEffect(() => {
     if (notification) {
       if (notification.type === "popup") {
@@ -48,7 +48,7 @@ const Home = () => {
             dispatch(NotiAction.setCountUnreadNoti({}))
           }
         )
-      } else {
+      } else if (notification.type === "voucher") {
         SlideInModal.show(
           () => {},
           <PopupVoucher />,
@@ -57,16 +57,27 @@ const Home = () => {
             dispatch(NotiAction.setCountUnreadNoti({}))
           }
         )
+      } else if (notification.type === "event") {
+        SlideInModal.show(
+          () => {},
+          <PopupNotiDrawEvent data={notification} />,
+          "popup-voucher-modal-wrapper",
+          () => {
+            dispatch(NotiAction.setCountUnreadNoti({}))
+          }
+        )
+      } else {
+        SlideInModal.show(
+          () => {},
+          <PopupLevelUp data={notification} />,
+          "popup-voucher-modal-wrapper",
+          () => {
+            dispatch(NotiAction.setCountUnreadNoti({}))
+          }
+        )
       }
     }
   }, [notification])
-  // React.useEffect(() => {
-  //   SlideInModal.show(
-  //     () => {},
-  //     <PopupNotiDrawEvent />,
-  //     "popup-voucher-modal-wrapper"
-  //   )
-  // }, [])
 
   return (
     <div className="home__page">
