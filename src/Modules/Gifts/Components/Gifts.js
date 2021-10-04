@@ -185,17 +185,19 @@ const Gifts = () => {
           : activeTab === 1
           ? renderMyGift
           : renderAllGift}
-        <Row className="w-100 mt-2">
-          <div className="d-flex flex-row justify-content-center">
-            <Pagination
-              initialPage={0}
-              forcePage={getPaging()?.curPage - 1}
-              pageCount={getPaging()?.totalPage}
-              containerClassName={"d-flex flex-row"}
-              onPageChange={onPageChange}
-            />
-          </div>
-        </Row>
+        {getPaging()?.totalPage > 1 ? (
+          <Row className="w-100 mt-2">
+            <div className="d-flex flex-row justify-content-center">
+              <Pagination
+                initialPage={0}
+                forcePage={getPaging()?.curPage - 1}
+                pageCount={getPaging()?.totalPage}
+                containerClassName={"d-flex flex-row"}
+                onPageChange={onPageChange}
+              />
+            </div>
+          </Row>
+        ) : null}
       </div>
     </div>
   )

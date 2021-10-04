@@ -9,14 +9,10 @@ const Step = () => {
       <h1 className="step-area__title">TRỞ THÀNH ĐẠI SỨ</h1>
       <div className="step-area__subtitle-wrapper">
         <p className="step-area__subtitle">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-          nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-          volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-          ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-          Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-          molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-          vero eros et accumsan et iusto odio dignissim qui blandit praesent
-          luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+          Để trở thành Đại Sứ Siêu Trí Nhớ Học Đường, bạn phải tìm hiểu thật
+          nhiều về Siêu Trí Nhớ Học Đường. Để biết đến Siêu Trí Nhớ Học Đường
+          nhiều hơn và trải nghiệm những điều thú vị tại đây, bạn chỉ cần thực
+          hiện ba bước đơn giản sau đây:
         </p>
       </div>
       <div className="step1-container">
@@ -59,15 +55,9 @@ const Step = () => {
                 </span>
               </div>
               <div className="step2-content-wrapper">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-                aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
-                in hendrerit in vulputate velit esse molestie consequat, vel
-                illum dolore eu feugiat nulla facilisis at vero eros et accumsan
-                et iusto odio dignissim qui blandit praesent luptatum zzril
-                delenit augue duis dolore te feugait nulla facilisi.
+                Sau khi tải Ứng dụng Tâm Trí Lực từ trên các cửa hàng ứng dụng,
+                bạn hãy đăng ký tài khoản bằng cách điền đầy đủ vào các thông
+                tin được yêu cầu.
               </div>
             </div>
           </Col>
@@ -83,15 +73,11 @@ const Step = () => {
                 </span>
               </div>
               <div className="step3-content-wrapper">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-                aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor
-                in hendrerit in vulputate velit esse molestie consequat, vel
-                illum dolore eu feugiat nulla facilisis at vero eros et accumsan
-                et iusto odio dignissim qui blandit praesent luptatum zzril
-                delenit augue duis dolore te feugait nulla facilisi.
+                Khi bạn đã đăng ký thành công, hãy click vào Chương trình Siêu
+                Trí Nhớ Học Đường xuất hiện trên màn hình chính của ứng dụng. Để
+                bạn có thể tìm hiểu và có những trải nghiệm tốt nhất, Chương
+                trình Siêu Trí Nhớ Học Đường gửi tặng bạn những video kỹ thuật
+                ghi nhớ thú vị và bổ ích.
               </div>
             </div>
           </Col>
@@ -112,12 +98,13 @@ const Step = () => {
             <Col xl="5" lg="5" md="5">
               <span className="step4-content">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-                  diam nonummy nibh euismod tincidunt ut laoreet dolore magna
-                  aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-                  nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-                  aliquip ex ea commodo consequat. Duis autem vel eum iriure
-                  dolor in.
+                  Khi hoàn thành ba bước trên, bạn sẽ nhận được phần quà từ BTC
+                  chính là:
+                  <br />
+                  - Điểm thưởng 5K vào tài khoản
+                  <br />- E-Voucher có giá trị 100.000đ áp dụng khi mua các ấn
+                  phẩm của Tâm Trí Lực như: Sách, Flashcard, Túi Vải, Mũ bảo
+                  hiểm...
                 </p>
               </span>
             </Col>

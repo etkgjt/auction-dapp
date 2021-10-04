@@ -9,12 +9,12 @@ function* getCountUnreadNoti({ payload }) {
   try {
     const res = yield call(service.getCountUnreadNotiApi, { ...payload })
     if (res.data.retCode === RETCODE_SUCCESS) {
-      yield put(actions.setCountUnreadNoti(res.data?.data?.count))
+      yield put(actions.setCountUnreadNoti(res.data?.data))
     } else {
-      yield put(actions.setCountUnreadNoti(0))
+      yield put(actions.setCountUnreadNoti({}))
     }
   } catch (err) {
-    yield put(actions.setCountUnreadNoti(0))
+    yield put(actions.setCountUnreadNoti({}))
   }
 }
 

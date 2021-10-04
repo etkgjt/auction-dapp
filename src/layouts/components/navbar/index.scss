@@ -1,7 +1,8 @@
 @import "@assets/css/_variables.scss";
 
 .header-inner {
-  width: 100vw;
+  max-width: 100vw;
+  min-width: 99vw;
 }
 .navbar {
   background: var(--lightOrange);

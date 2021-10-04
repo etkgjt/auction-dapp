@@ -43,7 +43,7 @@ const YearRank = ({ data = [] }) => {
               <p className="medal-name">{data[1]?.childFullName1}</p>
               <span className="d-flex flex-row">
                 <p className="medal-level">{`${data[1]?.level?.name || ""} | ${
-                  data[1]?.quarterYearPoint
+                  data[1]?.quarterYearPoint || ""
                 }K`}</p>
                 <CoinIcon />
               </span>
@@ -63,7 +63,7 @@ const YearRank = ({ data = [] }) => {
               <p className="medal-name">{data[0]?.childFullName1}</p>
               <span className="d-flex flex-row">
                 <p className="medal-level">{`${data[0]?.level?.name || ""} | ${
-                  data[0]?.quarterYearPoint
+                  data[0]?.quarterYearPoint || ""
                 }K`}</p>
                 <CoinIcon />
               </span>
@@ -87,7 +87,7 @@ const YearRank = ({ data = [] }) => {
               <p className="medal-name">{data[2]?.childFullName1}</p>
               <span className="d-flex flex-row">
                 <p className="medal-level">{`${data[2]?.level?.name || ""} | ${
-                  data[2]?.quarterYearPoint
+                  data[2]?.quarterYearPoint || ""
                 }K`}</p>
                 <CoinIcon />
               </span>

@@ -9,6 +9,9 @@ export const getListService = ({ codeLanguage, payload }) => {
   })
 }
 
-export const getNewsDetails = (id) => {
+export const getNewsDetails = (id, type) => {
+  if (type === "home") {
+    return apiMethod.get(API.GET_HOME_NEWS_DETAILS + `/${id}`)
+  }
   return apiMethod.get(API.GET_NEWS_DETAILS + `/${id}`)
 }

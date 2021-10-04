@@ -8,14 +8,14 @@ import { getNewsDetails } from "../Store/News/service"
 import { FacebookShareButton } from "react-share"
 import { Helmet } from "react-helmet"
 const BlogDetail = () => {
-  const { id } = useParams()
+  const { id, type } = useParams()
   const [loading, setLoading] = useState(false)
   const [dataDetail, setDataDetail] = useState()
 
   const fetchNewsDetail = async () => {
     try {
       setLoading(true)
-      const res = await getNewsDetails(id * 1)
+      const res = await getNewsDetails(id * 1, type)
       if (res.data.retCode === RETCODE_SUCCESS) {
         setDataDetail(res.data.data)
       }

@@ -19,6 +19,7 @@ import { actions } from "../Store/Rules/reducer"
 import { actions as rankActions } from "../Store/Ranking/reducer"
 import { useDispatch, useSelector } from "react-redux"
 import AsyncImage from "../../../components/AsyncImage"
+import { GoldIcon } from "../../Achievement/assets/icon"
 
 const data = [
   {
@@ -125,7 +126,10 @@ const Rules = () => {
                         {item?.level?.name || ""}
                       </span>
                       <span className="item-name">{item.fullName}</span>
-                      <span className="item-point">{`${item.totalPoint}k`}</span>
+                      <span className="item-point">
+                        {`${item.totalPoint}k`}&nbsp;&nbsp;
+                        <GoldIcon />
+                      </span>
                     </div>
                   </div>
                 ))}

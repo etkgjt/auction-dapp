@@ -26,7 +26,7 @@ const News = () => {
     )
   }, [])
   const onItemPress = (id) => {
-    history.push(`/news/${id}`)
+    history.push(`/news/${id}/home`)
   }
   return (
     <div className="news-area">
@@ -72,7 +72,10 @@ const News = () => {
                   />
                 </div>
                 <p className="news-item__title">{item?.title}</p>
-                <p className="news-item__subtitle">{item?.content}</p>
+                <span
+                  className="news-item__subtitle"
+                  dangerouslySetInnerHTML={{ __html: item?.content }}
+                ></span>
               </div>
             ))}
           </Carousel>

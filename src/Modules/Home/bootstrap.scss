@@ -376,3 +376,146 @@
     }
   }
 }
+.home-noti-popup-modal-wrapper {
+  min-width: 30vw !important;
+  min-height: 40vh !important;
+  background: transparent;
+  border: none;
+}
+.popup-home-noti-container {
+  position: relative;
+  .popup-home-noti-content-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    & > p {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 36px;
+      text-align: center;
+      color: #ffffff;
+      margin-top: 20px;
+    }
+    & > h2 {
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 36px;
+      text-align: center;
+      color: #ffffff;
+    }
+  }
+
+  .popup-home-noti-button-wrapper {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    cursor: pointer;
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
+
+.popup-voucher-modal-wrapper {
+  min-width: 30vw !important;
+  min-height: 40vh !important;
+  background: transparent;
+  border: none;
+}
+.popup-voucher-container {
+  background: linear-gradient(
+    0deg,
+    #ea5023 1.16%,
+    #f16c1c 24.33%,
+    #f57d18 58.62%,
+    #f68317.59%
+  );
+  border: 5px solid #f2f2f2;
+  border-radius: 40px;
+  min-height: 80vh;
+  min-width: 40vw;
+  position: relative;
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .popup-voucher__close-button {
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    cursor: pointer;
+    &:active {
+      transform: scale(0.9);
+      transition: transform 0.1s ease-in;
+    }
+  }
+  .popup-voucher-list-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #ffffff;
+  }
+  .submit-button-wrapper {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    &:active {
+      transform: scale(0.9);
+      transition: transform 0.1s ease-in;
+    }
+    .submit-button-text {
+      user-select: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+      color: #f68317;
+    }
+  }
+  .popup-voucher-list-wrapper {
+    .popup-voucher-item-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      margin-bottom: 16px;
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 16px;
+      .popup-voucher-item-title {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        color: #1e3d74;
+        margin-bottom: 4px;
+      }
+      .popup-voucher-item-subtitle {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        color: #1e3d74;
+        margin-bottom: 4px;
+      }
+      .popup-voucher-item-cost {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        color: #ffc61a;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -60,23 +60,49 @@ const Rules = () => {
               <img src={coinIcon} alt="img" className="calender-coin-icon" />
             </div>
 
-            <p className="notic">Lưu ý:</p>
+            {/* <p className="notic">Lưu ý:</p> */}
 
             <span className="notic-text-black">{calendar?.value}</span>
             <div className="my-3" />
-            <span className="social-link">
+            <span
+              className="social-link"
+              onClick={() => {
+                window.location.assign("https://www.facebook.com/tamtriluc/")
+              }}
+            >
               <FacebookIcon size={32} />
               <p>Fanpage Tâm Trí Lực</p>
             </span>
-            <span className="social-link">
+            <span
+              className="social-link"
+              onClick={() => {
+                window.location.assign(
+                  "https://www.facebook.com/nguyenphungphongvn"
+                )
+              }}
+            >
               <FacebookIcon size={32} />
               <p>Facebook Nguyễn Tùng Phong</p>
             </span>
-            <span className="social-link">
+            <span
+              className="social-link"
+              onClick={() => {
+                window.location.assign(
+                  "https://www.youtube.com/channel/UCM0bv1L91C8-z71gAzrLBCQ"
+                )
+              }}
+            >
               <YoutubeIcon size={32} />
               <p>Youtube Nguyễn Phùng Phong</p>
             </span>
-            <span className="social-link">
+            <span
+              className="social-link"
+              onClick={() => {
+                window.location.assign(
+                  "https://www.youtube.com/channel/UC-VY_kqMNBaTvMmDYFdUt-A"
+                )
+              }}
+            >
               <YoutubeIcon size={32} />
               <p>Youtube Siêu Trí Nhớ Học Đường</p>
             </span>

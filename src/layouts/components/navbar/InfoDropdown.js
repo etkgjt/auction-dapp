@@ -1,6 +1,8 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useLocation } from "react-router"
+import PopupInvite from "../../components/popupInvite"
+import PopupNewBie from "../../components/popupNewbie"
 
 /*REDUX */
 import { actions as NotiAction } from "../../../Modules/Notification/Store/Notification/reducer"
@@ -10,6 +12,8 @@ import { getUserData } from "../../../store/user/selector"
 /*STYLE ASSET*/
 import { StarIcon } from "./icon"
 import "./index.scss"
+import { loginSuccessSelector } from "../../../Modules/Authenticate/store/auth/selectors"
+import SlideInModal from "../../../components/SlideInModal"
 const data = [
   {
     title: "Tài khoản cá nhân",
@@ -63,7 +67,21 @@ const data = [
   },
   {
     title: "Mời bạn mới",
-    onClick: () => {}
+    onClick: (history, userData) => {
+      if (userData?.flagDaisu === 1) {
+        SlideInModal.show(
+          () => {},
+          <PopupInvite />,
+          "invite-popup-modal-wrapper"
+        )
+      } else {
+        SlideInModal.show(
+          () => {},
+          <PopupNewBie />,
+          "invite-popup-modal-wrapper"
+        )
+      }
+    }
   }
 ]
 
@@ -76,14 +94,6 @@ const InfoDropdown = ({ setIsDropdownOpen = () => {} }) => {
   const userData = useSelector(getUserData)
   const countNoti = useSelector(getCountNotiSelector)
 
-  React.useEffect(() => {
-    dispatch(
-      NotiAction.getCountUnreadNoti({
-        userid: 1
-      })
-    )
-  }, [])
-
   return (
     <div className="info-dropdown-container">
       <ul className="p-0">
@@ -91,7 +101,7 @@ const InfoDropdown = ({ setIsDropdownOpen = () => {} }) => {
           <li
             key={index}
             onClick={() => {
-              item.onClick(history)
+              item.onClick(history, userData)
               setIsDropdownOpen(false)
             }}
           >
@@ -104,7 +114,7 @@ const InfoDropdown = ({ setIsDropdownOpen = () => {} }) => {
             >
               {item.title}
               {item?.icon}
-              {item?.flag === "noti" && countNoti ? (
+              {item?.flag === "noti" && countNoti?.count ? (
                 <div className="noti-badge" />
               ) : null}
             </span>

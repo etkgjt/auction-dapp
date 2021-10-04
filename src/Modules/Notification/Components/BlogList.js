@@ -144,7 +144,7 @@ const BlogOne = () => {
           <ModalCloseButton />
         </div>
         <ModalBody>
-          <div className="noti-contenyaraast-wrapper">
+          <div className="noti-content-wrapper">
             {notiDetailLoading ? (
               <LoadingIndicator />
             ) : (

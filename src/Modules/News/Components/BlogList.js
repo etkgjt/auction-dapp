@@ -18,7 +18,7 @@ const BlogOne = () => {
 
   const history = useHistory()
   const onItemPress = (id) => {
-    history.push(`/news/${id}`)
+    history.push(`/news/${id}/news`)
   }
 
   React.useEffect(() => {

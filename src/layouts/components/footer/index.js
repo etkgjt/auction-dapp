@@ -16,7 +16,14 @@ const Footer = () => {
         <div className="container">
           <div className="row h-100 justify-content-center align-items-center">
             <div className="col-lg-8 col-md-8">
-              <TTLIcon />
+              <span
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  window.location.assign("https://tamtriluc.com/")
+                }}
+              >
+                <TTLIcon />
+              </span>
               <STNHDIcon />
             </div>
 
@@ -30,12 +37,24 @@ const Footer = () => {
                 }}
               >
                 <li>
-                  <Link to="/#">
+                  <Link
+                    onClick={() => {
+                      window.location.assign(
+                        "https://www.facebook.com/tamtriluc/"
+                      )
+                    }}
+                  >
                     <FacebookIcon />
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#">
+                  <Link
+                    onClick={() => {
+                      window.location.assign(
+                        "https://www.youtube.com/channel/UCgrOFNSSuzp6dIlpMWhUnCQ"
+                      )
+                    }}
+                  >
                     <YoutubeIcon />
                   </Link>
                 </li>
