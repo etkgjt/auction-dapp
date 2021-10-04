@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    min-height: 80vh;
     .notification-item-wrapper {
       cursor: pointer;
       position: relative;

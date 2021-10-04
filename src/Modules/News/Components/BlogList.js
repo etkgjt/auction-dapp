@@ -8,6 +8,7 @@ import { getListLoadingSelector, getListSelector } from "../Store/News/selector"
 import { actions } from "../Store/News/reducer"
 import AsyncImage from "../../../components/AsyncImage"
 import { NEWS_LIST_LIMIT_DEFAULT } from "../../../configs/contants"
+import Pagination from "../../../components/Pagination"
 
 const BlogOne = () => {
   const dispatch = useDispatch()
@@ -28,6 +29,16 @@ const BlogOne = () => {
       })
     )
   }, [])
+
+  const onPageChange = ({ selected }) => {
+    dispatch(
+      actions.getList({
+        page: selected + 1,
+        limit: NEWS_LIST_LIMIT_DEFAULT
+      })
+    )
+  }
+  const { paging } = listNews
   return (
     <div className="news-list-area">
       <div className="news-list-wrapper">
@@ -61,10 +72,23 @@ const BlogOne = () => {
                   />
                 </div>
                 <div className="news-item-title">{item?.title}</div>
-                <span className="news-item-subtitle">{item?.content}</span>
+                <span
+                  className="news-item-subtitle"
+                  dangerouslySetInnerHTML={{ __html: item?.content }}
+                ></span>
               </div>
             </Col>
           ))}
+        </Row>
+        <Row className="w-100 mt-5">
+          <div className="d-flex flex-row justify-content-center">
+            <Pagination
+              initialPage={paging?.curPage - 1}
+              pageCount={paging?.totalPage}
+              containerClassName={"d-flex flex-row"}
+              onPageChange={onPageChange}
+            />
+          </div>
         </Row>
       </div>
     </div>

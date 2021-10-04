@@ -313,6 +313,9 @@
   min-width: 40vw;
   position: relative;
   padding: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   .popup-history__close-button {
     position: absolute;
     top: -40px;

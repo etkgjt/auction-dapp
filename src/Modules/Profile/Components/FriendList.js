@@ -4,10 +4,14 @@ import { PROFILE_LIST_LIMIT_DEFAULT } from "../../../configs/contants"
 import { getUserData } from "../../../store/user/selector"
 import { ListFriendWrapper } from "../assets/icon"
 import { actions } from "../Store/FriendList/reducer"
+
+import Pagination from "../../../components/Pagination"
+
 import {
   getListSelector,
   getListLoadingSelector
 } from "../Store/FriendList/selector"
+import { Row } from "reactstrap"
 
 const data = [
   {
@@ -72,6 +76,18 @@ const FriendList = () => {
     )
   }, [])
 
+  const paging = { listFriend }
+
+  const onPageChange = ({ selected }) => {
+    dispatch(
+      actions.getList({
+        prefix: `/${userData?.userId}`,
+        page: selected + 1,
+        limit: PROFILE_LIST_LIMIT_DEFAULT
+      })
+    )
+  }
+
   return (
     <div className="profile-friendlist-area">
       <div className="profile-friendlist-container">
@@ -98,6 +114,16 @@ const FriendList = () => {
           ))}
         </div>
       </div>
+      <Row className="w-100 mt-5">
+        <div className="d-flex flex-row justify-content-center">
+          <Pagination
+            initialPage={paging?.curPage || 0}
+            pageCount={paging?.totalPage || 1}
+            containerClassName={"d-flex flex-row"}
+            onPageChange={onPageChange}
+          />
+        </div>
+      </Row>
     </div>
   )
 }

@@ -5,7 +5,8 @@ import AsyncImage from "../../../components/AsyncImage"
 import { RETCODE_SUCCESS } from "../../../configs/contants"
 import { ButtonBlue, ButtonOrange } from "../assets/icons"
 import { getNewsDetails } from "../Store/News/service"
-
+import { FacebookShareButton } from "react-share"
+import { Helmet } from "react-helmet"
 const BlogDetail = () => {
   const { id } = useParams()
   const [loading, setLoading] = useState(false)
@@ -26,7 +27,7 @@ const BlogDetail = () => {
   React.useEffect(() => {
     fetchNewsDetail()
   }, [id])
-  console.log(dataDetail)
+
   return (
     <div className="news-detail-area">
       <div className="news-detail-wrapper">
@@ -47,7 +48,7 @@ const BlogDetail = () => {
           </div>
         </div>
         <div className="news-detail-content w-100">
-          <p>{dataDetail?.content}</p>
+          <div dangerouslySetInnerHTML={{ __html: dataDetail?.content }}></div>
         </div>
         <div className="news-detail-footer">
           <div
@@ -59,10 +60,16 @@ const BlogDetail = () => {
             <ButtonOrange />
             <span className="news-detail-button__text">Quay về</span>
           </div>
-          <div className="news-detail-button-wrapper">
-            <ButtonBlue />
-            <span className="news-detail-button__text">Chia sẻ</span>
-          </div>
+          <FacebookShareButton
+            url={window.location.href}
+            quote={dataDetail?.title}
+            hashtag="#VOICOIN_NEWS"
+          >
+            <div className="news-detail-button-wrapper">
+              <ButtonBlue />
+              <span className="news-detail-button__text">Chia sẻ</span>
+            </div>
+          </FacebookShareButton>
         </div>
       </div>
     </div>

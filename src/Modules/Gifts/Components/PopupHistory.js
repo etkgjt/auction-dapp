@@ -1,11 +1,13 @@
 import moment from "moment"
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { Row } from "reactstrap"
 import { CircleCloseButton } from "../../../assets/svg"
 import SlideInModal from "../../../components/SlideInModal"
 import { HOME_RANK_LIMIT_DEFAULT } from "../../../configs/contants"
 import { getUserData } from "../../../store/user/selector"
 import { GoldIcon } from "../assets/icon"
+import Pagination from "../../../components/Pagination"
 //REDUX
 import { actions } from "../Store/History/reducer"
 import {
@@ -27,7 +29,16 @@ const PopupHistory = () => {
       })
     )
   }, [])
-  console.log(listHistory)
+  const onPageChange = ({ selected }) => {
+    dispatch(
+      actions.getList({
+        page: selected + 1,
+        limit: HOME_RANK_LIMIT_DEFAULT,
+        userid: userData?.userId
+      })
+    )
+  }
+
   return (
     <div className="popup-history-container">
       <div
@@ -71,6 +82,17 @@ const PopupHistory = () => {
           </>
         ))}
       </div>
+      <Row className="w-100 mt-2">
+        <div className="d-flex flex-row justify-content-center">
+          <Pagination
+            initialPage={0}
+            forcePage={listHistory?.paging?.curPage - 1}
+            pageCount={listHistory?.paging?.totalPage}
+            containerClassName={"d-flex flex-row"}
+            onPageChange={onPageChange}
+          />
+        </div>
+      </Row>
     </div>
   )
 }

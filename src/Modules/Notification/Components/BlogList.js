@@ -19,6 +19,8 @@ import AsyncImage from "../../../components/AsyncImage"
 import LoadingIndicator from "../../../components/LoadingIndicator"
 import { getUserData } from "../../../store/user/selector"
 
+import Pagination from "../../../components/Pagination"
+
 const BlogOne = () => {
   const dispatch = useDispatch()
   const history = useHistory()
@@ -28,13 +30,11 @@ const BlogOne = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [notiDetailLoading, setNotiDetailLoading] = useState(false)
   const [dataDetail, setDataDetail] = useState()
+  const [firstTime, setIsFirstTime] = useState(true)
 
   const listNoti = useSelector(getListSelector)
   const listNotiLoading = useSelector(getListLoadingSelector)
 
-  const onItemPress = (id) => {
-    history.push(`/news/${id}`)
-  }
   const toggle = () => {
     setIsOpen(!isOpen)
   }
@@ -72,16 +72,43 @@ const BlogOne = () => {
     )
   }, [])
 
+  const onPageChange = ({ selected }) => {
+    dispatch(
+      actions.getList({
+        page: selected + 1,
+        limit: HOME_RANK_LIMIT_DEFAULT,
+        userId: userData?.userId
+      })
+    )
+  }
+  const { paging } = listNoti
+
+  React.useEffect(() => {
+    if (!isOpen && !firstTime) {
+      dispatch(
+        actions.getList({
+          page: listNoti?.paging?.curPage,
+          limit: HOME_RANK_LIMIT_DEFAULT,
+          userId: userData?.userId
+        })
+      )
+    }
+  }, [isOpen])
+
   return (
     <div className="notification-area">
       <div className="notification-wrapper">
         <Row className="w-100">
           {listNoti?.listData?.map((item, index) => (
             <Col
+              key={item?.id}
               xl="12"
               lg="12"
               className="d-flex flex-column"
               onClick={() => {
+                if (firstTime) {
+                  setIsFirstTime(false)
+                }
                 toggle()
                 fetchNotiDetail(item?.id)
               }}
@@ -95,6 +122,16 @@ const BlogOne = () => {
               </div>
             </Col>
           ))}
+        </Row>
+        <Row className="w-100 mt-5">
+          <div className="d-flex flex-row justify-content-center">
+            <Pagination
+              initialPage={paging?.curPage - 1}
+              pageCount={paging?.totalPage}
+              containerClassName={"d-flex flex-row"}
+              onPageChange={onPageChange}
+            />
+          </div>
         </Row>
       </div>
       <Modal

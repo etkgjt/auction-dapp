@@ -24,8 +24,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { getUserData } from "../../../store/user/selector"
 import GiftItem from "./GiftItem"
 
-import moment from "moment"
 import { GIFT_LIST_LIMIT_DETAULT } from "../../../configs/contants"
+import { Row } from "reactstrap"
+import Pagination from "../../../components/Pagination"
 
 const Gifts = () => {
   const dispatch = useDispatch()
@@ -69,34 +70,89 @@ const Gifts = () => {
   }, [])
 
   const renderAllGift = React.useMemo(() => {
-    return listAllGift.map((item, index) => {
-      return (
-        <GiftItem
-          setActiveTab={setActiveTabs}
-          item={item}
-          index={index}
-          key={item?.id}
-          isTrade={true}
-        />
-      )
-    })
+    return (
+      <>
+        {listAllGift.map((item, index) => {
+          return (
+            <GiftItem
+              setActiveTab={setActiveTabs}
+              item={item}
+              index={index}
+              key={item?.id}
+              isTrade={true}
+            />
+          )
+        })}
+      </>
+    )
   }, [JSON.stringify(listAllGift)])
   const renderMyGift = React.useMemo(() => {
-    return listMyGift.map((item, index) => {
-      return <GiftItem item={item} index={index} key={item?.id} />
-    })
+    return (
+      <>
+        {listMyGift.map((item, index) => {
+          return <GiftItem item={item} index={index} key={item?.id} />
+        })}
+      </>
+    )
   }, [JSON.stringify(listMyGift)])
   const renderUsedGift = React.useMemo(() => {
-    return listUsedGift?.length ? (
-      listUsedGift.map((item, index) => {
-        return (
-          <GiftItem item={item} index={index} key={item?.id} isUsed={true} />
-        )
-      })
-    ) : (
-      <p className="text-center mt-2">Không có dữ liệu</p>
+    return (
+      <>
+        {listUsedGift?.length ? (
+          listUsedGift.map((item, index) => {
+            return (
+              <GiftItem
+                item={item}
+                index={index}
+                key={item?.id}
+                isUsed={true}
+              />
+            )
+          })
+        ) : (
+          <p className="text-center mt-2">Không có dữ liệu</p>
+        )}
+      </>
     )
   }, [JSON.stringify(listUsedGift)])
+
+  const getPaging = () => {
+    if (activeTab === 0) {
+      return usedGift?.paging
+    }
+    if (activeTab === 1) {
+      return myGift?.paging
+    }
+    return allGift?.paging
+  }
+
+  const onPageChange = ({ selected }) => {
+    if (activeTab === 0) {
+      dispatch(
+        usedGiftActions.getList({
+          page: selected + 1,
+          limit: GIFT_LIST_LIMIT_DETAULT,
+          status: 1,
+          userid: userData?.userId
+        })
+      )
+    } else if (activeTab === 1) {
+      dispatch(
+        myGiftActions.getList({
+          page: selected + 1,
+          limit: GIFT_LIST_LIMIT_DETAULT,
+          userid: userData?.userId
+        })
+      )
+    } else {
+      dispatch(
+        allGiftActions.getList({
+          page: selected + 1,
+          limit: GIFT_LIST_LIMIT_DETAULT
+        })
+      )
+    }
+  }
 
   return (
     <div className="gifts-container">
@@ -129,6 +185,17 @@ const Gifts = () => {
           : activeTab === 1
           ? renderMyGift
           : renderAllGift}
+        <Row className="w-100 mt-2">
+          <div className="d-flex flex-row justify-content-center">
+            <Pagination
+              initialPage={0}
+              forcePage={getPaging()?.curPage - 1}
+              pageCount={getPaging()?.totalPage}
+              containerClassName={"d-flex flex-row"}
+              onPageChange={onPageChange}
+            />
+          </div>
+        </Row>
       </div>
     </div>
   )

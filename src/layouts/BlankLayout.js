@@ -11,6 +11,7 @@ import PopupNewBie from "./components/popupNewbie"
 import { useSelector } from "react-redux"
 import { getUserData } from "../store/user/selector"
 import { loginSuccessSelector } from "../Modules/Authenticate/store/auth/selectors"
+import MessengerCustomerChat from "react-messenger-customer-chat"
 
 const BlankLayout = ({ children, ...rest }) => {
   // ** States
@@ -77,6 +78,20 @@ const BlankLayout = ({ children, ...rest }) => {
           <InviteFriendIcon />
         </span>
       ) : null}
+      <div
+        style={{
+          position: "fixed",
+          bottom: 100,
+          right: 20,
+          width: 100,
+          height: 100
+        }}
+      >
+        <MessengerCustomerChat
+          pageId="102414078885625"
+          appId="657246228332033"
+        />
+      </div>
     </Fragment>
   )
 }
