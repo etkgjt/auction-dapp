@@ -1,7 +1,6 @@
 import React from "react"
 import {
   UserPointWrapper,
-  // DoneProgressBar,
   PendingProgressBar,
   ButtonWrapper
 } from "../assets/icon"
@@ -9,8 +8,11 @@ import { getUserData, user } from "../../../store/user/selector"
 
 import { DoneProgressBar } from "../../Achievement/assets/icon"
 
-import voiSilver from "../assets/images/voidaisu-silver.png"
-import voiGold from "../assets/images/voidaisu-gold.png"
+import voi4 from "../assets/images/voidaisu-silver.png"
+import voi3 from "../assets/images/voidaisu-gold.png"
+import voi1 from "../assets/images/voicon.png"
+import voi2 from "../assets/images/voichamchi.png"
+
 import { useSelector } from "react-redux"
 import SlideInModal from "../../../components/SlideInModal"
 import PopupInvite from "../../../layouts/components/popupInvite"
@@ -34,7 +36,37 @@ const Progress = () => {
       SlideInModal.show(() => {}, <PopupNewBie />, "invite-popup-modal-wrapper")
     }
   }
-
+  const currentPos = userData?.level?.position
+  const getProgressImage = () => {
+    if (currentPos === 0) {
+      return {
+        start: null,
+        end: voi1
+      }
+    }
+    if (currentPos === 1) {
+      return {
+        start: voi1,
+        end: voi2
+      }
+    }
+    if (currentPos === 2) {
+      return {
+        start: voi2,
+        end: voi3
+      }
+    }
+    if (currentPos === 3) {
+      return {
+        start: voi3,
+        end: voi4
+      }
+    }
+    return {
+      start: voi4,
+      end: voi4
+    }
+  }
   return (
     <div className="profile-progress-area">
       <h1 className="profile-progress__title">Hành trình</h1>
@@ -52,10 +84,17 @@ const Progress = () => {
           <DoneProgressBar width={getProgessbarWidth()} />
         </div>
         <div className="profile-progress__left-icon-wrapper">
-          <img src={voiSilver} width={78} height={50} alt="icon" />
+          {getProgressImage().start ? (
+            <img
+              src={getProgressImage().start}
+              width={78}
+              height={50}
+              alt="icon"
+            />
+          ) : null}
         </div>
         <div className="profile-progress__right-icon-wrapper">
-          <img src={voiGold} alt="icon" width={78} height={50} />
+          <img src={getProgressImage().end} alt="icon" width={78} height={50} />
         </div>
       </div>
       <div

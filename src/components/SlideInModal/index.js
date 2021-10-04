@@ -4,14 +4,20 @@ import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap"
 export default class SlideInModal extends React.PureComponent {
   static instance = null
 
-  static show = (onShowCb = () => {}, body, modalClassName = "") => {
+  static show = (
+    onShowCb = () => {},
+    body,
+    modalClassName = "",
+    beforeHideCb = () => {}
+  ) => {
     onShowCb()
     if (SlideInModal.instance) {
       SlideInModal.instance.setState({ visible: false }, () => {
         SlideInModal.instance.setState({
           visible: true,
           modalClassName,
-          body
+          body,
+          beforeHideCb
         })
       })
     }
@@ -42,7 +48,12 @@ export default class SlideInModal extends React.PureComponent {
     return (
       <Modal
         isOpen={SlideInModal?.instance?.state?.visible || false}
-        toggle={() => SlideInModal.hide()}
+        toggle={() => {
+          SlideInModal.hide()
+          if (SlideInModal?.instance?.state?.beforeHideCb) {
+            SlideInModal?.instance?.state?.beforeHideCb()
+          }
+        }}
         className="modal-dialog-centered"
         contentClassName={SlideInModal?.instance?.state?.modalClassName || ""}
       >

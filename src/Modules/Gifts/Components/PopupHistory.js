@@ -73,7 +73,7 @@ const PopupHistory = () => {
                   {item?.title}
                 </span>
                 <span className="history-item-point">
-                  {item?.changeValue}&nbsp;&nbsp;
+                  {item?.changeValue}
                   <GoldIcon />
                 </span>
               </span>

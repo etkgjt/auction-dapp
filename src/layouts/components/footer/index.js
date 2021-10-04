@@ -19,7 +19,7 @@ const Footer = () => {
               <span
                 style={{ cursor: "pointer" }}
                 onClick={() => {
-                  window.location.assign("https://tamtriluc.com/")
+                  window.open("https://tamtriluc.com/", "_blank")
                 }}
               >
                 <TTLIcon />
@@ -39,8 +39,9 @@ const Footer = () => {
                 <li>
                   <Link
                     onClick={() => {
-                      window.location.assign(
-                        "https://www.facebook.com/tamtriluc/"
+                      window.open(
+                        "https://www.facebook.com/tamtriluc/",
+                        "_blank"
                       )
                     }}
                   >
@@ -50,8 +51,9 @@ const Footer = () => {
                 <li>
                   <Link
                     onClick={() => {
-                      window.location.assign(
-                        "https://www.youtube.com/channel/UCgrOFNSSuzp6dIlpMWhUnCQ"
+                      window.open(
+                        "https://www.youtube.com/channel/UCgrOFNSSuzp6dIlpMWhUnCQ",
+                        "_blank"
                       )
                     }}
                   >

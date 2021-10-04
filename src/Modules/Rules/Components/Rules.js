@@ -67,7 +67,7 @@ const Rules = () => {
             <span
               className="social-link"
               onClick={() => {
-                window.location.assign("https://www.facebook.com/tamtriluc/")
+                window.open("https://www.facebook.com/tamtriluc/", "_blank")
               }}
             >
               <FacebookIcon size={32} />
@@ -76,8 +76,9 @@ const Rules = () => {
             <span
               className="social-link"
               onClick={() => {
-                window.location.assign(
-                  "https://www.facebook.com/nguyenphungphongvn"
+                window.open(
+                  "https://www.facebook.com/nguyenphungphongvn",
+                  "_blank"
                 )
               }}
             >
@@ -87,8 +88,9 @@ const Rules = () => {
             <span
               className="social-link"
               onClick={() => {
-                window.location.assign(
-                  "https://www.youtube.com/channel/UCM0bv1L91C8-z71gAzrLBCQ"
+                window.open(
+                  "https://www.youtube.com/channel/UCM0bv1L91C8-z71gAzrLBCQ",
+                  "_blank"
                 )
               }}
             >
@@ -98,8 +100,9 @@ const Rules = () => {
             <span
               className="social-link"
               onClick={() => {
-                window.location.assign(
-                  "https://www.youtube.com/channel/UC-VY_kqMNBaTvMmDYFdUt-A"
+                window.open(
+                  "https://www.youtube.com/channel/UC-VY_kqMNBaTvMmDYFdUt-A",
+                  "_blank"
                 )
               }}
             >

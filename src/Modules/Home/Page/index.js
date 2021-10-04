@@ -13,9 +13,14 @@ import { getCountNotiSelector } from "../../Notification/Store/Notification/sele
 
 import PopupNoti from "../Components/PopupNoti"
 import PopupVoucher from "../Components/PopupVoucher"
+import PopupLevelUp from "../Components/PopupLevelUp"
+import PopupNotiDrawEvent from "../Components/PopupNotiDrawEvent"
+
 import SlideInModal from "../../../components/SlideInModal"
+import { loginSuccessSelector } from "../../Authenticate/store/auth/selectors"
 const Home = () => {
   const dispatch = useDispatch()
+  const isLogin = useSelector(loginSuccessSelector)
   const userData = useSelector(getUserData)
   const countNoti = useSelector(getCountNotiSelector)
   const { notification } = countNoti
@@ -24,12 +29,13 @@ const Home = () => {
     window.scrollTo(0, 0)
   }, [])
   React.useEffect(() => {
-    dispatch(
-      NotiAction.getCountUnreadNoti({
-        userid: userData?.userId
-      })
-    )
-  }, [])
+    if (isLogin)
+      dispatch(
+        NotiAction.getCountUnreadNoti({
+          userid: userData?.userId
+        })
+      )
+  }, [isLogin])
 
   React.useEffect(() => {
     if (notification) {
@@ -37,17 +43,30 @@ const Home = () => {
         SlideInModal.show(
           () => {},
           <PopupNoti data={notification} />,
-          "home-noti-popup-modal-wrapper"
+          "home-noti-popup-modal-wrapper",
+          () => {
+            dispatch(NotiAction.setCountUnreadNoti({}))
+          }
         )
       } else {
         SlideInModal.show(
           () => {},
           <PopupVoucher />,
-          "popup-voucher-modal-wrapper"
+          "popup-voucher-modal-wrapper",
+          () => {
+            dispatch(NotiAction.setCountUnreadNoti({}))
+          }
         )
       }
     }
   }, [notification])
+  // React.useEffect(() => {
+  //   SlideInModal.show(
+  //     () => {},
+  //     <PopupNotiDrawEvent />,
+  //     "popup-voucher-modal-wrapper"
+  //   )
+  // }, [])
 
   return (
     <div className="home__page">

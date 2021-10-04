@@ -61,7 +61,7 @@ const data = [
   {
     title: "Siêu Trí Nhớ\nHọc Đường",
     onClick: () => {
-      window.location.assign("https://sieutrinhohocduong.com/")
+      window.open("https://sieutrinhohocduong.com/", "_blank")
     },
     icon: <StarIcon />
   },

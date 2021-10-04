@@ -36,16 +36,22 @@ const Banner = () => {
     dispatch(
       actions.getList({
         page: 1,
-        limit: 3
+        limit: 4
       })
     )
   }, [])
-
+  console.log("LIST BANNER", listBanner)
   return (
     <div style={{ background: "white" }} className="main-banner saas-home">
       <Carousel className="blog-slides owl-carousel owl-theme" {...options}>
         {listBanner?.listData?.map((item) => (
-          <div key={item?.id} className="col-lg-12 col-md-12">
+          <div
+            key={item?.id}
+            className="col-lg-12 col-md-12"
+            onClick={() => {
+              window.open(item?.clickUrl, "_blank")
+            }}
+          >
             <div className="bg__slider">
               <img
                 src={
