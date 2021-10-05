@@ -12,7 +12,5 @@ deploy-test:
     - git add --all
     - git commit -am "build $TIMESTAMP"
     - git push
-  tags:
-    - tamtriluc
   only:
     - develop
