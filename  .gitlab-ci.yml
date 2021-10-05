@@ -1,0 +1,18 @@
+deploy-test:
+  before_script:
+    - cd /home/ttl-web-daisu.develop.com.vn/public_html/
+  script:
+    - sudo su
+    - whoami
+    - git checkout yarn.lock
+    - git pull
+    - yarn install
+    - export NODE_OPTIONS="--max-old-space-size=8192"
+    - CI='' yarn build
+    - git add --all
+    - git commit -am "build $TIMESTAMP"
+    - git push
+  tags:
+    - tamtriluc
+  only:
+    - develop
