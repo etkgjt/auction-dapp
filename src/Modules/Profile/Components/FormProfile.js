@@ -255,7 +255,7 @@ const FormProfile = () => {
       )
       history.goBack()
     }
-    console.log(formSubmitDataResponse)
+
     return () => {
       dispatch(actions.formUpdateProfileSuperSchoolMemoryFnReset())
     }
@@ -371,7 +371,6 @@ const FormProfile = () => {
                           {...formik}
                           valueDefault={formik.values?.class}
                           handleChange={(value) => {
-                            console.log("Onchange", value)
                             formik.setFieldValue("class", value)
                           }}
                           placeholder={"Lớp"}
@@ -482,10 +481,8 @@ const FormProfile = () => {
                       className="update-profile-button-wrapper"
                       onClick={() => {
                         if (cropImageRef.current?.submitCrop) {
-                          console.log("VAO 1")
                           cropImageRef.current?.submitCrop()
                         } else {
-                          console.log("VAO 2", formik.errors)
                           formik.handleSubmit()
                         }
                       }}

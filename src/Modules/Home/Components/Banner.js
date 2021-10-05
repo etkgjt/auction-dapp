@@ -40,7 +40,7 @@ const Banner = () => {
       })
     )
   }, [])
-  console.log("LIST BANNER", listBanner)
+
   return (
     <div style={{ background: "white" }} className="main-banner saas-home">
       <Carousel className="blog-slides owl-carousel owl-theme" {...options}>

@@ -119,9 +119,7 @@ const GiftItem = ({
           progress: undefined
         })
       }
-    } catch (err) {
-      console.log("POST REQUEST GIFT ERR", err)
-    }
+    } catch (err) {}
   }
   const onUseGiftPress = () => {
     SlideInModal.show(

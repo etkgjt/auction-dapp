@@ -31,7 +31,7 @@ const Progress = () => {
       SlideInModal.show(() => {}, <PopupNewBie />, "invite-popup-modal-wrapper")
     }
   }
-
+  const onContactClick = () => window.open("tel:0939279868")
   return (
     <div className="gifts-progress-area">
       <div className="gifts-progress__point-container">
@@ -49,7 +49,7 @@ const Progress = () => {
         <ButtonWrapperBlue />
         <p className="gifts-progress__button-text">Lịch sử nhận/ đổi Voicoin</p>
       </div>
-      <div className="gifts-progress__button-wrapper">
+      <div className="gifts-progress__button-wrapper" onClick={onContactClick}>
         <ButtonWrapperWhite />
         <p className="gifts-progress__button-text--red">Liên hện hỗ trợ</p>
       </div>

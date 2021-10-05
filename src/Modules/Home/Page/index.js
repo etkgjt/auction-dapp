@@ -36,7 +36,7 @@ const Home = () => {
         })
       )
   }, [isLogin])
-  console.log("NOTI", notification)
+
   React.useEffect(() => {
     if (notification) {
       if (notification.type === "popup") {
