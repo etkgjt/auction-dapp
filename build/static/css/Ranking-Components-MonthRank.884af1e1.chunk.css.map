@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/AsyncImage/styles.scss"],"names":[],"mappings":"AAAA,oBAAoB,UAAU,CAAC,cAAc,CAAC,eAAkC,CAAhF,0BAA8D,kBAAkB","file":"Ranking-Components-MonthRank.884af1e1.chunk.css","sourcesContent":[".aync-image-loading{width:100%;aspect-ratio:1;overflow:hidden;border-radius:20px}\n"]}

@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[133],{334:function(t,a,i){"use strict";i.r(a),a.default=i.p+"static/media/arrow.69961481.png"}}]);
-//# sourceMappingURL=Helper-assets-images-saas-shape-arrow-png.f6943f9f.chunk.js.map

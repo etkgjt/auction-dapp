@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[162],{321:function(t,i,a){"use strict";a.r(i),i.default=a.p+"static/media/benefit-brain.6c3e4ba6.png"}}]);
-//# sourceMappingURL=Introduce-assets-images-benefit-brain-png.11619d4a.chunk.js.map

@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[109],{200:function(t,i,a){"use strict";a.r(i),i.default={}}}]);
-//# sourceMappingURL=News-configs-api.c5cad536.chunk.js.map

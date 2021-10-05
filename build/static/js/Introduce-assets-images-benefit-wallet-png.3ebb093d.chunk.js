@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[167],{323:function(t,a,i){"use strict";i.r(a),a.default=i.p+"static/media/benefit-wallet.1a242cad.png"}}]);
-//# sourceMappingURL=Introduce-assets-images-benefit-wallet-png.3ebb093d.chunk.js.map

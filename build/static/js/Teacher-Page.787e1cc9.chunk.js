@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[53,264],{330:function(t,e,a){},86:function(t,e,a){"use strict";a.r(e);a(330),a(1);var c=a(173),i=a(5);e.default=function(){return Object(i.jsx)("div",{className:"teacher__page",children:Object(i.jsx)(c.default,{})})}}}]);
-//# sourceMappingURL=Teacher-Page.787e1cc9.chunk.js.map
