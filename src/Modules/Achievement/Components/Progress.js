@@ -20,7 +20,8 @@ const ratio = PROGRESS_WIDTH / ORIGIN_WIDTH
 const Progress = () => {
   const userData = useSelector(getUserData)
 
-  const percent = userData?.levelProgress
+  const percent =
+    userData?.levelProgress * 100 > 100 ? 100 : userData?.levelProgress * 100
   const getProgessbarWidth = () => {
     return parseInt((ORIGIN_WIDTH / 100) * percent) * ratio
   }
@@ -37,7 +38,7 @@ const Progress = () => {
       <h1 className="profile-progress__title">Hành trình</h1>
       <div className="profile-progress__point-wrapper">
         <UserPointWrapper />
-        <p className="profile-progress__point">{`${userData?.totalPoint}k`}</p>
+        <p className="profile-progress__point">{`${userData?.totalVoicoin}k`}</p>
       </div>
       <div className="profile-progress__progress-bar-wrapper">
         <div style={{ width: "100%", overflow: "hidden" }}>

@@ -20,6 +20,8 @@ import { actions as rankActions } from "../Store/Ranking/reducer"
 import { useDispatch, useSelector } from "react-redux"
 import AsyncImage from "../../../components/AsyncImage"
 import { GoldIcon } from "../../Achievement/assets/icon"
+import { loginSuccessSelector } from "../../Authenticate/store/auth/selectors"
+import voirank from "../assets/images/voirank.png"
 
 const data = [
   {
@@ -61,6 +63,8 @@ const getHornorTableHeight = () => {
 const Rules = () => {
   const history = useHistory()
   const dispatch = useDispatch()
+
+  const isLogin = useSelector(loginSuccessSelector)
 
   const rules = useSelector(getListSelector)
   const rulesLoading = useSelector(getListLoadingSelector)
@@ -111,28 +115,42 @@ const Rules = () => {
                   Bảng <br />
                   xếp hạng
                 </h1>
-                {listRank?.map((item, index) => (
-                  <div key={index} className="hornor-item-wrapper">
-                    <p className="item-rank">{index + 1}</p>
-                    <div className="item-avatar">
-                      <AsyncImage
-                        src={item?.avatar}
-                        className="item-rank-avatar-img"
-                        placeholderClassName="item-rank-avatar-loading"
-                      />
+
+                {isLogin ? (
+                  listRank?.map((item, index) => (
+                    <div key={index} className="hornor-item-wrapper">
+                      <p className="item-rank">{index + 1}</p>
+                      <div className="item-avatar">
+                        <AsyncImage
+                          src={item?.avatar}
+                          className="item-rank-avatar-img"
+                          placeholderClassName="item-rank-avatar-loading"
+                        />
+                      </div>
+                      <div className="item-info">
+                        <span className="item-level">
+                          {item?.level?.name || ""}
+                        </span>
+                        <span className="item-name">{item.childFullName1}</span>
+                        <span className="item-point">
+                          {`${item.totalPoint}k`}&nbsp;&nbsp;
+                          <GoldIcon />
+                        </span>
+                      </div>
                     </div>
-                    <div className="item-info">
-                      <span className="item-level">
-                        {item?.level?.name || ""}
-                      </span>
-                      <span className="item-name">{item.fullName}</span>
-                      <span className="item-point">
-                        {`${item.totalPoint}k`}&nbsp;&nbsp;
-                        <GoldIcon />
-                      </span>
+                  ))
+                ) : (
+                  <>
+                    <div className="hornor-table__image-wrapper">
+                      <img className="hornor-table__image" src={voirank} />
                     </div>
-                  </div>
-                ))}
+                    <p className="hornor-table-list__sub-title">
+                      Cuộc đua <br />
+                      Chuẩn bị bắt đầu <br />
+                      bạn đã sẵn sàng
+                    </p>
+                  </>
+                )}
               </div>
             </div>
           </Col>

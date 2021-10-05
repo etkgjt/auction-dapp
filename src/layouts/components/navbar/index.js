@@ -64,8 +64,9 @@ const Navbar = () => {
       setIsMounted(true)
     }
   }, [])
-
-  const PROGRES_DONE_LENGTH = parseInt((250 * userData?.levelProgress) / 100)
+  const percent =
+    userData?.levelProgress * 100 > 100 ? 100 : userData?.levelProgress * 100
+  const PROGRES_DONE_LENGTH = parseInt((250 * percent) / 100)
   return (
     <header id="header" className="header-inner">
       <div id="navbar" className={`crake-nav ${layOutCls}`}>
@@ -104,7 +105,7 @@ const Navbar = () => {
                   </div>
                   <div className="user-point-wrapper">
                     <UserPointerWrapper />
-                    <span>{`${userData?.totalPoint || 0}k`}</span>
+                    <span>{`${userData?.totalVoicoin || 0}k`}</span>
                   </div>
                 </div>
               ) : null}
