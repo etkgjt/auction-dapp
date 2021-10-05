@@ -39,8 +39,6 @@ const RankingTable = () => {
     dispatch(weekRankActions.getList({}))
   }, [])
 
-  console.log("LIST", listQuarterRank, listMonthRank, listWeekRank)
-
   return (
     <div className="ranking-area">
       <QuarterRank data={listQuarterRank} />

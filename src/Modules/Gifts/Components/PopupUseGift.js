@@ -116,7 +116,6 @@ const PopupUseGift = ({ item }) => {
         })
       }
     } catch (err) {
-      console.log("POST ERR", err)
       toast.error("Có lỗi xảy ra, xin vui long thử lại!", {
         position: "top-center",
         autoClose: 5000,
@@ -191,7 +190,6 @@ const PopupUseGift = ({ item }) => {
                       ]}
                       {...formik}
                       handleChange={(val) => {
-                        console.log("HANDLE CHANGE", val)
                         formik.setFieldValue("provider", val)
                       }}
                       valueDefault={formik.values.provider}

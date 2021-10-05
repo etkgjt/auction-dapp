@@ -450,7 +450,6 @@ const Signup = () => {
               <div
                 className="form-signup__submit-button"
                 onClick={() => {
-                  console.log(formik.errors)
                   formik.handleSubmit()
                 }}
               >

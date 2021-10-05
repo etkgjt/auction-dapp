@@ -34,7 +34,7 @@ function* fetchSignInSaga({ payload }) {
         resSync.data.retCode === RETCODE_SUCCESS
       ) {
         yield put({ type: Actions.SIGN_IN_SUCCESS, payload: resSync.data.data })
-        console.log("SAGA AUTH")
+
         yield put(ActionsUser.getInfoUser({ userid: res.data.data.userId }))
 
         apiMethod.defaults.headers.common[
@@ -45,7 +45,6 @@ function* fetchSignInSaga({ payload }) {
       yield put({ type: Actions.SIGN_IN_ERROR, error: data.retText })
     }
   } catch (e) {
-    console.log("LOGIN ERR", e)
     yield put({ type: Actions.SIGN_IN_ERROR, error: e })
   }
 }
