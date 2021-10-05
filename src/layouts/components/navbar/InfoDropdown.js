@@ -14,6 +14,9 @@ import { StarIcon } from "./icon"
 import "./index.scss"
 import { loginSuccessSelector } from "../../../Modules/Authenticate/store/auth/selectors"
 import SlideInModal from "../../../components/SlideInModal"
+import PopupLogout from "../../../Modules/Profile/Components/PopupLogout"
+import { authLogout } from "../../../Modules/Authenticate/store/auth/actions"
+
 const data = [
   {
     title: "Tài khoản cá nhân",
@@ -82,6 +85,16 @@ const data = [
         )
       }
     }
+  },
+  {
+    title: "Đăng xuất",
+    onClick: (history, userData, onDoneFuc) => {
+      SlideInModal.show(
+        () => {},
+        <PopupLogout onSubmitPress={onDoneFuc} />,
+        "logout-popup-modal-wrapper"
+      )
+    }
   }
 ]
 
@@ -93,6 +106,13 @@ const InfoDropdown = ({ setIsDropdownOpen = () => {} }) => {
   //SELECTOR
   const userData = useSelector(getUserData)
   const countNoti = useSelector(getCountNotiSelector)
+  const onDoneFunc = () => {
+    SlideInModal.hide()
+    setTimeout(() => {
+      dispatch(authLogout())
+      history.push("/")
+    }, 200)
+  }
 
   return (
     <div className="info-dropdown-container">
@@ -101,7 +121,7 @@ const InfoDropdown = ({ setIsDropdownOpen = () => {} }) => {
           <li
             key={index}
             onClick={() => {
-              item.onClick(history, userData)
+              item.onClick(history, userData, onDoneFunc)
               setIsDropdownOpen(false)
             }}
           >
