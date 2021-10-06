@@ -29,13 +29,14 @@ const Home = () => {
     window.scrollTo(0, 0)
   }, [])
   React.useEffect(() => {
-    if (isLogin)
+    if (isLogin && userData?.userId) {
       dispatch(
         NotiAction.getCountUnreadNoti({
           userid: userData?.userId
         })
       )
-  }, [isLogin])
+    }
+  }, [isLogin, userData?.userId])
 
   React.useEffect(() => {
     if (notification) {
