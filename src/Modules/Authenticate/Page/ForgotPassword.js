@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react"
 import { Form, Button, Input } from "reactstrap"
 import { Formik } from "formik"
 import FormField from "../../../components/FormField"
-import { ForgotPasswordWrapper, ForgotPasswordButton } from "../assets/icon"
+import {
+  ForgotPasswordWrapper,
+  ForgotPasswordButton,
+  ForgotPasswordFormWrapperMobile
+} from "../assets/icon"
 
 /* Helpers */
 import { useHistory } from "react-router-dom"
@@ -28,12 +32,15 @@ import { actions } from "../store/formForgotPassword/reducer"
 import { actions as verifyActions } from "../store/formVerifyAccount/reducer"
 
 import "../styles/index.scss"
+import "../responsive.scss"
 import { sendOtp } from "../store/auth/service"
+import { useMediaQuery } from "react-responsive"
 
 const ForgotPassword = () => {
   const { i18n } = useTranslation()
   const history = useHistory()
   const dispatch = useDispatch()
+  const isMobile = useMediaQuery({ maxWidth: 767 })
 
   const [otpSent, setOtpSent] = useState(false)
   const [otpCode, setOtpCode] = useState()
@@ -147,8 +154,12 @@ const ForgotPassword = () => {
   return listAccount?.length ? (
     <div className="forgot-password-page-wrapper">
       <h1 className="forgot-password-page__header">Tài khoản của bạn</h1>
-      <div style={{ position: "relative" }}>
-        <ForgotPasswordWrapper />
+      <div className="forgot-password-form-wrapper">
+        {isMobile ? (
+          <ForgotPasswordFormWrapperMobile />
+        ) : (
+          <ForgotPasswordWrapper />
+        )}
 
         <div className="forgot-password__form-wrapper">
           <div className="d-flex flex-column">
@@ -182,8 +193,12 @@ const ForgotPassword = () => {
           <Form onSubmit={(ev) => ev.preventDefault()}>
             <div className="forgot-password-page-wrapper">
               <h1 className="forgot-password-page__header">Quên mật khẩu</h1>
-              <div style={{ position: "relative" }}>
-                <ForgotPasswordWrapper />
+              <div className="forgot-password-form-wrapper">
+                {isMobile ? (
+                  <ForgotPasswordFormWrapperMobile />
+                ) : (
+                  <ForgotPasswordWrapper />
+                )}
                 <div className="forgot-password__form-wrapper">
                   <FormField
                     field="username"
@@ -227,8 +242,12 @@ const ForgotPassword = () => {
   ) : (
     <div className="forgot-password-page-wrapper">
       <h1 className="forgot-password-page__header">Quên mật khẩu</h1>
-      <div style={{ position: "relative" }}>
-        <ForgotPasswordWrapper />
+      <div className="forgot-password-form-wrapper">
+        {isMobile ? (
+          <ForgotPasswordFormWrapperMobile />
+        ) : (
+          <ForgotPasswordWrapper />
+        )}
         <div className="forgot-password__form-wrapper">
           <Input
             className="form-field-rounded text-center"

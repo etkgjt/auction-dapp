@@ -28,6 +28,8 @@ const News = () => {
   const onItemPress = (id) => {
     history.push(`/news/${id}/home`)
   }
+  const width = window.innerWidth
+  const numItems = window.innerWidth < 768 ? 3 : 4
   return (
     <div className="news-area">
       <div className="news-container">
@@ -36,7 +38,7 @@ const News = () => {
           Theo dõi để không bỏ lỡ cơ hội nhận và đổi hàng nghìn quà tặng hấp dẫn
         </h1>
         <div style={{ position: "relative" }}>
-          {listNews?.listData?.length < 5 ? null : (
+          {listNews?.listData?.length < numItems + 1 ? null : (
             <>
               <div
                 onClick={() => {
@@ -57,7 +59,11 @@ const News = () => {
             </>
           )}
 
-          <Carousel ref={carouselRef} items={4}>
+          <Carousel
+            margin={numItems === 3 ? 20 : 0}
+            ref={carouselRef}
+            items={numItems}
+          >
             {listNews?.listData?.map((item, index) => (
               <div
                 className="news-item__container"

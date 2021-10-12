@@ -4,8 +4,10 @@ import ReactAvatarEditor from "react-avatar-editor"
 import { Button, ButtonGroup } from "reactstrap"
 import i18next from "i18next"
 import { X } from "react-feather"
-
+import { useMediaQuery } from "react-responsive"
 const ImageEditor = (props, ref) => {
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1999 })
   const { image, onSubmit, setOldSrc = () => {} } = props
   const [stateImg, setStateImg] = useState({
     allowZoomOut: false,
@@ -13,8 +15,8 @@ const ImageEditor = (props, ref) => {
     scale: 1,
     rotate: 0,
     borderRadius: 50,
-    width: 230,
-    height: 230,
+    width: isMobile ? 160 : isTablet ? 190 : 230,
+    height: isMobile ? 160 : isTablet ? 190 : 230,
     disableCanvasRotation: false,
     isTransparent: false,
     backgroundColor: "#fff"

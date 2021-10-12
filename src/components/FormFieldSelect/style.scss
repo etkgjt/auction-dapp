@@ -1,3 +1,14 @@
+$media: screen;
+$feature_min: min-width;
+$feature_max: max-width;
+$value_one: 767px;
+$value_two: 768px;
+$value_three: 991px;
+$value_four: 992px;
+$value_five: 1199px;
+$value_six: 1200px;
+$value_seven: 1350px;
+$value_eight: 1910px;
 .form-label {
   font-size: 14px;
   line-height: 21px;
@@ -32,4 +43,28 @@
   position: absolute;
   font-size: 14px;
   color: red;
+}
+@media only #{$media} and ($feature_max : $value_one) {
+  .select__placeholder {
+    font-size: 13px;
+  }
+  .select__control {
+    height: 36px;
+    border-radius: 10px;
+  }
+  .field-error {
+    position: absolute;
+    font-size: 8px;
+    color: red;
+  }
+}
+
+@media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
+  .select__placeholder {
+    font-size: 14px;
+  }
+  .select__control {
+    height: 45px;
+    border-radius: 15px;
+  }
 }

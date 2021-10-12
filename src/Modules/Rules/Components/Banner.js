@@ -3,7 +3,7 @@ import banner from "../assets/images/banner-rules.png"
 
 const Banner = () => {
   return (
-    <div style={{ background: "white" }} className="inviter-banner">
+    <div className="inviter-banner">
       <img src={banner} width="100%" height="auto" />
     </div>
   )

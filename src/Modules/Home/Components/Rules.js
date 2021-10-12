@@ -22,34 +22,7 @@ import AsyncImage from "../../../components/AsyncImage"
 import { GoldIcon } from "../../Achievement/assets/icon"
 import { loginSuccessSelector } from "../../Authenticate/store/auth/selectors"
 import voirank from "../assets/images/voirank.png"
-
-const data = [
-  {
-    level: 10,
-    name: "Trần Thanh Nguyên",
-    point: 432000
-  },
-  {
-    level: 9,
-    name: "Trần Thanh Nguyên",
-    point: 425000
-  },
-  {
-    level: 9,
-    name: "Trần Thanh Nguyên",
-    point: 412500
-  },
-  {
-    level: 8,
-    name: "Trần Thanh Nguyên",
-    point: 232000
-  },
-  {
-    level: 7,
-    name: "Trần Thanh Nguyên",
-    point: 132000
-  }
-]
+import rankWrapper from "../assets/images/rank.png"
 const getHornorTableWidth = () => {
   const width = window.innerWidth
   const paddingWidth = width * 0.8
@@ -85,7 +58,7 @@ const Rules = () => {
     <div className="rules-area">
       <div className="rules-container">
         <Row>
-          <Col xl="7" lg="7" md="7">
+          <Col xl="7" lg="6" md="6">
             <div className="rules-board">
               <img src={banner} alt="banner" className="rule-top-banner" />
               <div dangerouslySetInnerHTML={{ __html: rules?.description }} />
@@ -95,12 +68,13 @@ const Rules = () => {
               </div>
             </div>
           </Col>
-          <Col xl="5" lg="5" md="5">
+          <Col xl="5" lg="6" md="6">
             <div className="hornor-table-container">
-              <HornorTable
+              {/* <HornorTable
                 width={getHornorTableWidth()}
                 height={getHornorTableHeight()}
-              />
+              /> */}
+              <img src={rankWrapper} className="rank-wrapper" />
               <div
                 className="seemore-button"
                 onClick={() => {
@@ -134,7 +108,7 @@ const Rules = () => {
                         <span className="item-name">{item.childFullName1}</span>
                         <span className="item-point">
                           {`${item.totalPoint}k`}&nbsp;&nbsp;
-                          <GoldIcon />
+                          <GoldIcon className="gold-icon" />
                         </span>
                       </div>
                     </div>

@@ -104,7 +104,7 @@ const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
 
                 <p className="d-block text-center pb-2" size="lg">
                   <Link
-                    to="/signup"
+                    to="/signup/0"
                     onClick={() => {
                       setIsDropdownOpen(false)
                     }}

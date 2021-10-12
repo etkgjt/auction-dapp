@@ -1,3 +1,15 @@
+$media: screen;
+$feature_min: min-width;
+$feature_max: max-width;
+$value_one: 767px;
+$value_two: 768px;
+$value_three: 991px;
+$value_four: 992px;
+$value_five: 1199px;
+$value_six: 1200px;
+$value_seven: 1350px;
+$value_eight: 1910px;
+
 .upload_image {
   & > [class^="col"] {
     display: flex;
@@ -30,4 +42,44 @@
 
 .image-editor-wrapper {
   background-color: yellow;
+}
+@media only #{$media} and ($feature_max : $value_one) {
+  .upload_image_wrapper {
+    .upload_image_inner {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    svg {
+      width: 50vw;
+    }
+    .profile-form-edit-avatar-button {
+      width: 30px;
+      height: 30px;
+      & > svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
+@media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
+  .upload_image_wrapper {
+    .upload_image_inner {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    svg {
+      width: 30vw;
+    }
+    .profile-form-edit-avatar-button {
+      width: 30px;
+      height: 30px;
+      & > svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
 }

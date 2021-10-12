@@ -1,0 +1,692 @@
+$media: screen;
+$feature_min: min-width;
+$feature_max: max-width;
+$value_one: 767px;
+$value_two: 768px;
+$value_three: 991px;
+$value_four: 992px;
+$value_five: 1199px;
+$value_six: 1200px;
+$value_seven: 1350px;
+$value_eight: 1910px;
+
+@media only #{$media} and ($feature_max : $value_one) {
+  .achievement__page {
+    .inviter-banner {
+      padding-top: 100px;
+    }
+    .profile-area {
+      padding-left: 5vw;
+      padding-right: 5vw;
+      margin-top: 20px;
+      margin-bottom: 80px;
+      .profile-progress-area {
+        padding: 15px 12px 15px 12px;
+        border-radius: 20px;
+
+        .profile-progress__title {
+          font-size: 14px;
+          line-height: 17px;
+        }
+        .profile-progress__point-wrapper {
+          position: relative;
+          margin-top: 0px;
+          & > svg {
+            max-width: 60%;
+            margin-left: 20%;
+            max-height: 45px;
+          }
+          .profile-progress__point {
+            font-size: 20px;
+            line-height: 24px;
+          }
+        }
+        .profile-progress__progress-bar-wrapper {
+          width: 100%;
+          margin-top: 6px;
+
+          position: relative;
+          .pending-progress {
+            max-height: 20px;
+          }
+          .profile-progress__done-progress-wrapper {
+            border-radius: 20px;
+            .done-progress {
+              max-height: 20px;
+            }
+          }
+          .profile-progress__left-icon-wrapper {
+            position: absolute;
+            top: 0px;
+            left: -10px;
+            & > img {
+              width: 30px;
+              height: 22px;
+            }
+          }
+          .profile-progress__right-icon-wrapper {
+            position: absolute;
+            top: 0px;
+            right: -10px;
+            & > img {
+              width: 30px;
+              height: 22px;
+            }
+          }
+        }
+        .profile-progress__button-wrapper {
+          margin-top: 5px;
+          width: 60%;
+          & > svg {
+            width: 100%;
+            max-height: 35px;
+          }
+          &:active {
+          }
+          .profile-progress__button-text {
+            font-size: 11px;
+            line-height: 13px;
+          }
+        }
+      }
+
+      .achievement-container {
+        padding: 42px 5% 122px 5%;
+        border-radius: 25px;
+        margin-top: 60px;
+        .achievement-top-header-wrapper {
+          & > svg {
+            max-width: 50vw;
+            max-height: 55px;
+          }
+          position: absolute;
+          top: -25px;
+          left: 50%;
+          transform: translate(-50%);
+        }
+        .achievement-footer {
+          border-bottom-right-radius: 10px;
+          border-bottom-left-radius: 10px;
+          padding: 12px 25px 12px 25px;
+          .copy-btn-title {
+            font-size: 11px;
+            line-height: 13px;
+          }
+          .copy-field {
+            & > p {
+              font-size: 11px;
+              line-height: 13px;
+              max-width: 60%;
+            }
+            background: #fff;
+            border-radius: 10px;
+            padding-left: 10px;
+
+            .copy-code-button {
+              border-radius: 10px;
+              padding: 6px;
+              max-width: 40px;
+            }
+          }
+        }
+        .achievement-wrapper {
+          position: relative;
+          .form-profile-field-label {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+            color: #ffffff;
+          }
+          .change-password-header-title {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 36px;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 90px;
+            margin-bottom: 20px;
+          }
+          .group-btn-wrapper {
+            margin-top: 90px;
+          }
+          .update-profile-button-wrapper {
+            position: relative;
+            cursor: pointer;
+            &:active {
+              transform: scale(0.9);
+              transition: transform 0.1s ease-in;
+            }
+            .update-profile-button-label {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 22px;
+              text-align: center;
+              color: #ffffff;
+              user-select: none;
+            }
+            .update-profile-button-label-red {
+              user-select: none;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 22px;
+              text-align: center;
+              color: #f68317;
+            }
+          }
+        }
+        .achivement-item-wrapper {
+          border-radius: 10px;
+          padding-right: 15px;
+          margin-bottom: 18px;
+          & > svg {
+            max-width: 20px;
+            max-height: 20px;
+          }
+          .achivement-item-image {
+            width: 70px;
+            height: auto;
+          }
+          .achivement-item-info-wrapper {
+            padding-top: 16px;
+            padding-bottom: 16px;
+            .achivement-item-title {
+              font-size: 11px;
+              line-height: 13px;
+              margin-bottom: 6px;
+            }
+            .achivement-item-subtitle {
+              font-size: 11px;
+              line-height: 13px;
+
+              margin-bottom: 6px;
+            }
+            .achivement-item-point {
+              font-size: 14px;
+              line-height: 17px;
+              margin-right: 6px;
+              & > svg {
+                max-width: 15px;
+                max-height: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
+  .achievement__page {
+    .profile-area {
+      padding-left: 8vw;
+      padding-right: 8vw;
+      margin-top: 120px;
+      margin-bottom: 80px;
+      .profile-progress-area {
+        padding: 28px 12px 28px 12px;
+        border-radius: 20px;
+        .profile-progress__title {
+          font-weight: bold;
+          font-size: 30px;
+          line-height: 36px;
+          text-align: center;
+          color: #ffffff;
+        }
+        .profile-progress__point-wrapper {
+          position: relative;
+          margin-top: 0px;
+          & > svg {
+            max-width: 80%;
+            margin-left: 10%;
+            max-height: 70px;
+          }
+          .profile-progress__point {
+            font-size: 25px;
+            line-height: 30px;
+          }
+        }
+        .profile-progress__progress-bar-wrapper {
+          width: 100%;
+          margin-top: 16px;
+
+          position: relative;
+          .pending-progress {
+            max-height: 20px;
+          }
+          .profile-progress__done-progress-wrapper {
+            overflow: hidden;
+            border-radius: 20px;
+            position: absolute;
+            top: 0px;
+            left: 6px;
+            .done-progress {
+              max-height: 20px;
+            }
+          }
+          .profile-progress__left-icon-wrapper {
+            position: absolute;
+            top: 0px;
+            left: -10px;
+            & > img {
+              width: 44px;
+              height: auto;
+            }
+          }
+          .profile-progress__right-icon-wrapper {
+            position: absolute;
+            top: 0px;
+            right: -20px;
+            & > img {
+              width: 44px;
+              height: auto;
+            }
+          }
+        }
+        .profile-progress__button-wrapper {
+          margin-top: 30px;
+          position: relative;
+          cursor: pointer;
+          & > svg {
+            width: 80%;
+            margin-left: 10%;
+            max-height: 50px;
+          }
+          &:active {
+            transform: scale(0.9);
+            transition: transform 0.2s ease-in-out;
+          }
+          .profile-progress__button-text {
+            font-size: 14px;
+            line-height: 17px;
+          }
+        }
+      }
+
+      .achievement-container {
+        padding: 80px 30px 130px 30px;
+        background: #f16c1c;
+        border-radius: 20px;
+        position: relative;
+        .achievement-top-header-wrapper {
+          position: absolute;
+          top: -30px;
+          left: 50%;
+          transform: translate(-50%);
+          & > svg {
+            max-width: 140%;
+            margin-left: -20%;
+            max-height: 90px;
+          }
+        }
+        .achievement-footer {
+          position: absolute;
+          bottom: 0;
+          background: #ffc61a;
+          border-bottom-right-radius: 20px;
+          border-bottom-left-radius: 20px;
+          width: 100%;
+          left: 0;
+          padding: 25px 40px 25px 40px;
+          .copy-btn-title {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+            color: #f16c1c;
+            margin-bottom: 6px;
+          }
+          .copy-field {
+            background: #fff;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 10px;
+            & > p {
+              font-size: 14px;
+              line-height: 17px;
+            }
+            .copy-code-button {
+              max-width: 50px;
+              border-radius: 20px;
+            }
+          }
+        }
+        .achievement-wrapper {
+          position: relative;
+          .form-profile-field-label {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+            color: #ffffff;
+          }
+          .change-password-header-title {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 36px;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 90px;
+            margin-bottom: 20px;
+          }
+          .group-btn-wrapper {
+            margin-top: 90px;
+          }
+          .update-profile-button-wrapper {
+            position: relative;
+            cursor: pointer;
+            &:active {
+              transform: scale(0.9);
+              transition: transform 0.1s ease-in;
+            }
+            .update-profile-button-label {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 22px;
+              text-align: center;
+              color: #ffffff;
+              user-select: none;
+            }
+            .update-profile-button-label-red {
+              user-select: none;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 22px;
+              text-align: center;
+              color: #f68317;
+            }
+          }
+        }
+        .achivement-item-wrapper {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          background-color: #fff;
+          border-radius: 20px;
+          padding-right: 30px;
+          margin-bottom: 24px;
+          & > svg {
+            max-width: 25px;
+          }
+          .achivement-item-image {
+            width: 77px;
+          }
+          .achivement-item-info-wrapper {
+            padding-top: 16px;
+            padding-bottom: 16px;
+            .achivement-item-title {
+              font-size: 11px;
+              line-height: 13px;
+            }
+            .achivement-item-subtitle {
+              font-size: 11px;
+              line-height: 13px;
+            }
+            .achivement-item-point {
+              font-size: 15px;
+              line-height: 18px;
+              & > svg {
+                max-width: 18px;
+                margin-left: 6px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only #{$media} and ($feature_min : $value_four) and ($feature_max : $value_five) {
+  .achievement__page {
+    .profile-area {
+      padding-left: 8vw;
+      padding-right: 8vw;
+      margin-top: 120px;
+      margin-bottom: 80px;
+      .profile-progress-area {
+        padding: 28px 12px 28px 12px;
+        border-radius: 20px;
+        .profile-progress__title {
+          font-weight: bold;
+          font-size: 30px;
+          line-height: 36px;
+          text-align: center;
+          color: #ffffff;
+        }
+        .profile-progress__point-wrapper {
+          position: relative;
+          margin-top: 0px;
+          & > svg {
+            max-width: 80%;
+            margin-left: 10%;
+            max-height: 70px;
+          }
+          .profile-progress__point {
+            font-size: 25px;
+            line-height: 30px;
+          }
+        }
+        .profile-progress__progress-bar-wrapper {
+          width: 100%;
+          margin-top: 16px;
+
+          position: relative;
+          .pending-progress {
+            max-height: 20px;
+          }
+          .profile-progress__done-progress-wrapper {
+            overflow: hidden;
+            border-radius: 20px;
+            position: absolute;
+            top: 0px;
+            left: 6px;
+            .done-progress {
+              max-height: 20px;
+            }
+          }
+          .profile-progress__left-icon-wrapper {
+            position: absolute;
+            top: 0px;
+            left: -10px;
+            & > img {
+              width: 44px;
+              height: auto;
+            }
+          }
+          .profile-progress__right-icon-wrapper {
+            position: absolute;
+            top: 0px;
+            right: -20px;
+            & > img {
+              width: 44px;
+              height: auto;
+            }
+          }
+        }
+        .profile-progress__button-wrapper {
+          margin-top: 30px;
+          position: relative;
+          cursor: pointer;
+          & > svg {
+            width: 80%;
+            margin-left: 10%;
+            max-height: 50px;
+          }
+          &:active {
+            transform: scale(0.9);
+            transition: transform 0.2s ease-in-out;
+          }
+          .profile-progress__button-text {
+            font-size: 14px;
+            line-height: 17px;
+          }
+        }
+      }
+
+      .achievement-container {
+        padding: 80px 30px 130px 30px;
+        background: #f16c1c;
+        border-radius: 20px;
+        position: relative;
+        .achievement-top-header-wrapper {
+          position: absolute;
+          top: -30px;
+          left: 50%;
+          transform: translate(-50%);
+          & > svg {
+            max-width: 140%;
+            margin-left: -20%;
+            max-height: 90px;
+          }
+        }
+        .achievement-footer {
+          position: absolute;
+          bottom: 0;
+          background: #ffc61a;
+          border-bottom-right-radius: 20px;
+          border-bottom-left-radius: 20px;
+          width: 100%;
+          left: 0;
+          padding: 25px 40px 25px 40px;
+          .copy-btn-title {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+            color: #f16c1c;
+            margin-bottom: 6px;
+          }
+          .copy-field {
+            background: #fff;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 10px;
+            & > p {
+              font-size: 14px;
+              line-height: 17px;
+            }
+            .copy-code-button {
+              max-width: 50px;
+              border-radius: 20px;
+            }
+          }
+        }
+        .achievement-wrapper {
+          position: relative;
+          .form-profile-field-label {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+            color: #ffffff;
+          }
+          .change-password-header-title {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 36px;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 90px;
+            margin-bottom: 20px;
+          }
+          .group-btn-wrapper {
+            margin-top: 90px;
+          }
+          .update-profile-button-wrapper {
+            position: relative;
+            cursor: pointer;
+            &:active {
+              transform: scale(0.9);
+              transition: transform 0.1s ease-in;
+            }
+            .update-profile-button-label {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 22px;
+              text-align: center;
+              color: #ffffff;
+              user-select: none;
+            }
+            .update-profile-button-label-red {
+              user-select: none;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 22px;
+              text-align: center;
+              color: #f68317;
+            }
+          }
+        }
+        .achivement-item-wrapper {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+          background-color: #fff;
+          border-radius: 20px;
+          padding-right: 30px;
+          margin-bottom: 24px;
+          & > svg {
+            max-width: 25px;
+          }
+          .achivement-item-image {
+            width: 77px;
+          }
+          .achivement-item-info-wrapper {
+            padding-top: 16px;
+            padding-bottom: 16px;
+            .achivement-item-title {
+              font-size: 11px;
+              line-height: 13px;
+            }
+            .achivement-item-subtitle {
+              font-size: 11px;
+              line-height: 13px;
+            }
+            .achivement-item-point {
+              font-size: 15px;
+              line-height: 18px;
+              & > svg {
+                max-width: 18px;
+                margin-left: 6px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

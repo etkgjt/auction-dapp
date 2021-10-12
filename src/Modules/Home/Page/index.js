@@ -1,4 +1,5 @@
 import "../bootstrap.scss"
+import "../responsive.scss"
 
 import React from "react"
 import Banner from "@Modules/Home/Components/Banner"

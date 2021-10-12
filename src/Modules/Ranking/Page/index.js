@@ -1,4 +1,5 @@
 import "../bootstrap.scss"
+import "../responsive.scss"
 
 import React from "react"
 import Banner from "@Modules/Ranking/Components/Banner"
@@ -9,7 +10,7 @@ const Home = () => {
     window.scrollTo(0, 0)
   }, [])
   return (
-    <div className="home__page">
+    <div className="ranks__page">
       <Banner />
       <RankingTable />
     </div>

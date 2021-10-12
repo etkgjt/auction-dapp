@@ -1,161 +1,187 @@
 @import "../../assets/css/variables";
-.rules-area {
-  padding-left: 8vw;
-  padding-right: 8vw;
-  margin-top: 110px;
-  margin-bottom: 110px;
-  .event-calendar-container {
-    background: var(--lightOrange);
-    border-radius: 40px;
-    padding: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .calendar-title {
-      font-weight: bold;
-      font-size: 46px;
-      line-height: 55px;
-      text-align: center;
-      color: #fff;
-    }
-    .calendar-text-black {
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 22px;
-      text-align: center;
-      letter-spacing: -0.005em;
-      color: #1e3d74;
-    }
-    .calendar-icon__container {
-      position: relative;
-      .calender-coin-icon {
-        width: 124px;
-        max-height: 115px;
-        position: absolute;
-        bottom: 0px;
-        right: -100px;
-      }
-    }
-    .notic {
-      font-weight: 500;
-      font-size: 24px;
-      line-height: 28px;
-      text-align: left;
-      letter-spacing: -0.005em;
-      color: #1e3d74;
-      width: 100%;
-    }
-    .notic-text-black {
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 22px;
-      letter-spacing: -0.005em;
-      color: #1e3d74;
-      width: 100%;
-      text-align: left;
-    }
-    .notic-text-white {
-      font-weight: 700;
-      font-size: 18px;
-      line-height: 22px;
-      letter-spacing: -0.005em;
-      color: #fff;
-    }
-    .social-link {
+.rules__page {
+  .rules-area {
+    padding-left: 8vw;
+    padding-right: 8vw;
+    margin-top: 110px;
+    margin-bottom: 110px;
+    .event-calendar-container {
+      background: var(--lightOrange);
+      border-radius: 40px;
+      padding: 50px;
       display: flex;
-      flex-direction: row;
-      width: 100%;
-      justify-content: flex-start;
+      flex-direction: column;
       align-items: center;
-      margin-bottom: 14px;
-      cursor: pointer;
-
-      &:hover {
-        transform: translateX(5px);
-        transition: transform 0.2s ease-in-out;
-      }
-      & > p {
-        font-style: normal;
+      .calendar-title {
         font-weight: bold;
-        font-size: 18px;
-        line-height: 22px;
-        color: #1e3d74;
-        margin-left: 8px;
+        font-size: 46px;
+        line-height: 55px;
+        text-align: center;
+        color: #fff;
       }
-    }
-  }
-  .rules-detail-container {
-    background: #ffffff;
-    border: 5px solid #f2f2f2;
-    border-radius: 40px;
-    padding: 150px 50px 50px 50px;
-    position: relative;
-    .rules-detail__title-container {
-      position: absolute;
-      top: -70px;
-      left: 50%;
-      transform: translate(-50%);
-    }
-    .rules-details_list {
-      & > li {
-        font-size: 24px;
-        line-height: 28px;
-        font-weight: 800;
-        color: #1e3d74;
-        margin-bottom: 24px;
-        & .note {
-          color: var(--primaryColor);
-          font-size: 18px;
-          line-height: 26px;
-          font-weight: 500;
-        }
-        & > div {
-          font-size: 18px;
-          line-height: 26px;
-          font-weight: 500;
-          color: #1e3d74;
-        }
-        & > ul > li {
-          list-style: disc;
-          font-size: 18px;
-          line-height: 26px;
-          font-weight: 500;
-          color: #1e3d74;
-        }
-      }
-      .rules-details-button-wrapper {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 20px;
-        margin-top: 10px;
-        cursor: pointer;
-        &:active {
-          transform: scale(0.9);
-          transition: transform 0.1s ease-in-out;
-        }
-        & > span {
-          user-select: none;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          font-weight: 500;
-          font-size: 18px;
-          line-height: 22px;
-          text-align: center;
-          color: #ffffff;
-        }
-      }
-      .rank-table-title {
-        font-style: normal;
-        font-weight: bold;
+      .calendar-text-black {
+        font-weight: 500;
         font-size: 18px;
         line-height: 22px;
         text-align: center;
-        color: #f68317;
-        margin-bottom: 8px;
+        letter-spacing: -0.005em;
+        color: #1e3d74;
+      }
+      .calendar-icon__container {
+        position: relative;
+        .calender-coin-icon {
+          width: 124px;
+          max-height: 115px;
+          position: absolute;
+          bottom: 0px;
+          right: -100px;
+        }
+      }
+      .notic {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: left;
+        letter-spacing: -0.005em;
+        color: #1e3d74;
+        width: 100%;
+      }
+      .notic-text-black {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: -0.005em;
+        color: #1e3d74;
+        width: 100%;
+        text-align: left;
+      }
+      .notic-text-white {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        letter-spacing: -0.005em;
+        color: #fff;
+      }
+      .social-link {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 14px;
+        cursor: pointer;
+
+        &:hover {
+          transform: translateX(5px);
+          transition: transform 0.2s ease-in-out;
+        }
+        & > p {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 22px;
+          color: #1e3d74;
+          margin-left: 8px;
+        }
+      }
+    }
+    .rules-detail-container {
+      background: #ffffff;
+      border: 5px solid #f2f2f2;
+      border-radius: 40px;
+      padding: 150px 50px 50px 50px;
+      position: relative;
+      .rules-detail__title-container {
+        position: absolute;
+        top: -70px;
+        left: 50%;
+        transform: translate(-50%);
+      }
+      .rules-details_list {
+        & > li {
+          font-size: 24px;
+          line-height: 28px;
+          font-weight: 800;
+          color: #1e3d74;
+          margin-bottom: 24px;
+          & .note {
+            color: var(--primaryColor);
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: 500;
+          }
+          & > div {
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: 500;
+            color: #1e3d74;
+          }
+          & > ul > li {
+            list-style: disc;
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: 500;
+            color: #1e3d74;
+          }
+        }
+        .rules-details-button-wrapper {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 20px;
+          margin-top: 10px;
+          cursor: pointer;
+          &:active {
+            transform: scale(0.9);
+            transition: transform 0.1s ease-in-out;
+          }
+          & > span {
+            user-select: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 22px;
+            text-align: center;
+            color: #ffffff;
+          }
+        }
+        .rank-table-title {
+          font-style: normal;
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 22px;
+          text-align: center;
+          color: #f68317;
+          margin-bottom: 8px;
+        }
+      }
+      .rules-detail__content {
+        ul {
+          padding-left: 0;
+        }
+        ul > li > ul {
+          padding-left: 26px;
+        }
+        ul > li {
+          font-size: 24px;
+          line-height: 28px;
+          font-weight: 800;
+          color: #1e3d74;
+          list-style: none;
+          padding-left: 0;
+          margin-bottom: 10px;
+        }
+        ul > li > ul > li {
+          list-style-type: disc;
+          font-size: 18px;
+          line-height: 24px;
+          color: #1e3d74;
+          font-weight: 500;
+        }
       }
     }
   }

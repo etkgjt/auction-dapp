@@ -25,130 +25,152 @@ const YearRank = ({ data = [] }) => {
       </div>
       <div className="medal-container">
         <Row>
-          <Col xl="3" lg="3">
+          <Col xl="3" lg="3" md="3" sm="3" xs="3">
             <div className="medal-item-wrapper">
               <div className="medal-image-wrapper">
-                <AsyncImage
-                  src={data[1]?.avatar}
-                  className="top-2-avatar"
-                  placeholderClassName="top-2-avatar-loading"
-                />
-                <img src={rank2} className="diamon-rank-text" />
-                <img
-                  src={diamondRank}
-                  alt="image"
-                  className="diamond-medal-image"
-                />
+                <div className="diamond-medal-image-wrapper">
+                  <img
+                    src={diamondRank}
+                    alt="image"
+                    className="diamond-medal-image"
+                  />
+                  <AsyncImage
+                    src={data[1]?.avatar}
+                    className="top-2-avatar"
+                    placeholderClassName="top-2-avatar-loading"
+                  />
+                  <img src={rank2} className="diamon-rank-text" />
+                </div>
               </div>
-              <p className="medal-name">{data[1]?.childFullName1}</p>
-              <span className="d-flex flex-row">
-                <p className="medal-level">{`${data[1]?.level?.name || ""} | ${
-                  data[1]?.quarterYearPoint || ""
-                }K`}</p>
-                <CoinIcon />
-              </span>
+              <div className="medal-info-wrapper">
+                <p className="medal-name">{data[1]?.childFullName1}</p>
+                <span className="d-flex flex-row">
+                  <p className="medal-level">{`${
+                    data[1]?.level?.name || ""
+                  } | ${data[1]?.quarterYearPoint || ""}K`}</p>
+                  <CoinIcon />
+                </span>
+              </div>
             </div>
           </Col>
-          <Col xl="6" lg="6">
+          <Col xl="6" lg="6" md="6" sm="6" xs="6">
             <div className="medal-item-wrapper">
               <div className="medal-image-wrapper">
-                <AsyncImage
-                  src={data[0]?.avatar}
-                  className="top-1-avatar"
-                  placeholderClassName="top-1-avatar-loading"
-                />
-                <img src={rank1} className="gold-rank-text" />
-                <img src={goldRank} alt="image" className="gold-medal-image" />
+                <div className="gold-medal-image-wrapper">
+                  <AsyncImage
+                    src={data[0]?.avatar}
+                    className="top-1-avatar"
+                    placeholderClassName="top-1-avatar-loading"
+                  />
+                  <img src={rank1} className="gold-rank-text" />
+                  <img
+                    src={goldRank}
+                    alt="image"
+                    className="gold-medal-image"
+                  />
+                </div>
               </div>
-              <p className="medal-name">{data[0]?.childFullName1}</p>
-              <span className="d-flex flex-row">
-                <p className="medal-level">{`${data[0]?.level?.name || ""} | ${
-                  data[0]?.quarterYearPoint || ""
-                }K`}</p>
-                <CoinIcon />
-              </span>
+              <div className="gold-medal-info-wrapper">
+                <p className="medal-name">{data[0]?.childFullName1}</p>
+                <span className="d-flex flex-row">
+                  <p className="medal-level">{`${
+                    data[0]?.level?.name || ""
+                  } | ${data[0]?.quarterYearPoint || ""}K`}</p>
+                  <CoinIcon />
+                </span>
+              </div>
             </div>
           </Col>
-          <Col xl="3" lg="3">
+          <Col xl="3" lg="3" md="3" sm="3" xs="3">
             <div className="medal-item-wrapper">
               <div className="medal-image-wrapper">
-                <AsyncImage
-                  src={data[2]?.avatar}
-                  className="top-2-avatar"
-                  placeholderClassName="top-2-avatar-loading"
-                />
-                <img src={rank3} className="silver-rank-text" />
-                <img
-                  src={silverRank}
-                  alt="image"
-                  className="silver-medal-image"
-                />
+                <div className="silver-medal-image-wrapper">
+                  <AsyncImage
+                    src={data[2]?.avatar}
+                    className="top-2-avatar"
+                    placeholderClassName="top-2-avatar-loading"
+                  />
+                  <img src={rank3} className="silver-rank-text" />
+                  <img
+                    src={silverRank}
+                    alt="image"
+                    className="silver-medal-image"
+                  />
+                </div>
               </div>
-              <p className="medal-name">{data[2]?.childFullName1}</p>
-              <span className="d-flex flex-row">
-                <p className="medal-level">{`${data[2]?.level?.name || ""} | ${
-                  data[2]?.quarterYearPoint || ""
-                }K`}</p>
-                <CoinIcon />
-              </span>
+              <div className="silver-medal-info-wrapper">
+                <p className="medal-name">{data[2]?.childFullName1}</p>
+                <span className="d-flex flex-row">
+                  <p className="medal-level">{`${
+                    data[2]?.level?.name || ""
+                  } | ${data[2]?.quarterYearPoint || ""}K`}</p>
+                  <CoinIcon />
+                </span>
+              </div>
             </div>
           </Col>
         </Row>
         <Collapse isOpen={isCollapse}>
-          <Row className="mt-5 px-5">
-            <Col xl="6" lg="6" md="6">
-              {data?.map((item, index) => {
-                return index > 2 && index < 7 ? (
-                  <div className="another-rank-item d-flex flex-row">
-                    <h1 className="rank-item__index">{index + 1}</h1>
-                    <div className="rank-item_avatar-wrapper">
-                      <AsyncImage
-                        src={item?.avatar}
-                        className="rank-item_avatar"
-                        placeholderClassName="rank-item_avatar-loading"
-                      />
+          <div className="listRankWrapper">
+            <Row className="mt-5 listRankWrapper">
+              <Col xl="6" lg="6" md="6" sm="6" xs="6">
+                {data?.map((item, index) => {
+                  return index > 2 && index < 7 ? (
+                    <div className="another-rank-item d-flex flex-row">
+                      <h1 className="rank-item__index">{index + 1}</h1>
+                      <div className="rank-item_avatar-wrapper">
+                        <AsyncImage
+                          src={item?.avatar}
+                          className="rank-item_avatar"
+                          placeholderClassName="rank-item_avatar-loading"
+                        />
+                      </div>
+                      <div className="rank-item__info-wrapper">
+                        <p className="rank-item__level">{`${
+                          item?.level?.name || ""
+                        }`}</p>
+                        <p className="rank-item__name">
+                          {item?.childFullName1}
+                        </p>
+                        <span className="d-flex flex-row align-items-center">
+                          <p className="rank-item__point">{`${item?.quarterYearPoint}k`}</p>
+                          <CoinIcon />
+                        </span>
+                      </div>
                     </div>
-                    <div className="rank-item__info-wrapper">
-                      <p className="rank-item__level">{`${
-                        item?.level?.name || ""
-                      }`}</p>
-                      <p className="rank-item__name">{item?.childFullName1}</p>
-                      <span className="d-flex flex-row align-items-center">
-                        <p className="rank-item__point">{`${item?.quarterYearPoint}k`}</p>
-                        <CoinIcon />
-                      </span>
+                  ) : null
+                })}
+              </Col>
+              <Col xl="6" lg="6" md="6" sm="6" xs="6">
+                {data?.map((item, index) => {
+                  return index >= 7 ? (
+                    <div className="another-rank-item d-flex flex-row">
+                      <h1 className="rank-item__index">{index + 1}</h1>
+                      <div className="rank-item_avatar-wrapper">
+                        <AsyncImage
+                          src={item?.avatar}
+                          className="rank-item_avatar"
+                          placeholderClassName="rank-item_avatar-loading"
+                        />
+                      </div>
+                      <div className="rank-item__info-wrapper">
+                        <p className="rank-item__level">{`${
+                          item?.level?.name || ""
+                        }`}</p>
+                        <p className="rank-item__name">
+                          {item?.childFullName1}
+                        </p>
+                        <span className="d-flex flex-row align-items-center">
+                          <p className="rank-item__point">{`${item?.quarterYearPoint}k`}</p>
+                          <CoinIcon />
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                ) : null
-              })}
-            </Col>
-            <Col xl="6" lg="6" md="6">
-              {data?.map((item, index) => {
-                return index >= 7 ? (
-                  <div className="another-rank-item d-flex flex-row">
-                    <h1 className="rank-item__index">{index + 1}</h1>
-                    <div className="rank-item_avatar-wrapper">
-                      <AsyncImage
-                        src={item?.avatar}
-                        className="rank-item_avatar"
-                        placeholderClassName="rank-item_avatar-loading"
-                      />
-                    </div>
-                    <div className="rank-item__info-wrapper">
-                      <p className="rank-item__level">{`${
-                        item?.level?.name || ""
-                      }`}</p>
-                      <p className="rank-item__name">{item?.childFullName1}</p>
-                      <span className="d-flex flex-row align-items-center">
-                        <p className="rank-item__point">{`${item?.quarterYearPoint}k`}</p>
-                        <CoinIcon />
-                      </span>
-                    </div>
-                  </div>
-                ) : null
-              })}
-            </Col>
-          </Row>
+                  ) : null
+                })}
+              </Col>
+            </Row>
+          </div>
         </Collapse>
       </div>
       <div

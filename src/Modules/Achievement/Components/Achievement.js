@@ -12,6 +12,8 @@ import voi3 from "../assets/images/voidaisu-silver.png"
 import voi4 from "../assets/images/voidaisu-gold.png"
 import { getUserData } from "../../../store/user/selector"
 import { useSelector } from "react-redux"
+import { useMediaQuery } from "react-responsive"
+import { CopyIcon, LinkIcon } from "../../Profile/assets/icon"
 
 const data = [
   {
@@ -46,7 +48,8 @@ const data = [
 
 const Achievement = () => {
   const userData = useSelector(getUserData)
-  console.log("USER DATA", userData)
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1999 })
   return (
     <div className="achievement-container">
       <div className="achievement-top-header-wrapper">
@@ -60,8 +63,10 @@ const Achievement = () => {
               <p className="achivement-item-title">{item.title}</p>
               <p className="achivement-item-subtitle">{item.subtitle}</p>
               <span className="d-flex flex-row">
-                <p className="achivement-item-point">{`+${item.point}k`}</p>
-                <GoldIcon />
+                <span className="achivement-item-point">
+                  {`+${item.point}k`}
+                  <GoldIcon />
+                </span>
               </span>
             </div>
             {item.numToReach <= userData?.inviteUserCount ? (
@@ -75,7 +80,7 @@ const Achievement = () => {
 
       <div className="achievement-footer">
         <Row>
-          <Col xl="6" lg="6">
+          <Col xl="6" lg="6" sm="6" xs="6">
             <span className="copy-btn-title">Mã giới thiệu</span>
             <div className="copy-field">
               <p>{userData?.codeInvite}</p>
@@ -85,11 +90,11 @@ const Achievement = () => {
                 }}
                 className="copy-code-button"
               >
-                Sao chép
+                {isMobile || isTablet ? <CopyIcon /> : "Sao chép"}
               </div>
             </div>
           </Col>
-          <Col xl="6" lg="6">
+          <Col xl="6" lg="6" sm="6" xs="6">
             <span className="copy-btn-title">Link giới thiệu</span>
             <div className="copy-field">
               <p>{`${window.location.origin}/signup/${userData?.codeInvite}`}</p>
@@ -101,7 +106,7 @@ const Achievement = () => {
                 }}
                 className="copy-code-button"
               >
-                Sao chép
+                {isMobile || isTablet ? <LinkIcon /> : "Sao chép"}
               </div>
             </div>
           </Col>

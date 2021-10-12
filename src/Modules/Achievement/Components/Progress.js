@@ -12,6 +12,10 @@ import { useSelector } from "react-redux"
 import PopupInvite from "../../../layouts/components/popupInvite"
 import PopupNewBie from "../../../layouts/components/popupNewbie"
 import SlideInModal from "../../../components/SlideInModal"
+
+import pending from "../assets/images/pending.png"
+import done from "../assets/images/done.png"
+
 const ORIGIN_WIDTH = 952
 const PROGRESS_WIDTH = (window.innerWidth * 0.84) / 2 - 70
 
@@ -42,10 +46,14 @@ const Progress = () => {
       </div>
       <div className="profile-progress__progress-bar-wrapper">
         <div style={{ width: "100%", overflow: "hidden" }}>
-          <PendingProgressBar />
+          <img src={pending} width="100%" className="pending-progress" />
         </div>
         <div className="profile-progress__done-progress-wrapper">
-          <DoneProgressBar width={getProgessbarWidth()} />
+          <img
+            src={done}
+            width={getProgessbarWidth()}
+            className="done-progress"
+          />
         </div>
         <div className="profile-progress__left-icon-wrapper">
           <img src={voiSilver} width={78} height={50} alt="icon" />

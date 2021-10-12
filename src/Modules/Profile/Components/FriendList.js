@@ -12,44 +12,8 @@ import {
   getListLoadingSelector
 } from "../Store/FriendList/selector"
 import { Row } from "reactstrap"
-
-const data = [
-  {
-    level: 10,
-    name: "Trần Thanh Nguyên",
-    point: 432000
-  },
-  {
-    level: 9,
-    name: "Trần Thanh Nguyên",
-    point: 425000
-  },
-  {
-    level: 9,
-    name: "Trần Thanh Nguyên",
-    point: 412500
-  },
-  {
-    level: 8,
-    name: "Trần Thanh Nguyên",
-    point: 232000
-  },
-  {
-    level: 7,
-    name: "Trần Thanh Nguyên",
-    point: 132000
-  },
-  {
-    level: 8,
-    name: "Trần Thanh Nguyên",
-    point: 232000
-  },
-  {
-    level: 7,
-    name: "Trần Thanh Nguyên",
-    point: 132000
-  }
-]
+import listWrapper from "../assets/images/list.png"
+import { GoldIcon } from "../../Achievement/assets/icon"
 
 const FriendList = () => {
   const dispatch = useDispatch()
@@ -91,10 +55,7 @@ const FriendList = () => {
   return (
     <div className="profile-friendlist-area">
       <div className="profile-friendlist-container">
-        <ListFriendWrapper
-          width={getFriendListWrapperWidth()}
-          height={getFriendListWrapperHeight()}
-        />
+        <img src={listWrapper} width="100%" height="auto" />
         <div className="profile-friendlist-inner">
           <h1>Vòng tròn bạn bè</h1>
           {listFriend?.listData?.map((item, index) => (
@@ -108,7 +69,10 @@ const FriendList = () => {
                 <span className="friendlist-item-name">
                   {item.childFullName1}
                 </span>
-                <span className="friendlist-item-point">{`${item?.totalPoint}k`}</span>
+                <span className="friendlist-item-point">
+                  {`${item?.totalPoint}k`}
+                  <GoldIcon />{" "}
+                </span>
               </div>
             </div>
           ))}

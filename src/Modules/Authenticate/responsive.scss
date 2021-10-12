@@ -1,0 +1,386 @@
+$media: screen;
+$feature_min: min-width;
+$feature_max: max-width;
+$value_one: 767px;
+$value_two: 768px;
+$value_three: 991px;
+$value_four: 992px;
+$value_five: 1199px;
+$value_six: 1200px;
+$value_seven: 1350px;
+$value_eight: 1910px;
+
+@media only #{$media} and ($feature_max : $value_one) {
+  .form-signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    .form-signup__submit-button {
+      margin-top: 10px;
+
+      & > svg {
+        width: 60%;
+        margin-left: 20%;
+      }
+
+      &:active {
+      }
+      & > span {
+        font-size: 13px;
+        line-height: 16px;
+      }
+    }
+    .form-signup__login-info-container {
+      padding-left: 0;
+      padding-right: 0;
+      .form-signup__login-info-field-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -35%);
+        width: 100%;
+        padding-left: 20%;
+        padding-right: 20%;
+        .form-signup-description {
+          font-size: 11px;
+          line-height: 13px;
+        }
+      }
+    }
+    .form-signup__user-info-container {
+      position: relative;
+      margin-top: 30px;
+      & > svg {
+        max-width: 100%;
+      }
+      .form-signup__user-info-field-container {
+        padding-left: 15%;
+        padding-right: 15%;
+        .form-signup-field-label {
+          font-size: 11px;
+          line-height: 13px;
+        }
+        .form-signup-otp-input-wrapper {
+          border-radius: 20px;
+          margin-top: 20px;
+          .send-otp-button {
+            height: 26px;
+            border-radius: 10px;
+            font-size: 11px;
+            line-height: 13px;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+  .form-group {
+    margin-bottom: 10px;
+  }
+  .form-control {
+    font-size: 11px;
+    height: 26px;
+    border-radius: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .select__control {
+    font-size: 13px;
+    height: 26px;
+    min-height: auto;
+  }
+  .select__placeholder {
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines to show */
+    -webkit-box-orient: vertical;
+  }
+  .forgot-password-page-wrapper {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    .forgot-password-form-wrapper {
+      position: relative;
+
+      & > svg {
+        width: 100%;
+      }
+    }
+    .forgot-password-page__header {
+      font-size: 16px;
+      line-height: 19px;
+    }
+    .forgot-password__form-wrapper {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      z-index: 99;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      width: 60%;
+      .forgot-password-form_button {
+        position: relative;
+        cursor: pointer;
+        & > svg {
+          max-width: 100%;
+        }
+        &:active {
+          transform: scale(0.9);
+          transition: transform 0.1s ease-in-out;
+        }
+      }
+      .forgot-password-form_description {
+        color: white;
+        text-align: center;
+        margin-top: 0px;
+        margin-bottom: 6px;
+        font-size: 11px;
+        line-height: 13px;
+      }
+      .forgot-password-form_button-text {
+        font-size: 11px;
+        line-height: 13px;
+      }
+
+      .forgot-password-form__resend_otp {
+        font-weight: 800;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .result-account__text {
+        color: #fff;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+    }
+  }
+  .forgot-password-form__signin_button {
+    cursor: pointer;
+    z-index: 999;
+    position: relative;
+    & > svg {
+      max-width: 100%;
+    }
+    .forgot-password-form_button-text {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      color: #ffffff;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      user-select: none;
+    }
+  }
+}
+
+@media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
+  .form-signup-container {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    .form-signup__submit-button {
+      position: relative;
+      margin-top: 10px;
+      cursor: pointer;
+      &:active {
+      }
+      & > span {
+        font-size: 16px;
+        line-height: 22px;
+        color: #ffffff;
+        text-align: center;
+      }
+    }
+    .form-signup__login-info-container {
+      position: relative;
+      & > svg {
+        max-width: 100%;
+      }
+      .form-signup__login-info-field-wrapper {
+        .form-signup-description {
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+    }
+    .form-signup__user-info-container {
+      position: relative;
+      margin-top: 30px;
+      & > svg {
+        max-width: 100%;
+      }
+      .form-signup__user-info-field-container {
+        .form-signup-field-label {
+          font-size: 14px;
+          line-height: 16px;
+        }
+        .form-signup-otp-input-wrapper {
+          .send-otp-button {
+            height: 45px;
+          }
+        }
+      }
+    }
+  }
+
+  .forgot-password-page-wrapper {
+    padding-top: 155px;
+    padding-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .forgot-password-page__header {
+      font-size: 25px;
+      line-height: 30px;
+    }
+    .forgot-password__form-wrapper {
+      transform: translate(-50%, -80%);
+      .forgot-password-form_button {
+        position: relative;
+        cursor: pointer;
+        &:active {
+          transform: scale(0.9);
+          transition: transform 0.1s ease-in-out;
+        }
+      }
+      .forgot-password-form_description {
+      }
+      .forgot-password-form_button-text {
+      }
+
+      .forgot-password-form__resend_otp {
+      }
+      .result-account__text {
+      }
+    }
+  }
+  .forgot-password-form__signin_button {
+    .forgot-password-form_button-text {
+    }
+
+    &:active {
+      transform: scale(0.9);
+      transition: transform 0.1s ease-in-out;
+    }
+  }
+
+  .form-control {
+    font-size: 14px;
+    height: 45px;
+    border-radius: 15px;
+  }
+  .select__control {
+    font-size: 14px;
+  }
+  .select__placeholder {
+    font-size: 11px;
+  }
+}
+
+@media only #{$media} and ($feature_min : $value_four) and ($feature_max : $value_five) {
+  .form-signup-container {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    .form-signup__submit-button {
+      position: relative;
+      margin-top: 10px;
+      cursor: pointer;
+      &:active {
+      }
+      & > span {
+        font-size: 16px;
+        line-height: 22px;
+        color: #ffffff;
+        text-align: center;
+      }
+    }
+    .form-signup__login-info-container {
+      position: relative;
+      & > svg {
+        max-width: 100%;
+      }
+      .form-signup__login-info-field-wrapper {
+        .form-signup-description {
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+    }
+    .form-signup__user-info-container {
+      position: relative;
+      margin-top: 30px;
+      & > svg {
+        max-width: 100%;
+      }
+      .form-signup__user-info-field-container {
+        .form-signup-field-label {
+          font-size: 14px;
+          line-height: 16px;
+        }
+        .form-signup-otp-input-wrapper {
+          .send-otp-button {
+            height: 45px;
+          }
+        }
+      }
+    }
+  }
+
+  .forgot-password-page-wrapper {
+    padding-top: 155px;
+    padding-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .forgot-password-page__header {
+      font-size: 25px;
+      line-height: 30px;
+    }
+    .forgot-password__form-wrapper {
+      top: 30%;
+
+      .forgot-password-form_button {
+      }
+      .forgot-password-form_description {
+      }
+      .forgot-password-form_button-text {
+      }
+
+      .forgot-password-form__resend_otp {
+      }
+      .result-account__text {
+      }
+    }
+  }
+  .forgot-password-form__signin_button {
+  }
+
+  .form-control {
+    font-size: 14px;
+    height: 45px;
+    border-radius: 15px;
+  }
+  .select__control {
+    font-size: 14px;
+  }
+  .select__placeholder {
+    font-size: 14px;
+  }
+}

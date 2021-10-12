@@ -7,7 +7,9 @@ import { useTranslation } from "react-i18next"
 import {
   ButtonWrapper,
   ButtonWrapperBlue,
-  ButtonWrapperWhite
+  ButtonWrapperWhite,
+  CopyIcon,
+  LinkIcon
 } from "../assets/icon"
 
 import { getUserData, user } from "../../../store/user/selector"
@@ -43,11 +45,14 @@ import { useHistory } from "react-router"
 import UploadImage from "../../../components/UploadImage"
 import { toast } from "react-toastify"
 import uploadImage from "../../../utility/uploadImage"
+import { useMediaQuery } from "react-responsive"
 
 const FormProfile = () => {
   const dispatch = useDispatch()
   const userData = useSelector(getUserData)
   const history = useHistory()
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1999 })
   //REf
   const cropImageRef = useRef()
   const formRef = useRef()
@@ -305,13 +310,13 @@ const FormProfile = () => {
             return (
               <Form onSubmit={(e) => e.preventDefault()}>
                 <Row>
-                  <Col xl="3" lg="3" md="3">
+                  <Col xl="3">
                     <span className="form-profile-field-label">
                       Họ và tên
-                      <br /> Học viên
+                      {isMobile || isTablet ? null : <br />} Học viên
                     </span>
                   </Col>
-                  <Col xl="9" lg="9" md="9">
+                  <Col xl="9">
                     <FormField
                       field="children_fullname"
                       {...formik}
@@ -320,10 +325,10 @@ const FormProfile = () => {
                   </Col>
                 </Row>
                 <Row className="d-flex flex-row align-items-center mb-3">
-                  <Col xl="3" lg="3" md="3">
+                  <Col xl="3">
                     <span className="form-profile-field-label">Giới tính</span>
                   </Col>
-                  <Col xl="3" lg="3" md="3">
+                  <Col xl="3">
                     <FormFieldSelect
                       className="mb-0"
                       field="gender"
@@ -339,10 +344,10 @@ const FormProfile = () => {
                       }}
                     />
                   </Col>
-                  <Col xl="2" lg="2" md="2" className="p-0">
+                  <Col xl="2">
                     <span className="form-profile-field-label">Ngày sinh</span>
                   </Col>
-                  <Col xl="4" lg="4" md="4">
+                  <Col xl="4">
                     <FormField
                       className="mb-0"
                       field="birth_day"
@@ -353,13 +358,13 @@ const FormProfile = () => {
                   </Col>
                 </Row>
                 <Row>
-                  <Col xl="3" lg="3" md="3">
+                  <Col xl="3">
                     <span className="form-profile-field-label">
-                      Trường <br />
+                      Trường {isMobile || isTablet ? null : <br />}
                       đang học
                     </span>
                   </Col>
-                  <Col xl="9" lg="6" md="9">
+                  <Col xl="9">
                     <Row>
                       <Col xl="12" lg="12" md="12">
                         <FormField field="school_name" {...formik} />
@@ -381,13 +386,13 @@ const FormProfile = () => {
                   </Col>
                 </Row>
                 <Row className="mt-4">
-                  <Col xl="3" lg="3" md="3">
+                  <Col xl="3">
                     <span className="form-profile-field-label">
-                      Địa chỉ <br />
+                      Địa chỉ {isMobile || isTablet ? null : <br />}
                       đang ở
                     </span>
                   </Col>
-                  <Col xl="9" lg="9" md="9">
+                  <Col xl="9">
                     <Row>
                       <Col xl="12" lg="12" md="12">
                         <FormFieldSelect
@@ -431,13 +436,13 @@ const FormProfile = () => {
                   </Col>
                 </Row>
                 <Row className="mt-4">
-                  <Col xl="3" lg="3" md="3">
+                  <Col xl="3">
                     <span className="form-profile-field-label">
                       Họ và tên
-                      <br /> Phụ huynh
+                      {isMobile || isTablet ? null : <br />} Phụ huynh
                     </span>
                   </Col>
-                  <Col xl="9" lg="9" md="9">
+                  <Col xl="9">
                     <FormField
                       field="parent_fullname"
                       {...formik}
@@ -446,10 +451,10 @@ const FormProfile = () => {
                   </Col>
                 </Row>
                 <Row>
-                  <Col xl="3" lg="3" md="3">
+                  <Col xl="3">
                     <span className="form-profile-field-label">Email</span>
                   </Col>
-                  <Col xl="6" lg="6" md="6">
+                  <Col xl="6">
                     <FormField
                       field="email"
                       {...formik}
@@ -459,13 +464,13 @@ const FormProfile = () => {
                   </Col>
                 </Row>
                 <Row>
-                  <Col xl="3" lg="3" md="3">
+                  <Col xl="3">
                     <span className="form-profile-field-label">
                       Số điện thoại
                     </span>
                   </Col>
 
-                  <Col xl="6" lg="6" md="6">
+                  <Col xl="6">
                     <FormField
                       className="mr-1 w-100"
                       field="phone_number"
@@ -511,12 +516,12 @@ const FormProfile = () => {
                   Thay đổi mật khẩu
                 </h1>
                 <Row>
-                  <Col xl="4" lg="4" md="4">
+                  <Col xl="4">
                     <span className="form-profile-field-label">
                       Mật khẩu cũ
                     </span>
                   </Col>
-                  <Col xl="8" lg="8" md="8">
+                  <Col xl="8">
                     <FormField
                       field="old_password"
                       {...formik}
@@ -526,12 +531,12 @@ const FormProfile = () => {
                   </Col>
                 </Row>
                 <Row>
-                  <Col xl="4" lg="4" md="4">
+                  <Col xl="4">
                     <span className="form-profile-field-label">
                       Mật khẩu mới
                     </span>
                   </Col>
-                  <Col xl="8" lg="8" md="8">
+                  <Col xl="8">
                     <FormField
                       field="new_password"
                       {...formik}
@@ -541,12 +546,13 @@ const FormProfile = () => {
                   </Col>
                 </Row>
                 <Row>
-                  <Col xl="4" lg="4" md="4">
+                  <Col xl="4">
                     <span className="form-profile-field-label">
-                      Nhập lại <br /> Mật khẩu mới
+                      Nhập lại {isMobile || isTablet ? null : <br />} Mật khẩu
+                      mới
                     </span>
                   </Col>
-                  <Col xl="8" lg="8" md="8">
+                  <Col xl="8">
                     <FormField
                       field="confirm_new_password"
                       {...formik}
@@ -601,7 +607,7 @@ const FormProfile = () => {
       </div>
       <div className="profile-form-footer">
         <Row>
-          <Col xl="6" lg="6">
+          <Col xl="6" lg="6" sm="6" xs="6">
             <span className="copy-btn-title">Mã giới thiệu</span>
             <div className="copy-field">
               <p>{userData?.codeInvite}</p>
@@ -611,11 +617,11 @@ const FormProfile = () => {
                   navigator.clipboard.writeText(userData?.codeInvite)
                 }}
               >
-                Sao chép
+                {isMobile || isTablet ? <CopyIcon /> : "Sao chép"}
               </div>
             </div>
           </Col>
-          <Col xl="6" lg="6">
+          <Col xl="6" lg="6" sm="6" xs="6">
             <span className="copy-btn-title">Link giới thiệu</span>
             <div className="copy-field">
               <p>{`${window.location.origin}/signup/${userData?.codeInvite}`}</p>
@@ -627,7 +633,7 @@ const FormProfile = () => {
                   )
                 }}
               >
-                Sao chép
+                {isMobile || isTablet ? <LinkIcon /> : "Sao chép"}
               </div>
             </div>
           </Col>

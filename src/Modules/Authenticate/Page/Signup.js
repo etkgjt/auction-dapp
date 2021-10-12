@@ -28,15 +28,18 @@ import {
   loginSuccessSelector
 } from "../store/auth/selectors"
 import "../styles/index.scss"
-
+import "../responsive.scss"
 import {
   FormSignupInfoWrapper,
   FormSignUpAccountInfoWrapper,
-  ForgotPasswordButton
+  ForgotPasswordButton,
+  FormSignUpAccountInfoWrapperMobile,
+  FormSignupInfoWrapperMobile
 } from "../assets/icon"
 
 import { checkInviteCode, syncUserInfo } from "../store/formSignUp/service"
 import { RETCODE_SUCCESS } from "../../../configs/contants"
+import { useMediaQuery } from "react-responsive"
 
 const Signup = () => {
   //HOOK
@@ -44,6 +47,8 @@ const Signup = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const { invite_code } = useParams()
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+
   //STATE
   const [itemsCity, setItemsCity] = useState([])
   const [keyCity, setKeyCity] = useState(1)
@@ -69,7 +74,7 @@ const Signup = () => {
 
   const checkValidInviteCode = async (code = "") => {
     try {
-      if (code) {
+      if (code && code !== 0) {
         const res = await checkInviteCode(code)
         if (res?.data?.retCode !== RETCODE_SUCCESS) {
           toast.error(res.data.retText, {
@@ -279,7 +284,12 @@ const Signup = () => {
           >
             <div className="form-signup-container">
               <div className="form-signup__login-info-container">
-                <FormSignUpAccountInfoWrapper />
+                {isMobile ? (
+                  <FormSignUpAccountInfoWrapperMobile />
+                ) : (
+                  <FormSignUpAccountInfoWrapper />
+                )}
+
                 <div className="form-signup__login-info-field-wrapper">
                   <FormField
                     field="username"
@@ -313,13 +323,18 @@ const Signup = () => {
                 </div>
               </div>
               <div className="form-signup__user-info-container">
-                <FormSignupInfoWrapper />
+                {isMobile ? (
+                  <FormSignupInfoWrapperMobile />
+                ) : (
+                  <FormSignupInfoWrapper />
+                )}
+
                 <div className="form-signup__user-info-field-container">
                   <Row>
                     <Col xl="3" lg="3" md="3">
                       <span className="form-signup-field-label">
                         Họ và tên
-                        <br /> Học viên
+                        {isMobile ? null : <br />} Học viên
                       </span>
                     </Col>
                     <Col xl="9" lg="9" md="9">
@@ -333,14 +348,14 @@ const Signup = () => {
                   <Row>
                     <Col xl="3" lg="3" md="3">
                       <span className="form-signup-field-label">
-                        Trường <br />
+                        Trường {isMobile ? null : <br />}
                         đang học
                       </span>
                     </Col>
-                    <Col xl="6" lg="6" md="6">
+                    <Col xl="6" lg="6" md="6" sm="8" xs="8">
                       <FormField field="school_name" {...formik} />
                     </Col>
-                    <Col xl="3" lg="3" md="3">
+                    <Col xl="3" lg="3" md="3" sm="4" xs="4">
                       <FormFieldSelect
                         borderLight
                         field="class_name"
@@ -357,11 +372,11 @@ const Signup = () => {
                   <Row>
                     <Col xl="3" lg="3" md="3">
                       <span className="form-signup-field-label">
-                        Địa chỉ <br />
+                        Địa chỉ {isMobile ? null : <br />}
                         đang ở
                       </span>
                     </Col>
-                    <Col xl="5" lg="5" md="5">
+                    <Col xl="5" lg="5" md="5" sm="6" xs="6">
                       <FormFieldSelect
                         borderLight
                         field="city"
@@ -379,7 +394,7 @@ const Signup = () => {
                         options={itemsCity}
                       />
                     </Col>
-                    <Col xl="4" lg="5" md="6">
+                    <Col xl="4" lg="4" md="4" sm="6" xs="6">
                       <FormFieldSelect
                         borderLight
                         field="district"
@@ -388,7 +403,7 @@ const Signup = () => {
                         handleChange={(value) =>
                           formik.setFieldValue("district", value)
                         }
-                        placeholder={"Quận/ Huyện"}
+                        placeholder={"Quận/Huyện"}
                         options={itemsDistrict}
                       />
                     </Col>
@@ -397,7 +412,7 @@ const Signup = () => {
                     <Col xl="3" lg="3" md="3">
                       <span className="form-signup-field-label">
                         Họ và tên
-                        <br /> Phụ huynh
+                        {isMobile ? null : <br />}Phụ huynh
                       </span>
                     </Col>
                     <Col xl="9" lg="9" md="9">
@@ -409,14 +424,14 @@ const Signup = () => {
                     </Col>
                   </Row>
                   <Row>
-                    <Col xl="6" lg="6" md="6">
+                    <Col xl="6" lg="6" md="6" sm="7" xs="7">
                       <FormField
                         field="email"
                         {...formik}
                         placeholder={"Email"}
                       />
                     </Col>
-                    <Col xl="6" lg="6" md="6">
+                    <Col xl="6" lg="6" md="6" sm="5" xs="5">
                       <FormField
                         className="mr-1 w-100"
                         field="phone"

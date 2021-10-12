@@ -7,6 +7,7 @@ import Select from "react-select"
 import { Label, FormGroup } from "reactstrap"
 import classnames from "classnames"
 import styled from "styled-components"
+import { useMediaQuery } from "react-responsive"
 
 const StyledError = styled.h5`
   font-size: 0.857rem !important;
@@ -35,7 +36,7 @@ const FormFieldSelect = ({
   valueDefault = null
 }) => {
   const [value, setValue] = useState(valueDefault)
-
+  const isMobile = useMediaQuery({ maxWidth: 767 })
   const touch = touched[field]
   const error = errors[field]
   const valueForm = values[field] || ""
@@ -65,6 +66,32 @@ const FormFieldSelect = ({
         handleChange(option.value)
         setValue(option.value)
       }}
+      styles={
+        isMobile
+          ? {
+              control: (base) => ({
+                ...base,
+                minHeight: 26
+              }),
+              valueContainer: (base) => ({
+                ...base,
+                minHeight: 26,
+                height: 26
+              }),
+              dropdownIndicator: (base) => ({
+                ...base,
+                minHeight: 26,
+                height: 26,
+                padding: 0
+              }),
+              indicatorSeparator: (base) => ({
+                ...base,
+                margin: 0,
+                display: "none"
+              })
+            }
+          : undefined
+      }
     />
   )
   const ErrorField =

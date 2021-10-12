@@ -42,7 +42,7 @@ const Banner = () => {
   }, [])
 
   return (
-    <div style={{ background: "white" }} className="main-banner saas-home">
+    <div style={{ background: "white" }} className="main-banner">
       <Carousel className="blog-slides owl-carousel owl-theme" {...options}>
         {listBanner?.listData?.map((item) => (
           <div

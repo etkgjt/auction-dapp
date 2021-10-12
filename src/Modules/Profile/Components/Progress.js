@@ -12,19 +12,22 @@ import voi4 from "../assets/images/voidaisu-silver.png"
 import voi3 from "../assets/images/voidaisu-gold.png"
 import voi1 from "../assets/images/voicon.png"
 import voi2 from "../assets/images/voichamchi.png"
+import pending from "../assets/images/pending.png"
+import done from "../assets/images/done.png"
 
 import { useSelector } from "react-redux"
 import SlideInModal from "../../../components/SlideInModal"
 import PopupInvite from "../../../layouts/components/popupInvite"
 import PopupNewBie from "../../../layouts/components/popupNewbie"
-
-const ORIGIN_WIDTH = 952
-const PROGRESS_WIDTH = (window.innerWidth * 0.84) / 2 - 70
-
-const ratio = PROGRESS_WIDTH / ORIGIN_WIDTH
+import { useMediaQuery } from "react-responsive"
 
 const Progress = () => {
   const userData = useSelector(getUserData)
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1999 })
+  const ORIGIN_WIDTH = 952
+  const PROGRESS_WIDTH = (window.innerWidth * 0.84) / 2 - (isTablet ? 30 : 70)
+
+  const ratio = PROGRESS_WIDTH / ORIGIN_WIDTH
   const percent =
     userData?.levelProgress * 100 > 100 ? 100 : userData?.levelProgress * 100
   const getProgessbarWidth = () => {
@@ -79,10 +82,14 @@ const Progress = () => {
       </div>
       <div className="profile-progress__progress-bar-wrapper">
         <div style={{ width: "100%", overflow: "hidden" }}>
-          <PendingProgressBar />
+          <img src={pending} width="100%" className="pending-progress" />
         </div>
         <div className="profile-progress__done-progress-wrapper">
-          <DoneProgressBar width={getProgessbarWidth()} />
+          <img
+            src={done}
+            width={getProgessbarWidth()}
+            className="done-progress"
+          />
         </div>
         <div className="profile-progress__left-icon-wrapper">
           {getProgressImage().start ? (

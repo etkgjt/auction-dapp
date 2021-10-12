@@ -85,16 +85,13 @@ const Step = () => {
       </div>
       <div className="step4-container">
         <div className="step4-inner">
-          <div className="step4-title">
-            Nhận gói quà tặng Đại Sứ và
+          <div className="step4-label">
+            Nhận gói quà tặng Đại Sứ <br />
+            và Bắt đầu hành trình trở thành
             <br />
-            bắt đầu cuộc đua săn tìm VoiCoin
+            Đại Sứ Siêu Trí Nhớ Học Đường
           </div>
-          <div className="step4-label">Bước 04</div>
           <Row>
-            <Col xl="7" lg="7" md="7">
-              <img src={voucher} alt="voucher" className="step4-img" />
-            </Col>
             <Col xl="5" lg="5" md="5">
               <span className="step4-content">
                 <p>
@@ -107,6 +104,9 @@ const Step = () => {
                   hiểm...
                 </p>
               </span>
+            </Col>
+            <Col xl="7" lg="7" md="7">
+              <img src={voucher} alt="voucher" className="step4-img" />
             </Col>
           </Row>
         </div>
