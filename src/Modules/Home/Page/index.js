@@ -61,11 +61,16 @@ const Home = () => {
   const countLoading = useSelector(getCountNotiLoadingSelector)
   const isWedDayOrSunDay = moment().day() === 3 || moment().day() === 0
 
+  const [isFetched, setIsFetched] = useState(false)
+  const [isStartFetch, setIsStartFetch] = useState(false)
+
   React.useEffect(() => {
+    dispatch(NotiAction.setCountNotiLoading(true))
     window.scrollTo(0, 0)
   }, [])
   React.useEffect(() => {
     if (isLogin && userData?.userId) {
+      setIsStartFetch(true)
       dispatch(
         NotiAction.getCountUnreadNoti({
           userid: userData?.userId
@@ -75,8 +80,14 @@ const Home = () => {
   }, [isLogin, userData?.userId])
 
   React.useEffect(() => {
-    setFirstTime(false)
+    if (isStartFetch && !countLoading) {
+      setIsFetched(true)
+    }
+  }, [isStartFetch, countLoading])
+
+  React.useEffect(() => {
     if (notification) {
+      setFirstTime(false)
       if (notification.type === "popup") {
         SlideInModal.show(
           () => {},
@@ -123,14 +134,22 @@ const Home = () => {
           }
         )
       }
-    } else if (isWedDayOrSunDay && firstTime && !countLoading) {
+    }
+  }, [notification])
+
+  React.useEffect(() => {
+    if (isWedDayOrSunDay && isFetched && !notification && firstTime) {
+      setFirstTime(false)
       SlideInModal.show(
         () => {},
         <PopupNotiDrawEvent data={eventData} />,
-        "popup-voucher-modal-wrapper"
+        "popup-voucher-modal-wrapper",
+        () => {
+          dispatch(NotiAction.setCountUnreadNoti({}))
+        }
       )
     }
-  }, [notification])
+  }, [notification, isFetched])
 
   return (
     <div className="home__page">

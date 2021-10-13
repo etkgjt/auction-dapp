@@ -62,6 +62,7 @@ const Footer = () => {
               >
                 <li>
                   <Link
+                    to="#"
                     className="facebook-footer"
                     onClick={() => {
                       window.open(
@@ -75,6 +76,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
+                    to="#"
                     className="youtube-footer"
                     onClick={() => {
                       window.open(
@@ -88,7 +90,9 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    onClick={() => {
+                    to="#"
+                    onClick={(e) => {
+                      e.preventDefault()
                       window.open("https://vt.tiktok.com/ZSJKKuFoq", "_blank")
                     }}
                     className="titktok-footer"
