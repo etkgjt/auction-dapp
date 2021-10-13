@@ -45,12 +45,11 @@
   }
   .reason-area {
     .reason-container {
-      margin-left: 20vw;
-      margin-right: 20vw;
+      margin: auto;
       background: #ffc61a;
       padding: 45px 48px 45px 48px;
       border-radius: 40px;
-
+      width: 950px;
       .list-reason-item-container {
         display: flex;
         flex-direction: row;
@@ -88,7 +87,7 @@
         border: 5px solid #f2f2f2;
         border-radius: 40px;
         background: #fff;
-        padding: 140px 42px 60px 42px;
+        padding: 80px 42px 60px 42px;
         position: relative;
 
         .seemore-button {

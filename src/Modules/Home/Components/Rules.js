@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import { Col, Row } from "reactstrap"
 import banner from "../assets/images/rule-top-banner.png"
 
@@ -33,7 +33,21 @@ const getHornorTableHeight = () => {
   return getHornorTableWidth() / ratio
 }
 
+const isServer = typeof window === 'undefined';
+const WOW = !isServer ? require('wowjs') : null;
+
 const Rules = () => {
+
+  useEffect(() => {
+    new WOW.WOW({
+      boxClass: 'wow',
+      animateClass: 'animated',
+      offset: 20,
+      mobile: true,
+      live: true,
+    }).init();
+  }, []);
+
   const history = useHistory()
   const dispatch = useDispatch()
 
@@ -59,7 +73,7 @@ const Rules = () => {
       <div className="rules-container">
         <Row>
           <Col xl="7" lg="6" md="6">
-            <div className="rules-board">
+            <div data-wow-delay="0.2s" data-wow-offset="100" className="wow fadeInLeft rules-board">
               <img src={banner} alt="banner" className="rule-top-banner" />
               <div dangerouslySetInnerHTML={{ __html: rules?.description }} />
               <div className="seemore-button" onClick={onSeemorePress}>
@@ -69,7 +83,7 @@ const Rules = () => {
             </div>
           </Col>
           <Col xl="5" lg="6" md="6">
-            <div className="hornor-table-container">
+            <div data-wow-delay="0.2s" data-wow-offset="150" className="wow fadeInRight hornor-table-container">
               {/* <HornorTable
                 width={getHornorTableWidth()}
                 height={getHornorTableHeight()}
@@ -90,9 +104,9 @@ const Rules = () => {
                   xếp hạng
                 </h1>
 
-                {true ? (
+                {listRank !== undefined && listRank.length !== undefined && listRank.length > 0   ? (
                   listRank?.map((item, index) => (
-                    <div key={index} className="hornor-item-wrapper">
+                    <div key={index} data-wow-delay="0.2s" className="wow fadeInDown hornor-item-wrapper">
                       <p className="item-rank">{index + 1}</p>
                       <div className="item-avatar">
                         <AsyncImage
@@ -116,7 +130,7 @@ const Rules = () => {
                 ) : (
                   <>
                     <div className="hornor-table__image-wrapper">
-                      <img className="hornor-table__image" src={voirank} />
+                      <img data-wow-delay="0.2s" className="wow fadeInDown hornor-table__image" src={voirank} />
                     </div>
                     <p className="hornor-table-list__sub-title">
                       Cuộc đua <br />

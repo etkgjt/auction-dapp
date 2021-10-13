@@ -38,6 +38,8 @@ $value_eight: 1910px;
         padding: 35px 16px 12px 16px;
         border-radius: 10px;
         position: relative;
+        width: auto;
+
         .reason-title {
           position: absolute;
           top: -30px;
@@ -414,6 +416,7 @@ $value_eight: 1910px;
         margin-right: 8vw;
         padding: 30px 26px 30px 26px;
         border-radius: 25px;
+        width: auto;
 
         .list-reason-item-container {
           display: flex;
@@ -691,6 +694,7 @@ $value_eight: 1910px;
         margin-right: 8vw;
         padding: 30px 26px 30px 26px;
         border-radius: 25px;
+        width: auto;
 
         .list-reason-item-container {
           display: flex;
