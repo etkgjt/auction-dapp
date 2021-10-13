@@ -1,11 +1,43 @@
 {
-    "MENU": {
-        "home": "Trang chủ",
-        "introduce": "Giới thiệu",
-        "news": "Tin tức",
-        "teachers": "Đội ngũ giáo viên",
-        "partners": "Đối tác",
-        "support": "Hỗ trợ",
-        "contact": "Liên hệ"
-    }
+  "MENU": {
+    "home": "Trang chủ",
+    "introduce": "Giới thiệu",
+    "news": "Tin tức",
+    "teachers": "Đội ngũ giáo viên",
+    "partners": "Đối tác",
+    "support": "Hỗ trợ",
+    "contact": "Liên hệ"
+  },
+  "Ranking": {
+    "title": "Bảng xếp hạng"
+  },
+  "Achievement": {
+    "title": "Thành tựu"
+  },
+  "Ambassador": {
+    "title": "Đại sứ"
+  },
+  "Authenticate": {
+    "title1": "Quên mật khẩu",
+    "title2": "Đăng ký",
+    "title3": "Xác thực tài khoản"
+  },
+  "Gifts": {
+    "title": "Quà tặng"
+  },
+  "Home": {
+    "title": "Trang chủ"
+  },
+  "News": {
+    "title": "Tin tức"
+  },
+  "Notification": {
+    "title": "Thông báo"
+  },
+  "Profile": {
+    "title": "Thông tin cá nhân"
+  },
+  "Rules": {
+    "title": "Thể lệ chương trình"
+  }
 }

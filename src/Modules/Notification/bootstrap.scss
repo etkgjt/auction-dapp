@@ -71,7 +71,6 @@
     }
   }
 }
-
 .content-modal {
   min-width: 40vw !important;
   min-height: 40vh !important;
@@ -87,6 +86,10 @@
     top: -60px;
     right: -60px;
     cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.1s ease-in-out;
+    }
     &:active {
       transform: scale(0.9);
       transition: transform 0.1s ease-in;

@@ -1,5 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
+import { useMediaQuery } from "react-responsive"
 import { Link } from "react-router-dom"
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min"
+import { Col, Row } from "reactstrap"
 import {
   YoutubeIcon,
   FacebookIcon,
@@ -8,15 +11,34 @@ import {
   STNHDIcon
 } from "./icon"
 import "./index.scss"
-
+const logo = require("@src/assets/images/logo.png").default
 const Footer = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+  const [footerBackground, setFooterBackground] = useState("#fff")
+  const location = useLocation()
+
+  const getFooterBg = () => {
+    const { pathname } = window.location
+    if (
+      pathname.indexOf("news") !== -1 ||
+      pathname.indexOf("notifications") !== -1
+    ) {
+      if (footerBackground !== "#F26F1A") setFooterBackground("#F26F1A")
+      return
+    }
+    if (footerBackground !== "#fff") setFooterBackground("#fff")
+  }
+  React.useEffect(() => {
+    getFooterBg()
+  }, [location])
   return (
-    <footer className="footer-area">
+    <footer className="footer-area" style={{ background: footerBackground }}>
       <div className="copyright-area">
         <div className="container">
-          <div className="row m-0 h-100 justify-content-center align-items-center">
-            <div className="col-lg-8 col-md-8">
+          <Row className="m-0 h-100 justify-content-center align-items-center">
+            <Col lg="8" md="8" sm="8" xs="8" className="left-footer-wrapper">
               <span
+                className="ttl-footer"
                 style={{ cursor: "pointer" }}
                 onClick={() => {
                   window.open("https://tamtriluc.com/", "_blank")
@@ -24,10 +46,12 @@ const Footer = () => {
               >
                 <TTLIcon />
               </span>
-              <STNHDIcon />
-            </div>
+              <span className="stnhd-footer">
+                {isMobile ? <img src={logo} /> : <STNHDIcon />}
+              </span>
+            </Col>
 
-            <div className="col-lg-4 col-md-4">
+            <Col lg="4" md="4" xs="4" sm="4" className="footer-right">
               <p className="company-name">© 2021 Tâm Trí Lực</p>
               <ul
                 style={{
@@ -38,6 +62,7 @@ const Footer = () => {
               >
                 <li>
                   <Link
+                    className="facebook-footer"
                     onClick={() => {
                       window.open(
                         "https://www.facebook.com/tamtriluc/",
@@ -50,6 +75,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
+                    className="youtube-footer"
                     onClick={() => {
                       window.open(
                         "https://www.youtube.com/channel/UCgrOFNSSuzp6dIlpMWhUnCQ",
@@ -61,13 +87,13 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#">
+                  <Link to="/#" className="titktok-footer">
                     <TiktokIcon />
                   </Link>
                 </li>
               </ul>
-            </div>
-          </div>
+            </Col>
+          </Row>
         </div>
       </div>
     </footer>

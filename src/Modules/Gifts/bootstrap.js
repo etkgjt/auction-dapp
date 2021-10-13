@@ -16,7 +16,7 @@ export default {
         authRoute: true
       },
       props: {
-        title: "Thành tựu",
+        title: "Quà tặng",
         titleI18n: "Gifts:title",
         headerStyle: "fill"
       }

@@ -67,8 +67,8 @@ const Progress = () => {
       }
     }
     return {
-      start: voi4,
-      end: voi4
+      start: null,
+      end: voi1
     }
   }
   return (

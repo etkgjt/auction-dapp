@@ -62,6 +62,10 @@
         margin-top: 30px;
         position: relative;
         cursor: pointer;
+        &:hover {
+          transform: scale(1.05);
+          transition: transform 0.1s ease-in-out;
+        }
         &:active {
           transform: scale(0.9);
           transition: transform 0.2s ease-in-out;
@@ -288,7 +292,11 @@
     top: -30px;
     right: -30px;
     cursor: pointer;
-    & :active {
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.1s ease-in-out;
+    }
+    &:active {
       transform: scale(0.9);
       transition: transform 0.1s ease-in;
     }
@@ -329,6 +337,10 @@
       .use-button {
         position: relative;
         cursor: pointer;
+        &:hover {
+          transform: scale(1.05);
+          transition: transform 0.1s ease-in-out;
+        }
         &:active {
           transform: scale(0.9);
           transition: transform 0.1s ease-in;
@@ -371,6 +383,10 @@
     top: -40px;
     right: -40px;
     cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.1s ease-in-out;
+    }
     &:active {
       transform: scale(0.9);
       transition: transform 0.1s ease-in;

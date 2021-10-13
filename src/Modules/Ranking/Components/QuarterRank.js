@@ -44,12 +44,14 @@ const YearRank = ({ data = [] }) => {
               </div>
               <div className="medal-info-wrapper">
                 <p className="medal-name">{data[1]?.childFullName1}</p>
-                <span className="d-flex flex-row">
-                  <p className="medal-level">{`${
-                    data[1]?.level?.name || ""
-                  } | ${data[1]?.quarterYearPoint || ""}K`}</p>
-                  <CoinIcon />
-                </span>
+                {data[1]?.level?.name && data[1]?.quarterYearPoint ? (
+                  <span className="d-flex flex-row">
+                    <p className="medal-level">{`${
+                      data[1]?.level?.name || "Hạng Nhì"
+                    } | ${data[1]?.quarterYearPoint || ""}K`}</p>
+                    <CoinIcon />
+                  </span>
+                ) : null}
               </div>
             </div>
           </Col>
@@ -72,12 +74,14 @@ const YearRank = ({ data = [] }) => {
               </div>
               <div className="gold-medal-info-wrapper">
                 <p className="medal-name">{data[0]?.childFullName1}</p>
-                <span className="d-flex flex-row">
-                  <p className="medal-level">{`${
-                    data[0]?.level?.name || ""
-                  } | ${data[0]?.quarterYearPoint || ""}K`}</p>
-                  <CoinIcon />
-                </span>
+                {data[0]?.level?.name && data[0]?.quarterYearPoint ? (
+                  <span className="d-flex flex-row">
+                    <p className="medal-level">{`${
+                      data[0]?.level?.name || "Hạng Nhất"
+                    } | ${data[0]?.quarterYearPoint || ""}K`}</p>
+                    <CoinIcon />
+                  </span>
+                ) : null}
               </div>
             </div>
           </Col>
@@ -99,13 +103,17 @@ const YearRank = ({ data = [] }) => {
                 </div>
               </div>
               <div className="silver-medal-info-wrapper">
-                <p className="medal-name">{data[2]?.childFullName1}</p>
-                <span className="d-flex flex-row">
-                  <p className="medal-level">{`${
-                    data[2]?.level?.name || ""
-                  } | ${data[2]?.quarterYearPoint || ""}K`}</p>
-                  <CoinIcon />
-                </span>
+                <p className="medal-name">
+                  {data[2]?.childFullName1 || "Hạng Ba"}
+                </p>
+                {data[2]?.level?.name && data[2]?.quarterYearPoint ? (
+                  <span className="d-flex flex-row">
+                    <p className="medal-level">{`${
+                      data[2]?.level?.name || ""
+                    } | ${data[2]?.quarterYearPoint || ""}K`}</p>
+                    <CoinIcon />
+                  </span>
+                ) : null}
               </div>
             </div>
           </Col>
@@ -173,21 +181,23 @@ const YearRank = ({ data = [] }) => {
           </div>
         </Collapse>
       </div>
-      <div
-        className="seemore_button"
-        onClick={() => setIsCollapse(!isCollapse)}
-      >
-        <SeemoreButton />
+      {data?.length > 3 ? (
         <div
-          style={{
-            position: "relative"
-          }}
+          className="seemore_button"
+          onClick={() => setIsCollapse(!isCollapse)}
         >
-          <p className="seemore-button-text">
-            {!isCollapse ? "Xem thêm" : "Ẩn bớt"}
-          </p>
+          <SeemoreButton />
+          <div
+            style={{
+              position: "relative"
+            }}
+          >
+            <p className="seemore-button-text">
+              {!isCollapse ? "Xem thêm" : "Ẩn bớt"}
+            </p>
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   )
 }

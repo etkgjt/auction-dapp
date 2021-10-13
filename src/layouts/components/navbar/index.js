@@ -1,4 +1,5 @@
 import "./index.scss"
+import "./responsive.scss"
 
 import React, { useState, useEffect } from "react"
 
@@ -98,7 +99,7 @@ const Navbar = () => {
               {!isLogin || isMobile ? null : (
                 <div className="nav-user-progress-container">
                   <div className="progress-info-wrapper">
-                    <span>{`${userData?.level?.name}` || ""}</span>
+                    <span>{userData?.level?.name || ""}</span>
                     <div className="progress-bar-wrapper">
                       <div className="done-progress-wrapper">
                         <DoneProgress width={PROGRES_DONE_LENGTH} />

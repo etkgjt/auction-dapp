@@ -1,9 +1,31 @@
-import React from "react"
+import React, { useState } from "react"
 import { Col, Row } from "reactstrap"
+import { RETCODE_SUCCESS } from "../../../configs/contants"
 import { MacOSIcon, DesktopIcon, GooglePlayIcon } from "../assets/icon"
 import voucher from "../assets/images/voucher.png"
+import { getDownloadAppLink } from "../Store/service"
 
 const Step = () => {
+  const [state, setState] = useState()
+  const fetchDownLoadingLink = async () => {
+    try {
+      const res = await getDownloadAppLink()
+      setState(res.data)
+    } catch (err) {}
+  }
+
+  React.useEffect(() => {
+    fetchDownLoadingLink()
+  }, [])
+  const googlePlayClick = () => {
+    window.open(state?.link_TaiAndroid, "_blank")
+  }
+  const appStoreClick = () => {
+    window.open(state?.link_TaiIOS, "_blank")
+  }
+  const windowClick = () => {
+    window.open(state?.link_TaiDesktop, "_blank")
+  }
   return (
     <div className="step-area">
       <h1 className="step-area__title">TRỞ THÀNH ĐẠI SỨ</h1>
@@ -20,19 +42,19 @@ const Step = () => {
           <div className="step1-title">Tải ứng dụng Tâm Trí Lực</div>
           <div className="step1-label">Bước 01</div>
           <div className="d-flex flex-row justify-content-between">
-            <div className="step1__item-wrapper">
+            <div onClick={appStoreClick} className="step1__item-wrapper">
               <div className="step1__item-icon-wrapper">
                 <MacOSIcon />
               </div>
               <p>AppStore</p>
             </div>
-            <div className="step1__item-wrapper">
+            <div onClick={googlePlayClick} className="step1__item-wrapper">
               <div className="step1__item-icon-wrapper">
                 <GooglePlayIcon />
               </div>
               <p>Google Play</p>
             </div>
-            <div className="step1__item-wrapper">
+            <div onClick={windowClick} className="step1__item-wrapper">
               <div className="step1__item-icon-wrapper">
                 <DesktopIcon />
               </div>

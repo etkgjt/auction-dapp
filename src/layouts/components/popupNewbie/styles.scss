@@ -1,3 +1,14 @@
+$media: screen;
+$feature_min: min-width;
+$feature_max: max-width;
+$value_one: 767px;
+$value_two: 768px;
+$value_three: 991px;
+$value_four: 992px;
+$value_five: 1199px;
+$value_six: 1200px;
+$value_seven: 1350px;
+$value_eight: 1910px;
 .popup-newbie-container {
   position: relative;
   .popup-newbie-content-wrapper {
@@ -28,4 +39,6 @@
       transform: scale(0.9);
     }
   }
+}
+@media only #{$media} and ($feature_max : $value_one) {
 }

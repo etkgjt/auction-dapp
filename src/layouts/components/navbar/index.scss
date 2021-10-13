@@ -79,6 +79,14 @@
       width: 56px;
       height: 56px;
       z-index: 99;
+      &:hover {
+        transform: scale(1.05);
+        transition: transform 0.1s ease-in-out;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease-in;
+      }
     }
     .nav-dropdown-container {
       position: absolute;
@@ -123,7 +131,11 @@
           position: relative;
           &:hover {
             transform: scale(1.05);
-            transition: transform 0.2s ease-in-out;
+            transition: transform 0.1s ease-in-out;
+          }
+          &:active {
+            transform: scale(0.9);
+            transition: transform 0.1s ease-in-out;
           }
           & > span {
             position: absolute;

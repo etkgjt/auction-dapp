@@ -19,14 +19,37 @@ $value_eight: 1910px;
     position: relative;
     margin-right: 16px;
     cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.1s ease-in-out;
+    }
+    &:active {
+      transform: scale(0.9);
+      transition: transform 0.1s ease-in;
+    }
   }
   .next-button-container {
     position: relative;
     cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.1s ease-in-out;
+    }
+    &:active {
+      transform: scale(0.9);
+      transition: transform 0.1s ease-in;
+    }
   }
   .break-button-container {
     position: relative;
-
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.1s ease-in-out;
+    }
+    &:active {
+      transform: scale(0.9);
+      transition: transform 0.1s ease-in;
+    }
     .break-button-label {
       user-select: none;
       position: absolute;
@@ -42,6 +65,14 @@ $value_eight: 1910px;
   .page-button-container {
     position: relative;
     cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.1s ease-in-out;
+    }
+    &:active {
+      transform: scale(0.9);
+      transition: transform 0.1s ease-in;
+    }
     .page-button-label {
       user-select: none;
       position: absolute;

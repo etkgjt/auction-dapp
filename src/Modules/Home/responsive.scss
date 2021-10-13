@@ -284,6 +284,109 @@ $value_eight: 1910px;
       }
     }
   }
+  .popup-voucher-modal-wrapper {
+    min-width: 30vw !important;
+    min-height: 40vh !important;
+    background: transparent;
+    border: none;
+  }
+  .popup-voucher-container {
+    border: 2px solid #f2f2f2;
+    border-radius: 20px;
+    min-height: 60vh;
+    min-width: 40vw;
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .popup-voucher__close-button {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      cursor: pointer;
+      & > svg {
+        max-width: 45px;
+        max-height: 45px;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease-in;
+      }
+    }
+    .popup-voucher-list-title {
+      font-size: 20px;
+      line-height: 24px;
+    }
+    .submit-button-wrapper {
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      cursor: pointer;
+      & > svg {
+        max-width: 80%;
+        margin-left: 10%;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease-in;
+      }
+      .submit-button-text {
+        user-select: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        color: #f68317;
+      }
+    }
+    .popup-voucher-list-wrapper {
+      .popup-voucher-item-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        margin-bottom: 16px;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 16px;
+        & > div > span > svg {
+          max-width: 15px;
+          max-height: 15px;
+        }
+        & > svg {
+          max-width: 20px;
+          max-height: 20px;
+        }
+        .popup-voucher-item-title {
+          font-size: 13px;
+          line-height: 16px;
+          color: #1e3d74;
+          margin-bottom: 4px;
+        }
+        .popup-voucher-item-subtitle {
+          font-size: 11px;
+          line-height: 13px;
+
+          margin-bottom: 4px;
+        }
+        .popup-voucher-item-cost {
+          font-weight: bold;
+          font-size: 13px;
+          line-height: 16px;
+          color: #ffc61a;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 }
 
 @media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {

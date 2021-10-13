@@ -90,7 +90,7 @@ const Rules = () => {
                   xếp hạng
                 </h1>
 
-                {isLogin ? (
+                {true ? (
                   listRank?.map((item, index) => (
                     <div key={index} className="hornor-item-wrapper">
                       <p className="item-rank">{index + 1}</p>

@@ -70,6 +70,7 @@ $value_eight: 1910px;
             margin-bottom: 10px;
             .news-item-image-loading {
               border-radius: 10px;
+              max-width: 30vw;
             }
             .news-item-image {
               border-radius: 10px;
@@ -265,6 +266,7 @@ $value_eight: 1910px;
             margin-bottom: 16px;
             .news-item-image-loading {
               border-radius: 20px;
+              max-width: 20vw;
             }
             .news-item-image {
               border-radius: 20px;
@@ -314,6 +316,7 @@ $value_eight: 1910px;
             margin-right: 20px;
             .news-item-image-loading {
               border-radius: 20px !important;
+              max-width: 20vw;
             }
             .news-detail-image {
               width: 100%;

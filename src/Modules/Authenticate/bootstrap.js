@@ -28,7 +28,7 @@ export default {
       },
       props: {
         title: "Quên mật khẩu | Tâm Trí Lực",
-        titleI18n: "FormForgotPassword:title"
+        titleI18n: "Authenticate:title1"
       }
     },
     {
@@ -39,7 +39,7 @@ export default {
       },
       props: {
         title: "Đăng ký | Tâm Trí Lực",
-        titleI18n: "FormSignUp:title"
+        titleI18n: "Authenticate:title2"
       }
     },
     {
@@ -50,7 +50,7 @@ export default {
       },
       props: {
         title: "Xác thực tài khoản | Tâm Trí Lực",
-        titleI18n: "FormVerifyAccount:title"
+        titleI18n: "Authenticate:title3"
       }
     }
   ],

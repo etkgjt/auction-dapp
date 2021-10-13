@@ -11,13 +11,26 @@ $value_seven: 1350px;
 $value_eight: 1910px;
 
 @media only #{$media} and ($feature_max : $value_one) {
+  .popup-logout-button-wrapper {
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.1s ease-in-out;
+    }
+    &:active {
+      transform: scale(0.9);
+      transition: transform 0.1s ease-in;
+    }
+  }
   .invite-friend-button {
     & > svg {
       max-width: 45px;
       max-height: 45px;
     }
   }
-
+  .footer-area .copyright-area ul {
+    margin-top: 10px;
+  }
   .container {
     padding: 0;
   }
@@ -29,6 +42,54 @@ $value_eight: 1910px;
   }
   .navbar .nav__select .user-icon-wrapper {
     top: 15px;
+  }
+  .copyright-area {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    padding: 10px 26px 10px 26px;
+  }
+  .facebook-footer {
+    & > svg {
+      max-width: 30px;
+      max-height: 30px;
+    }
+  }
+  .youtube-footer {
+    & > svg {
+      max-width: 30px;
+      max-height: 30px;
+    }
+  }
+  .titktok-footer {
+    & > svg {
+      max-width: 30px;
+      max-height: 30px;
+    }
+  }
+  .stnhd-footer {
+    & > img {
+      width: 46px;
+      height: auto;
+    }
+    margin-left: 10px;
+  }
+  .ttl-footer {
+    & > svg {
+      max-width: 46px;
+      max-height: 40px;
+    }
+  }
+  .left-footer-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .company-name {
+    font-size: 9px;
+    line-height: 11px;
+    margin: 0px;
+    width: 30vw;
+    text-align: left;
   }
 }
 

@@ -67,10 +67,15 @@
         margin-top: 30px;
         position: relative;
         cursor: pointer;
+        &:hover {
+          transform: scale(1.05);
+          transition: transform 0.1s ease-in-out;
+        }
         &:active {
           transform: scale(0.9);
-          transition: transform 0.2s ease-in-out;
+          transition: transform 0.1s ease-in-out;
         }
+
         .profile-progress__button-text {
           user-select: none;
           position: absolute;
@@ -244,6 +249,10 @@
           bottom: 0;
           right: 0;
           cursor: pointer;
+          &:hover {
+            transform: scale(1.05);
+            transition: transform 0.1s ease-in-out;
+          }
           &:active {
             transform: scale(0.9);
             transition: transform 0.1s ease-in;
@@ -330,10 +339,15 @@
         .update-profile-button-wrapper {
           position: relative;
           cursor: pointer;
+          &:hover {
+            transform: scale(1.05);
+            transition: transform 0.1s ease-in-out;
+          }
           &:active {
             transform: scale(0.9);
             transition: transform 0.1s ease-in;
           }
+
           .update-profile-button-label {
             position: absolute;
             top: 50%;
@@ -396,8 +410,16 @@
     .margin-right {
       margin-right: 40px;
     }
-    .popup-logout-button-wrapper:active {
-      transform: scale(0.9);
+    .popup-logout-button-wrapper {
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.05);
+        transition: transform 0.1s ease-in-out;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease-in;
+      }
     }
   }
 }

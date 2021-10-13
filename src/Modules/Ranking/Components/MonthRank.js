@@ -16,7 +16,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
   return (
     <div className="ranking2-container">
       <div className="ranking1-top-label">
-        Tháng {moment().month()} <br /> Năm {moment().year()}
+        Tháng {moment().month() + 1} <br /> Năm {moment().year()}
       </div>
       <div className="medal-container">
         <Row>
@@ -38,13 +38,17 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                 </div>
               </div>
               <div className="medal-info-wrapper">
-                <p className="medal-name">{data[1]?.childFullName1 || ""}</p>
-                <span className="d-flex flex-row">
-                  <p className="medal-level">{`${
-                    data[1]?.level?.name || ""
-                  } | ${data[1]?.monthPoint || ""}K`}</p>
-                  <CoinIcon />
-                </span>
+                <p className="medal-name">
+                  {data[1]?.childFullName1 || "Hạng Nhì"}
+                </p>
+                {data[1]?.level?.name && data[1]?.monthPoint ? (
+                  <span className="d-flex flex-row">
+                    <p className="medal-level">{`${
+                      data[1]?.level?.name || ""
+                    } | ${data[1]?.monthPoint || ""}K`}</p>
+                    <CoinIcon />
+                  </span>
+                ) : null}
               </div>
             </div>
           </Col>
@@ -66,13 +70,17 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                 </div>
               </div>
               <div className="gold-medal-info-wrapper">
-                <p className="medal-name">{data[0]?.childFullName1 || ""}</p>
-                <span className="d-flex flex-row">
-                  <p className="medal-level">{`${
-                    data[0]?.level?.name || ""
-                  } | ${data[0]?.monthPoint || ""}K`}</p>
-                  <CoinIcon />
-                </span>
+                <p className="medal-name">
+                  {data[0]?.childFullName1 || "Hạng Nhất"}
+                </p>
+                {data[0]?.level?.name && data[0]?.monthPoint ? (
+                  <span className="d-flex flex-row">
+                    <p className="medal-level">{`${
+                      data[0]?.level?.name || ""
+                    } | ${data[0]?.monthPoint || ""}K`}</p>
+                    <CoinIcon />
+                  </span>
+                ) : null}
               </div>
             </div>
           </Col>
@@ -94,13 +102,17 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                 </div>
               </div>
               <div className="silver-medal-info-wrapper">
-                <p className="medal-name">{data[2]?.childFullName1 || ""}</p>
-                <span className="d-flex flex-row">
-                  <p className="medal-level">{`${
-                    data[2]?.level?.name || ""
-                  } | ${data[2]?.monthPoint || ""}K`}</p>
-                  <CoinIcon />
-                </span>
+                <p className="medal-name">
+                  {data[2]?.childFullName1 || "Hạng Ba"}
+                </p>
+                {data[2]?.level?.name && data[2]?.monthPoint ? (
+                  <span className="d-flex flex-row">
+                    <p className="medal-level">{`${
+                      data[2]?.level?.name || ""
+                    } | ${data[2]?.monthPoint || ""}K`}</p>
+                    <CoinIcon />
+                  </span>
+                ) : null}
               </div>
             </div>
           </Col>
@@ -162,21 +174,23 @@ const QuaterRank = ({ topLabel, data = [] }) => {
           </Row>
         </Collapse>
       </div>
-      <div
-        className="seemore_button"
-        onClick={() => setIsCollapse(!isCollapse)}
-      >
-        <SeemoreButton />
+      {data?.length > 3 ? (
         <div
-          style={{
-            position: "relative"
-          }}
+          className="seemore_button"
+          onClick={() => setIsCollapse(!isCollapse)}
         >
-          <p className="seemore-button-text">
-            {!isCollapse ? "Xem thêm" : "Ẩn bớt"}
-          </p>
+          <SeemoreButton />
+          <div
+            style={{
+              position: "relative"
+            }}
+          >
+            <p className="seemore-button-text">
+              {!isCollapse ? "Xem thêm" : "Ẩn bớt"}
+            </p>
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   )
 }

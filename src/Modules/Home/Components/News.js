@@ -38,31 +38,28 @@ const News = () => {
           Theo dõi để không bỏ lỡ cơ hội nhận và đổi hàng nghìn quà tặng hấp dẫn
         </h1>
         <div style={{ position: "relative" }}>
-          {listNews?.listData?.length < numItems + 1 ? null : (
-            <>
-              <div
-                onClick={() => {
-                  carouselRef?.current?.prev()
-                }}
-                className="arrow-left"
-              >
-                <ArrowLeftIcon />
-              </div>
-              <div
-                onClick={() => {
-                  carouselRef?.current?.next()
-                }}
-                className="arrow-right"
-              >
-                <ArrowRightIcon />
-              </div>
-            </>
-          )}
+          <div
+            onClick={() => {
+              carouselRef?.current?.prev()
+            }}
+            className="arrow-left"
+          >
+            <ArrowLeftIcon />
+          </div>
+          <div
+            onClick={() => {
+              carouselRef?.current?.next()
+            }}
+            className="arrow-right"
+          >
+            <ArrowRightIcon />
+          </div>
 
           <Carousel
             margin={numItems === 3 ? 20 : 0}
             ref={carouselRef}
             items={numItems}
+            loop
           >
             {listNews?.listData?.map((item, index) => (
               <div
