@@ -1,5 +1,5 @@
 import moment from "moment"
-import React from "react"
+import React, { useState } from "react"
 import { toast } from "react-toastify"
 import PopupUseGift from "./PopupUseGift"
 //Asset
@@ -18,7 +18,13 @@ import {
 } from "../../../configs/contants"
 import SlideInModal from "../../../components/SlideInModal"
 import { actions } from "../Store/MyGifts/reducer"
-import { actions as userActions } from "../../../store/user/reducer"
+import PopupNoti from "../Components/PopupNoti"
+
+const TickedNotiData = {
+  title: "CƠ HỘI NHẬN GIẢI THƯỞNG ĐẶC BIỆT ĐÃ ĐẾN!!!",
+  content:
+    "Chúc mừng bạn đã nhận được lượt quay từ Chương trình VÒNG QUAY MAY MẮN trong tháng này.Hãy mời thêm nhiều người bạn để nhận thêm nhiều lượt quay và có cơ hội cao nhận giải thưởng trị giá 5.000.000đ trong chương trình. "
+}
 
 const getGiftImage = (type) => {
   switch (type) {
@@ -52,22 +58,7 @@ const getGiftBackground = (type) => {
     }
   }
 }
-const getGiftSubtitle = (type, subtitle) => {
-  switch (type) {
-    case "ticket": {
-      return "Ngày quay: " + moment(subtitle).format("DD/MM/YYYY")
-    }
-    case "voucher": {
-      return "Ngày quay: " + moment(subtitle).format("DD/MM/YYYY")
-    }
-    case "card": {
-      return "#F68317"
-    }
-    default: {
-      return "#EA5023"
-    }
-  }
-}
+
 const GiftItem = ({
   item,
   index,
@@ -77,6 +68,7 @@ const GiftItem = ({
 }) => {
   const dispatch = useDispatch()
   const userData = useSelector(getUserData)
+  const [isShowCode, setIsShowCode] = useState(false)
 
   const onRequestGift = async () => {
     try {
@@ -89,17 +81,26 @@ const GiftItem = ({
         status: 0
       })
       if (res.data.retCode === RETCODE_SUCCESS) {
-        toast.success(
-          "Đổi quà thành công, vui lòng kiểm tra lại trong Quà của tôi!",
-          {
-            position: "top-center",
-            autoClose: 5000,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined
-          }
-        )
+        if (item?.type === "ticket") {
+          SlideInModal.show(
+            () => {},
+            <PopupNoti data={TickedNotiData} />,
+            "ticket-popup-modal-wrapper"
+          )
+        } else {
+          toast.success(
+            "Đổi quà thành công, vui lòng kiểm tra lại trong Quà của tôi!",
+            {
+              position: "top-center",
+              autoClose: 5000,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined
+            }
+          )
+        }
+
         setActiveTab(1)
         dispatch(
           actions.getList({
@@ -134,7 +135,9 @@ const GiftItem = ({
         <div
           className="d-flex flex-row ticket-left"
           style={{
-            backgroundColor: getGiftBackground(`${item?.type}`.toLowerCase())
+            backgroundColor: isUsed
+              ? "#A2A2A2"
+              : getGiftBackground(`${item?.type}`.toLowerCase())
           }}
         >
           <img
@@ -148,8 +151,12 @@ const GiftItem = ({
                 ? "Ngày quay: " + moment(item?.expDate).format("DD/MM/YYYY")
                 : "Hạn sử dụng : " + moment(item?.expDate).format("DD/MM/YYYY")
             }`}</p>
-            {item.type === "ticket" ? (
-              <p className="gifts-item-point">{`+${item.code}`}</p>
+            {item?.type === "ticket" ? (
+              <span className="d-flex flex-row align-items-center">
+                <p className="gifts-item-point-red">
+                  {isShowCode || isUsed ? `${item?.description}` : "XX-XXXX"}
+                </p>
+              </span>
             ) : (
               <span className="d-flex flex-row align-items-center">
                 <p className="gifts-item-point">{`+${item.value}k`}</p>
@@ -158,35 +165,58 @@ const GiftItem = ({
             )}
           </div>
         </div>
-        {isUsed || item?.status === 1 ? null : (
-          <div
-            onClick={
-              item?.type === "ticket"
-                ? () => {}
-                : isTrade
-                ? onRequestGift
-                : onUseGiftPress
-            }
-            className="ticket-right"
-            style={{
-              backgroundColor: getGiftBackground(`${item?.type}`.toLowerCase())
-            }}
-          >
-            <p>
-              {isTrade ? (
+
+        <div
+          onClick={
+            isUsed
+              ? () => {}
+              : item?.type === "ticket"
+              ? () => setIsShowCode(!isShowCode)
+              : isTrade
+              ? onRequestGift
+              : onUseGiftPress
+          }
+          className="ticket-right"
+          style={{
+            backgroundColor: isUsed
+              ? "#A2A2A2"
+              : getGiftBackground(`${item?.type}`.toLowerCase())
+          }}
+        >
+          <p>
+            {isUsed ? (
+              <>
+                Đã
+                <br />
+                dùng
+              </>
+            ) : item?.type === "ticket" && !isTrade ? (
+              isShowCode ? (
                 <>
-                  Đổi
+                  Ẩn
                   <br />
-                  quà
+                  mã số
                 </>
               ) : (
                 <>
-                  Sử <br /> dụng
+                  Hiện
+                  <br />
+                  mã số
                 </>
-              )}
-            </p>
-          </div>
-        )}
+              )
+            ) : isTrade ? (
+              <>
+                Đổi
+                <br />
+                quà
+              </>
+            ) : (
+              <>
+                Sử <br /> dụng
+              </>
+            )}
+          </p>
+        </div>
       </div>
     </div>
   )

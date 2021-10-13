@@ -230,7 +230,7 @@
             display: flex;
             flex-direction: row;
             padding-left: 60px;
-            padding-right: 60px;
+            padding-right: 20px;
             align-items: center;
             margin-bottom: 20px;
             height: 80px;
@@ -301,6 +301,11 @@
                 color: #ffffff;
                 margin-top: 4px;
                 margin-bottom: 4px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* number of lines to show */
+                -webkit-box-orient: vertical;
               }
             }
           }
@@ -353,6 +358,11 @@
         margin-bottom: 42px;
       }
       .news-item__container {
+        &:hover {
+          transform: scale(1.01);
+          opacity: 0.9;
+          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        }
         .news-item__image-loading {
           border-radius: 40px;
         }
@@ -444,8 +454,8 @@
 }
 
 .popup-voucher-modal-wrapper {
-  min-width: 30vw !important;
-  min-height: 40vh !important;
+  width: 30vw !important;
+  height: 40vh !important;
   background: transparent;
   border: none;
 }
@@ -608,10 +618,12 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-left: calc((100% - 100px) / 10);
+    padding-right: calc((10%+100px));
     .content-title {
       font-weight: bold;
       font-size: 30px;

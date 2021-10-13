@@ -44,7 +44,7 @@ const Gifts = () => {
   const listAllGift = allGift?.listData || []
   const listUsedGift = usedGift?.listData || []
   const listMyGift = myGift?.listData || []
-
+  console.log(listMyGift)
   useEffect(() => {
     dispatch(
       allGiftActions.getList({

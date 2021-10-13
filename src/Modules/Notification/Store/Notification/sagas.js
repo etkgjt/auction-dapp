@@ -7,6 +7,7 @@ import { RETCODE_SUCCESS } from "../../../../configs/contants"
 const sagaListFunction = generateListSagas(actions, service)
 function* getCountUnreadNoti({ payload }) {
   try {
+    yield put(actions.setCountNotiLoading(true))
     const res = yield call(service.getCountUnreadNotiApi, { ...payload })
     if (res.data.retCode === RETCODE_SUCCESS) {
       yield put(actions.setCountUnreadNoti(res.data?.data))
@@ -15,6 +16,8 @@ function* getCountUnreadNoti({ payload }) {
     }
   } catch (err) {
     yield put(actions.setCountUnreadNoti({}))
+  } finally {
+    yield put(actions.setCountNotiLoading(false))
   }
 }
 

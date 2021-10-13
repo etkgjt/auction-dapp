@@ -287,8 +287,8 @@ $value_eight: 1910px;
     }
   }
   .popup-voucher-modal-wrapper {
-    min-width: 30vw !important;
-    min-height: 40vh !important;
+    width: 90vw !important;
+    height: 70vh !important;
     background: transparent;
     border: none;
   }
@@ -347,45 +347,171 @@ $value_eight: 1910px;
         color: #f68317;
       }
     }
-    .popup-voucher-list-wrapper {
-      .popup-voucher-item-wrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        user-select: none;
-        margin-bottom: 16px;
-        background-color: #fff;
-        border-radius: 10px;
-        padding: 16px;
-        & > div > span > svg {
-          max-width: 15px;
-          max-height: 15px;
-        }
-        & > svg {
-          max-width: 20px;
-          max-height: 20px;
-        }
-        .popup-voucher-item-title {
-          font-size: 13px;
-          line-height: 16px;
-          color: #1e3d74;
-          margin-bottom: 4px;
-        }
-        .popup-voucher-item-subtitle {
-          font-size: 11px;
-          line-height: 13px;
+  }
+  .popup-voucher-list-wrapper {
+    .popup-voucher-item-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      margin-bottom: 16px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 16px;
+      & > div > span > svg {
+        max-width: 15px;
+        max-height: 15px;
+      }
+      & > svg {
+        max-width: 20px;
+        max-height: 20px;
+      }
+      .popup-voucher-item-title {
+        font-size: 13px;
+        line-height: 16px;
+        color: #1e3d74;
+        margin-bottom: 4px;
+      }
+      .popup-voucher-item-subtitle {
+        font-size: 11px;
+        line-height: 13px;
 
-          margin-bottom: 4px;
-        }
-        .popup-voucher-item-cost {
-          font-weight: bold;
-          font-size: 13px;
-          line-height: 16px;
-          color: #ffc61a;
-          margin-bottom: 0;
-        }
+        margin-bottom: 4px;
+      }
+      .popup-voucher-item-cost {
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 16px;
+        color: #ffc61a;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .popup-levelup-container {
+    position: relative;
+    .popup-levelup-content-wrapper {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      min-width: 60%;
+      & > div {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 2px;
+      }
+      & > p {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 11px;
+        line-height: 13px;
+        text-align: center;
+        color: #ffffff;
+      }
+    }
+  }
+  .popup-noti-draw-container {
+    position: relative;
+    .popup-noti-draw-close-btn {
+      position: absolute;
+      top: -30px;
+      right: -40px;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.05);
+        transition: transform 0.1s ease-in;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease-in;
+      }
+    }
+    .popup-noti-draw-image-wrapper {
+      position: absolute;
+      width: 50%;
+      top: -100px;
+      left: 50%;
+      transform: translate(-50%);
+    }
+    .popup-noti-draw-content-wrapper {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-left: 10%;
+      .content-title {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #ffffff;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+        max-width: 100%;
+      }
+      .content-subtitle {
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 150%;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+      .content-subtitle-bold {
+        font-weight: bold;
+        font-size: 11px;
+        line-height: 120%;
+        text-align: center;
+        color: #ffffff;
+        text-transform: uppercase;
+        max-width: 80%;
+      }
+    }
+  }
+  .popup-home-noti-container {
+    position: relative;
+    .popup-home-noti-content-wrapper {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      user-select: none;
+      & > p {
+        font-size: 11px;
+        line-height: 13px;
+        margin-top: 10px;
+      }
+      & > h2 {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #ffffff;
+      }
+    }
+
+    .popup-home-noti-button-wrapper {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.05);
+        transition: transform 0.1s ease-in-out;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease-in-out;
       }
     }
   }
