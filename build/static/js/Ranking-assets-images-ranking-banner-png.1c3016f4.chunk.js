@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[233],{478:function(t,a,i){"use strict";i.r(a),a.default=i.p+"static/media/ranking-banner.56de7c79.png"}}]);
-//# sourceMappingURL=Ranking-assets-images-ranking-banner-png.1c3016f4.chunk.js.map

@@ -1,0 +1,2 @@
+(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[76],{354:function(t,i,a){"use strict";a.r(i),i.default={}}}]);
+//# sourceMappingURL=Ambassador-configs-api.0b8569d3.chunk.js.map

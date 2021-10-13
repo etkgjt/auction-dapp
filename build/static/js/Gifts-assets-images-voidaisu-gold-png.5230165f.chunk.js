@@ -1,0 +1,2 @@
+(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[205],{519:function(i,t,a){"use strict";a.r(t),t.default=a.p+"static/media/voidaisu-gold.f89430b2.png"}}]);
+//# sourceMappingURL=Gifts-assets-images-voidaisu-gold-png.5230165f.chunk.js.map

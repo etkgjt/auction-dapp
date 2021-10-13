@@ -1,0 +1,2 @@
+(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[73,187],{316:function(t,i,e){"use strict";e.r(i);e(5);var n=e(472),a=e(14);i.default=function(){return Object(a.jsx)("div",{className:"inviter-banner",children:Object(a.jsx)("img",{src:n.default,width:"100%",height:"auto"})})}},472:function(t,i,e){"use strict";e.r(i),i.default=e.p+"static/media/banner.d5d55383.png"}}]);
+//# sourceMappingURL=Ambassador-Components-Banner.308b3dd7.chunk.js.map

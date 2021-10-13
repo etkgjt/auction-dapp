@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[187],{464:function(i,t,a){"use strict";a.r(t),t.default=a.p+"static/media/doidi.8ec66efc.png"}}]);
-//# sourceMappingURL=Gifts-assets-images-doidi-png.aecbb367.chunk.js.map
