@@ -25,6 +25,7 @@ import {
   PendingProgress
 } from "./icon"
 import Dropdown from "./Dropdown"
+import { useMediaQuery } from "react-responsive"
 
 const PROGRESS_LENGTH = 250
 
@@ -33,6 +34,8 @@ const Navbar = () => {
   const dispatch = useDispatch()
 
   const { url } = useRouteMatch()
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 })
 
   /*Selectors*/
   const lang = useSelector((state) => getCodeLanguage(state))
@@ -78,7 +81,7 @@ const Navbar = () => {
               </a>
             </Link>
 
-            <button
+            {/* <button
               onClick={toggleNavbar}
               className={classTwo}
               type="button"
@@ -89,10 +92,10 @@ const Navbar = () => {
               aria-label="Toggle navigation"
             >
               <span className="navbar-toggler-icon"></span>
-            </button>
+            </button> */}
 
             <div className="ms-auto others-option">
-              {isLogin ? (
+              {!isLogin || isMobile ? null : (
                 <div className="nav-user-progress-container">
                   <div className="progress-info-wrapper">
                     <span>{`${userData?.level?.name}` || ""}</span>
@@ -108,7 +111,7 @@ const Navbar = () => {
                     <span>{`${userData?.totalVoicoin || 0}k`}</span>
                   </div>
                 </div>
-              ) : null}
+              )}
 
               <div className={"nav__select" + (isLogin ? " login" : "")}>
                 {isLogin ? null : (

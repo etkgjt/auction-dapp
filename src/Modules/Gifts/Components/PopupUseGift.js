@@ -22,6 +22,7 @@ import {
 import { toast } from "react-toastify"
 import { actions } from "../Store/MyGifts/reducer"
 import { actions as usedGiftActions } from "../Store/UsedGifts/reducer"
+import { useMediaQuery } from "react-responsive"
 
 const { innerWidth: width, innerHeight: height } = window
 
@@ -29,7 +30,8 @@ const PopupUseGift = ({ item }) => {
   const dispatch = useDispatch()
   const { i18n } = useTranslation()
   const userData = useSelector(getUserData)
-
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 })
   const fetchUseCard = async (payload) => {
     try {
       const res = await postUseCard(payload)
@@ -154,10 +156,24 @@ const PopupUseGift = ({ item }) => {
       })
     }
   }
+  const getModalWidth = () => {
+    return !isMobile && !isTablet
+      ? width * 0.3
+      : isMobile
+      ? width * 0.9
+      : width * 0.6
+  }
+  const getModalHeight = () => {
+    return !isMobile && !isTablet
+      ? height * 0.5
+      : isMobile
+      ? height * 0.4
+      : height * 0.4
+  }
 
   return (
     <div className="popup-usegift-container">
-      <PopupNotiWrapper width={width * 0.3} height={height * 0.5} />
+      <PopupNotiWrapper width={getModalWidth()} height={getModalHeight()} />
       <div className="popup-usegift-content-wrapper">
         <h1>{item?.type === "card" ? "Sử dụng thẻ cào" : "Sử dụng Voucher"}</h1>
         <div className="popup-usegift-copyfield-wrapper">

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import { useParams } from "react-router"
 import { Row } from "reactstrap"
 import AsyncImage from "../../../components/AsyncImage"
@@ -11,6 +11,7 @@ const BlogDetail = () => {
   const { id, type } = useParams()
   const [loading, setLoading] = useState(false)
   const [dataDetail, setDataDetail] = useState()
+  const fbRef = useRef()
 
   const fetchNewsDetail = async () => {
     try {
@@ -60,16 +61,22 @@ const BlogDetail = () => {
             <ButtonOrange />
             <span className="news-detail-button__text">Quay về</span>
           </div>
-          <FacebookShareButton
-            url={window.location.href}
-            quote={dataDetail?.title}
-            hashtag="#VOICOIN_NEWS"
+
+          <div
+            className="news-detail-button-wrapper"
+            onClick={() => {
+              fbRef.current.click()
+            }}
           >
-            <div className="news-detail-button-wrapper">
-              <ButtonBlue />
-              <span className="news-detail-button__text">Chia sẻ</span>
-            </div>
-          </FacebookShareButton>
+            <ButtonBlue />
+            <span className="news-detail-button__text">Chia sẻ</span>
+            <FacebookShareButton
+              ref={fbRef}
+              url={window.location.href}
+              quote={dataDetail?.title}
+              hashtag="#VOICOIN_NEWS"
+            />
+          </div>
         </div>
       </div>
     </div>

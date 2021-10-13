@@ -1,4 +1,5 @@
 import "../bootstrap.scss"
+import "../responsive.scss"
 
 import React, { useState, useEffect, Fragment } from "react"
 

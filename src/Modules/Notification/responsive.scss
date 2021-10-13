@@ -1,0 +1,342 @@
+$media: screen;
+$feature_min: min-width;
+$feature_max: max-width;
+$value_one: 767px;
+$value_two: 768px;
+$value_three: 991px;
+$value_four: 992px;
+$value_five: 1199px;
+$value_six: 1200px;
+$value_seven: 1350px;
+$value_eight: 1910px;
+
+@media only #{$media} and ($feature_max : $value_one) {
+  .notification__page {
+    .notification-area {
+      background: linear-gradient(180deg, #f68318 0%, #f1691b 100%);
+      padding-top: 160px;
+      padding-left: 5vw;
+      padding-right: 5vw;
+      padding-bottom: 90px;
+      min-height: 100vh;
+      .notification-wrapper {
+        background: #ffffff;
+        border: 2px solid #f2f2f2;
+        border-radius: 20px;
+        padding: 20px;
+        min-height: 60vh;
+        .notification-item-wrapper {
+          cursor: pointer;
+          position: relative;
+          width: 100%;
+          &:hover {
+            opacity: 0.6;
+          }
+          .notification-divider {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: rgba(229, 229, 229, 0.5);
+            opacity: 1;
+            height: 2px;
+          }
+          .notification-date {
+            font-size: 9px;
+            line-height: 11px;
+            margin-bottom: 5px;
+          }
+          .notification-title {
+            font-size: 11px;
+            line-height: 13px;
+            margin-bottom: 5px;
+          }
+          .notification-subtitle {
+            font-size: 11px;
+            line-height: 13px;
+          }
+          .unseen-badge {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ffa300;
+            border-radius: 5px;
+            right: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+          }
+        }
+      }
+    }
+  }
+  .content-modal {
+    min-width: 40vw !important;
+    min-height: 30vh !important;
+    max-width: 80vw;
+    margin-left: 10vw;
+    background: #ffffff;
+    border: 2px solid #f2f2f2;
+    box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    margin-top: 20vh;
+    .noti-close-btn {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      cursor: pointer;
+      & > svg {
+        max-width: 45px;
+        max-height: 45px;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease-in;
+      }
+    }
+  }
+  .noti-content-wrapper {
+    user-select: none;
+
+    .noti-title {
+      font-size: 11px;
+      line-height: 13px;
+      margin-bottom: 10px;
+    }
+    .noti-image-wrapper {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 40px;
+      .noti-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+    }
+    .noti-content {
+      font-size: 9px;
+      line-height: 11px;
+    }
+  }
+  .modal-body {
+    padding: 0px;
+  }
+}
+
+@media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
+  .notification__page {
+    .notification-area {
+      min-height: 100vh;
+      .notification-wrapper {
+        border: 3px solid #f2f2f2;
+        border-radius: 20px;
+        padding: 24px 32px 24px 32px;
+        min-height: 60vh;
+        .notification-item-wrapper {
+          cursor: pointer;
+          position: relative;
+          width: 100%;
+          &:hover {
+            opacity: 0.6;
+          }
+          .notification-divider {
+            margin-top: 25px;
+            margin-bottom: 25px;
+            background-color: rgba(229, 229, 229, 0.5);
+            opacity: 1;
+            height: 2px;
+          }
+          .notification-date {
+            font-size: 11px;
+            line-height: 13px;
+            margin-bottom: 6px;
+          }
+          .notification-title {
+            font-size: 14px;
+            line-height: 17px;
+          }
+          .notification-subtitle {
+            font-size: 14px;
+            line-height: 17px;
+          }
+          .unseen-badge {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ffa300;
+            border-radius: 5px;
+            right: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+          }
+        }
+      }
+    }
+  }
+  .content-modal {
+    min-width: 40vw !important;
+    min-height: 30vh !important;
+    background: #ffffff;
+    border: 5px solid #f2f2f2;
+    box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 36px;
+    position: relative;
+    margin-top: 20vh;
+    .noti-close-btn {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      cursor: pointer;
+      & > svg {
+        max-width: 70px;
+        max-height: 70px;
+      }
+
+      &:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease-in;
+      }
+    }
+  }
+  .noti-content-wrapper {
+    user-select: none;
+
+    .noti-title {
+      font-style: normal;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 24px;
+      color: #1e3d74;
+      margin-bottom: 20px;
+    }
+    .noti-image-wrapper {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 40px;
+      .noti-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+    }
+    .noti-content {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+  .modal-body {
+    padding: 0px;
+  }
+}
+
+@media only #{$media} and ($feature_min : $value_four) and ($feature_max : $value_five) {
+  .notification__page {
+    .notification-area {
+      min-height: 100vh;
+      .notification-wrapper {
+        border: 3px solid #f2f2f2;
+        border-radius: 20px;
+        padding: 24px 32px 24px 32px;
+        min-height: 60vh;
+        .notification-item-wrapper {
+          cursor: pointer;
+          position: relative;
+          width: 100%;
+          &:hover {
+            opacity: 0.6;
+          }
+          .notification-divider {
+            margin-top: 25px;
+            margin-bottom: 25px;
+            background-color: rgba(229, 229, 229, 0.5);
+            opacity: 1;
+            height: 2px;
+          }
+          .notification-date {
+            font-size: 11px;
+            line-height: 13px;
+            margin-bottom: 6px;
+          }
+          .notification-title {
+            font-size: 14px;
+            line-height: 17px;
+          }
+          .notification-subtitle {
+            font-size: 14px;
+            line-height: 17px;
+          }
+          .unseen-badge {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ffa300;
+            border-radius: 5px;
+            right: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+          }
+        }
+      }
+    }
+  }
+  .content-modal {
+    min-width: 40vw !important;
+    min-height: 30vh !important;
+    max-width: 60vw;
+    background: #ffffff;
+    border: 5px solid #f2f2f2;
+    box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 36px;
+    position: relative;
+    margin-top: 20vh;
+    margin-left: 10vw;
+    .noti-close-btn {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      cursor: pointer;
+      & > svg {
+        max-width: 70px;
+        max-height: 70px;
+      }
+
+      &:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease-in;
+      }
+    }
+  }
+  .noti-content-wrapper {
+    user-select: none;
+
+    .noti-title {
+      font-style: normal;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 24px;
+      color: #1e3d74;
+      margin-bottom: 20px;
+    }
+    .noti-image-wrapper {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 40px;
+      .noti-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+    }
+    .noti-content {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+  .modal-body {
+    padding: 0px;
+  }
+}

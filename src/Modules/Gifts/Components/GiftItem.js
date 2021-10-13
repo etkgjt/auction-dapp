@@ -151,7 +151,7 @@ const GiftItem = ({
             {item.type === "ticket" ? (
               <p className="gifts-item-point">{`+${item.code}`}</p>
             ) : (
-              <span className="d-flex flex-row">
+              <span className="d-flex flex-row align-items-center">
                 <p className="gifts-item-point">{`+${item.value}k`}</p>
                 <GoldIcon />
               </span>

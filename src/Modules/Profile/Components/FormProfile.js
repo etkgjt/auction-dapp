@@ -52,7 +52,7 @@ const FormProfile = () => {
   const userData = useSelector(getUserData)
   const history = useHistory()
   const isMobile = useMediaQuery({ maxWidth: 767 })
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1999 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 })
   //REf
   const cropImageRef = useRef()
   const formRef = useRef()

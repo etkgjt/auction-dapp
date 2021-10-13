@@ -7,7 +7,7 @@ import { X } from "react-feather"
 import { useMediaQuery } from "react-responsive"
 const ImageEditor = (props, ref) => {
   const isMobile = useMediaQuery({ maxWidth: 767 })
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1999 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 })
   const { image, onSubmit, setOldSrc = () => {} } = props
   const [stateImg, setStateImg] = useState({
     allowZoomOut: false,

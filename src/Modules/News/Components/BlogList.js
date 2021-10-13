@@ -57,7 +57,7 @@ const BlogOne = () => {
         </div>
         <Row>
           {listNews?.listData?.map((item, index) => (
-            <Col xl="3" lg="3">
+            <Col xl="3" lg="3" md="3" sm="4" xs="4">
               <div
                 className="news-item-wrapper"
                 onClick={() => {

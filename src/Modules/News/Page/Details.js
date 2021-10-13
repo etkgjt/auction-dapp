@@ -1,5 +1,5 @@
 import "../bootstrap.scss"
-
+import "../responsive.scss"
 import React from "react"
 
 import BlogDetail from "@Modules/News/Components/BlogDetail"

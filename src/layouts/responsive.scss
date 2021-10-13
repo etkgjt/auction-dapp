@@ -1,0 +1,39 @@
+$media: screen;
+$feature_min: min-width;
+$feature_max: max-width;
+$value_one: 767px;
+$value_two: 768px;
+$value_three: 991px;
+$value_four: 992px;
+$value_five: 1199px;
+$value_six: 1200px;
+$value_seven: 1350px;
+$value_eight: 1910px;
+
+@media only #{$media} and ($feature_max : $value_one) {
+  .invite-friend-button {
+    & > svg {
+      max-width: 45px;
+      max-height: 45px;
+    }
+  }
+
+  .container {
+    padding: 0;
+  }
+  .crake-nav {
+    padding: 0;
+    background-color: #fea005;
+    border-bottom: none;
+    width: 100vw;
+  }
+  .navbar .nav__select .user-icon-wrapper {
+    top: 15px;
+  }
+}
+
+@media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
+}
+
+@media only #{$media} and ($feature_min : $value_four) and ($feature_max : $value_five) {
+}

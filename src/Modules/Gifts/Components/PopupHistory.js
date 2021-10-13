@@ -14,17 +14,19 @@ import {
   getListLoadingSelector,
   getListSelector
 } from "../Store/History/selector"
+import { useMediaQuery } from "react-responsive"
 
 const PopupHistory = () => {
   const dispatch = useDispatch()
   const userData = useSelector(getUserData)
   const listHistory = useSelector(getListSelector)
   const listHistoryLoading = useSelector(getListLoadingSelector)
+  const isMobile = useMediaQuery({ maxWidth: 767 })
   useEffect(() => {
     dispatch(
       actions.getList({
         page: 1,
-        limit: HOME_RANK_LIMIT_DEFAULT,
+        limit: isMobile ? 3 : HOME_RANK_LIMIT_DEFAULT,
         userid: userData?.userId
       })
     )
@@ -33,7 +35,7 @@ const PopupHistory = () => {
     dispatch(
       actions.getList({
         page: selected + 1,
-        limit: HOME_RANK_LIMIT_DEFAULT,
+        limit: isMobile ? 3 : HOME_RANK_LIMIT_DEFAULT,
         userid: userData?.userId
       })
     )

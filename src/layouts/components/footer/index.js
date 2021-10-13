@@ -14,7 +14,7 @@ const Footer = () => {
     <footer className="footer-area">
       <div className="copyright-area">
         <div className="container">
-          <div className="row h-100 justify-content-center align-items-center">
+          <div className="row m-0 h-100 justify-content-center align-items-center">
             <div className="col-lg-8 col-md-8">
               <span
                 style={{ cursor: "pointer" }}

@@ -49,7 +49,7 @@ const data = [
 const Achievement = () => {
   const userData = useSelector(getUserData)
   const isMobile = useMediaQuery({ maxWidth: 767 })
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1999 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 })
   return (
     <div className="achievement-container">
       <div className="achievement-top-header-wrapper">

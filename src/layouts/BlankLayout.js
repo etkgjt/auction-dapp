@@ -12,7 +12,7 @@ import { useSelector } from "react-redux"
 import { getUserData } from "../store/user/selector"
 import { loginSuccessSelector } from "../Modules/Authenticate/store/auth/selectors"
 import MessengerCustomerChat from "react-messenger-customer-chat"
-
+import "./responsive.scss"
 const BlankLayout = ({ children, ...rest }) => {
   // ** States
   const [isMounted, setIsMounted] = useState(false)

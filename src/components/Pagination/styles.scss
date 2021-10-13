@@ -1,3 +1,14 @@
+$media: screen;
+$feature_min: min-width;
+$feature_max: max-width;
+$value_one: 767px;
+$value_two: 768px;
+$value_three: 991px;
+$value_four: 992px;
+$value_five: 1199px;
+$value_six: 1200px;
+$value_seven: 1350px;
+$value_eight: 1910px;
 .pagination-container {
   display: flex;
   flex-direction: row;
@@ -43,5 +54,133 @@
       font-weight: 700;
     }
     margin-right: 16px;
+  }
+}
+@media only #{$media} and ($feature_max : $value_one) {
+  .pagination-container {
+    display: flex;
+    flex-direction: row;
+    & > li {
+      list-style: none;
+    }
+    .back-button-container {
+      position: relative;
+      margin-right: 6px;
+      cursor: pointer;
+      & > svg {
+        max-width: 20px;
+        max-height: 40px;
+      }
+    }
+    .next-button-container {
+      position: relative;
+      cursor: pointer;
+      & > svg {
+        max-width: 20px;
+        max-height: 40px;
+      }
+    }
+    .break-button-container {
+      position: relative;
+      & > svg {
+        max-width: 20px;
+        max-height: 40px;
+      }
+      .break-button-label {
+        user-select: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        line-height: 5px;
+        font-size: 20px;
+      }
+      margin-right: 6px;
+    }
+    .page-button-container {
+      position: relative;
+      cursor: pointer;
+      & > svg {
+        max-width: 20px;
+        max-height: 40px;
+      }
+      .page-button-label {
+        user-select: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        line-height: 13px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      margin-right: 6px;
+    }
+  }
+}
+@media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
+  .pagination-container {
+    display: flex;
+    flex-direction: row;
+    & > li {
+      list-style: none;
+    }
+    .back-button-container {
+      position: relative;
+      margin-right: 6px;
+      cursor: pointer;
+      & > svg {
+        max-width: 20px;
+        max-height: 40px;
+      }
+    }
+    .next-button-container {
+      position: relative;
+      cursor: pointer;
+      & > svg {
+        max-width: 20px;
+        max-height: 40px;
+      }
+    }
+    .break-button-container {
+      position: relative;
+      & > svg {
+        max-width: 20px;
+        max-height: 40px;
+      }
+      .break-button-label {
+        user-select: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        line-height: 5px;
+        font-size: 20px;
+      }
+      margin-right: 6px;
+    }
+    .page-button-container {
+      position: relative;
+      cursor: pointer;
+      & > svg {
+        max-width: 20px;
+        max-height: 40px;
+      }
+      .page-button-label {
+        user-select: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        line-height: 13px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      margin-right: 6px;
+    }
   }
 }

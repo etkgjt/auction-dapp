@@ -23,7 +23,7 @@ import { useMediaQuery } from "react-responsive"
 
 const Progress = () => {
   const userData = useSelector(getUserData)
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1999 })
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 })
   const ORIGIN_WIDTH = 952
   const PROGRESS_WIDTH = (window.innerWidth * 0.84) / 2 - (isTablet ? 30 : 70)
 

@@ -98,7 +98,7 @@ const BlogOne = () => {
   return (
     <div className="notification-area">
       <div className="notification-wrapper">
-        <Row className="w-100">
+        <Row>
           {listNoti?.listData?.map((item, index) => (
             <Col
               key={item?.id}
@@ -113,7 +113,7 @@ const BlogOne = () => {
                 fetchNotiDetail(item?.id)
               }}
             >
-              <div className="notification-item-wrapper w-100">
+              <div className="notification-item-wrapper">
                 {index !== 0 ? <hr className="notification-divider" /> : null}
                 <div className="notification-date">{item?.createdAt}</div>
                 <div className="notification-title">{item?.title}</div>
@@ -149,10 +149,10 @@ const BlogOne = () => {
               <LoadingIndicator />
             ) : (
               <Row>
-                <Col xl="12" lg="12">
+                <Col xl="12" lg="12" sm="12" xs="12">
                   <h3 className="noti-title">{dataDetail?.title}</h3>
                 </Col>
-                <Col xl="5" lg="5">
+                <Col xl="5" lg="5" sm="5" xs="5">
                   <div className="noti-image-wrapper">
                     <AsyncImage
                       className="noti-image"
@@ -161,7 +161,7 @@ const BlogOne = () => {
                     />
                   </div>
                 </Col>
-                <Col xl="7" lg="7">
+                <Col xl="7" lg="7" sm="7" xs="7">
                   <p className="noti-content">{dataDetail?.content}</p>
                 </Col>
               </Row>

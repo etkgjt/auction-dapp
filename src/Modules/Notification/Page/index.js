@@ -1,4 +1,5 @@
 import "../bootstrap.scss"
+import "../responsive.scss"
 
 import React, { useState, useEffect, Fragment } from "react"
 
@@ -14,7 +15,7 @@ const News = () => {
   const { t } = useTranslation()
 
   return (
-    <div className="news__page">
+    <div className="notification__page">
       <BlogList />
     </div>
   )
