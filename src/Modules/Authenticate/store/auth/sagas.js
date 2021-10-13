@@ -51,7 +51,7 @@ function* fetchSignInSaga({ payload }) {
 
 function* fetchLogoutSaga() {
   yield put(ActionsAuth.authLogoutSuccess({}))
-  yield put(ActionsUser.setInfoData({}))
+  yield put(ActionsUser.clearData({}))
 }
 
 export default function* authSaga() {

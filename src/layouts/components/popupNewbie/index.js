@@ -27,10 +27,22 @@ const NewbiePopup = () => {
       : height * 0.4
   }
   return (
-    <div className="popup-newbie-container">
+    <div
+      className="popup-newbie-container"
+      style={{ width: getModalWidth(), height: getModalHeight() }}
+    >
       <PopupBlockWrapper width={getModalWidth()} height={getModalHeight()} />
       <div className="popup-newbie-content-wrapper">
-        <p>Hãy trở thành Đại sứ Tâm Trí Lực</p>
+        <p className="popup-newbie-title">Chúc mừng bạn mới</p>
+        <p className="popup-newbie-content">
+          Chào mừng bạn đã tham gia sân chơi Đại Sứ Siêu Trí Nhớ Học Đường. BTC
+          đã chuẩn bị và dành tặng cho bạn những món quà bất ngờ. Để nhận quà,
+          bạn hãy thực hiện ngay nhiệm vụ được giao theo hướng dẫn dưới đây
+          nhé!!!
+        </p>
+        <p className="popup-newbie-subtitle">
+          TẢI APP TÂM TRÍ LỰC VÀ TRẢI NGHIỆM SIÊU TRÍ NHỚ HỌC ĐƯỜNG
+        </p>
       </div>
       <div className="newbie-icon-wrapper">
         <div

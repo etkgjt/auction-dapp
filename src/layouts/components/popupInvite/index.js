@@ -25,7 +25,10 @@ const InvitePopup = () => {
       : height * 0.4
   }
   return (
-    <div className="invite-popup-container">
+    <div
+      className="invite-popup-container"
+      style={{ width: getModalWidth(), height: getModalHeight() }}
+    >
       <PopupNotiWrapper width={getModalWidth()} height={getModalHeight()} />
       <div className="invite-popup-content-wrapper">
         <h1>Mời bạn mới</h1>

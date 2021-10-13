@@ -13,9 +13,11 @@ import gold3 from "../assets/images/gold3.png"
 
 import title from "../assets/images/title.png"
 import voi from "../assets/images/voi.png"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
 const Profile = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 })
+  const history = useHistory()
   return (
     <div className="profile-area">
       <Row>
@@ -27,7 +29,13 @@ const Profile = () => {
                   <Progress />
                 </Col>
                 <Col xs="4" sm="4">
-                  <div className="banner-image-wrapper">
+                  <div
+                    className="banner-image-wrapper"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      history.push("/gifts")
+                    }}
+                  >
                     <img src={gold1} className="gold1" />
                     <img src={gold2} className="gold2" />
                     <img src={gold3} className="gold3" />
@@ -49,11 +57,14 @@ const Profile = () => {
             <Col xl="6" lg="6" md="5">
               <Progress />
               <img
+                onClick={() => {
+                  history.push("/gifts")
+                }}
                 src={adImage}
                 width="114%"
                 height="auto"
                 className="mt-5"
-                style={{ maxWidth: "none", marginLeft: -20 }}
+                style={{ maxWidth: "none", marginLeft: -20, cursor: "pointer" }}
               />
             </Col>
           </>

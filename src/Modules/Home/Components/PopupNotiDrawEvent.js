@@ -24,7 +24,10 @@ const PopupNotiDraw = ({ data }) => {
       : height * 0.4
   }
   return (
-    <div className="popup-noti-draw-container">
+    <div
+      className="popup-noti-draw-container"
+      style={{ width: getModalHeight(), height: getModalHeight() }}
+    >
       <PopupNotiWrapper width={getModalHeight()} height={getModalHeight()} />
       <div
         className="popup-noti-draw-close-btn"

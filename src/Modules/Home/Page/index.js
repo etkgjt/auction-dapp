@@ -9,7 +9,10 @@ import News from "@Modules/Home/Components/News"
 
 import { actions as NotiAction } from "../../../Modules/Notification/Store/Notification/reducer"
 import { useDispatch, useSelector } from "react-redux"
-import { getUserData } from "../../../store/user/selector"
+import {
+  getIsShowedPopupNewbie,
+  getUserData
+} from "../../../store/user/selector"
 import {
   getCountNotiSelector,
   getCountNotiLoadingSelector
@@ -23,6 +26,10 @@ import PopupNotiDrawEvent from "../Components/PopupNotiDrawEvent"
 import SlideInModal from "../../../components/SlideInModal"
 import { loginSuccessSelector } from "../../Authenticate/store/auth/selectors"
 import moment from "moment"
+
+import PopupNewbie from "../../../layouts/components/popupNewbie"
+import { actions as userActions } from "../../../store/user/reducer"
+
 const getEndFridayOfMonth = () => {
   const result = moment().endOf("month")
   while (result.day() !== 4) {
@@ -63,6 +70,8 @@ const Home = () => {
 
   const [isFetched, setIsFetched] = useState(false)
   const [isStartFetch, setIsStartFetch] = useState(false)
+
+  const isShowedNewBie = useSelector(getIsShowedPopupNewbie)
 
   React.useEffect(() => {
     dispatch(NotiAction.setCountNotiLoading(true))
@@ -139,17 +148,35 @@ const Home = () => {
 
   React.useEffect(() => {
     if (isWedDayOrSunDay && isFetched && !notification && firstTime) {
-      setFirstTime(false)
       SlideInModal.show(
         () => {},
         <PopupNotiDrawEvent data={eventData} />,
         "popup-voucher-modal-wrapper",
         () => {
           dispatch(NotiAction.setCountUnreadNoti({}))
+          setFirstTime(false)
         }
       )
     }
   }, [notification, isFetched])
+
+  React.useEffect(() => {
+    if (
+      ((!firstTime && isWedDayOrSunDay) ||
+        (!isWedDayOrSunDay && !notification)) &&
+      userData?.flagDaisu === 0 &&
+      !isShowedNewBie
+    ) {
+      SlideInModal.show(
+        () => {},
+        <PopupNewbie />,
+        "invite-popup-modal-wrapper",
+        () => {
+          dispatch(userActions.setIsShowPopuoNewBie(true))
+        }
+      )
+    }
+  }, [firstTime])
 
   return (
     <div className="home__page">

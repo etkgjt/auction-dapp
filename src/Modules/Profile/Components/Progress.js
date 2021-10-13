@@ -66,11 +66,18 @@ const Progress = () => {
         end: voi4
       }
     }
+    if (currentPos === 4) {
+      return {
+        start: voi4,
+        end: null
+      }
+    }
     return {
       start: null,
       end: voi1
     }
   }
+
   return (
     <div className="profile-progress-area">
       <h1 className="profile-progress__title">Hành trình</h1>
@@ -102,7 +109,14 @@ const Progress = () => {
           ) : null}
         </div>
         <div className="profile-progress__right-icon-wrapper">
-          <img src={getProgressImage().end} alt="icon" width={78} height={50} />
+          {getProgressImage().end ? (
+            <img
+              src={getProgressImage().end}
+              alt="icon"
+              width={78}
+              height={50}
+            />
+          ) : null}
         </div>
       </div>
       <div

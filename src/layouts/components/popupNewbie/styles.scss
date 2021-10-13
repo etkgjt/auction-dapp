@@ -15,14 +15,36 @@ $value_eight: 1910px;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -70%);
+    transform: translate(-50%, -50%);
     user-select: none;
-    & > p {
+    width: 100%;
+    height: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .popup-newbie-title {
       font-weight: bold;
-      font-size: 30px;
+      font-size: 2rem;
       line-height: 36px;
       text-align: center;
       color: #ffffff;
+    }
+    .popup-newbie-content {
+      font-size: 1rem;
+      line-height: 27px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .popup-newbie-subtitle {
+      font-size: 1rem;
+      line-height: 27px;
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
     }
   }
   .newbie-icon-wrapper {

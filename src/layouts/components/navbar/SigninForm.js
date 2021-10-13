@@ -23,7 +23,11 @@ import {
   authSignIn,
   signInReset
 } from "../../../Modules/Authenticate/store/auth/actions"
+import PopupNewbie from "../popupNewbie"
+
 import { toast } from "react-toastify"
+import { getUserData } from "../../../store/user/selector"
+import SlideInModal from "../../../components/SlideInModal"
 const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
   const { i18n } = useTranslation()
   const history = useHistory()
@@ -32,7 +36,9 @@ const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
   const error = useSelector((state) => errorSelector(state))
   const loading = useSelector((state) => loadingSelector(state))
   const loginSuccess = useSelector((state) => loginSuccessSelector(state))
+
   const onSubmit = (values) => {
+    setIsDropdownOpen(false)
     dispatch(authSignIn(values))
   }
 
@@ -45,6 +51,14 @@ const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
     }
     if (loginSuccess) {
       history.push("/home")
+
+      if (userData?.flagDaisu === 0) {
+        SlideInModal.show(
+          () => {},
+          <PopupNewbie />,
+          "invite-popup-modal-wrapper"
+        )
+      }
       setIsDropdownOpen(false)
     }
     return () => {

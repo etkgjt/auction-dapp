@@ -44,7 +44,7 @@ const Gifts = () => {
   const listAllGift = allGift?.listData || []
   const listUsedGift = usedGift?.listData || []
   const listMyGift = myGift?.listData || []
-  console.log(listMyGift)
+
   useEffect(() => {
     dispatch(
       allGiftActions.getList({
@@ -89,9 +89,13 @@ const Gifts = () => {
   const renderMyGift = React.useMemo(() => {
     return (
       <>
-        {listMyGift.map((item, index) => {
-          return <GiftItem item={item} index={index} key={item?.id} />
-        })}
+        {listMyGift?.length ? (
+          listMyGift.map((item, index) => {
+            return <GiftItem item={item} index={index} key={item?.id} />
+          })
+        ) : (
+          <p className="text-center mt-2">Không có dữ liệu</p>
+        )}
       </>
     )
   }, [JSON.stringify(listMyGift)])

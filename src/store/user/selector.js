@@ -3,9 +3,9 @@ export const user = (state) => state.user
 
 export const getUserData = createSelector(user, (data) => data?.userData)
 
-// export const getGeneralMenu = createSelector(
-//     user,
-//   data => data?.generalInfoMenu || null,
-// );
+export const getIsShowedPopupNewbie = createSelector(
+  user,
+  (data) => data?.isShowedPopupNewbie || false
+)
 
 // export

@@ -205,11 +205,19 @@ const GiftItem = ({
                 </>
               )
             ) : isTrade ? (
-              <>
-                Đổi
-                <br />
-                quà
-              </>
+              item?.type === "ticket" ? (
+                <>
+                  Đổi
+                  <br />
+                  vé
+                </>
+              ) : (
+                <>
+                  Đổi
+                  <br />
+                  quà
+                </>
+              )
             ) : (
               <>
                 Sử <br /> dụng

@@ -52,49 +52,55 @@ const PopupHistory = () => {
         <CircleCloseButton />
       </div>
       <div className="history-list-wrapper">
-        {listHistory?.listData?.map((item, index) => (
-          <>
-            {index !== 0 ? <hr /> : null}
-            <div key={item?.id} className="history-item-wrapper">
-              <p className="history-item-date">{`${moment(
-                item?.createdAt
-              ).format("HH:mm")} | ${moment(item?.createdAt).format(
-                "DD.MM.YYYY"
-              )}`}</p>
-              <span className="d-flex flex-row justify-content-between">
-                <span
-                  className="history-item-title"
-                  style={
-                    item?.type !== 1
-                      ? {
-                          color: "#EA5023"
-                        }
-                      : null
-                  }
-                >
-                  {item?.title}
+        {listHistory?.listData?.length ? (
+          listHistory?.listData?.map((item, index) => (
+            <>
+              {index !== 0 ? <hr /> : null}
+              <div key={item?.id} className="history-item-wrapper">
+                <p className="history-item-date">{`${moment(
+                  item?.createdAt
+                ).format("HH:mm")} | ${moment(item?.createdAt).format(
+                  "DD.MM.YYYY"
+                )}`}</p>
+                <span className="d-flex flex-row justify-content-between">
+                  <span
+                    className="history-item-title"
+                    style={
+                      item?.type !== 1
+                        ? {
+                            color: "#EA5023"
+                          }
+                        : null
+                    }
+                  >
+                    {item?.title}
+                  </span>
+                  <span className="history-item-point">
+                    {item?.changeValue}
+                    <GoldIcon />
+                  </span>
                 </span>
-                <span className="history-item-point">
-                  {item?.changeValue}
-                  <GoldIcon />
-                </span>
-              </span>
-              <p className="history-item-subtitle">{item?.description}</p>
-            </div>
-          </>
-        ))}
+                <p className="history-item-subtitle">{item?.description}</p>
+              </div>
+            </>
+          ))
+        ) : (
+          <p className="text-center">Không có lịch sử !</p>
+        )}
       </div>
-      <Row className="w-100 mt-2">
-        <div className="d-flex flex-row justify-content-center">
-          <Pagination
-            initialPage={0}
-            forcePage={listHistory?.paging?.curPage - 1}
-            pageCount={listHistory?.paging?.totalPage}
-            containerClassName={"d-flex flex-row"}
-            onPageChange={onPageChange}
-          />
-        </div>
-      </Row>
+      {listHistory?.paging?.totalPage > 1 ? (
+        <Row className="w-100 mt-2">
+          <div className="d-flex flex-row justify-content-center">
+            <Pagination
+              initialPage={0}
+              forcePage={listHistory?.paging?.curPage - 1}
+              pageCount={listHistory?.paging?.totalPage}
+              containerClassName={"d-flex flex-row"}
+              onPageChange={onPageChange}
+            />
+          </div>
+        </Row>
+      ) : null}
     </div>
   )
 }

@@ -37,7 +37,9 @@ const Progress = () => {
       <div className="gifts-progress__point-container">
         <div className="gifts-progress__point-wrapper">
           <UserPointWrapper />
-          <p className="gifts-progress__point">{`${userData?.totalPoint}k`}</p>
+          <p className="gifts-progress__point">{`${
+            userData?.totalVoicoin || 0
+          }k`}</p>
         </div>
       </div>
 
