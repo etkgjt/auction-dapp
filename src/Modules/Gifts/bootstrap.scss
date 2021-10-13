@@ -201,6 +201,14 @@
                 margin-bottom: 0;
                 margin-right: 6px;
               }
+              .gifts-item-point-red {
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 29px;
+                color: #ea5023;
+                margin-bottom: 0;
+                margin-right: 6px;
+              }
             }
           }
         }
@@ -422,6 +430,55 @@
         text-align: right;
         color: #ffc61a;
       }
+    }
+  }
+}
+.ticket-popup-modal-wrapper {
+  min-width: 30vw !important;
+  min-height: 40vh !important;
+  background: transparent;
+  border: none;
+}
+.popup-ticket-container {
+  position: relative;
+  .popup-ticket-content-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 15%;
+    & > p {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 27px;
+      text-align: center;
+      color: #ffffff;
+      margin-top: 20px;
+    }
+    & > h2 {
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 30px;
+      text-align: center;
+      color: #ffffff;
+    }
+  }
+
+  .popup-ticket-button-wrapper {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.1s ease-in-out;
+    }
+    &:active {
+      transform: scale(0.9);
+      transition: transform 0.1s ease-in-out;
     }
   }
 }

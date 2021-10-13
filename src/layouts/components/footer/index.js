@@ -87,7 +87,12 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#" className="titktok-footer">
+                  <Link
+                    onClick={() => {
+                      window.open("https://vt.tiktok.com/ZSJKKuFoq", "_blank")
+                    }}
+                    className="titktok-footer"
+                  >
                     <TiktokIcon />
                   </Link>
                 </li>

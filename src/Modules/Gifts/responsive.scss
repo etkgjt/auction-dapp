@@ -347,6 +347,53 @@ $value_eight: 1910px;
       }
     }
   }
+  .popup-ticket-container {
+    position: relative;
+    .popup-ticket-content-wrapper {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      user-select: none;
+      width: 100%;
+      padding-left: 10%;
+      padding-right: 10%;
+      & > p {
+        font-weight: bold;
+        font-size: 11px;
+        line-height: 13px;
+        text-align: center;
+        color: #ffffff;
+        margin-top: 20px;
+      }
+      & > h2 {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 24px;
+        text-align: center;
+        color: #ffffff;
+      }
+    }
+
+    .popup-ticket-button-wrapper {
+      position: absolute;
+      top: -10px;
+      right: -20px;
+      cursor: pointer;
+      & > svg {
+        max-width: 65px;
+        max-height: 65px;
+      }
+      &:hover {
+        transform: scale(1.05);
+        transition: transform 0.1s ease-in-out;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: transform 0.1s ease-in-out;
+      }
+    }
+  }
 }
 
 @media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {

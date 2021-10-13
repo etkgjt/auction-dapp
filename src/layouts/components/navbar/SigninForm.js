@@ -38,7 +38,6 @@ const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
 
   React.useEffect(() => {
     if (error) {
-      console.log("ERROR NE", error)
       toast.error(i18n.t(`FormSignIn:errors:user_name_or_password.wrong`), {
         position: "top-center",
         autoClose: 3000

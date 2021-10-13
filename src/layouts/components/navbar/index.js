@@ -135,6 +135,7 @@ const Navbar = () => {
                   <Dropdown
                     setIsDropdownOpen={setIsDropdownOpen}
                     isLogin={isLogin}
+                    isDropdownOpen={isDropdownOpen}
                   />
                 ) : null}
               </div>

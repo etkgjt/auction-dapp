@@ -40,6 +40,7 @@ import {
 import { checkInviteCode, syncUserInfo } from "../store/formSignUp/service"
 import { RETCODE_SUCCESS } from "../../../configs/contants"
 import { useMediaQuery } from "react-responsive"
+import { authLogout } from "../store/auth/actions"
 
 const Signup = () => {
   //HOOK
@@ -48,6 +49,7 @@ const Signup = () => {
   const dispatch = useDispatch()
   const { invite_code } = useParams()
   const isMobile = useMediaQuery({ maxWidth: 767 })
+  const isLogin = useSelector(loginSuccessSelector)
 
   //STATE
   const [itemsCity, setItemsCity] = useState([])
@@ -265,6 +267,10 @@ const Signup = () => {
       checkValidInviteCode(invite_code)
     }
   }, [invite_code])
+
+  React.useEffect(() => {
+    if (isLogin) dispatch(authLogout())
+  }, [])
 
   return (
     <Formik

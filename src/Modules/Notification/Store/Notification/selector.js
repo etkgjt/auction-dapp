@@ -25,3 +25,7 @@ export const getCountNotiSelector = createSelector(
   reducer,
   (data) => data?.count
 )
+export const getCountNotiLoadingSelector = createSelector(
+  reducer,
+  (data) => data?.countLoading || false
+)
