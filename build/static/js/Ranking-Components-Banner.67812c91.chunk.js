@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[150,255],{337:function(t,i,e){"use strict";e.r(i);e(5);var n=e(491),a=e(14);i.default=function(){return Object(a.jsx)("div",{className:"inviter-banner",children:Object(a.jsx)("img",{src:n.default,width:"100%",height:"auto"})})}},491:function(t,i,e){"use strict";e.r(i),i.default=e.p+"static/media/ranking-banner.0e03d050.png"}}]);
-//# sourceMappingURL=Ranking-Components-Banner.67812c91.chunk.js.map

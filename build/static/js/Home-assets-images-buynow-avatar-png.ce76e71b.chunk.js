@@ -1,0 +1,2 @@
+(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[220],{534:function(t,a,i){"use strict";i.r(a),a.default=i.p+"static/media/buynow-avatar.2de94014.png"}}]);
+//# sourceMappingURL=Home-assets-images-buynow-avatar-png.ce76e71b.chunk.js.map
