@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[42,240,241],{205:function(t,n,c){"use strict";c.r(n);c(498),c(499);var e=c(5),i=c.n(e),a=c(562),s=c(350),u=c(14);n.default=function(){Object(a.a)().t;return i.a.useEffect((function(){window.scrollTo(0,0)}),[]),Object(u.jsx)("div",{className:"news__page",children:Object(u.jsx)(s.default,{})})}},498:function(t,n,c){},499:function(t,n,c){}}]);
-//# sourceMappingURL=News-Page.1a535f8b.chunk.js.map

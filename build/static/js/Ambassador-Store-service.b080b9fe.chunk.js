@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[28,76],{185:function(t,n,e){"use strict";e.r(n),e.d(n,"getDownloadAppLink",(function(){return a}));var i=e(293),u=e(16),a=function(){return u.a.get(i.default.GET_DOWNLOAD_LINK)}},293:function(t,n,e){"use strict";e.r(n),n.default={GET_DOWNLOAD_LINK:"/vi-VN/WebsiteSTNHD/ShareInfo"}}}]);
-//# sourceMappingURL=Ambassador-Store-service.b080b9fe.chunk.js.map
