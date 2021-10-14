@@ -1,10 +1,11 @@
 @import "../../assets/css/variables";
 .rules__page {
   .rules-area {
-    padding-left: 8%;
-    padding-right: 8%;
     margin-top: 110px;
     margin-bottom: 110px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     .event-calendar-container {
       background: var(--lightOrange);
       border-radius: 40px;

@@ -16,8 +16,7 @@ $value_eight: 1910px;
       padding-top: 90px;
     }
     .step-area {
-      padding-left: 5vw;
-      padding-right: 5vw;
+      width: 330px;
       padding-top: 75px;
       padding-bottom: 90px;
       .step-area__title {
@@ -34,12 +33,9 @@ $value_eight: 1910px;
         }
       }
       .step1-container {
-        padding-left: 0%;
-        padding-right: 0%;
         margin-top: 60px;
+        width: 330px;
         .step1-inner {
-          max-width: 900px;
-          width: 100%;
           background: var(--lightOrange);
           border-radius: 20px;
           position: relative;
@@ -168,18 +164,19 @@ $value_eight: 1910px;
         }
       }
       .step4-container {
-        padding-left: 0%;
-        padding-right: 0%;
+        width: 330px;
         margin-top: 60px;
         display: flex;
         flex-direction: row;
         justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
         .step4-inner {
-          max-width: 900px;
+          width: 100%;
           background: var(--lightOrange);
           border-radius: 20px;
           position: relative;
-          padding: 100px 20px 200px 20px;
+          padding: 100px 20px 20px 20px;
           .step4-title {
             position: absolute;
             top: 28px;
@@ -200,7 +197,9 @@ $value_eight: 1910px;
             padding-top: 16px;
             padding-bottom: 16px;
           }
-
+          .step4-image-wrapper {
+            flex-direction: column;
+          }
           .step4-content > p {
             font-weight: 600;
             font-size: 16px;
@@ -208,14 +207,13 @@ $value_eight: 1910px;
             text-align: justify;
             color: #000000;
           }
-
+          .step4-image-mock {
+            width: 0px;
+          }
           .step4-img {
-            position: absolute;
-            width: auto;
-            width: 100%;
+            position: relative;
+            width: 330px;
             height: auto;
-            left: 50%;
-            transform: translate(-50%);
           }
         }
       }
@@ -226,8 +224,7 @@ $value_eight: 1910px;
 @media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
   .ambassador__page {
     .step-area {
-      padding-left: 8vw;
-      padding-right: 8vw;
+      width: 700px;
       padding-top: 75px;
       padding-bottom: 90px;
       .step-area__title {
@@ -362,6 +359,7 @@ $value_eight: 1910px;
         padding-left: 0%;
         padding-right: 0%;
         margin-top: 20px;
+        width: 700px;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -397,12 +395,16 @@ $value_eight: 1910px;
             line-height: 16px;
           }
 
+          .step4-image-mock {
+            width: 445px;
+            min-width: 445px;
+          }
           .step4-img {
-            position: absolute;
-            width: 60%;
+            width: 445px;
             height: auto;
-            right: 0px;
-            bottom: 15px;
+            position: absolute;
+            right: 0;
+            bottom: 20px;
           }
         }
       }
@@ -413,8 +415,7 @@ $value_eight: 1910px;
 @media only #{$media} and ($feature_min : $value_four) and ($feature_max : $value_five) {
   .ambassador__page {
     .step-area {
-      padding-left: 8vw;
-      padding-right: 8vw;
+      width: 700px;
       padding-top: 75px;
       padding-bottom: 90px;
       .step-area__title {
@@ -431,9 +432,8 @@ $value_eight: 1910px;
         }
       }
       .step1-container {
-        padding-left: 10%;
-        padding-right: 10%;
         margin-top: 40px;
+        width: 700px;
         .step1-inner {
           max-width: 900px;
           width: 100%;
@@ -546,12 +546,11 @@ $value_eight: 1910px;
         }
       }
       .step4-container {
-        padding-left: 0%;
-        padding-right: 0%;
         margin-top: 20px;
         display: flex;
         flex-direction: row;
         justify-content: center;
+        width: 700px;
         .step4-inner {
           background: var(--lightOrange);
           border-radius: 40px;
@@ -584,11 +583,15 @@ $value_eight: 1910px;
             line-height: 16px;
           }
 
+          .step4-image-mock {
+            width: 445px;
+            min-width: 445px;
+          }
           .step4-img {
-            position: absolute;
-            width: 50%;
+            width: 445px;
             height: auto;
-            right: 0px;
+            position: absolute;
+            right: 0;
             bottom: 0px;
           }
         }

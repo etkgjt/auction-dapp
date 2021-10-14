@@ -16,8 +16,9 @@ $value_eight: 1910px;
       padding-top: 90px;
     }
     .rules-area {
-      padding-left: 5vw;
-      padding-right: 5vw;
+      width: 315px;
+      margin-left: auto;
+      margin-right: auto;
       margin-top: 25px;
       margin-bottom: 25px;
       .event-calendar-container {
@@ -256,8 +257,9 @@ $value_eight: 1910px;
 @media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
   .rules__page {
     .rules-area {
-      padding-left: 8vw;
-      padding-right: 8vw;
+      width: 700px;
+      margin-left: auto;
+      margin-right: auto;
       margin-top: 110px;
       margin-bottom: 0px;
       .event-calendar-container {
@@ -378,7 +380,7 @@ $value_eight: 1910px;
       padding-left: 8vw;
       padding-right: 8vw;
       margin-top: 110px;
-      margin-bottom: 0px;
+      margin-bottom: 100px;
       .event-calendar-container {
         background: var(--lightOrange);
         border-radius: 25px;

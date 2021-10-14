@@ -67,7 +67,7 @@
       background: #ffc61a;
       padding: 45px 48px 45px 48px;
       border-radius: 40px;
-      width: 950px;
+      width: 790px;
       .list-reason-item-container {
         display: flex;
         flex-direction: row;
@@ -98,6 +98,9 @@
   }
   .rules-area {
     margin-top: 100px;
+    width: 995px;
+    margin-left: auto;
+    margin-right: auto;
     .rules-container {
       .rules-board {
         border: 5px solid #f2f2f2;
@@ -355,9 +358,8 @@
     }
   }
   .news-area {
-    margin-top: 80px;
-    margin-bottom: 80px;
-    width: 100%;
+    width: 990px;
+    margin: 80px auto 80px auto;
     .news-container {
       cursor: pointer;
       width: 100%;
@@ -420,8 +422,6 @@
           border-radius: 40px;
         }
         .news-item__image {
-          // width: calc((80% - (45px * 3)) / 4);
-          // height: calc((80% - (45px * 3)) / 4);
           width: 100%;
           aspect-ratio: 1;
           background: #f2f2f2;
