@@ -50,7 +50,6 @@ const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
     }
     if (loginSuccess) {
       history.push("/home")
-
       if (userData?.flagDaisu === 0) {
         SlideInModal.show(
           () => {},

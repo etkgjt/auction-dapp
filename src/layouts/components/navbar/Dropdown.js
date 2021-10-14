@@ -8,7 +8,7 @@ const Dropdown = ({
   isDropdownOpen
 }) => {
   const dropdownRef = useRef()
-  // useOutsideClick(dropdownRef, () => setIsDropdownOpen(!isDropdownOpen))
+
   return (
     <div className="nav-dropdown-container" ref={dropdownRef}>
       {!isLogin ? (
@@ -20,19 +20,3 @@ const Dropdown = ({
   )
 }
 export default Dropdown
-
-// function useOutsideClick(ref, callback) {
-//   useEffect(() => {
-//     function handleClickOutside(event) {
-//       if (ref.current && !ref.current.contains(event.target)) {
-//         console.log("CONTaIN")
-//         callback()
-//       }
-//     }
-
-//     document.addEventListener("mousedown", handleClickOutside)
-//     return () => {
-//       document.removeEventListener("mousedown", handleClickOutside)
-//     }
-//   }, [ref])
-// }

@@ -79,6 +79,7 @@ const Navbar = () => {
   const percent =
     userData?.levelProgress * 100 > 100 ? 100 : userData?.levelProgress * 100
   const PROGRES_DONE_LENGTH = parseInt((250 * percent) / 100)
+
   return (
     <header id="header" className="header-inner">
       <div id="navbar" className={`crake-nav ${layOutCls}`}>
@@ -97,7 +98,11 @@ const Navbar = () => {
                     <span>{userData?.level?.name || ""}</span>
                     <div className="progress-bar-wrapper">
                       <div className="done-progress-wrapper">
-                        <DoneProgress width={PROGRES_DONE_LENGTH} />
+                        <DoneProgress
+                          width={
+                            isNaN(PROGRES_DONE_LENGTH) ? 0 : PROGRES_DONE_LENGTH
+                          }
+                        />
                       </div>
                       <PendingProgress width={PROGRESS_LENGTH} />
                     </div>
@@ -118,12 +123,7 @@ const Navbar = () => {
                     Đăng ký / Đăng nhập
                   </span>
                 )}
-                {/* <div
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="user-icon-wrapper"
-                >
-                  <UserIcon />
-                </div> */}
+
                 <Dropdown
                   isOpen={isDropdownOpen}
                   toggle={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -146,13 +146,6 @@ const Navbar = () => {
                     </DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
-                {/* {isDropdownOpen ? (
-                  <DropdownCustom
-                    setIsDropdownOpen={setIsDropdownOpen}
-                    isLogin={isLogin}
-                    isDropdownOpen={isDropdownOpen}
-                  />
-                ) : null} */}
               </div>
             </div>
           </nav>
