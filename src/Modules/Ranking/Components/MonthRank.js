@@ -11,8 +11,22 @@ import { Col, Row, Collapse } from "reactstrap"
 import AsyncImage from "../../../components/AsyncImage"
 import moment from "moment"
 
+const isServer = typeof window === "undefined"
+const WOW = !isServer ? require("wowjs") : null
+
 const QuaterRank = ({ topLabel, data = [] }) => {
   const [isCollapse, setIsCollapse] = useState(false)
+
+  React.useEffect(() => {
+    new WOW.WOW({
+      boxClass: "wow",
+      animateClass: "animated",
+      offset: 20,
+      mobile: true,
+      live: true
+    }).init()
+  }, [])
+
   return (
     <div className="ranking2-container">
       <div className="ranking1-top-label">
@@ -21,7 +35,10 @@ const QuaterRank = ({ topLabel, data = [] }) => {
       <div className="medal-container">
         <Row>
           <Col xl="3" lg="3" md="3" sm="3" xs="3">
-            <div className="medal-item-wrapper">
+            <div
+              className="medal-item-wrapper wow animate__bounceInUp"
+              data-wow-delay="0.8s"
+            >
               <div className="medal-image-wrapper">
                 <div className="diamond-medal-image-wrapper">
                   <AsyncImage
@@ -53,7 +70,10 @@ const QuaterRank = ({ topLabel, data = [] }) => {
             </div>
           </Col>
           <Col xl="6" lg="6" md="6" sm="6" xs="6">
-            <div className="medal-item-wrapper">
+            <div
+              className="medal-item-wrapper wow animate__bounceInUp"
+              data-wow-delay="1.2s"
+            >
               <div className="medal-image-wrapper">
                 <div className="gold-medal-image-wrapper">
                   <AsyncImage
@@ -85,7 +105,10 @@ const QuaterRank = ({ topLabel, data = [] }) => {
             </div>
           </Col>
           <Col xl="3" lg="3" md="3" sm="3" xs="3">
-            <div className="medal-item-wrapper">
+            <div
+              className="medal-item-wrapper wow animate__bounceInUp"
+              data-wow-delay="0.4s"
+            >
               <div className="medal-image-wrapper">
                 <div className="silver-medal-image-wrapper">
                   <AsyncImage

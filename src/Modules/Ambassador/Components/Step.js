@@ -5,6 +5,9 @@ import { MacOSIcon, DesktopIcon, GooglePlayIcon } from "../assets/icon"
 import voucher from "../assets/images/voucher.png"
 import { getDownloadAppLink } from "../Store/service"
 
+const isServer = typeof window === "undefined"
+const WOW = !isServer ? require("wowjs") : null
+
 const Step = () => {
   const [state, setState] = useState()
   const fetchDownLoadingLink = async () => {
@@ -26,6 +29,16 @@ const Step = () => {
   const windowClick = () => {
     window.open(state?.link_TaiDesktop, "_blank")
   }
+
+  React.useEffect(() => {
+    new WOW.WOW({
+      boxClass: "wow",
+      animateClass: "animated",
+      offset: 20,
+      mobile: true,
+      live: true
+    }).init()
+  }, [])
   return (
     <div className="step-area">
       <h1 className="step-area__title">TRỞ THÀNH ĐẠI SỨ</h1>
@@ -38,23 +51,35 @@ const Step = () => {
         </p>
       </div>
       <div className="step1-container">
-        <div className="step1-inner">
+        <div className="step1-inner wow animate__zoomInDown">
           <div className="step1-title">Tải ứng dụng Tâm Trí Lực</div>
           <div className="step1-label">01</div>
           <div className="d-flex flex-row justify-content-between">
-            <div onClick={appStoreClick} className="step1__item-wrapper">
+            <div
+              onClick={appStoreClick}
+              className="step1__item-wrapper wow animate__bounceInUp"
+              data-wow-delay="0.4s"
+            >
               <div className="step1__item-icon-wrapper">
                 <MacOSIcon />
               </div>
               <p>AppStore</p>
             </div>
-            <div onClick={googlePlayClick} className="step1__item-wrapper">
+            <div
+              onClick={googlePlayClick}
+              className="step1__item-wrapper wow animate__bounceInUp"
+              data-wow-delay="0.8s"
+            >
               <div className="step1__item-icon-wrapper">
                 <GooglePlayIcon />
               </div>
               <p>Google Play</p>
             </div>
-            <div onClick={windowClick} className="step1__item-wrapper">
+            <div
+              onClick={windowClick}
+              className="step1__item-wrapper wow animate__bounceInUp"
+              data-wow-delay="1.2s"
+            >
               <div className="step1__item-icon-wrapper">
                 <DesktopIcon />
               </div>
@@ -66,7 +91,7 @@ const Step = () => {
       <div className="step2-container">
         <Row>
           <Col cl="6" lg="6" md="6">
-            <div className="step2-wrapper">
+            <div className="step2-wrapper wow fadeInLeft">
               <div className="step2-label">2</div>
               <div className="step2-title-wrapper">
                 <span>
@@ -84,7 +109,10 @@ const Step = () => {
             </div>
           </Col>
           <Col cl="6" lg="6" md="6">
-            <div className="step3-wrapper">
+            <div
+              className="step3-wrapper wow fadeInRight"
+              data-wow-delay="0.5s"
+            >
               <div className="step3-label">3</div>
               <div className="step3-title-wrapper">
                 <span>
@@ -107,14 +135,20 @@ const Step = () => {
       </div>
       <div className="step4-container">
         <div className="step4-inner">
-          <div className="step4-label">
+          <div
+            className="step4-label wow animate__lightSpeedInLeft"
+            data-wow-delay="0.3s"
+          >
             Nhận gói quà tặng Đại Sứ <br />
             và Bắt đầu hành trình trở thành
             <br />
             Đại Sứ Siêu Trí Nhớ Học Đường
           </div>
-          <div className="step4-image-wrapper">
-            <span className="step4-content">
+          <div className="step4-image-wrapper ">
+            <span
+              className="step4-content wow animate__lightSpeedInLeft"
+              data-wow-delay="0.8s"
+            >
               <p>
                 Khi hoàn thành ba bước trên, bạn sẽ nhận được phần quà từ BTC
                 chính là:
@@ -126,7 +160,12 @@ const Step = () => {
               </p>
             </span>
             <div className="step4-image-mock"></div>
-            <img src={voucher} alt="voucher" className="step4-img" />
+            <img
+              src={voucher}
+              alt="voucher"
+              className="step4-img wow animate__lightSpeedInRight"
+              data-wow-delay="1.3s"
+            />
           </div>
         </div>
       </div>

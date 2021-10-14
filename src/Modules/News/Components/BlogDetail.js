@@ -7,6 +7,10 @@ import { ButtonBlue, ButtonOrange } from "../assets/icons"
 import { getNewsDetails } from "../Store/News/service"
 import { FacebookShareButton } from "react-share"
 import voiImg from "../assets/images/voi.png"
+
+const isServer = typeof window === "undefined"
+const WOW = !isServer ? require("wowjs") : null
+
 const BlogDetail = () => {
   const { id, type } = useParams()
   const [loading, setLoading] = useState(false)
@@ -28,6 +32,16 @@ const BlogDetail = () => {
   React.useEffect(() => {
     fetchNewsDetail()
   }, [id])
+
+  React.useEffect(() => {
+    new WOW.WOW({
+      boxClass: "wow",
+      animateClass: "animated",
+      offset: 20,
+      mobile: true,
+      live: true
+    }).init()
+  }, [])
 
   return (
     <div className="news-detail-area">
@@ -81,7 +95,7 @@ const BlogDetail = () => {
               />
             </div>
           </div>
-          <div className="voi-image">
+          <div className="voi-image wow animate__animated  animate__pulse animate__infinite">
             <img src={voiImg} />
           </div>
         </div>

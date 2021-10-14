@@ -15,9 +15,22 @@ import title from "../assets/images/title.png"
 import voi from "../assets/images/voi.png"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
+const isServer = typeof window === "undefined"
+const WOW = !isServer ? require("wowjs") : null
+
 const Profile = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 })
   const history = useHistory()
+
+  React.useEffect(() => {
+    new WOW.WOW({
+      boxClass: "wow",
+      animateClass: "animated",
+      offset: 20,
+      mobile: true,
+      live: true
+    }).init()
+  }, [])
   return (
     <Container>
       <div className="profile-area">
@@ -64,7 +77,7 @@ const Profile = () => {
                   src={adImage}
                   width="114%"
                   height="auto"
-                  className="mt-5"
+                  className="mt-5 wow animate__animated animate__slow animate__headShake animate__infinite"
                   style={{
                     maxWidth: "none",
                     marginLeft: -20,

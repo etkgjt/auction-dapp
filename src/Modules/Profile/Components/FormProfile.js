@@ -614,6 +614,14 @@ const FormProfile = () => {
               <div
                 className="copy-code-button"
                 onClick={() => {
+                  toast.success("Sao chép thành công", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                  })
                   navigator.clipboard.writeText(userData?.codeInvite)
                 }}
               >
@@ -628,6 +636,14 @@ const FormProfile = () => {
               <div
                 className="copy-code-button"
                 onClick={() => {
+                  toast.success("Sao chép thành công", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                  })
                   navigator.clipboard.writeText(
                     `${window.location.origin}/signup/${userData?.codeInvite}`
                   )

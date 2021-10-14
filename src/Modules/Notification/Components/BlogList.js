@@ -25,6 +25,9 @@ import voi2 from "../assets/images/voi2.png"
 import voi3 from "../assets/images/voi3.png"
 import voi4 from "../assets/images/voi4.png"
 
+const isServer = typeof window === "undefined"
+const WOW = !isServer ? require("wowjs") : null
+
 const BlogOne = () => {
   const dispatch = useDispatch()
   const history = useHistory()

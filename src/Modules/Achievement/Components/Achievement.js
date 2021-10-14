@@ -19,6 +19,7 @@ import { getUserData, user } from "../../../store/user/selector"
 import { useSelector } from "react-redux"
 import { useMediaQuery } from "react-responsive"
 import { CopyIcon, LinkIcon } from "../../Profile/assets/icon"
+import { toast } from "react-toastify"
 
 const data = [
   {
@@ -97,6 +98,14 @@ const Achievement = () => {
               <p>{userData?.codeInvite}</p>
               <div
                 onClick={() => {
+                  toast.success("Sao chép thành công", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                  })
                   navigator.clipboard.writeText(userData?.codeInvite)
                 }}
                 className="copy-code-button"
@@ -111,6 +120,14 @@ const Achievement = () => {
               <p>{`${window.location.origin}/signup/${userData?.codeInvite}`}</p>
               <div
                 onClick={() => {
+                  toast.success("Sao chép thành công", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                  })
                   navigator.clipboard.writeText(
                     `${window.location.origin}/signup/${userData?.codeInvite}`
                   )

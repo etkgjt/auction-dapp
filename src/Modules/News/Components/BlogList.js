@@ -11,6 +11,9 @@ import { NEWS_LIST_LIMIT_DEFAULT } from "../../../configs/contants"
 import Pagination from "../../../components/Pagination"
 import voiImg from "../assets/images/voi.png"
 
+const isServer = typeof window === "undefined"
+const WOW = !isServer ? require("wowjs") : null
+
 const BlogOne = () => {
   const dispatch = useDispatch()
 
@@ -39,6 +42,16 @@ const BlogOne = () => {
       })
     )
   }
+
+  React.useEffect(() => {
+    new WOW.WOW({
+      boxClass: "wow",
+      animateClass: "animated",
+      offset: 20,
+      mobile: true,
+      live: true
+    }).init()
+  }, [])
   const { paging } = listNews
   return (
     <div className="news-list-area">
@@ -93,7 +106,7 @@ const BlogOne = () => {
               />
             </div>
           </Row>
-          <div className="voi-image">
+          <div className="voi-image wow animate__animated  animate__pulse animate__infinite">
             <img src={voiImg} />
           </div>
         </div>

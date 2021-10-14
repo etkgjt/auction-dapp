@@ -13,8 +13,20 @@ import gold3 from "../../Achievement/assets/images/gold3.png"
 import title from "../../Achievement/assets/images/title.png"
 import voi from "../../Achievement/assets/images/voi.png"
 
+const isServer = typeof window === "undefined"
+const WOW = !isServer ? require("wowjs") : null
+
 const Profile = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 })
+  React.useEffect(() => {
+    new WOW.WOW({
+      boxClass: "wow",
+      animateClass: "animated",
+      offset: 20,
+      mobile: true,
+      live: true
+    }).init()
+  }, [])
   return (
     <Container>
       <div className="gifts-area">
@@ -26,7 +38,7 @@ const Profile = () => {
                   <Progress />
                 </Col>
                 <Col xs="4" sm="4">
-                  <div className="banner-image-wrapper">
+                  <div className="banner-image-wrapper wow animate__animated animate__slow animate__headShake animate__infinite">
                     <img src={gold1} className="gold1" />
                     <img src={gold2} className="gold2" />
                     <img src={gold3} className="gold3" />
@@ -51,7 +63,7 @@ const Profile = () => {
                 src={adImage}
                 width="114%"
                 height="auto"
-                className="mt-5"
+                className="mt-5 wow animate__animated animate__slow animate__headShake animate__infinite"
                 style={{ maxWidth: "none", marginLeft: -20 }}
               />
             </Col>

@@ -151,6 +151,10 @@ const ForgotPassword = () => {
     }
   }, [verifyError, verifyResponse])
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return listAccount?.length ? (
     <div className="forgot-password-page-wrapper">
       <h1 className="forgot-password-page__header">Tài khoản của bạn</h1>

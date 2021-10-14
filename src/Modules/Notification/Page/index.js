@@ -14,7 +14,9 @@ const translateKey = "News"
 
 const News = () => {
   const { t } = useTranslation()
-
+  React.useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="notification__page">
       <BlogList />

@@ -7,6 +7,7 @@ import { getUserData } from "../../../store/user/selector"
 import popupInvite from "../../../assets/images/popup-invite.png"
 
 import "./styles.scss"
+import { toast } from "react-toastify"
 const { innerWidth: width, innerHeight: height } = window
 const InvitePopup = () => {
   const userData = useSelector(getUserData)
@@ -40,11 +41,19 @@ const InvitePopup = () => {
           <div className="invite-popup-copyfield">{`${window.location.origin}/signup/${userData?.codeInvite}`}</div>
           <div
             className="invite-popup-copybutton"
-            onClick={() =>
+            onClick={() => {
+              toast.success("Sao chép thành công", {
+                position: "top-center",
+                autoClose: 5000,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+              })
               navigator.clipboard.writeText(
                 `${window.location.origin}/signup/${userData?.codeInvite}`
               )
-            }
+            }}
           >
             Sao chép
           </div>
