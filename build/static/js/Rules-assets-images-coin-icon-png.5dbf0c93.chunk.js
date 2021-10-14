@@ -1,0 +1,2 @@
+(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[274],{503:function(i,t,c){"use strict";c.r(t),t.default=c.p+"static/media/coin-icon.bf40c1b9.png"}}]);
+//# sourceMappingURL=Rules-assets-images-coin-icon-png.5dbf0c93.chunk.js.map
