@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, Button } from "reactstrap"
+import { Form, Button, Spinner } from "reactstrap"
 import { Formik } from "formik"
 import FormField from "../../../components/FormField"
 import {
@@ -38,7 +38,6 @@ const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
   const loginSuccess = useSelector((state) => loginSuccessSelector(state))
 
   const onSubmit = (values) => {
-    setIsDropdownOpen(false)
     dispatch(authSignIn(values))
   }
 
@@ -108,11 +107,11 @@ const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
                 </Link>
 
                 <div
-                  onClick={formik.handleSubmit}
+                  onClick={loading ? () => {} : formik.handleSubmit}
                   className="signin-form__signin-button"
                 >
                   <SignInButton />
-                  <span>Đăng nhập</span>
+                  <span>{loading ? <Spinner size="sm" /> : `Đăng nhập`}</span>
                 </div>
 
                 <p className="d-block text-center pb-2" size="lg">

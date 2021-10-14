@@ -27,16 +27,14 @@ import {
 } from "./icon"
 import Dropdown from "./Dropdown"
 import { useMediaQuery } from "react-responsive"
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min"
 
 const PROGRESS_LENGTH = 250
 
 const Navbar = () => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-
-  const { url } = useRouteMatch()
-  const isMobile = useMediaQuery({ maxWidth: 767 })
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 })
+  const location = useLocation()
 
   /*Selectors*/
   const lang = useSelector((state) => getCodeLanguage(state))
@@ -68,6 +66,10 @@ const Navbar = () => {
       setIsMounted(true)
     }
   }, [])
+
+  useEffect(() => {
+    setIsDropdownOpen(false)
+  }, [location])
   const percent =
     userData?.levelProgress * 100 > 100 ? 100 : userData?.levelProgress * 100
   const PROGRES_DONE_LENGTH = parseInt((250 * percent) / 100)
@@ -96,7 +98,7 @@ const Navbar = () => {
             </button> */}
 
             <div className="ms-auto others-option">
-              {!isLogin || isMobile ? null : (
+              {!isLogin ? null : (
                 <div className="nav-user-progress-container">
                   <div className="progress-info-wrapper">
                     <span>{userData?.level?.name || ""}</span>
@@ -120,7 +122,7 @@ const Navbar = () => {
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     className="nav__select-text"
                   >
-                    Đăng ký/ Đăng nhập
+                    Đăng ký / Đăng nhập
                   </span>
                 )}
 

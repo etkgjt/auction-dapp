@@ -188,14 +188,17 @@ $value_eight: 1910px;
             line-height: 24px;
           }
           .step4-label {
-            width: 100px;
-            height: 50px;
+            width: 80vw;
+            min-height: 50px;
             background: #faa418;
             border-top-left-radius: 20px;
             border-bottom-right-radius: 20px;
             font-size: 16px;
             line-height: 24px;
             color: #ffffff;
+            top: -25px;
+            padding-top: 16px;
+            padding-bottom: 16px;
           }
 
           .step4-content > p {

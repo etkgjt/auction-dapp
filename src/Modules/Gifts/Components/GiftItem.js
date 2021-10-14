@@ -170,7 +170,7 @@ const GiftItem = ({
           onClick={
             isUsed
               ? () => {}
-              : item?.type === "ticket"
+              : item?.type === "ticket" && !isTrade
               ? () => setIsShowCode(!isShowCode)
               : isTrade
               ? onRequestGift

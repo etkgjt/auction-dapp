@@ -31,7 +31,7 @@ import Pagination from "../../../components/Pagination"
 const Gifts = () => {
   const dispatch = useDispatch()
 
-  const [activeTab, setActiveTabs] = useState(0)
+  const [activeTab, setActiveTabs] = useState(1)
   const userData = useSelector(getUserData)
 
   const allGift = useSelector(getAllGiftsSelector)

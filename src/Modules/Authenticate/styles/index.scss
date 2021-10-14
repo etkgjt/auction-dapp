@@ -9,6 +9,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url("../assets/bg.png");
+  background-position: center;
+  position: relative;
+  background-size: cover;
+  min-height: 100vh;
 
   .forgot-password-page__header {
     font-style: normal;
@@ -16,7 +21,7 @@
     font-size: 46px;
     line-height: 55px;
     text-align: center;
-    color: #f67e18;
+    color: #fff;
   }
   .forgot-password__form-wrapper {
     position: absolute;
@@ -25,7 +30,7 @@
     z-index: 99;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
     .forgot-password-form_button {
       position: relative;
       cursor: pointer;
@@ -99,6 +104,8 @@
   align-items: center;
   padding-top: 150px;
   padding-bottom: 150px;
+  background-image: url("../assets/bg.png");
+  background-position: center;
   .form-signup__submit-button {
     position: relative;
     margin-top: 40px;

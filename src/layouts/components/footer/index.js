@@ -21,7 +21,9 @@ const Footer = () => {
     const { pathname } = window.location
     if (
       pathname.indexOf("news") !== -1 ||
-      pathname.indexOf("notifications") !== -1
+      pathname.indexOf("notifications") !== -1 ||
+      pathname.indexOf("signup") !== -1 ||
+      pathname.indexOf("forgot-password") !== -1
     ) {
       if (footerBackground !== "#F26F1A") setFooterBackground("#F26F1A")
       return

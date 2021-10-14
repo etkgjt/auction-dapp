@@ -15,6 +15,11 @@ import voi2 from "../assets/images/voichamchi.png"
 import pending from "../assets/images/pending.png"
 import done from "../assets/images/done.png"
 
+import d1 from "../assets/images/d1.png"
+import d2 from "../assets/images/d2.png"
+import d3 from "../assets/images/d3.png"
+import d4 from "../assets/images/d4.png"
+
 import { useSelector } from "react-redux"
 import SlideInModal from "../../../components/SlideInModal"
 import PopupInvite from "../../../layouts/components/popupInvite"
@@ -45,25 +50,25 @@ const Progress = () => {
     if (currentPos === 0) {
       return {
         start: null,
-        end: voi1
+        end: d1
       }
     }
     if (currentPos === 1) {
       return {
         start: voi1,
-        end: voi2
+        end: d2
       }
     }
     if (currentPos === 2) {
       return {
         start: voi2,
-        end: voi3
+        end: d3
       }
     }
     if (currentPos === 3) {
       return {
         start: voi3,
-        end: voi4
+        end: d4
       }
     }
     if (currentPos === 4) {
@@ -74,7 +79,7 @@ const Progress = () => {
     }
     return {
       start: null,
-      end: voi1
+      end: d1
     }
   }
 

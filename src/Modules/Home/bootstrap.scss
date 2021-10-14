@@ -507,8 +507,8 @@
 }
 
 .popup-voucher-modal-wrapper {
-  width: 30vw !important;
-  height: 40vh !important;
+  min-width: 30vw !important;
+  min-height: 40vh !important;
   background: transparent;
   border: none;
 }

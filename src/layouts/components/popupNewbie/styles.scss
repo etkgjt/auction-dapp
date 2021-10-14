@@ -63,4 +63,57 @@ $value_eight: 1910px;
   }
 }
 @media only #{$media} and ($feature_max : $value_one) {
+  .popup-newbie-container {
+    position: relative;
+    .popup-newbie-content-wrapper {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      user-select: none;
+      width: 100%;
+      height: 100%;
+      padding-left: 10%;
+      padding-right: 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .popup-newbie-title {
+        font-weight: bold;
+        font-size: 1.3rem;
+        line-height: 20px;
+        text-align: center;
+        color: #ffffff;
+      }
+      .popup-newbie-content {
+        font-size: 0.8rem;
+        line-height: 27px;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 0px;
+      }
+      .popup-newbie-subtitle {
+        font-size: 0.9rem;
+        line-height: 27px;
+        color: #fff;
+        text-align: center;
+        font-weight: 700;
+      }
+    }
+    .newbie-icon-wrapper {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      display: flex;
+      flex-direction: row;
+      transform: translate(-50%);
+      .margin-right {
+        margin-right: 40px;
+      }
+      .popup-newbie-button-wrapper:active {
+        transform: scale(0.9);
+      }
+    }
+  }
 }

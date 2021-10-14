@@ -76,7 +76,7 @@ const Signup = () => {
 
   const checkValidInviteCode = async (code = "") => {
     try {
-      if (code && code !== 0) {
+      if (code && code !== 0 && code !== "0") {
         const res = await checkInviteCode(code)
         if (res?.data?.retCode !== RETCODE_SUCCESS) {
           toast.error(res.data.retText, {
@@ -278,14 +278,13 @@ const Signup = () => {
       onSubmit={onSubmit}
       validationSchema={validationSchema(i18n)}
       initialValues={getValueForm({
-        invite_code: invite_code
+        invite_code: invite_code === "0" ? null : invite_code
       })}
     >
       {(formik) => {
         return (
           <Form
             autocomplete="chrome-off"
-            className="px-3"
             onSubmit={(ev) => ev.preventDefault()}
           >
             <div className="form-signup-container">

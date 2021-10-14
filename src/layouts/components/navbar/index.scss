@@ -144,13 +144,14 @@
           }
           & > span {
             position: absolute;
-            top: 25%;
-            left: 25%;
+            top: 50%;
+            left: 50%;
             font-weight: 500;
             font-size: 18px;
             line-height: 22px;
             text-align: center;
             color: #ffffff;
+            transform: translate(-50%, -50%);
           }
         }
         .signin-form__forgot-password-button {

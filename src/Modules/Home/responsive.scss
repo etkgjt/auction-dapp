@@ -283,6 +283,9 @@ $value_eight: 1910px;
           line-height: 13px;
         }
         .news-item__container {
+          margin-top: 0px;
+          margin-bottom: 0px;
+          padding: 0px;
           .news-item__image-loading {
             border-radius: 40px;
           }
@@ -1149,5 +1152,17 @@ $value_eight: 1910px;
         }
       }
     }
+  }
+  .popup-voucher-modal-wrapper {
+    min-width: 60vw !important;
+    min-height: 40vh !important;
+    background: transparent;
+    border: none;
+  }
+  .home-noti-popup-modal-wrapper {
+    min-width: 60vw !important;
+    min-height: 40vh !important;
+    background: transparent;
+    border: none;
   }
 }
