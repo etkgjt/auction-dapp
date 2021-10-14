@@ -79,6 +79,8 @@ const Home = () => {
   }, [])
   React.useEffect(() => {
     if (isLogin && userData?.userId) {
+      setIsFetched(false)
+      setFirstTime(true)
       setIsStartFetch(true)
       dispatch(
         NotiAction.getCountUnreadNoti({
@@ -144,7 +146,7 @@ const Home = () => {
         )
       }
     }
-  }, [notification])
+  }, [countNoti])
 
   React.useEffect(() => {
     if (isWedDayOrSunDay && isFetched && !notification && firstTime) {
@@ -157,6 +159,8 @@ const Home = () => {
           setFirstTime(false)
         }
       )
+    } else if (isFetched) {
+      setFirstTime(false)
     }
   }, [notification, isFetched])
 
