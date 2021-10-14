@@ -41,7 +41,7 @@ const Step = () => {
         <div className="step1-container">
           <div className="step1-inner">
             <div className="step1-title">Tải ứng dụng Tâm Trí Lực</div>
-            <div className="step1-label">Bước 01</div>
+            <div className="step1-label">01</div>
             <div className="d-flex flex-row justify-content-between">
               <div onClick={appStoreClick} className="step1__item-wrapper">
                 <div className="step1__item-icon-wrapper">
@@ -68,7 +68,7 @@ const Step = () => {
           <Row>
             <Col cl="6" lg="6" md="6">
               <div className="step2-wrapper">
-                <div className="step2-label">Bước 2</div>
+                <div className="step2-label">2</div>
                 <div className="step2-title-wrapper">
                   <span>
                     Đăng ký tài khoản <br />
@@ -86,7 +86,7 @@ const Step = () => {
             </Col>
             <Col cl="6" lg="6" md="6">
               <div className="step3-wrapper">
-                <div className="step3-label">Bước 3</div>
+                <div className="step3-label">3</div>
                 <div className="step3-title-wrapper">
                   <span>
                     Trải nghiệm

@@ -86,6 +86,7 @@
       z-index: 99;
       overflow: hidden;
       user-select: none;
+
       & > svg {
         max-width: 100%;
       }
@@ -226,6 +227,10 @@
   position: absolute;
   top: 0;
   right: 0;
+  box-shadow: none;
+  .btn {
+    box-shadow: none;
+  }
   & > button {
     background-color: transparent;
     &:hover,
@@ -237,4 +242,15 @@
       box-shadow: none;
     }
   }
+}
+.dropdown-menu {
+  background-color: transparent;
+  border: none;
+  z-index: 0;
+}
+.dropdown-header {
+  position: absolute;
+  top: -25px;
+  left: 25px;
+  z-index: -1;
 }

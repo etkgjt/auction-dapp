@@ -20,7 +20,10 @@ import LoadingIndicator from "../../../components/LoadingIndicator"
 import { getUserData } from "../../../store/user/selector"
 
 import Pagination from "../../../components/Pagination"
-import VoiImage from "../assets/images/voi.png"
+import voi1 from "../assets/images/voi1.png"
+import voi2 from "../assets/images/voi2.png"
+import voi3 from "../assets/images/voi3.png"
+import voi4 from "../assets/images/voi4.png"
 
 const BlogOne = () => {
   const dispatch = useDispatch()
@@ -38,6 +41,20 @@ const BlogOne = () => {
 
   const toggle = () => {
     setIsOpen(!isOpen)
+  }
+  const currentPos = userData?.level?.position
+  const getImage = () => {
+    if (currentPos === 0 || !currentPos || currentPos === 1) {
+      return voi1
+    }
+    if (currentPos === 2) {
+      return voi2
+    }
+    if (currentPos === 3) {
+      return voi3
+    }
+    if (currentPos === 4) return voi4
+    return voi4
   }
 
   const fetchNotiDetail = async (id = 0) => {
@@ -168,9 +185,11 @@ const BlogOne = () => {
                 <Col xl="5" lg="5" sm="5" xs="5">
                   <div className="noti-image-wrapper">
                     <AsyncImage
-                      className="noti-image"
+                      className={
+                        "noti-image" + dataDetail?.urlImage ? " voi-image" : ""
+                      }
                       placeholderClassName="noti-image-loading"
-                      src={dataDetail?.urlImage || VoiImage}
+                      src={dataDetail?.urlImage || getImage()}
                     />
                   </div>
                 </Col>

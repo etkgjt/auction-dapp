@@ -28,7 +28,12 @@ import {
 import DropdownCustom from "./Dropdown"
 import { useMediaQuery } from "react-responsive"
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min"
-import { Dropdown, DropdownToggle } from "reactstrap"
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle
+} from "reactstrap"
 
 const PROGRESS_LENGTH = 250
 
@@ -113,7 +118,12 @@ const Navbar = () => {
                     Đăng ký / Đăng nhập
                   </span>
                 )}
-
+                {/* <div
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="user-icon-wrapper"
+                >
+                  <UserIcon />
+                </div> */}
                 <Dropdown
                   isOpen={isDropdownOpen}
                   toggle={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -126,14 +136,23 @@ const Navbar = () => {
                       <UserIcon />
                     </div>
                   </DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem header>
+                      <DropdownCustom
+                        setIsDropdownOpen={setIsDropdownOpen}
+                        isLogin={isLogin}
+                        isDropdownOpen={isDropdownOpen}
+                      />
+                    </DropdownItem>
+                  </DropdownMenu>
                 </Dropdown>
-                {isDropdownOpen ? (
+                {/* {isDropdownOpen ? (
                   <DropdownCustom
                     setIsDropdownOpen={setIsDropdownOpen}
                     isLogin={isLogin}
                     isDropdownOpen={isDropdownOpen}
                   />
-                ) : null}
+                ) : null} */}
               </div>
             </div>
           </nav>
