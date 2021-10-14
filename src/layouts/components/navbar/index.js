@@ -25,9 +25,10 @@ import {
   DoneProgress,
   PendingProgress
 } from "./icon"
-import Dropdown from "./Dropdown"
+import DropdownCustom from "./Dropdown"
 import { useMediaQuery } from "react-responsive"
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min"
+import { Dropdown, DropdownToggle } from "reactstrap"
 
 const PROGRESS_LENGTH = 250
 
@@ -84,19 +85,6 @@ const Navbar = () => {
               </a>
             </Link>
 
-            {/* <button
-              onClick={toggleNavbar}
-              className={classTwo}
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button> */}
-
             <div className="ms-auto others-option">
               {!isLogin ? null : (
                 <div className="nav-user-progress-container">
@@ -126,15 +114,21 @@ const Navbar = () => {
                   </span>
                 )}
 
-                <div
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="user-icon-wrapper"
+                <Dropdown
+                  isOpen={isDropdownOpen}
+                  toggle={() => setIsDropdownOpen(!isDropdownOpen)}
                 >
-                  <UserIcon />
-                </div>
-
+                  <DropdownToggle>
+                    <div
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className="user-icon-wrapper"
+                    >
+                      <UserIcon />
+                    </div>
+                  </DropdownToggle>
+                </Dropdown>
                 {isDropdownOpen ? (
-                  <Dropdown
+                  <DropdownCustom
                     setIsDropdownOpen={setIsDropdownOpen}
                     isLogin={isLogin}
                     isDropdownOpen={isDropdownOpen}
