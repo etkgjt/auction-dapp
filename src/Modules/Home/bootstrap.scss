@@ -1,4 +1,22 @@
 @import "../../assets/css/variables";
+@keyframes newsHoverIn {
+  from {
+    transform: translate(0, 0px);
+  }
+
+  to {
+    transform: translate(0, -10px);
+  }
+}
+@keyframes newsHoverOut {
+  from {
+    transform: translate(0, -10px);
+  }
+
+  to {
+    transform: translate(0, 0px);
+  }
+}
 .home__page {
   .main-banner {
     min-height: 90vh;
@@ -89,7 +107,32 @@
         background: #fff;
         padding: 80px 42px 60px 42px;
         position: relative;
-
+        .rules-content {
+          ul {
+            li {
+              list-style-type: disc;
+              font-size: 18px;
+              line-height: 24px;
+              color: #1e3d74;
+              font-weight: 500;
+            }
+            .rule-title {
+              font-size: 24px;
+              line-height: 28px;
+              font-weight: 800;
+              color: #1e3d74;
+              list-style: decimal;
+              padding-left: 0;
+              margin-top: 20px;
+            }
+            div {
+              font-weight: 500;
+            }
+          }
+          ul > li > ul {
+            padding-left: 26px;
+          }
+        }
         .seemore-button {
           user-select: none;
           position: relative;
@@ -358,10 +401,20 @@
         margin-bottom: 42px;
       }
       .news-item__container {
+        animation-duration: 0.5s;
+        animation-name: newsHoverOut;
+        animation-iteration-count: 1;
+        padding: 16px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-radius: 20px;
         &:hover {
-          transform: scale(1.01);
-          opacity: 0.9;
-          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+          box-shadow: 0 5px 15px 5px rgba(137, 173, 255, 0.35);
+          animation-duration: 0.5s;
+          animation-name: newsHoverIn;
+          animation-iteration-count: 1;
+          background-color: #fff;
+          animation-fill-mode: forwards;
         }
         .news-item__image-loading {
           border-radius: 40px;

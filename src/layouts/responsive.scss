@@ -91,6 +91,17 @@ $value_eight: 1910px;
     width: 30vw;
     text-align: left;
   }
+  .crake-nav nav .navbar-brand {
+    & > img {
+      width: 200px;
+      height: auto;
+      margin-top: -40px;
+      margin-left: -40px;
+      position: relative;
+      top: auto;
+      left: auto;
+    }
+  }
 }
 
 @media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {

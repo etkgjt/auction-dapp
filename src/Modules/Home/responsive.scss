@@ -87,7 +87,33 @@ $value_eight: 1910px;
           padding: 40px 20px 15px 20px;
           position: relative;
           margin-bottom: 120px;
-
+          .rules-content {
+            ul {
+              li {
+                list-style-type: disc;
+                font-size: 11px;
+                line-height: 13px;
+                color: #1e3d74;
+                font-weight: 500;
+              }
+              .rule-title {
+                font-size: 13px;
+                line-height: 15px;
+                font-weight: 800;
+                color: #1e3d74;
+                list-style: decimal;
+                padding-left: 0;
+                margin-top: 20px;
+              }
+              div {
+                font-weight: 500;
+                font-size: 11px;
+              }
+            }
+            ul > li > ul {
+              padding-left: 26px;
+            }
+          }
           .seemore-button {
             padding-left: 30%;
             padding-right: 30%;
@@ -571,7 +597,33 @@ $value_eight: 1910px;
           border-radius: 25px;
           background: #fff;
           padding: 68px 16px 10px 16px;
-
+          .rules-content {
+            ul {
+              li {
+                list-style-type: disc;
+                font-size: 14px;
+                line-height: 18px;
+                color: #1e3d74;
+                font-weight: 500;
+              }
+              .rule-title {
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 800;
+                color: #1e3d74;
+                list-style: decimal;
+                padding-left: 0;
+                margin-top: 20px;
+              }
+              div {
+                font-weight: 500;
+                font-size: 14px;
+              }
+            }
+            ul > li > ul {
+              padding-left: 26px;
+            }
+          }
           .seemore-button {
             margin-top: 30px;
             width: 40%;
@@ -849,7 +901,33 @@ $value_eight: 1910px;
           border-radius: 25px;
           background: #fff;
           padding: 68px 16px 10px 16px;
-
+          .rules-content {
+            ul {
+              li {
+                list-style-type: disc;
+                font-size: 14px;
+                line-height: 18px;
+                color: #1e3d74;
+                font-weight: 500;
+              }
+              .rule-title {
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 800;
+                color: #1e3d74;
+                list-style: decimal;
+                padding-left: 0;
+                margin-top: 20px;
+              }
+              div {
+                font-weight: 500;
+                font-size: 14px;
+              }
+            }
+            ul > li > ul {
+              padding-left: 26px;
+            }
+          }
           .seemore-button {
             margin-top: 30px;
             width: 40%;

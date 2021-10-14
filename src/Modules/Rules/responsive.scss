@@ -44,6 +44,24 @@ $value_eight: 1910px;
             max-width: 100%;
             max-height: 80px;
           }
+          .calendar-date {
+            position: absolute;
+            font-size: 6vw;
+            color: #fff;
+            font-weight: 800;
+            top: 20%;
+            right: 23%;
+            letter-spacing: 1px;
+          }
+          .calendar-month {
+            position: absolute;
+            font-size: 3vw;
+            color: #fff;
+            font-weight: 800;
+            bottom: 12%;
+            right: 26%;
+            letter-spacing: 1px;
+          }
           .calender-coin-icon {
             width: 45px;
             max-height: 50px;
@@ -114,26 +132,30 @@ $value_eight: 1910px;
         }
         .rules-detail__content {
           ul {
-            padding-left: 0;
+            padding-left: 16px;
+            li {
+              list-style-type: disc;
+              font-size: 11px;
+              line-height: 13px;
+              color: #1e3d74;
+              font-weight: 500;
+            }
+            .rule-title {
+              font-size: 13px;
+              line-height: 16px;
+              font-weight: 800;
+              color: #1e3d74;
+              list-style: decimal;
+              padding-left: 0;
+              margin-top: 20px;
+            }
+            div {
+              font-weight: 500;
+              font-size: 11px;
+            }
           }
           ul > li > ul {
-            padding-left: 16px;
-          }
-          ul > li {
-            font-size: 12px;
-            line-height: 16px;
-            font-weight: 800;
-            color: #1e3d74;
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 10px;
-          }
-          ul > li > ul > li {
-            list-style-type: disc;
-            font-size: 11px;
-            line-height: 13px;
-            color: #1e3d74;
-            font-weight: 500;
+            padding-left: 26px;
           }
         }
         .rules-details_list {
@@ -232,8 +254,8 @@ $value_eight: 1910px;
             width: 82px;
             max-height: 75px;
             position: absolute;
-            bottom: 20px;
-            right: 0px;
+            bottom: 0px;
+            right: -15%;
           }
         }
         .notic {
@@ -291,26 +313,30 @@ $value_eight: 1910px;
         }
         .rules-detail__content {
           ul {
-            padding-left: 0;
+            padding-left: 16px;
+            li {
+              list-style-type: disc;
+              font-size: 14px;
+              line-height: 18px;
+              color: #1e3d74;
+              font-weight: 500;
+            }
+            .rule-title {
+              font-size: 18px;
+              line-height: 24px;
+              font-weight: 800;
+              color: #1e3d74;
+              list-style: decimal;
+              padding-left: 0;
+              margin-top: 20px;
+            }
+            div {
+              font-weight: 500;
+              font-size: 14px;
+            }
           }
           ul > li > ul {
-            padding-left: 16px;
-          }
-          ul > li {
-            font-size: 16px;
-            line-height: 18px;
-            font-weight: 800;
-            color: #1e3d74;
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 10px;
-          }
-          ul > li > ul > li {
-            list-style-type: disc;
-            font-size: 14px;
-            line-height: 16px;
-            color: #1e3d74;
-            font-weight: 500;
+            padding-left: 26px;
           }
         }
       }
@@ -347,8 +373,8 @@ $value_eight: 1910px;
             width: 82px;
             max-height: 75px;
             position: absolute;
-            bottom: 20px;
-            right: 0px;
+            bottom: 0px;
+            right: -5%;
           }
         }
         .notic {
@@ -406,26 +432,30 @@ $value_eight: 1910px;
         }
         .rules-detail__content {
           ul {
-            padding-left: 0;
+            padding-left: 16px;
+            li {
+              list-style-type: disc;
+              font-size: 14px;
+              line-height: 18px;
+              color: #1e3d74;
+              font-weight: 500;
+            }
+            .rule-title {
+              font-size: 18px;
+              line-height: 24px;
+              font-weight: 800;
+              color: #1e3d74;
+              list-style: decimal;
+              padding-left: 0;
+              margin-top: 20px;
+            }
+            div {
+              font-weight: 500;
+              font-size: 14px;
+            }
           }
           ul > li > ul {
-            padding-left: 16px;
-          }
-          ul > li {
-            font-size: 16px;
-            line-height: 18px;
-            font-weight: 800;
-            color: #1e3d74;
-            list-style: none;
-            padding-left: 0;
-            margin-bottom: 10px;
-          }
-          ul > li > ul > li {
-            list-style-type: disc;
-            font-size: 14px;
-            line-height: 16px;
-            color: #1e3d74;
-            font-weight: 500;
+            padding-left: 26px;
           }
         }
       }

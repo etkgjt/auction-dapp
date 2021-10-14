@@ -28,7 +28,6 @@ const defaultState = {
 const UserReducer = handleActions(
   {
     [types.SET_USER_DATA]: (state, { payload }) => {
-      console.log("SET USER DATA", payload)
       return { ...state, userData: { ...payload } }
     },
     [types.SET_LOADING]: (state, { payload }) => {

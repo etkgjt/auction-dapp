@@ -49,7 +49,7 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   const layOutCls = ""
-  const logo = require("@src/assets/images/logo.png").default
+  const logo = require("@src/assets/images/logo-gif.gif").default
 
   const classOne = collapsed
     ? "collapse navbar-collapse"

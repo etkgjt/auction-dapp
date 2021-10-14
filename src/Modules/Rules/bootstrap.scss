@@ -34,7 +34,25 @@
           max-height: 115px;
           position: absolute;
           bottom: 0px;
-          right: -100px;
+          right: -10%;
+        }
+        .calendar-date {
+          position: absolute;
+          font-size: 5vw;
+          color: #fff;
+          font-weight: 800;
+          top: 20%;
+          right: 23%;
+          letter-spacing: 3px;
+        }
+        .calendar-month {
+          position: absolute;
+          font-size: 2vw;
+          color: #fff;
+          font-weight: 800;
+          bottom: 12%;
+          right: 26%;
+          letter-spacing: 3px;
         }
       }
       .notic {
@@ -162,25 +180,28 @@
       .rules-detail__content {
         ul {
           padding-left: 0;
+          li {
+            list-style-type: disc;
+            font-size: 18px;
+            line-height: 24px;
+            color: #1e3d74;
+            font-weight: 500;
+          }
+          .rule-title {
+            font-size: 24px;
+            line-height: 28px;
+            font-weight: 800;
+            color: #1e3d74;
+            list-style: decimal;
+            padding-left: 0;
+            margin-top: 20px;
+          }
+          div {
+            font-weight: 500;
+          }
         }
         ul > li > ul {
           padding-left: 26px;
-        }
-        ul > li {
-          font-size: 24px;
-          line-height: 28px;
-          font-weight: 800;
-          color: #1e3d74;
-          list-style: none;
-          padding-left: 0;
-          margin-bottom: 10px;
-        }
-        ul > li > ul > li {
-          list-style-type: disc;
-          font-size: 18px;
-          line-height: 24px;
-          color: #1e3d74;
-          font-weight: 500;
         }
       }
     }

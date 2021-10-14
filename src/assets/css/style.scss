@@ -888,9 +888,11 @@ Navbar CSS
 
     .navbar-brand {
       img {
-        max-width: 100px;
-        height: 80px;
-        margin-bottom: -40px;
+        width: auto;
+        height: 200px;
+        position: absolute;
+        top: -40px;
+        left: -20px;
       }
 
       padding: 0px;

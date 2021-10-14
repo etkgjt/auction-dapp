@@ -1,4 +1,22 @@
 @import "@assets/css/_variables.scss";
+@keyframes newsHoverIn {
+  from {
+    transform: translate(0, 0px);
+  }
+
+  to {
+    transform: translate(0, -10px);
+  }
+}
+@keyframes newsHoverOut {
+  from {
+    transform: translate(0, -10px);
+  }
+
+  to {
+    transform: translate(0, 0px);
+  }
+}
 .news__page {
   .news-list-area {
     background: linear-gradient(180deg, #f68318 0%, #f1691b 100%);
@@ -71,16 +89,28 @@
       .news-item-wrapper {
         margin-bottom: 60px;
         cursor: pointer;
+        padding: 16px;
+        border-radius: 20px;
+        animation-duration: 0.5s;
+        animation-name: newsHoverOut;
+        animation-iteration-count: 1;
         &:hover {
-          opacity: 0.7;
-          transform: translateY(-10px);
-          transition: transform 0.4s ease-in-out;
+          box-shadow: 0 10px 25px 5px rgba(137, 173, 255, 0.35);
+          animation-duration: 0.5s;
+          animation-name: newsHoverIn;
+          animation-iteration-count: 1;
+          background-color: #fff;
+          animation-fill-mode: forwards;
+
+          &::before {
+            bottom: -5px;
+          }
         }
         .news-item-image-wrapper {
           width: 100%;
           aspect-ratio: 1;
           background: #f2f2f2;
-          border: 5px solid #f2f2f2;
+          border: 2px solid #f2f2f2;
           border-radius: 40px;
           margin-bottom: 16px;
           .news-item-image-loading {
