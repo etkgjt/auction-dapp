@@ -25,7 +25,13 @@ const PopupNoti = ({ onSubmitPress = () => {}, data = {} }) => {
       : height * 0.4
   }
   return (
-    <div className="popup-ticket-container">
+    <div
+      className="popup-ticket-container"
+      style={{
+        width: getModalWidth(),
+        height: getModalHeight()
+      }}
+    >
       <PopupBlockWrapper width={getModalWidth()} height={getModalHeight()} />
       <div className="popup-ticket-content-wrapper">
         <h2>{data?.title}</h2>

@@ -19,6 +19,8 @@ $value_eight: 1910px;
   .navbar {
     padding: 16px 30px 16px 30px;
     height: 90px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
     .others-option {
       display: flex;
       flex-direction: row;

@@ -48,7 +48,7 @@ const PopupVoucher = () => {
     try {
       const res = await postRequestGiftCard({
         userid: userData?.userId,
-        type: "evoucher",
+        type: "ThuongDaiSu",
         name: selectedItem?.name,
         value: selectedItem?.value,
         description: selectedItem?.description,

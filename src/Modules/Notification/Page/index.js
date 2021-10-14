@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next"
 
 /*Components*/
 import BlogList from "@Modules/Notification/Components/BlogList"
+import { Container } from "reactstrap"
 
 const translateKey = "News"
 

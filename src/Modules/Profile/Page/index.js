@@ -4,6 +4,7 @@ import "../responsive.scss"
 import React from "react"
 import Banner from "@Modules/Profile/Components/Banner"
 import Profile from "@Modules/Profile/Components/Profile"
+import { Container } from "reactstrap"
 
 const Home = () => {
   React.useEffect(() => {
@@ -12,7 +13,9 @@ const Home = () => {
   return (
     <div className="profile__page">
       <Banner />
-      <Profile />
+      <Container>
+        <Profile />
+      </Container>
     </div>
   )
 }

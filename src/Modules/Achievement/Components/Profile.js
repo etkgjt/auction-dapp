@@ -1,5 +1,5 @@
 import React from "react"
-import { Row, Col } from "reactstrap"
+import { Row, Col, Container } from "reactstrap"
 
 import Progress from "./Progress"
 import Achievement from "./Achievement"
@@ -19,58 +19,64 @@ const Profile = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 })
   const history = useHistory()
   return (
-    <div className="profile-area">
-      <Row>
-        {isMobile ? (
-          <>
-            <Col xl="6" lg="6" md="6">
-              <Row>
-                <Col xs="8" sm="8">
-                  <Progress />
-                </Col>
-                <Col xs="4" sm="4">
-                  <div
-                    className="banner-image-wrapper"
-                    style={{ cursor: "pointer" }}
-                    onClick={() => {
-                      history.push("/gifts")
-                    }}
-                  >
-                    <img src={gold1} className="gold1" />
-                    <img src={gold2} className="gold2" />
-                    <img src={gold3} className="gold3" />
-                    <img src={title} className="title" />
-                    <img src={voi} className="voi" />
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-            <Col xl="6" lg="6" md="6">
-              <Achievement />
-            </Col>
-          </>
-        ) : (
-          <>
-            <Col xl="6" lg="6" md="7">
-              <Achievement />
-            </Col>
-            <Col xl="6" lg="6" md="5">
-              <Progress />
-              <img
-                onClick={() => {
-                  history.push("/gifts")
-                }}
-                src={adImage}
-                width="114%"
-                height="auto"
-                className="mt-5"
-                style={{ maxWidth: "none", marginLeft: -20, cursor: "pointer" }}
-              />
-            </Col>
-          </>
-        )}
-      </Row>
-    </div>
+    <Container>
+      <div className="profile-area">
+        <Row>
+          {isMobile ? (
+            <>
+              <Col xl="6" lg="6" md="6">
+                <Row>
+                  <Col xs="8" sm="8">
+                    <Progress />
+                  </Col>
+                  <Col xs="4" sm="4">
+                    <div
+                      className="banner-image-wrapper"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => {
+                        history.push("/gifts")
+                      }}
+                    >
+                      <img src={gold1} className="gold1" />
+                      <img src={gold2} className="gold2" />
+                      <img src={gold3} className="gold3" />
+                      <img src={title} className="title" />
+                      <img src={voi} className="voi" />
+                    </div>
+                  </Col>
+                </Row>
+              </Col>
+              <Col xl="6" lg="6" md="6">
+                <Achievement />
+              </Col>
+            </>
+          ) : (
+            <>
+              <Col xl="6" lg="6" md="7">
+                <Achievement />
+              </Col>
+              <Col xl="6" lg="6" md="5">
+                <Progress />
+                <img
+                  onClick={() => {
+                    history.push("/gifts")
+                  }}
+                  src={adImage}
+                  width="114%"
+                  height="auto"
+                  className="mt-5"
+                  style={{
+                    maxWidth: "none",
+                    marginLeft: -20,
+                    cursor: "pointer"
+                  }}
+                />
+              </Col>
+            </>
+          )}
+        </Row>
+      </div>
+    </Container>
   )
 }
 export default Profile

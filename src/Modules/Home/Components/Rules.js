@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Col, Row } from "reactstrap"
+import { Col, Container, Row } from "reactstrap"
 import banner from "../assets/images/rule-top-banner.png"
 
 import { HornorTable, ButtonSvg } from "../assets/icon"
@@ -68,103 +68,107 @@ const Rules = () => {
   }, [])
 
   return (
-    <div className="rules-area">
-      <div className="rules-container">
-        <Row>
-          <Col xl="7" lg="6" md="6">
-            <div
-              data-wow-delay="0.2s"
-              data-wow-offset="100"
-              className="wow fadeInLeft rules-board"
-            >
-              <img src={banner} alt="banner" className="rule-top-banner" />
+    <Container>
+      <div className="rules-area">
+        <div className="rules-container">
+          <Row>
+            <Col xl="7" lg="6" md="6">
               <div
-                className="rules-content"
-                dangerouslySetInnerHTML={{ __html: rules?.description }}
-              />
-              <div className="seemore-button" onClick={onSeemorePress}>
-                <ButtonSvg />
-                <p className="seemore-button__text">Xem thêm</p>
+                data-wow-delay="0.2s"
+                data-wow-offset="100"
+                className="wow fadeInLeft rules-board"
+              >
+                <img src={banner} alt="banner" className="rule-top-banner" />
+                <div
+                  className="rules-content"
+                  dangerouslySetInnerHTML={{ __html: rules?.description }}
+                />
+                <div className="seemore-button" onClick={onSeemorePress}>
+                  <ButtonSvg />
+                  <p className="seemore-button__text">Xem thêm</p>
+                </div>
               </div>
-            </div>
-          </Col>
-          <Col xl="5" lg="6" md="6">
-            <div
-              data-wow-delay="0.2s"
-              data-wow-offset="150"
-              className="wow fadeInRight hornor-table-container"
-            >
-              {/* <HornorTable
+            </Col>
+            <Col xl="5" lg="6" md="6">
+              <div
+                data-wow-delay="0.2s"
+                data-wow-offset="150"
+                className="wow fadeInRight hornor-table-container"
+              >
+                {/* <HornorTable
                 width={getHornorTableWidth()}
                 height={getHornorTableHeight()}
               /> */}
-              <img src={rankWrapper} className="rank-wrapper" />
-              <div
-                className="seemore-button"
-                onClick={() => {
-                  history.push("/rankings")
-                }}
-              >
-                <ButtonSvg />
-                <p className="seemore-button__text">Xem thêm</p>
-              </div>
-              <div className="hornor-table-list-container">
-                <h1 className="hornor-table-list__title">
-                  Bảng <br />
-                  xếp hạng
-                </h1>
+                <img src={rankWrapper} className="rank-wrapper" />
+                <div
+                  className="seemore-button"
+                  onClick={() => {
+                    history.push("/rankings")
+                  }}
+                >
+                  <ButtonSvg />
+                  <p className="seemore-button__text">Xem thêm</p>
+                </div>
+                <div className="hornor-table-list-container">
+                  <h1 className="hornor-table-list__title">
+                    Bảng <br />
+                    xếp hạng
+                  </h1>
 
-                {listRank !== undefined &&
-                listRank.length !== undefined &&
-                listRank.length > 0 ? (
-                  listRank?.map((item, index) => (
-                    <div
-                      key={index}
-                      data-wow-delay="0.2s"
-                      className="wow fadeInDown hornor-item-wrapper"
-                    >
-                      <p className="item-rank">{index + 1}</p>
-                      <div className="item-avatar">
-                        <AsyncImage
-                          src={item?.avatar}
-                          className="item-rank-avatar-img"
-                          placeholderClassName="item-rank-avatar-loading"
+                  {listRank !== undefined &&
+                  listRank.length !== undefined &&
+                  listRank.length > 0 ? (
+                    listRank?.map((item, index) => (
+                      <div
+                        key={index}
+                        data-wow-delay="0.2s"
+                        className="wow fadeInDown hornor-item-wrapper"
+                      >
+                        <p className="item-rank">{index + 1}</p>
+                        <div className="item-avatar">
+                          <AsyncImage
+                            src={item?.avatar}
+                            className="item-rank-avatar-img"
+                            placeholderClassName="item-rank-avatar-loading"
+                          />
+                        </div>
+                        <div className="item-info">
+                          <span className="item-level">
+                            {item?.level?.name || ""}
+                          </span>
+                          <span className="item-name">
+                            {item.childFullName1}
+                          </span>
+                          <span className="item-point">
+                            {`${item.totalPoint}k`}&nbsp;&nbsp;
+                            <GoldIcon className="gold-icon" />
+                          </span>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <>
+                      <div className="hornor-table__image-wrapper">
+                        <img
+                          data-wow-delay="0.2s"
+                          className="wow fadeInDown hornor-table__image"
+                          src={voirank}
                         />
                       </div>
-                      <div className="item-info">
-                        <span className="item-level">
-                          {item?.level?.name || ""}
-                        </span>
-                        <span className="item-name">{item.childFullName1}</span>
-                        <span className="item-point">
-                          {`${item.totalPoint}k`}&nbsp;&nbsp;
-                          <GoldIcon className="gold-icon" />
-                        </span>
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <>
-                    <div className="hornor-table__image-wrapper">
-                      <img
-                        data-wow-delay="0.2s"
-                        className="wow fadeInDown hornor-table__image"
-                        src={voirank}
-                      />
-                    </div>
-                    <p className="hornor-table-list__sub-title">
-                      Cuộc đua <br />
-                      Chuẩn bị bắt đầu <br />
-                      bạn đã sẵn sàng
-                    </p>
-                  </>
-                )}
+                      <p className="hornor-table-list__sub-title">
+                        Cuộc đua <br />
+                        Chuẩn bị bắt đầu <br />
+                        bạn đã sẵn sàng
+                      </p>
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
-          </Col>
-        </Row>
+            </Col>
+          </Row>
+        </div>
       </div>
-    </div>
+    </Container>
   )
 }
 export default Rules

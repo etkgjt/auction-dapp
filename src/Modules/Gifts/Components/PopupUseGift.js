@@ -172,7 +172,13 @@ const PopupUseGift = ({ item }) => {
   }
 
   return (
-    <div className="popup-usegift-container">
+    <div
+      className="popup-usegift-container"
+      style={{
+        width: getModalWidth(),
+        height: getModalHeight()
+      }}
+    >
       <PopupNotiWrapper width={getModalWidth()} height={getModalHeight()} />
       <div className="popup-usegift-content-wrapper">
         <h1>{item?.type === "card" ? "Sử dụng thẻ cào" : "Sử dụng Voucher"}</h1>

@@ -220,6 +220,34 @@ $value_eight: 1910px;
             margin-bottom: 8px;
           }
         }
+        .rules-details-button-wrapper {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 20px;
+          margin-top: 10px;
+          cursor: pointer;
+          & > svg {
+            max-width: 60%;
+          }
+          &:active {
+            transform: scale(0.9);
+            transition: transform 0.1s ease-in-out;
+          }
+          .rules-details-button-text {
+            user-select: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: 500;
+            font-size: 11px;
+            line-height: 13px;
+            text-align: center;
+            color: #ffffff;
+          }
+        }
       }
     }
   }

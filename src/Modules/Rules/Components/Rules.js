@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Row, Col } from "reactstrap"
 import {
   RulesTopBannerTitle,
@@ -7,7 +7,7 @@ import {
   YoutubeIcon,
   DetailButton
 } from "../assets/icon"
-
+import ModalVideo from "react-modal-video"
 import coinIcon from "../assets/images/coin-icon.png"
 
 import {
@@ -42,11 +42,13 @@ const Rules = () => {
   const calendar = useSelector(getCalendar)
   const calendarLoading = useSelector(getCalendarLoading)
 
+  const [isOpen, setIsOpen] = useState(false)
+
   React.useEffect(() => {
     dispatch(actions.getList())
     dispatch(calendarActions.getList())
   }, [])
-  console.log(rules)
+
   return (
     <div className="rules-area">
       <Row>
@@ -145,6 +147,15 @@ const Rules = () => {
                   className="rules-detail__content"
                   dangerouslySetInnerHTML={{ __html: rules?.value }}
                 ></div>
+                <div
+                  className="rules-details-button-wrapper"
+                  onClick={() => setIsOpen(true)}
+                >
+                  <DetailButton />
+                  <span className="rules-details-button-text">
+                    Xem Video hướng dẫn
+                  </span>
+                </div>
               </div>
             </Col>
           </>
@@ -159,6 +170,15 @@ const Rules = () => {
                   className="rules-detail__content"
                   dangerouslySetInnerHTML={{ __html: rules?.value }}
                 ></div>
+                <div
+                  className="rules-details-button-wrapper"
+                  onClick={() => setIsOpen(true)}
+                >
+                  <DetailButton />
+                  <span className="rules-details-button-text">
+                    Xem Video hướng dẫn
+                  </span>
+                </div>
               </div>
             </Col>
             <Col xl="5" lg="5" md="5">
@@ -247,6 +267,12 @@ const Rules = () => {
           </>
         )}
       </Row>
+      <ModalVideo
+        channel="youtube"
+        isOpen={isOpen}
+        videoId={"W8Yo9xbcdcU"}
+        onClose={() => setIsOpen(false)}
+      />
     </div>
   )
 }
