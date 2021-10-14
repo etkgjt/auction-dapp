@@ -11,6 +11,9 @@ $value_seven: 1350px;
 $value_eight: 1910px;
 .popup-newbie-container {
   position: relative;
+  .popup-newbie-wrapper {
+    width: 100%;
+  }
   .popup-newbie-content-wrapper {
     position: absolute;
     left: 50%;
@@ -81,24 +84,25 @@ $value_eight: 1910px;
 
       .popup-newbie-title {
         font-weight: bold;
-        font-size: 1.3rem;
+        font-size: 16px;
         line-height: 20px;
         text-align: center;
         color: #ffffff;
       }
       .popup-newbie-content {
-        font-size: 0.8rem;
-        line-height: 27px;
+        font-size: 11px;
+        line-height: 13px;
         color: #fff;
         text-align: center;
         margin-bottom: 0px;
       }
       .popup-newbie-subtitle {
-        font-size: 0.9rem;
-        line-height: 27px;
+        font-size: 12px;
+        line-height: 15px;
         color: #fff;
         text-align: center;
         font-weight: 700;
+        margin-top: 10px;
       }
     }
     .newbie-icon-wrapper {

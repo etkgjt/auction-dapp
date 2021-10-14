@@ -6,6 +6,7 @@ import {
   CancelIcon
 } from "../../../assets/svg"
 import SlideInModal from "../../../components/SlideInModal"
+import PopupNotiImg from "../assets/popup-noti-wrapper.png"
 const { innerWidth: width, innerHeight: height } = window
 const PopupNoti = ({ onSubmitPress = () => {}, data = {} }) => {
   const isMobile = useMediaQuery({ maxWidth: 767 })
@@ -25,11 +26,9 @@ const PopupNoti = ({ onSubmitPress = () => {}, data = {} }) => {
       : height * 0.4
   }
   return (
-    <div
-      className="popup-home-noti-container"
-      style={{ width: getModalWidth(), height: getModalHeight() }}
-    >
-      <PopupBlockWrapper width={getModalWidth()} height={getModalHeight()} />
+    <div className="popup-home-noti-container">
+      <img src={PopupNotiImg} className="popup-home-noti-image" />
+      {/* <PopupBlockWrapper width={getModalWidth()} height={getModalHeight()} /> */}
       <div className="popup-home-noti-content-wrapper">
         <h2>{data?.title}</h2>
         <p>{data?.content}</p>

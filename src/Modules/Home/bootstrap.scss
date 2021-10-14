@@ -462,13 +462,17 @@
   }
 }
 .home-noti-popup-modal-wrapper {
-  min-width: 30vw !important;
-  min-height: 40vh !important;
+  max-width: 100%;
   background: transparent;
   border: none;
 }
 .popup-home-noti-container {
   position: relative;
+  max-width: 100%;
+  .popup-home-noti-image {
+    width: 100%;
+    height: auto;
+  }
   .popup-home-noti-content-wrapper {
     position: absolute;
     left: 50%;
@@ -509,8 +513,6 @@
 }
 
 .popup-voucher-modal-wrapper {
-  min-width: 30vw !important;
-  min-height: 40vh !important;
   background: transparent;
   border: none;
 }
@@ -524,13 +526,13 @@
   );
   border: 5px solid #f2f2f2;
   border-radius: 40px;
-  min-height: 80vh;
-  min-width: 40vw;
   position: relative;
-  padding: 45px;
+  padding: 5%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+  max-height: 100vh;
   .popup-voucher__close-button {
     position: absolute;
     top: -40px;
@@ -647,9 +649,12 @@
 }
 .popup-noti-draw-container {
   position: relative;
+  .popup-event-image {
+    width: 100%;
+  }
   .popup-noti-draw-close-btn {
     position: absolute;
-    top: -30px;
+    top: 40px;
     right: -40px;
     cursor: pointer;
     &:hover {
@@ -661,24 +666,18 @@
       transition: transform 0.1s ease-in;
     }
   }
-  .popup-noti-draw-image-wrapper {
-    position: absolute;
-    width: 50%;
-    top: -100px;
-    left: 50%;
-    transform: translate(-50%);
-  }
+
   .popup-noti-draw-content-wrapper {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -20%);
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: calc((100% - 100px) / 10);
-    padding-right: calc((10%+100px));
+    padding-left: 10%;
+    padding-right: 10%;
     .content-title {
       font-weight: bold;
       font-size: 30px;

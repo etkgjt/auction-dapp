@@ -4,6 +4,7 @@ import "../responsive.scss"
 import React from "react"
 import Banner from "@Modules/Ranking/Components/Banner"
 import RankingTable from "@Modules/Ranking/Components/RankingTable"
+import { Container } from "reactstrap"
 
 const Home = () => {
   React.useEffect(() => {
@@ -12,7 +13,9 @@ const Home = () => {
   return (
     <div className="ranks__page">
       <Banner />
-      <RankingTable />
+      <Container>
+        <RankingTable />
+      </Container>
     </div>
   )
 }

@@ -23,6 +23,7 @@ import { toast } from "react-toastify"
 import { actions } from "../Store/MyGifts/reducer"
 import { actions as usedGiftActions } from "../Store/UsedGifts/reducer"
 import { useMediaQuery } from "react-responsive"
+import popupInvite from "../../../assets/images/popup-invite.png"
 
 const { innerWidth: width, innerHeight: height } = window
 
@@ -172,14 +173,8 @@ const PopupUseGift = ({ item }) => {
   }
 
   return (
-    <div
-      className="popup-usegift-container"
-      style={{
-        width: getModalWidth(),
-        height: getModalHeight()
-      }}
-    >
-      <PopupNotiWrapper width={getModalWidth()} height={getModalHeight()} />
+    <div className="popup-usegift-container">
+      <img src={popupInvite} className="popup-usegift-image-wrapper" />
       <div className="popup-usegift-content-wrapper">
         <h1>{item?.type === "card" ? "Sử dụng thẻ cào" : "Sử dụng Voucher"}</h1>
         <div className="popup-usegift-copyfield-wrapper">

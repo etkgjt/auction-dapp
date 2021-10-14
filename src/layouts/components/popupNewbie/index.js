@@ -5,6 +5,9 @@ import { useHistory } from "react-router"
 import { AcceptIcon, CancelIcon, PopupBlockWrapper } from "../../../assets/svg"
 import SlideInModal from "../../../components/SlideInModal"
 import { getUserData } from "../../../store/user/selector"
+
+import popupRed from "../../../assets/images/popup-red.png"
+
 import "./styles.scss"
 const { innerWidth: width, innerHeight: height } = window
 const NewbiePopup = () => {
@@ -27,11 +30,8 @@ const NewbiePopup = () => {
       : height * 0.4
   }
   return (
-    <div
-      className="popup-newbie-container"
-      style={{ width: getModalWidth(), height: getModalHeight() }}
-    >
-      <PopupBlockWrapper width={getModalWidth()} height={getModalHeight()} />
+    <div className="popup-newbie-container">
+      <img src={popupRed} className="popup-newbie-wrapper" />
       <div className="popup-newbie-content-wrapper">
         <p className="popup-newbie-title">Chúc mừng bạn mới</p>
         <p className="popup-newbie-content">

@@ -11,6 +11,9 @@ $value_seven: 1350px;
 $value_eight: 1910px;
 .invite-popup-container {
   position: relative;
+  .popup-invite-img {
+    width: 100%;
+  }
   .invite-popup-close-button {
     position: absolute;
     top: 0px;
@@ -100,8 +103,6 @@ $value_eight: 1910px;
   }
 }
 .invite-popup-modal-wrapper {
-  min-width: 30vw !important;
-  min-height: 40vh !important;
   background: transparent;
   border: none;
 }
@@ -136,15 +137,15 @@ $value_eight: 1910px;
       & > h1 {
         font-style: normal;
         font-weight: bold;
-        font-size: 30px;
-        line-height: 36px;
+        font-size: 16px;
+        line-height: 20px;
         text-align: center;
         color: #ffffff;
       }
       & > p {
         font-style: normal;
         font-weight: 500;
-        font-size: 18px;
+        font-size: 13px;
         line-height: 150%;
         text-align: center;
         color: #ffffff;

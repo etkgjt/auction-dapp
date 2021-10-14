@@ -34,7 +34,7 @@ const data = [
     flag: "noti"
   },
   {
-    title: "Thành tựu voi",
+    title: "Thành tựu Voi",
     onClick: (history) => {
       history.push("/achievement")
     },
@@ -55,14 +55,20 @@ const data = [
     key: "/news"
   },
   {
-    title: "Trờ thành đại sứ",
+    title: "Trở thành Đại Sứ",
     onClick: (history) => {
       history.push("/inviter")
     },
     key: "/inviter"
   },
   {
-    title: "Siêu Trí Nhớ\nHọc Đường",
+    title: (
+      <>
+        Siêu Trí Nhớ
+        <br />
+        Học Đường
+      </>
+    ),
     onClick: () => {
       window.open("https://sieutrinhohocduong.com/", "_blank")
     },
@@ -125,7 +131,16 @@ const InfoDropdown = ({ setIsDropdownOpen = () => {} }) => {
               setIsDropdownOpen(false)
             }}
           >
-            {index !== 0 ? <hr color="#F2F2F2" /> : null}
+            {index !== 0 ? (
+              <hr
+                style={{
+                  height: 1,
+                  backgroundColor: "#F2F2F2",
+                  marginTop: 12,
+                  marginBottom: 12
+                }}
+              />
+            ) : null}
             <span
               className={
                 "info-dropdown__item" +

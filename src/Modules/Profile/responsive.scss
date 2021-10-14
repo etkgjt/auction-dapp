@@ -298,6 +298,53 @@ $value_eight: 1910px;
   .select__placeholder {
     font-size: 13px;
   }
+  .logout-popup-modal-wrapper {
+    background: transparent;
+    border: none;
+  }
+  .popup-logout-container {
+    position: relative;
+    width: 100%;
+    .popup-loggout-image-wrapper {
+      width: 100%;
+    }
+    .popup-logout-content-wrapper {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -70%);
+      user-select: none;
+      & > p {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        text-align: center;
+        color: #ffffff;
+      }
+    }
+    .logout-icon-wrapper {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      display: flex;
+      flex-direction: row;
+      transform: translate(-50%);
+      .margin-right {
+        margin-right: 40px;
+      }
+      .popup-logout-button-wrapper {
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.05);
+          transition: transform 0.1s ease-in-out;
+        }
+        &:active {
+          transform: scale(0.9);
+          transition: transform 0.1s ease-in;
+        }
+      }
+    }
+  }
 }
 
 @media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {

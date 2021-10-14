@@ -29,18 +29,13 @@ import {
 } from "../store/auth/selectors"
 import "../styles/index.scss"
 import "../responsive.scss"
-import {
-  FormSignupInfoWrapper,
-  FormSignUpAccountInfoWrapper,
-  ForgotPasswordButton,
-  FormSignUpAccountInfoWrapperMobile,
-  FormSignupInfoWrapperMobile
-} from "../assets/icon"
+import { ForgotPasswordButton } from "../assets/icon"
 
 import { checkInviteCode, syncUserInfo } from "../store/formSignUp/service"
 import { RETCODE_SUCCESS } from "../../../configs/contants"
 import { useMediaQuery } from "react-responsive"
 import { authLogout } from "../store/auth/actions"
+import { ButtonWrapperWhite } from "../../Profile/assets/icon"
 
 const Signup = () => {
   //HOOK
@@ -287,200 +282,242 @@ const Signup = () => {
             autocomplete="chrome-off"
             onSubmit={(ev) => ev.preventDefault()}
           >
-            <Container>
-              <div className="form-signup-container">
-                <div className="form-signup__login-info-container">
-                  {isMobile ? (
-                    <FormSignUpAccountInfoWrapperMobile />
-                  ) : (
-                    <FormSignUpAccountInfoWrapper />
-                  )}
-
-                  <div className="form-signup__login-info-field-wrapper">
-                    <FormField
-                      field="username"
-                      {...formik}
-                      placeholder={i18n.t(`FormSignUp:field:user_name`)}
-                    />
-                    <FormField
-                      field="password"
-                      type="password"
-                      {...formik}
-                      placeholder={i18n.t(`FormSignUp:field:password`)}
-                    />
-                    <FormField
-                      field="confirm_password"
-                      type="password"
-                      {...formik}
-                      placeholder={i18n.t(`FormSignUp:field:confirm_password`)}
-                    />
-                    <FormField
-                      field="invite_code"
-                      {...formik}
-                      disabled={disabledInviteCode}
-                      onBlurCustom={() => {
-                        checkValidInviteCode(formik.values["invite_code"])
-                      }}
-                      placeholder={"Mã giới thiệu (nếu có)"}
-                    />
-                    <span className="form-signup-description">
-                      Vui lòng nhớ Tên đăng nhập để đăng nhập vào Tài Khoản
-                    </span>
-                  </div>
-                </div>
-                <div className="form-signup__user-info-container">
-                  {isMobile ? (
-                    <FormSignupInfoWrapperMobile />
-                  ) : (
-                    <FormSignupInfoWrapper />
-                  )}
-
-                  <div className="form-signup__user-info-field-container">
-                    <Row>
-                      <Col xl="3" lg="3" md="3">
-                        <span className="form-signup-field-label">
-                          Họ và tên
-                          {isMobile ? null : <br />} Học viên
-                        </span>
-                      </Col>
-                      <Col xl="9" lg="9" md="9">
+            <div className="form-signup-container">
+              <Container>
+                <div className="form-signup-wrapper">
+                  <Row>
+                    <Col xl="5" lg="5" className="px-0">
+                      <div className="form-signup__login-info-container">
                         <FormField
-                          field="student_name"
+                          field="username"
                           {...formik}
-                          placeholder={i18n.t(`FormSignUp:field:student_name`)}
+                          placeholder={i18n.t(`FormSignUp:field:user_name`)}
                         />
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col xl="3" lg="3" md="3">
-                        <span className="form-signup-field-label">
-                          Trường {isMobile ? null : <br />}
-                          đang học
-                        </span>
-                      </Col>
-                      <Col xl="6" lg="6" md="6" sm="8" xs="8">
-                        <FormField field="school_name" {...formik} />
-                      </Col>
-                      <Col xl="3" lg="3" md="3" sm="4" xs="4">
-                        <FormFieldSelect
-                          borderLight
-                          field="class_name"
-                          {...formik}
-                          valueDefault={formik.values.class_name}
-                          handleChange={(value) =>
-                            formik.setFieldValue("class_name", value)
-                          }
-                          placeholder={"Lớp"}
-                          options={itemsClass}
-                        />
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col xl="3" lg="3" md="3">
-                        <span className="form-signup-field-label">
-                          Địa chỉ {isMobile ? null : <br />}
-                          đang ở
-                        </span>
-                      </Col>
-                      <Col xl="5" lg="5" md="5" sm="6" xs="6">
-                        <FormFieldSelect
-                          borderLight
-                          field="city"
-                          {...formik}
-                          valueDefault={formik.values.city}
-                          handleChange={(value) => {
-                            formik.setValues({
-                              ...formik.values,
-                              city: value,
-                              district: ""
-                            })
-                            setKeyCity(value)
-                          }}
-                          placeholder={"Tỉnh/ Thành phố"}
-                          options={itemsCity}
-                        />
-                      </Col>
-                      <Col xl="4" lg="4" md="4" sm="6" xs="6">
-                        <FormFieldSelect
-                          borderLight
-                          field="district"
-                          {...formik}
-                          valueDefault={formik.values.district}
-                          handleChange={(value) =>
-                            formik.setFieldValue("district", value)
-                          }
-                          placeholder={"Quận/Huyện"}
-                          options={itemsDistrict}
-                        />
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col xl="3" lg="3" md="3">
-                        <span className="form-signup-field-label">
-                          Họ và tên
-                          {isMobile ? null : <br />}Phụ huynh
-                        </span>
-                      </Col>
-                      <Col xl="9" lg="9" md="9">
                         <FormField
-                          field="parent_fullname"
+                          field="password"
+                          type="password"
+                          {...formik}
+                          placeholder={i18n.t(`FormSignUp:field:password`)}
+                        />
+                        <FormField
+                          field="confirm_password"
+                          type="password"
                           {...formik}
                           placeholder={i18n.t(
-                            `FormSignUp:field:parent_fullname`
+                            `FormSignUp:field:confirm_password`
                           )}
                         />
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col xl="6" lg="6" md="6" sm="7" xs="7">
                         <FormField
-                          field="email"
+                          field="invite_code"
                           {...formik}
-                          placeholder={"Email"}
+                          disabled={disabledInviteCode}
+                          onBlurCustom={() => {
+                            checkValidInviteCode(formik.values["invite_code"])
+                          }}
+                          placeholder={"Mã giới thiệu (nếu có)"}
                         />
-                      </Col>
-                      <Col xl="6" lg="6" md="6" sm="5" xs="5">
-                        <FormField
-                          className="mr-1 w-100"
-                          field="phone"
-                          {...formik}
-                          placeholder={"Điện thoại"}
-                        />
-                      </Col>
-                    </Row>
-                    <Row className="d-flex flex-row justify-content-center">
-                      <Col xl="8" lg="8" md="8">
-                        <div className="form-signup-otp-input-wrapper">
-                          <FormField
-                            field="otp"
-                            {...formik}
-                            placeholder={"Mã OTP xác thực"}
-                            className="m-0 w-100"
-                          />
-                          <Button
-                            className="send-otp-button"
-                            // disabled={Boolean(formik.errors.phone)}
-                            loading={loadingOtp}
-                            onClick={() => getOtp(formik.values.phone)}
-                          >
-                            {"Gửi OTP"}
-                          </Button>
+                        <p className="form-signup-description">
+                          Vui lòng nhớ Tên đăng nhập để đăng nhập vào Tài Khoản
+                        </p>
+                      </div>
+                    </Col>
+                    <Col xl="7" lg="7" className="px-0">
+                      <div className="form-signup__user-info-container">
+                        <div className="form-signup__user-info-field-container">
+                          <Row>
+                            <Col xl="2" lg="2" md="2" className="px-0">
+                              <span className="form-signup-field-label">
+                                Họ và tên
+                                {isMobile ? null : <br />} Học viên
+                              </span>
+                            </Col>
+                            <Col xl="10" lg="10" md="10" className="px-0">
+                              <FormField
+                                field="student_name"
+                                {...formik}
+                                placeholder={i18n.t(
+                                  `FormSignUp:field:student_name`
+                                )}
+                              />
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col xl="2" lg="2" md="2" className="px-0">
+                              <span className="form-signup-field-label">
+                                Trường {isMobile ? null : <br />}
+                                đang học
+                              </span>
+                            </Col>
+                            <Col
+                              xl="6"
+                              lg="6"
+                              md="6"
+                              sm="8"
+                              xs="8"
+                              className="px-0"
+                            >
+                              <FormField field="school_name" {...formik} />
+                            </Col>
+                            <Col
+                              xl="4"
+                              lg="4"
+                              md="4"
+                              sm="4"
+                              xs="4"
+                              style={{ paddingRight: 0 }}
+                            >
+                              <FormFieldSelect
+                                borderLight
+                                field="class_name"
+                                {...formik}
+                                valueDefault={formik.values.class_name}
+                                handleChange={(value) =>
+                                  formik.setFieldValue("class_name", value)
+                                }
+                                placeholder={"Lớp"}
+                                options={itemsClass}
+                              />
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col xl="2" lg="2" md="2" className="px-0">
+                              <span className="form-signup-field-label">
+                                Địa chỉ {isMobile ? null : <br />}
+                                đang ở
+                              </span>
+                            </Col>
+                            <Col
+                              xl="5"
+                              lg="5"
+                              md="5"
+                              sm="6"
+                              xs="6"
+                              className="px-0"
+                            >
+                              <FormFieldSelect
+                                borderLight
+                                field="city"
+                                {...formik}
+                                valueDefault={formik.values.city}
+                                handleChange={(value) => {
+                                  formik.setValues({
+                                    ...formik.values,
+                                    city: value,
+                                    district: ""
+                                  })
+                                  setKeyCity(value)
+                                }}
+                                placeholder={"Tỉnh/ Thành phố"}
+                                options={itemsCity}
+                              />
+                            </Col>
+                            <Col
+                              xl="5"
+                              lg="5"
+                              md="5"
+                              sm="6"
+                              xs="6"
+                              style={{ paddingRight: 0 }}
+                            >
+                              <FormFieldSelect
+                                borderLight
+                                field="district"
+                                {...formik}
+                                valueDefault={formik.values.district}
+                                handleChange={(value) =>
+                                  formik.setFieldValue("district", value)
+                                }
+                                placeholder={"Quận/Huyện"}
+                                options={itemsDistrict}
+                              />
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col xl="2" lg="2" md="2" className="px-0">
+                              <span className="form-signup-field-label">
+                                Họ và tên
+                                {isMobile ? null : <br />}Phụ huynh
+                              </span>
+                            </Col>
+                            <Col xl="10" lg="10" md="10" className="px-0">
+                              <FormField
+                                field="parent_fullname"
+                                {...formik}
+                                placeholder={i18n.t(
+                                  `FormSignUp:field:parent_fullname`
+                                )}
+                              />
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col
+                              xl="6"
+                              lg="6"
+                              md="6"
+                              sm="7"
+                              xs="7"
+                              className="px-0"
+                            >
+                              <FormField
+                                field="email"
+                                {...formik}
+                                placeholder={"Email"}
+                              />
+                            </Col>
+                            <Col
+                              xl="6"
+                              lg="6"
+                              md="6"
+                              sm="5"
+                              xs="5"
+                              style={{ paddingRight: 0 }}
+                            >
+                              <FormField
+                                className="mr-1 w-100"
+                                field="phone"
+                                {...formik}
+                                placeholder={"Điện thoại"}
+                              />
+                            </Col>
+                          </Row>
                         </div>
-                      </Col>
-                    </Row>
-                  </div>
+                      </div>
+                    </Col>
+                    <Col
+                      xl="12"
+                      className="d-flex flex-row justify-content-center"
+                    >
+                      <div className="form-signup-otp-input-wrapper">
+                        <FormField
+                          field="otp"
+                          {...formik}
+                          placeholder={"Mã OTP xác thực"}
+                          className="m-0 w-100"
+                        />
+                        <Button
+                          className="send-otp-button"
+                          loading={loadingOtp}
+                          onClick={() => getOtp(formik.values.phone)}
+                        >
+                          {"Gửi OTP"}
+                        </Button>
+                      </div>
+                    </Col>
+                    <Col>
+                      <div
+                        className="form-signup__submit-button"
+                        onClick={() => {
+                          formik.handleSubmit()
+                        }}
+                      >
+                        <ButtonWrapperWhite />
+                        <span>Hoàn thành đăng ký</span>
+                      </div>
+                    </Col>
+                  </Row>
                 </div>
-                <div
-                  className="form-signup__submit-button"
-                  onClick={() => {
-                    formik.handleSubmit()
-                  }}
-                >
-                  <ForgotPasswordButton />
-                  <span>Hoàn thành đăng ký</span>
-                </div>
-              </div>
-            </Container>
+              </Container>
+            </div>
           </Form>
         )
       }}

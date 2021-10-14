@@ -286,13 +286,14 @@
   }
 }
 .popup-usegift-modal-wrapper {
-  min-width: 30vw !important;
-  min-height: 40vh !important;
   background: transparent;
   border: none;
 }
 .popup-usegift-container {
   position: relative;
+  .popup-usegift-image-wrapper {
+    width: 100%;
+  }
   .popup-usegift-close-button {
     position: absolute;
     top: -30px;
@@ -368,8 +369,6 @@
   }
 }
 .popup-history-modal-wrapper {
-  min-width: 30vw !important;
-  min-height: 40vh !important;
   background: transparent;
   border: none;
 }
@@ -377,8 +376,6 @@
   background-color: white;
   border: 5px solid #f2f2f2;
   border-radius: 40px;
-  min-height: 80vh;
-  min-width: 40vw;
   position: relative;
   padding: 45px;
   display: flex;
@@ -432,13 +429,14 @@
   }
 }
 .ticket-popup-modal-wrapper {
-  min-width: 30vw !important;
-  min-height: 40vh !important;
   background: transparent;
   border: none;
 }
 .popup-ticket-container {
   position: relative;
+  .popup-ticket-container-image-wrapper {
+    width: 100%;
+  }
   .popup-ticket-content-wrapper {
     position: absolute;
     left: 50%;

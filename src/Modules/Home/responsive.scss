@@ -251,13 +251,13 @@ $value_eight: 1910px;
       margin-top: 20px;
       margin-bottom: 80px;
       .news-container {
-        margin-left: 15vw;
-        margin-right: 15vw;
         cursor: pointer;
+        width: 80%;
+        margin-left: 10%;
         .arrow-left {
           position: absolute;
-          left: -40px;
-          top: calc((80vw - (45px * 3)) / 8);
+          left: -30px;
+          top: 50%;
           z-index: 999;
           & > svg {
             width: 22px;
@@ -267,7 +267,7 @@ $value_eight: 1910px;
         .arrow-right {
           position: absolute;
           right: -30px;
-          top: calc((80vw - (45px * 3)) / 8);
+          top: 50%;
           z-index: 999;
           & > svg {
             width: 22px;
@@ -285,13 +285,14 @@ $value_eight: 1910px;
         .news-item__container {
           margin-top: 0px;
           margin-bottom: 0px;
-          padding: 0px;
+          padding: 4px;
+          border-radius: 20px;
           .news-item__image-loading {
-            border-radius: 40px;
+            border-radius: 20px;
           }
           .news-item__image {
-            width: calc((60vw -30px) / 3);
-            height: calc((60vw -30px) / 3);
+            width: 100%;
+            aspect-ratio: 1;
             border: 2px solid #f2f2f2;
             border-radius: 10px;
             & > img {
@@ -549,15 +550,18 @@ $value_eight: 1910px;
 @media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
   .home__page {
     .main-banner {
-      min-height: 50vh;
+      min-height: auto;
       padding-bottom: 0;
       padding-top: 0px;
       .owl-carousel {
         position: relative;
         .bg__slider {
-          min-height: 50vh;
+          min-height: auto;
+          width: 100%;
           & > img {
-            min-height: 50vh;
+            min-height: auto;
+            width: 100%;
+            height: auto;
           }
         }
         .owl-dots {
@@ -766,8 +770,8 @@ $value_eight: 1910px;
       margin-top: 80px;
       margin-bottom: 80px;
       .news-container {
-        margin-left: 15vw;
-        margin-right: 15vw;
+        width: 80%;
+        margin-left: 10%;
         cursor: pointer;
         .arrow-left {
           left: -60px;
@@ -813,8 +817,8 @@ $value_eight: 1910px;
             border-radius: 25px;
           }
           .news-item__image {
-            width: calc((70vw - (26px * 3)) / 4);
-            height: calc((70vw - (26px * 3)) / 4);
+            width: 100%;
+            aspect-ratio: 1;
             background: #f2f2f2;
             border: 3px solid #f2f2f2;
             border-radius: 25px;
@@ -833,7 +837,7 @@ $value_eight: 1910px;
             margin-bottom: 10px;
           }
           .news-item__subtitle {
-            max-width: calc((70vw - (45px * 3)) / 4);
+            max-width: 100%;
             font-weight: 500;
             font-size: 18px;
             line-height: 100%;
@@ -854,15 +858,18 @@ $value_eight: 1910px;
 @media only #{$media} and ($feature_min : $value_four) and ($feature_max : $value_five) {
   .home__page {
     .main-banner {
-      min-height: 50vh;
+      min-height: auto;
       padding-bottom: 0;
       padding-top: 0px;
       .owl-carousel {
         position: relative;
         .bg__slider {
-          min-height: 50vh;
+          min-height: auto;
+          width: 100%;
           & > img {
-            min-height: 50vh;
+            min-height: auto;
+            width: 100%;
+            height: auto;
           }
         }
         .owl-dots {
@@ -1072,8 +1079,8 @@ $value_eight: 1910px;
       margin-top: 80px;
       margin-bottom: 80px;
       .news-container {
-        margin-left: 15vw;
-        margin-right: 15vw;
+        width: 80%;
+        margin-left: 10%;
         cursor: pointer;
         .arrow-left {
           left: -60px;
@@ -1119,8 +1126,8 @@ $value_eight: 1910px;
             border-radius: 25px;
           }
           .news-item__image {
-            width: calc((70vw - (26px * 3)) / 4);
-            height: calc((70vw - (26px * 3)) / 4);
+            width: 100%;
+            aspect-ratio: 1;
             background: #f2f2f2;
             border: 3px solid #f2f2f2;
             border-radius: 25px;
@@ -1139,7 +1146,7 @@ $value_eight: 1910px;
             margin-bottom: 10px;
           }
           .news-item__subtitle {
-            max-width: calc((70vw - (45px * 3)) / 4);
+            max-width: 100%;
             font-weight: 500;
             font-size: 18px;
             line-height: 100%;

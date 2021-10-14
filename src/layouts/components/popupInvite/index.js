@@ -4,6 +4,8 @@ import { useMediaQuery } from "react-responsive"
 import { CircleCloseButton, PopupNotiWrapper } from "../../../assets/svg"
 import SlideInModal from "../../../components/SlideInModal"
 import { getUserData } from "../../../store/user/selector"
+import popupInvite from "../../../assets/images/popup-invite.png"
+
 import "./styles.scss"
 const { innerWidth: width, innerHeight: height } = window
 const InvitePopup = () => {
@@ -25,11 +27,8 @@ const InvitePopup = () => {
       : height * 0.4
   }
   return (
-    <div
-      className="invite-popup-container"
-      style={{ width: getModalWidth(), height: getModalHeight() }}
-    >
-      <PopupNotiWrapper width={getModalWidth()} height={getModalHeight()} />
+    <div className="invite-popup-container">
+      <img src={popupInvite} className="popup-invite-img" />
       <div className="invite-popup-content-wrapper">
         <h1>Mời bạn mới</h1>
         <p>

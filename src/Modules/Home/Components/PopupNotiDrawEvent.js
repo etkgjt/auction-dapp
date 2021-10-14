@@ -4,6 +4,7 @@ import { CircleCloseButton, PopupNotiWrapper } from "../../../assets/svg"
 
 import SlideInModal from "../../../components/SlideInModal"
 import VoiImg from "../assets/images/voi.png"
+import popupEvent from "../assets/popup-event.png"
 
 const { innerWidth: width, innerHeight: height } = window
 const PopupNotiDraw = ({ data }) => {
@@ -24,11 +25,8 @@ const PopupNotiDraw = ({ data }) => {
       : height * 0.4
   }
   return (
-    <div
-      className="popup-noti-draw-container"
-      style={{ width: getModalHeight(), height: getModalHeight() }}
-    >
-      <PopupNotiWrapper width={getModalHeight()} height={getModalHeight()} />
+    <div className="popup-noti-draw-container">
+      <img src={popupEvent} className="popup-event-image" />
       <div
         className="popup-noti-draw-close-btn"
         onClick={() => {
@@ -37,9 +35,7 @@ const PopupNotiDraw = ({ data }) => {
       >
         <CircleCloseButton />
       </div>
-      <div className="popup-noti-draw-image-wrapper">
-        <img src={VoiImg} className="popup-noti-draw-image" />
-      </div>
+
       <div className="popup-noti-draw-content-wrapper">
         <h1 className="content-title">{data?.title}</h1>
         <p className="content-subtitle">{data?.content}</p>

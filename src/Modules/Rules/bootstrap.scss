@@ -1,8 +1,8 @@
 @import "../../assets/css/variables";
 .rules__page {
   .rules-area {
-    padding-left: 8vw;
-    padding-right: 8vw;
+    padding-left: 8%;
+    padding-right: 8%;
     margin-top: 110px;
     margin-bottom: 110px;
     .event-calendar-container {
@@ -29,28 +29,29 @@
       }
       .calendar-icon__container {
         position: relative;
+        width: 100%;
         .calender-coin-icon {
           width: 124px;
           max-height: 115px;
           position: absolute;
           bottom: 0px;
-          right: -10%;
+          right: -20%;
         }
         .calendar-date {
           position: absolute;
-          font-size: 5vw;
+          font-size: 4rem;
           color: #fff;
           font-weight: 800;
-          top: 20%;
-          right: 23%;
+          top: 15%;
+          right: 20%;
           letter-spacing: 3px;
         }
         .calendar-month {
           position: absolute;
-          font-size: 2vw;
+          font-size: 2rem;
           color: #fff;
           font-weight: 800;
-          bottom: 12%;
+          bottom: 10%;
           right: 26%;
           letter-spacing: 3px;
         }

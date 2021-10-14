@@ -16,10 +16,14 @@
     .nav-user-progress-container {
       display: flex;
       flex-direction: row;
-      margin-right: 66px;
+      margin-right: 50px;
       align-items: center;
       .user-point-wrapper {
         position: relative;
+        & > svg {
+          max-height: 50px;
+          max-width: 180px;
+        }
         & > span {
           font-weight: bold;
           font-size: 24px;
@@ -36,6 +40,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        margin-right: 20px;
         & > span {
           font-style: normal;
           font-weight: bold;
@@ -98,7 +103,8 @@
       top: 20px;
       right: 0px;
       min-height: 375px;
-      width: 300px;
+      min-width: 200px;
+      max-width: 250px;
       background: white;
       border-radius: 40px 0px 40px 40px;
       .info-dropdown-container {
@@ -107,8 +113,8 @@
           color: #1e3d74;
           font-style: normal;
           font-weight: 700;
-          font-size: 18px;
-          line-height: 22px;
+          font-size: 14px;
+          line-height: 18px;
           width: 100%;
           display: flex;
           flex-direction: row;
@@ -121,10 +127,10 @@
             border-radius: 7px;
           }
           &.active {
-            color: var(--primaryColor);
+            color: #eb5024;
           }
           &:hover {
-            color: var(--primaryColor2);
+            color: #eb5024;
             transform: translateX(5px);
             transition: transform 0.1s ease-in-out;
           }
@@ -182,8 +188,6 @@
   }
 }
 .logout-popup-modal-wrapper {
-  min-width: 30vw !important;
-  min-height: 40vh !important;
   background: transparent;
   border: none;
 }
