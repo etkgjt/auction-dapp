@@ -15,7 +15,7 @@ import d1 from "../assets/images/d1.png"
 import d2 from "../assets/images/d2.png"
 import d3 from "../assets/images/d3.png"
 import d4 from "../assets/images/d4.png"
-import { getUserData } from "../../../store/user/selector"
+import { getUserData, user } from "../../../store/user/selector"
 import { useSelector } from "react-redux"
 import { useMediaQuery } from "react-responsive"
 import { CopyIcon, LinkIcon } from "../../Profile/assets/icon"
@@ -65,7 +65,9 @@ const Achievement = () => {
         <AchievementHeaderTitle />
       </div>
       {data.map((item, index) => {
-        const reached = item.numToReach <= userData?.inviteUserCount
+        const reached =
+          userData?.flagdaisu === 1 &&
+          item.numToReach <= userData?.inviteUserCount
         return (
           <div key={index} className="achivement-item-wrapper">
             <img
