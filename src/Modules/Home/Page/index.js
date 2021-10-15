@@ -108,11 +108,11 @@ const Home = () => {
             dispatch(NotiAction.setCountUnreadNoti({}))
           }
         )
-      } else if (notification.type === "voucher") {
+      } else if (notification.type === "level1") {
         SlideInModal.show(
           () => {},
-          <PopupNoti data={notification} />,
-          "home-noti-popup-modal-wrapper",
+          <PopupLevelUp data={notification} />,
+          "popup-voucher-modal-wrapper",
           () => {
             setTimeout(() => {
               SlideInModal.show(

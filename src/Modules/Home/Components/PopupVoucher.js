@@ -90,7 +90,9 @@ const PopupVoucher = () => {
       >
         <CircleCloseButton />
       </div>
-      <p className="popup-voucher-list-title">Chọn một phần quà</p>
+      <p className="popup-voucher-list-title">
+        Bạn được tặng 1 voucher Tâm Trí Lực, hãy chọn Voucher
+      </p>
       <div className="popup-voucher-list-wrapper">
         {listVoucher?.listData?.map((item, index) => (
           <>
