@@ -3,8 +3,11 @@
   .gifts-area {
     margin-top: 120px;
     margin-bottom: 80px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     .gifts-progress-area {
-      padding: 48px 20px 48px 20px;
+      padding: 40px 20px 40px 20px;
       background: #ffc61a;
       border-radius: 40px;
       display: flex;
@@ -18,12 +21,15 @@
         top: -100px;
         .gifts-progress__point-wrapper {
           position: relative;
-          margin-top: 32px;
+          margin-top: 45px;
+          & > svg {
+            max-height: 92px;
+          }
           .gifts-progress__point {
             position: absolute;
             font-weight: bold;
-            font-size: 50px;
-            line-height: 60px;
+            font-size: 40px;
+            line-height: 50px;
             text-align: center;
             color: #ffffff;
             top: 50%;
@@ -57,7 +63,7 @@
         }
       }
       .gifts-progress__button-wrapper {
-        margin-top: 30px;
+        margin-top: 20px;
         position: relative;
         cursor: pointer;
         &:hover {
@@ -72,8 +78,8 @@
           user-select: none;
           position: absolute;
           font-weight: 600;
-          font-size: 18px;
-          line-height: 22px;
+          font-size: 15px;
+          line-height: 18px;
           text-align: center;
           color: #ffffff;
           top: 50%;
@@ -85,8 +91,8 @@
           user-select: none;
           position: absolute;
           font-weight: 600;
-          font-size: 18px;
-          line-height: 22px;
+          font-size: 15px;
+          line-height: 18px;
           text-align: center;
           color: #f68317;
           top: 50%;
@@ -98,7 +104,7 @@
     }
 
     .gifts-container {
-      padding: 140px 0px 0px 0px;
+      padding: 100px 0px 0px 0px;
       background: #f16c1c;
       border-radius: 40px;
       position: relative;
@@ -109,6 +115,7 @@
         transform: translate(-50%);
         & > svg {
           animation: movebounce 5s linear infinite;
+          max-width: 390px;
         }
       }
       .gifts-tabs-wrapper {
@@ -120,12 +127,12 @@
         & > span {
           font-style: normal;
           font-weight: bold;
-          font-size: 30px;
-          line-height: 36px;
+          font-size: 25px;
+          line-height: 30px;
           text-align: center;
           color: #ffffff;
-          padding-top: 21px;
-          padding-bottom: 21px;
+          padding-top: 16px;
+          padding-bottom: 16px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -140,8 +147,8 @@
         }
       }
       .list-gifts-wrapper {
-        padding-left: 5%;
-        padding-right: 5%;
+        padding-left: 15%;
+        padding-right: 15%;
         background-color: #fff;
         border: 5px solid #f2f2f2;
         border-top-width: 0;
@@ -163,41 +170,41 @@
           .ticket-left {
             background-color: #555aff;
             width: 100%;
-            border-radius: 20px;
-            height: 130px;
-            padding: 10px;
+            border-radius: 15px;
+            height: 100px;
+            padding: 8px;
             .gifts-item-image {
-              height: 110px;
+              height: 84px;
               aspect-ratio: 1;
-              border-radius: 20px;
+              border-radius: 12px;
               margin-right: 20px;
               object-fit: contain;
               background-color: #fff;
               padding: 12px;
             }
             .gifts-item-info-wrapper {
-              padding-top: 16px;
-              padding-bottom: 16px;
+              padding-top: 8px;
+              padding-bottom: 8px;
               .gifts-item-title {
                 font-style: normal;
                 font-weight: bold;
-                font-size: 18px;
-                line-height: 22px;
+                font-size: 15px;
+                line-height: 18px;
                 color: #fff;
-                margin-bottom: 6px;
+                margin-bottom: 0px;
               }
               .gifts-item-subtitle {
                 font-style: normal;
                 font-weight: 500;
-                font-size: 14px;
-                line-height: 17px;
+                font-size: 11px;
+                line-height: 14px;
                 color: #fff;
                 margin-bottom: 6px;
               }
               .gifts-item-point {
                 font-weight: bold;
-                font-size: 24px;
-                line-height: 29px;
+                font-size: 20px;
+                line-height: 24px;
                 color: #ffc61a;
                 margin-bottom: 0;
                 margin-right: 6px;
@@ -225,7 +232,7 @@
           height: 100%;
           aspect-ratio: 1;
           background-color: #555aff;
-          border-radius: 20px;
+          border-radius: 15px;
           box-sizing: border-box;
           display: flex;
           justify-content: center;
@@ -233,8 +240,8 @@
           cursor: pointer;
           & > p {
             font-weight: bold;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 15px;
+            line-height: 18px;
             text-align: center;
             color: #ffffff;
           }

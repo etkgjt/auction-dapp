@@ -13,6 +13,7 @@ import { getUserData } from "../store/user/selector"
 import { loginSuccessSelector } from "../Modules/Authenticate/store/auth/selectors"
 import MessengerCustomerChat from "react-messenger-customer-chat"
 import "./responsive.scss"
+import { FACEBOOK_PAGE_ID } from "../configs/environment"
 const BlankLayout = ({ children, ...rest }) => {
   // ** States
   const [isMounted, setIsMounted] = useState(false)
@@ -88,7 +89,7 @@ const BlankLayout = ({ children, ...rest }) => {
         }}
       >
         <MessengerCustomerChat
-          pageId="102414078885625"
+          pageId={FACEBOOK_PAGE_ID}
           appId="657246228332033"
         />
       </div>

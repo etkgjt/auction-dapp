@@ -34,23 +34,23 @@
       background: #ffffff;
       border: 5px solid #f2f2f2;
       border-radius: 40px;
-      padding: 56px 6% 56px 6%;
+      padding: 46px 70px 56px 70px;
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
       .news-list-title {
         font-weight: bold;
-        font-size: 46px;
-        line-height: 55px;
+        font-size: 38px;
+        line-height: 46px;
         text-align: center;
         color: #f68317;
       }
       .news-list-subtitle {
         font-style: normal;
         font-weight: 500;
-        font-size: 18px;
-        line-height: 30px;
+        font-size: 15px;
+        line-height: 24px;
         text-align: center;
         color: #1e3d74;
       }
@@ -62,9 +62,11 @@
         .search-input {
           width: 100%;
           height: 50px;
-          border: 5px solid #f2f2f2;
-          border-radius: 20px;
+          border: 4px solid #f2f2f2;
+          border-radius: 15px;
           padding-left: 10px;
+          font-size: 15px;
+          line-height: 18px;
           &:focus {
             outline: none;
             border: 5px solid #f68317;
@@ -73,7 +75,7 @@
         .search-button {
           width: 110px;
           background: #555aff;
-          border-radius: 20px;
+          border-radius: 15px;
           height: 50px;
           display: flex;
           justify-content: center;
@@ -90,8 +92,8 @@
           & > span {
             font-style: normal;
             font-weight: 500;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 15px;
+            line-height: 18px;
             color: #ffffff;
           }
         }
@@ -136,7 +138,7 @@
         .news-item-title {
           font-style: normal;
           font-weight: bold;
-          font-size: 18px;
+          font-size: 15px;
           line-height: 100%;
           text-align: justify;
           color: #1e3d74;
@@ -144,7 +146,7 @@
         }
         .news-item-subtitle {
           font-weight: normal;
-          font-size: 18px;
+          font-size: 15px;
           line-height: 100%;
           text-align: justify;
           color: #a2a2a2;
@@ -159,8 +161,8 @@
         width: 200px;
         height: auto;
         position: absolute;
-        right: 100px;
-        bottom: -50px;
+        right: 60px;
+        bottom: -80px;
         animation: movebounce 5s linear infinite;
         & > img {
           width: 100%;
@@ -182,14 +184,12 @@
 
     .news-detail-wrapper {
       background: #ffffff;
-      border: 5px solid #f2f2f2;
+      border: 4px solid #f2f2f2;
       border-radius: 40px;
-      padding: 56px 10% 56px 10%;
-
-      width: 1000px;
+      padding: 56px 70px 56px 70px;
+      width: 835px;
       margin-left: auto;
       margin-right: auto;
-
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -205,14 +205,15 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        margin-left: -40%;
+        margin-left: -30%;
+
         .news-detail-image-wrapper {
-          width: 245px;
-          height: 245px;
-          min-width: 245px;
-          border: 5px solid #f2f2f2;
-          border-radius: 40px;
-          margin-right: 40px;
+          width: 186px;
+          height: 186px;
+          min-width: 186px;
+          border: 3px solid #f2f2f2;
+          border-radius: 20px;
+          margin-right: 20px;
           box-sizing: border-box;
           background-color: #f2f2f2;
           .news-item-image-loading {
@@ -231,7 +232,7 @@
           align-items: flex-start;
           .news-detail-date {
             font-weight: 500;
-            font-size: 18px;
+            font-size: 15px;
             line-height: 100%;
             text-align: justify;
             color: #a2a2a2;
@@ -240,8 +241,8 @@
           .news-detail-title {
             font-style: normal;
             font-weight: bold;
-            font-size: 46px;
-            line-height: 55px;
+            font-size: 38px;
+            line-height: 46px;
             color: #f68317;
             max-width: 70%;
             margin-top: 20px;
@@ -249,7 +250,7 @@
           }
           .news-detail-poster {
             font-weight: 500;
-            font-size: 18px;
+            font-size: 15px;
             line-height: 100%;
             text-align: justify;
             color: #a2a2a2;
@@ -271,7 +272,7 @@
         width: 200px;
         height: auto;
         position: absolute;
-        right: 100px;
+        right: 60px;
         bottom: -50px;
         animation: movebounce 5s linear infinite;
         & > img {

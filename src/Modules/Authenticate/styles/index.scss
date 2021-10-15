@@ -112,10 +112,11 @@
   background-repeat: no-repeat;
   min-height: calc(100vh);
   background-size: contain;
-  .form-signup-wrapper {
-    padding-left: 10%;
-    padding-right: 10%;
 
+  .form-signup-wrapper {
+    width: 975px;
+    margin-left: auto;
+    margin-right: auto;
     .form-signup__login-info-container {
       position: relative;
       background: #ffffff;

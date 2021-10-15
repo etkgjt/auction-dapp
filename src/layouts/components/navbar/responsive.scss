@@ -17,13 +17,15 @@ $value_eight: 1910px;
   }
 
   .navbar {
-    padding: 16px 30px 16px 30px;
+    padding: 16px 20px 16px 20px;
     height: 90px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     .others-option {
       display: flex;
       flex-direction: row;
+      margin-right: 0px;
+      right: 40px;
       .nav-user-progress-container {
         display: flex;
         flex-direction: column;
@@ -85,7 +87,7 @@ $value_eight: 1910px;
       background: var(--orange1);
       position: relative;
       height: 45px;
-      padding: 12px 45px 12px 16px;
+      padding: 10px 40px 12px 16px;
       border-radius: 10px;
       margin-top: 20px;
       &.login {

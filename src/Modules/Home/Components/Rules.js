@@ -66,7 +66,7 @@ const Rules = () => {
     dispatch(actions.getList())
     dispatch(rankActions.getList())
   }, [])
-
+  console.log(listRank)
   return (
     <div className="rules-area">
       <div className="rules-container">
@@ -133,7 +133,9 @@ const Rules = () => {
                       </div>
                       <div className="item-info">
                         <span className="item-level">
-                          {item?.level?.name || ""}
+                          {`Cấp ${item?.inviteUserCount + " | " || ""}${
+                            item?.level?.name || ""
+                          }`}
                         </span>
                         <span className="item-name">{item.childFullName1}</span>
                         <span className="item-point">

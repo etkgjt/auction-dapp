@@ -8,8 +8,8 @@
     margin-right: auto;
     .step-area__title {
       font-weight: 800;
-      font-size: 46px;
-      line-height: 55px;
+      font-size: 38px;
+      line-height: 45px;
       text-align: center;
       color: #f67e18;
     }
@@ -19,8 +19,8 @@
       margin-top: 24px;
       .step-area__subtitle {
         font-weight: 500;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 15px;
+        line-height: 18px;
         text-align: center;
         color: #000000;
       }
@@ -42,29 +42,28 @@
         .step1-title {
           position: absolute;
           top: 38px;
-          right: 70px;
+          right: 56px;
           font-weight: bold;
-          font-size: 30px;
-          line-height: 36px;
+          font-size: 24px;
+          line-height: 30px;
           text-align: right;
           color: #1e3d74;
         }
         .step1-label {
-          width: 100px;
-          height: 90px;
           background: #faa418;
-          border-top-left-radius: 40px;
-          border-bottom-right-radius: 40px;
+          border-top-left-radius: 30px;
+          border-bottom-right-radius: 30px;
           display: flex;
           justify-content: center;
           align-items: center;
           font-weight: bold;
-          font-size: 30px;
-          line-height: 36px;
+          font-size: 24px;
+          line-height: 30px;
           color: #ffffff;
           position: absolute;
-          top: -7px;
-          left: -7px;
+          top: -5px;
+          left: -5px;
+          padding: 20px 28px;
         }
         .step1__item-wrapper {
           display: flex;
@@ -83,8 +82,8 @@
             transition: transform 0.4s ease-in-out;
           }
           & > p {
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 15px;
+            line-height: 18px;
             text-align: center;
             color: #1e3d74;
             font-weight: 700;
@@ -107,35 +106,34 @@
           text-align: left;
           background: #faa418;
           font-weight: bold;
-          font-size: 30px;
-          line-height: 36px;
+          font-size: 24px;
+          line-height: 30px;
           color: #ffffff;
-          border-radius: 40px;
+          border-radius: 25px;
         }
         .step2-label {
-          width: 100px;
-          height: 90px;
+          padding: 20px 28px;
           background: #f16c1c;
-          border-bottom-left-radius: 40px;
-          border-top-right-radius: 40px;
+          border-bottom-left-radius: 30px;
+          border-top-right-radius: 30px;
           display: flex;
           justify-content: center;
           align-items: center;
           font-weight: bold;
-          font-size: 30px;
-          line-height: 36px;
+          font-size: 24px;
+          line-height: 30px;
           color: #ffffff;
           position: absolute;
-          top: -7px;
-          right: -7px;
+          top: -5px;
+          right: -5px;
         }
         .step2-content-wrapper {
-          padding: 50px;
-          font-weight: 600;
+          padding: 20px 40px;
+          font-weight: 500;
           font-size: 18px;
           line-height: 22px;
           text-align: justify;
-          color: #000000;
+          color: #1e3d74;
         }
       }
     }
@@ -150,35 +148,34 @@
         text-align: left;
         background: #f16c1c;
         font-weight: bold;
-        font-size: 30px;
-        line-height: 36px;
+        font-size: 24px;
+        line-height: 30px;
         color: #ffffff;
         border-radius: 40px;
       }
       .step3-label {
-        width: 100px;
-        height: 90px;
+        padding: 20px 28px;
         background: #ffc61a;
-        border-bottom-left-radius: 40px;
-        border-top-right-radius: 40px;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 30px;
         display: flex;
         justify-content: center;
         align-items: center;
         font-weight: bold;
-        font-size: 30px;
-        line-height: 36px;
+        font-size: 24px;
+        line-height: 30px;
         color: #ffffff;
         position: absolute;
-        top: -7px;
-        right: -7px;
+        top: -5px;
+        right: -5px;
       }
       .step3-content-wrapper {
-        padding: 50px;
-        font-weight: 600;
+        padding: 20px 40px;
+        font-weight: 500;
         font-size: 18px;
         line-height: 22px;
         text-align: justify;
-        color: #000000;
+        color: #1e3d74;
       }
     }
     .step4-container {
@@ -193,34 +190,34 @@
         background: var(--lightOrange);
         border-radius: 40px;
         position: relative;
-        padding: 100px 40px 70px 20px;
+        padding: 95px 40px 70px 20px;
         .step4-title {
           position: absolute;
           top: 38px;
           right: 70px;
           font-weight: bold;
-          font-size: 30px;
-          line-height: 36px;
+          font-size: 24px;
+          line-height: 30px;
           text-align: right;
           color: #1e3d74;
         }
         .step4-label {
           width: 50%;
-          min-height: 150px;
+          min-height: 140px;
           background: #faa418;
-          border-top-left-radius: 40px;
-          border-bottom-right-radius: 40px;
+          border-top-left-radius: 35px;
+          border-bottom-right-radius: 35px;
           display: flex;
           justify-content: center;
           align-items: center;
           font-weight: bold;
-          font-size: 30px;
-          line-height: 36px;
+          font-size: 24px;
+          line-height: 30px;
           color: #ffffff;
           position: absolute;
           top: -20%;
-          left: -7px;
-          padding: 20px;
+          left: -5px;
+          padding: 30px 40px;
         }
         .step4-content {
           width: 100%;

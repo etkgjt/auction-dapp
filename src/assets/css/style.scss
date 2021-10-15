@@ -68,6 +68,27 @@ Default CSS
 @import "variables";
 @import url("https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i");
 
+@font-face {
+  font-family: "GothamRnd";
+  src: url("../fonts/GothamRnd-Bold_0.otf");
+  font-weight: bold, 700;
+}
+@font-face {
+  font-family: "GothamRnd";
+  src: url("../fonts/GothamRnd-Book_0.otf");
+  font-weight: 400, 500;
+}
+@font-face {
+  font-family: "GothamRnd";
+  src: url("../fonts/GothamRnd-Light_0.otf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "GothamRnd";
+  src: url("../fonts/GothamRnd-Medium_0.otf");
+  font-weight: 600;
+}
+
 body {
   font-family: var(--fontFamily);
   padding: 0;
@@ -9163,10 +9184,9 @@ Footer CSS
 }
 
 .copyright-area {
-  padding: 30px 0;
+  padding: 12px 0;
   background: linear-gradient(90deg, #f57d18 0%, #fea003 100%);
   border-radius: 40px 40px 0px 0px;
-
   .container {
     p {
       color: var(--whiteColor);

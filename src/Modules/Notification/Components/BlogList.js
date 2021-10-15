@@ -118,55 +118,52 @@ const BlogOne = () => {
 
   return (
     <div className="notification-area">
-      <Container>
-        <div className="notification-wrapper">
-          {listNoti?.listData?.length ? (
-            <Row>
-              {listNoti?.listData?.map((item, index) => (
-                <Col
-                  key={item?.id}
-                  xl="12"
-                  lg="12"
-                  className="d-flex flex-column"
-                  onClick={() => {
-                    if (firstTime) {
-                      setIsFirstTime(false)
-                    }
-                    toggle()
-                    fetchNotiDetail(item?.id)
-                  }}
-                >
-                  <div className="notification-item-wrapper">
-                    {index !== 0 ? (
-                      <hr className="notification-divider" />
-                    ) : null}
-                    <div className="notification-date">{item?.createdAt}</div>
-                    <div className="notification-title">{item?.title}</div>
-                    <div className="notification-subtitle">{item?.content}</div>
-                    {!item?.seen ? <div className="unseen-badge" /> : null}
-                  </div>
-                </Col>
-              ))}
-            </Row>
-          ) : (
-            <Row className="w-100">
-              <h4 className="text-center">Chưa có thông báo nào!</h4>
-            </Row>
-          )}
-          {paging?.totalPage > 1 ? (
-            <Row className="w-100 mt-5">
-              <div className="d-flex flex-row justify-content-center">
-                <Pagination
-                  initialPage={paging?.curPage - 1}
-                  pageCount={paging?.totalPage}
-                  containerClassName={"d-flex flex-row"}
-                  onPageChange={onPageChange}
-                />
-              </div>
-            </Row>
-          ) : null}
-        </div>
-      </Container>
+      <div className="notification-wrapper">
+        {listNoti?.listData?.length ? (
+          <Row>
+            {listNoti?.listData?.map((item, index) => (
+              <Col
+                key={item?.id}
+                xl="12"
+                lg="12"
+                className="d-flex flex-column"
+                onClick={() => {
+                  if (firstTime) {
+                    setIsFirstTime(false)
+                  }
+                  toggle()
+                  fetchNotiDetail(item?.id)
+                }}
+              >
+                <div className="notification-item-wrapper">
+                  {index !== 0 ? <hr className="notification-divider" /> : null}
+                  <div className="notification-date">{item?.createdAt}</div>
+                  <div className="notification-title">{item?.title}</div>
+                  <div className="notification-subtitle">{item?.content}</div>
+                  {!item?.seen ? <div className="unseen-badge" /> : null}
+                </div>
+              </Col>
+            ))}
+          </Row>
+        ) : (
+          <Row className="w-100">
+            <h4 className="text-center">Chưa có thông báo nào!</h4>
+          </Row>
+        )}
+        {paging?.totalPage > 1 ? (
+          <Row className="w-100 mt-5">
+            <div className="d-flex flex-row justify-content-center">
+              <Pagination
+                initialPage={paging?.curPage - 1}
+                pageCount={paging?.totalPage}
+                containerClassName={"d-flex flex-row"}
+                onPageChange={onPageChange}
+              />
+            </div>
+          </Row>
+        ) : null}
+      </div>
+
       <Modal
         isOpen={isOpen}
         toggle={toggle}

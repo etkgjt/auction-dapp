@@ -9,10 +9,13 @@
 }
 .achievement__page {
   .profile-area {
-    margin-top: 120px;
+    margin-top: 100px;
     margin-bottom: 80px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     .profile-progress-area {
-      padding: 48px 20px 48px 20px;
+      padding: 40px 20px 40px 20px;
       background: #ffc61a;
       border-radius: 40px;
       display: flex;
@@ -20,19 +23,22 @@
       align-items: center;
       .profile-progress__title {
         font-weight: bold;
-        font-size: 30px;
-        line-height: 36px;
+        font-size: 25px;
+        line-height: 30px;
         text-align: center;
         color: #ffffff;
       }
       .profile-progress__point-wrapper {
         position: relative;
         margin-top: 32px;
+        & > svg {
+          max-height: 100px;
+        }
         .profile-progress__point {
           position: absolute;
           font-weight: bold;
-          font-size: 50px;
-          line-height: 60px;
+          font-size: 40px;
+          line-height: 50px;
           text-align: center;
           color: #ffffff;
           top: 50%;
@@ -42,8 +48,7 @@
       }
       .profile-progress__progress-bar-wrapper {
         width: 100%;
-        margin-top: 56px;
-
+        margin-top: 46px;
         position: relative;
 
         .pending-progress {
@@ -75,6 +80,9 @@
         margin-top: 30px;
         position: relative;
         cursor: pointer;
+        & > svg {
+          max-height: 50px;
+        }
         &:hover {
           transform: scale(1.05);
           transition: transform 0.1s ease-in-out;
@@ -87,8 +95,8 @@
           user-select: none;
           position: absolute;
           font-weight: 600;
-          font-size: 18px;
-          line-height: 22px;
+          font-size: 15px;
+          line-height: 18px;
           text-align: center;
           color: #ffffff;
           top: 50%;
@@ -100,7 +108,7 @@
     }
 
     .achievement-container {
-      padding: 140px 10% 180px 10%;
+      padding: 140px 10% 140px 10%;
       background: #f16c1c;
       border-radius: 40px;
       position: relative;
@@ -111,6 +119,7 @@
         transform: translate(-50%);
         & > svg {
           animation: movebounce 5s linear infinite;
+          max-width: 400px;
         }
       }
       .achievement-footer {
@@ -125,14 +134,14 @@
         .copy-btn-title {
           font-style: normal;
           font-weight: 500;
-          font-size: 18px;
-          line-height: 22px;
+          font-size: 15px;
+          line-height: 18px;
           color: #f16c1c;
           margin-bottom: 6px;
         }
         .copy-field {
           background: #fff;
-          border-radius: 20px;
+          border-radius: 15px;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
@@ -141,8 +150,8 @@
           & > p {
             font-style: normal;
             font-weight: 500;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 15px;
+            line-height: 18px;
             color: #c4c4c4;
             margin-bottom: 0;
             max-width: 50%;
@@ -162,12 +171,12 @@
               transition: transform 0.1s ease-in;
             }
             background: #555aff;
-            border-radius: 20px;
+            border-radius: 15px;
             color: #fff;
             font-weight: 500;
-            font-size: 16px;
-            line-height: 20px;
-            padding: 16px;
+            font-size: 15px;
+            line-height: 18px;
+            padding: 11px;
             width: 50%;
             display: flex;
             justify-content: center;
@@ -240,7 +249,7 @@
         padding-right: 30px;
         margin-bottom: 24px;
         .achivement-item-image {
-          width: 130px;
+          width: 110px;
           height: auto;
         }
         .achivement-item-info-wrapper {
@@ -249,23 +258,23 @@
           .achivement-item-title {
             font-style: normal;
             font-weight: bold;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 15px;
+            line-height: 18px;
             color: #f16c1c;
             margin-bottom: 6px;
           }
           .achivement-item-subtitle {
             font-style: normal;
             font-weight: 500;
-            font-size: 14px;
-            line-height: 17px;
+            font-size: 11px;
+            line-height: 14px;
             color: #c4c4c4;
             margin-bottom: 6px;
           }
           .achivement-item-point {
             font-weight: bold;
-            font-size: 24px;
-            line-height: 29px;
+            font-size: 20px;
+            line-height: 24px;
             color: #ffc61a;
             margin-bottom: 0;
             margin-right: 6px;

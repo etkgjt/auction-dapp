@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import { Row, Col, Container } from "reactstrap"
 import {
   RulesTopBannerTitle,
@@ -49,9 +49,29 @@ const Rules = ({ setIsOpen }) => {
   const calendar = useSelector(getCalendar)
   const calendarLoading = useSelector(getCalendarLoading)
 
+  const calendarRef = useRef()
+  const rulesRef = useRef()
+
+  const stickyCalendar = (e) => {
+    if (isMobile) return
+    if (window.scrollY > rulesRef?.current?.offsetTop) {
+      calendarRef.current.style.position = "fixed"
+      calendarRef.current.style.top = 0
+    } else {
+      calendarRef.current.style.position = "static"
+    }
+  }
+
   React.useEffect(() => {
     dispatch(actions.getList())
     dispatch(calendarActions.getList())
+  }, [])
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", stickyCalendar)
+    return () => {
+      window.removeEventListener("scroll", stickyCalendar)
+    }
   }, [])
 
   return (
@@ -231,7 +251,7 @@ const Rules = ({ setIsOpen }) => {
         ) : (
           <>
             <Col xl="7" lg="7" md="7">
-              <div className="rules-detail-container">
+              <div className="rules-detail-container" ref={rulesRef}>
                 <div className="rules-detail__title-container">
                   <RulesTopBannerTitle />
                 </div>
@@ -313,8 +333,8 @@ const Rules = ({ setIsOpen }) => {
                 </div>
               </div>
             </Col>
-            <Col xl="5" lg="5" md="5">
-              <div className="event-calendar-container">
+            <Col xl="5" lg="5" md="5" style={{ position: "relative" }}>
+              <div className="event-calendar-container" ref={calendarRef}>
                 <h1 className="calendar-title">Lịch Sự Kiên</h1>
                 <p className="calendar-text-black">
                   VÒNG QUAY MAY MẮN

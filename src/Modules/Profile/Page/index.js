@@ -13,9 +13,8 @@ const Home = () => {
   return (
     <div className="profile__page">
       <Banner />
-      <Container>
-        <Profile />
-      </Container>
+
+      <Profile />
     </div>
   )
 }

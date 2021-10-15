@@ -92,13 +92,12 @@ const Step = () => {
         <Row>
           <Col cl="6" lg="6" md="6">
             <div className="step2-wrapper wow fadeInLeft">
-              <div className="step2-label">2</div>
+              <div className="step2-label">02</div>
               <div className="step2-title-wrapper">
                 <span>
-                  Đăng ký tài khoản <br />
-                  và đăng nhập
+                  Đăng ký
                   <br />
-                  thành công trên ứng dụng
+                  tài khoản
                 </span>
               </div>
               <div className="step2-content-wrapper">
@@ -113,12 +112,11 @@ const Step = () => {
               className="step3-wrapper wow fadeInRight"
               data-wow-delay="0.5s"
             >
-              <div className="step3-label">3</div>
+              <div className="step3-label">03</div>
               <div className="step3-title-wrapper">
                 <span>
                   Trải nghiệm
                   <br />
-                  chương trình <br />
                   Siêu Trí Nhớ Học Đường
                 </span>
               </div>

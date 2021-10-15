@@ -17,10 +17,11 @@
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   padding: 16px 30px 16px 30px;
-  height: 90px;
+  height: 85px;
   .others-option {
     display: flex;
     flex-direction: row;
+    margin-right: 20px;
     .nav-user-progress-container {
       display: flex;
       flex-direction: row;
@@ -34,8 +35,8 @@
         }
         & > span {
           font-weight: bold;
-          font-size: 24px;
-          line-height: 29px;
+          font-size: 18px;
+          line-height: 22px;
           text-align: center;
           color: #ffffff;
           position: absolute;

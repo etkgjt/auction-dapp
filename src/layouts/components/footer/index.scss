@@ -23,6 +23,7 @@
   font-weight: bold;
   font-size: 14px;
   line-height: 17px;
+  margin-bottom: 12px;
 }
 .footer-right > ul > li {
   animation-duration: 0.2s;
@@ -47,5 +48,37 @@
     animation-name: newsHoverIn;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+  }
+}
+
+.facebook-footer {
+  & > svg {
+    max-width: 36px;
+    max-height: 36px;
+  }
+}
+.youtube-footer {
+  & > svg {
+    max-width: 36px;
+    max-height: 36px;
+  }
+}
+.titktok-footer {
+  & > svg {
+    max-width: 36px;
+    max-height: 36px;
+  }
+}
+.stnhd-footer {
+  & > svg {
+    width: auto;
+    height: 100px;
+  }
+  margin-left: 10px;
+}
+.ttl-footer {
+  & > svg {
+    max-width: 70px;
+    max-height: 60px;
   }
 }

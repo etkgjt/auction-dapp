@@ -11,8 +11,11 @@
   .profile-area {
     margin-top: 120px;
     margin-bottom: 80px;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     .profile-progress-area {
-      padding: 48px 20px 48px 20px;
+      padding: 40px 20px 40px 20px;
       background: #ffc61a;
       border-radius: 40px;
       display: flex;
@@ -27,12 +30,15 @@
       }
       .profile-progress__point-wrapper {
         position: relative;
-        margin-top: 32px;
+        margin-top: 26px;
+        & > svg {
+          max-height: 100px;
+        }
         .profile-progress__point {
           position: absolute;
           font-weight: bold;
-          font-size: 50px;
-          line-height: 60px;
+          font-size: 40px;
+          line-height: 50px;
           text-align: center;
           color: #ffffff;
           top: 50%;
@@ -42,7 +48,7 @@
       }
       .profile-progress__progress-bar-wrapper {
         width: 100%;
-        margin-top: 56px;
+        margin-top: 45px;
 
         position: relative;
         .pending-progress {
@@ -74,6 +80,10 @@
         margin-top: 30px;
         position: relative;
         cursor: pointer;
+        & > svg {
+          max-width: 250px;
+          max-height: 50px;
+        }
         &:hover {
           transform: scale(1.05);
           transition: transform 0.1s ease-in-out;
@@ -87,8 +97,8 @@
           user-select: none;
           position: absolute;
           font-weight: 600;
-          font-size: 18px;
-          line-height: 22px;
+          font-size: 15px;
+          line-height: 18px;
           text-align: center;
           color: #ffffff;
           top: 50%;
@@ -105,13 +115,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 36px 20px 36px 20px;
-      margin-top: 42px;
+      padding: 30px 20px 30px 20px;
+      margin-top: 34px;
       .profile-armorial__title {
         font-style: normal;
         font-weight: bold;
-        font-size: 30px;
-        line-height: 36px;
+        font-size: 25px;
+        line-height: 30px;
         text-align: center;
         color: #f16c1c;
       }
@@ -124,20 +134,20 @@
         .group-icon-row {
           flex-direction: row;
           .profile-armorial__img1 {
-            max-width: 130px;
+            max-width: 100px;
           }
           .profile-armorial__img2 {
-            max-width: 130px;
+            max-width: 100px;
           }
         }
 
         .group-icon-column {
           flex-direction: row;
           .profile-armorial__img3 {
-            max-width: 130px;
+            max-width: 100px;
           }
           .profile-armorial__img4 {
-            max-width: 130px;
+            max-width: 100px;
           }
         }
       }
@@ -158,12 +168,12 @@
           align-items: center;
           & > h1 {
             font-weight: bold;
-            font-size: 30px;
-            line-height: 36px;
+            font-size: 24px;
+            line-height: 30px;
             text-align: center;
             color: #ffffff;
-            margin-top: 120px;
-            margin-bottom: 50px;
+            margin-top: 64px;
+            margin-bottom: 30px;
           }
           .friendlist-item-wrapper {
             display: flex;
@@ -176,11 +186,12 @@
             .friendlist-item-rank {
               font-style: normal;
               font-weight: bold;
-              font-size: 35px;
-              line-height: 42px;
+              font-size: 30px;
+              line-height: 35px;
               text-align: center;
               color: #ffffff;
-              margin-right: 16px;
+              margin-right: 13px;
+              margin-bottom: 0;
               text-shadow: #ffb42b 3px 0px 0px, #ffb42b 2.83487px 0.981584px 0px,
                 #ffb42b 2.35766px 1.85511px 0px, #ffb42b 1.62091px 2.52441px 0px,
                 #ffb42b 0.705713px 2.91581px 0px,
@@ -200,12 +211,12 @@
                 #ffb42b 2.88051px -0.838247px 0px;
             }
             .friendlist-item-avatar {
-              width: 80px;
-              height: 80px;
-              border-radius: 40px;
+              width: 65px;
+              height: 65px;
+              border-radius: 50%;
               background: #c4c4c4;
               border: 3px solid #fff;
-              margin-right: 20px;
+              margin-right: 16px;
             }
             .friendlist-item-info {
               display: flex;
@@ -213,15 +224,15 @@
               .friendlist-item-level {
                 font-style: normal;
                 font-weight: bold;
-                font-size: 18px;
-                line-height: 22px;
+                font-size: 15px;
+                line-height: 18px;
                 color: #ffc61a;
               }
               .friendlist-item-point {
                 font-style: normal;
                 font-weight: 800;
-                font-size: 24px;
-                line-height: 29px;
+                font-size: 20px;
+                line-height: 24px;
                 color: #ffc61a;
                 & > svg {
                   margin-left: 6px;
@@ -230,8 +241,8 @@
               .friendlist-item-name {
                 font-style: normal;
                 font-weight: 800;
-                font-size: 18px;
-                line-height: 22px;
+                font-size: 15px;
+                line-height: 18px;
                 color: #ffffff;
                 margin-top: 4px;
                 margin-bottom: 4px;
@@ -282,8 +293,8 @@
         .copy-btn-title {
           font-style: normal;
           font-weight: 500;
-          font-size: 18px;
-          line-height: 22px;
+          font-size: 15px;
+          line-height: 18px;
           color: #f16c1c;
           margin-bottom: 6px;
         }
@@ -291,8 +302,8 @@
           & > p {
             font-style: normal;
             font-weight: 500;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 15px;
+            line-height: 18px;
             color: #c4c4c4;
             margin-bottom: 0;
             max-width: 50%;
@@ -315,8 +326,8 @@
             border-radius: 20px;
             color: #fff;
             font-weight: 500;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 15px;
+            line-height: 18px;
             padding: 16px;
             min-width: 120px;
             display: flex;
@@ -345,15 +356,15 @@
         .change-password-header-title {
           font-style: normal;
           font-weight: bold;
-          font-size: 30px;
-          line-height: 36px;
+          font-size: 25px;
+          line-height: 30px;
           color: #ffffff;
           text-align: center;
-          margin-top: 90px;
+          margin-top: 70px;
           margin-bottom: 20px;
         }
         .group-btn-wrapper {
-          margin-top: 90px;
+          margin-top: 70px;
         }
         .update-profile-button-wrapper {
           position: relative;
@@ -373,8 +384,8 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-weight: 700;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 15px;
+            line-height: 18px;
             text-align: center;
             color: #ffffff;
             user-select: none;
@@ -386,8 +397,8 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-weight: 700;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 15px;
+            line-height: 18px;
             text-align: center;
             color: #f68317;
           }
@@ -443,4 +454,8 @@
       }
     }
   }
+}
+.form-profile-field-label {
+  font-size: 15px;
+  line-height: 18px;
 }

@@ -64,7 +64,11 @@ const FriendList = () => {
               <div className="friendlist-item-avatar"></div>
               <div className="friendlist-item-info">
                 <span className="friendlist-item-level">
-                  {item?.level?.name}
+                  {`${
+                    item?.inviteUserCount ? "Cấp " + item?.inviteUserCount : ""
+                  }${item?.inviteUserCount && item?.level?.name ? " | " : ""}${
+                    item?.level?.name || ""
+                  }`}
                 </span>
                 <span className="friendlist-item-name">
                   {item.childFullName1}

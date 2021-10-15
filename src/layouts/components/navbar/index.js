@@ -95,7 +95,9 @@ const Navbar = () => {
               {!isLogin ? null : (
                 <div className="nav-user-progress-container">
                   <div className="progress-info-wrapper">
-                    <span>{userData?.level?.name || ""}</span>
+                    <span>
+                      {`Cấp ${userData?.inviteUserCount} | ${userData?.level?.name}`}
+                    </span>
                     <div className="progress-bar-wrapper">
                       <div className="done-progress-wrapper">
                         <DoneProgress
