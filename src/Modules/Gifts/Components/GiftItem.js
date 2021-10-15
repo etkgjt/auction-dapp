@@ -19,6 +19,7 @@ import {
 import SlideInModal from "../../../components/SlideInModal"
 import { actions } from "../Store/MyGifts/reducer"
 import PopupNoti from "../Components/PopupNoti"
+import { actions as userActions } from "../../../store/user/reducer"
 
 const TickedNotiData = {
   title: "CƠ HỘI NHẬN GIẢI THƯỞNG ĐẶC BIỆT ĐÃ ĐẾN!!!",
@@ -109,7 +110,7 @@ const GiftItem = ({
             userid: userData?.userId
           })
         )
-        dispatch(actions.getInfoUser({ userid: userData?.userId }))
+        dispatch(userActions.getInfoUser({ userid: userData?.userId }))
       } else {
         toast.error(res.data.retText, {
           position: "top-center",
