@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[85],{361:function(t,n,i){"use strict";i.r(n),i.d(n,"getAccountList",(function(){return u}));var c=i(63);function u(){return{type:c.GET_ACCOUNT_LIST}}}}]);
-//# sourceMappingURL=Authenticate-store-accountList-actions.c1cf36a7.chunk.js.map

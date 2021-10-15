@@ -1,0 +1,2 @@
+(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[276],{517:function(t,a,i){"use strict";i.r(a),a.default=i.p+"static/media/bangquy.7a500b2f.png"}}]);
+//# sourceMappingURL=Rules-assets-images-bangquy-png.3e3f3e45.chunk.js.map
