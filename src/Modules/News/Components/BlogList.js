@@ -41,7 +41,7 @@ const BlogOne = () => {
       actions.getList({
         page: selected + 1,
         limit: NEWS_LIST_LIMIT_DEFAULT,
-        name: keyword
+        name: keyword ? keyword : undefined
       })
     )
   }
@@ -62,7 +62,7 @@ const BlogOne = () => {
       actions.getList({
         page: 1,
         limit: NEWS_LIST_LIMIT_DEFAULT,
-        name: keyword
+        name: keyword ? keyword : undefined
       })
     )
   }
@@ -90,7 +90,7 @@ const BlogOne = () => {
             <span>Tìm kiếm</span>
           </div>
         </div>
-        <Row>
+        <Row className="w-100">
           {listNews?.listData?.map((item, index) => (
             <Col xl="3" lg="3" md="3" sm="4" xs="4" key={item?.id}>
               <div
@@ -115,16 +115,19 @@ const BlogOne = () => {
             </Col>
           ))}
         </Row>
-        <Row className="w-100 mt-5">
-          <div className="d-flex flex-row justify-content-center">
-            <Pagination
-              initialPage={paging?.curPage - 1}
-              pageCount={paging?.totalPage}
-              containerClassName={"d-flex flex-row"}
-              onPageChange={onPageChange}
-            />
-          </div>
-        </Row>
+        {paging?.totalPage < 2 ? null : (
+          <Row className="w-100 mt-5">
+            <div className="d-flex flex-row justify-content-center">
+              <Pagination
+                initialPage={paging?.curPage - 1}
+                pageCount={paging?.totalPage}
+                containerClassName={"d-flex flex-row"}
+                onPageChange={onPageChange}
+              />
+            </div>
+          </Row>
+        )}
+
         <div className="voi-image">
           <img src={voiImg} />
         </div>
