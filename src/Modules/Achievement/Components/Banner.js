@@ -8,11 +8,7 @@ const Banner = () => {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 })
   return (
     <div className="inviter-banner">
-      <img
-        src={isMobile || isTablet ? banner : bannerDesktop}
-        width="100%"
-        height="auto"
-      />
+      <img src={isMobile ? banner : bannerDesktop} width="100%" height="auto" />
     </div>
   )
 }

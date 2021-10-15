@@ -9,11 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("../assets/bg.png");
-  background-position: top;
-  background-size: contain;
-  background-color: #fa8028;
-  background-repeat: no-repeat;
+  background-color: #f77826;
   position: relative;
   min-height: 100vh;
 
@@ -24,6 +20,7 @@
     line-height: 55px;
     text-align: center;
     color: #fff;
+    z-index: 99;
   }
   .forgot-password__form-wrapper {
     position: absolute;
@@ -33,6 +30,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -40%);
+    z-index: 9;
     .forgot-password-form_button {
       position: relative;
       cursor: pointer;
@@ -106,12 +104,8 @@
   align-items: center;
   padding-top: 150px;
   padding-bottom: 150px;
-  background-image: url("../assets/bg.png");
-  background-position: top;
-  background-color: #fa8028;
-  background-repeat: no-repeat;
+  background-color: #f77826;
   min-height: calc(100vh);
-  background-size: contain;
 
   .form-signup-wrapper {
     width: 975px;
@@ -214,11 +208,13 @@
       color: #fff;
       font-size: 11px;
       line-height: 16px;
+      z-index: 99;
     }
     .resend_otp {
       font-size: 13px;
       font-weight: bold;
       cursor: pointer;
+      z-index: 99;
     }
   }
 }

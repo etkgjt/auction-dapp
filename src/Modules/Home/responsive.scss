@@ -219,6 +219,8 @@ $value_eight: 1910px;
                 min-width: 45px;
                 width: 45px;
                 height: 45px;
+                max-height: 45px;
+                overflow: hidden;
                 border-radius: 50%;
                 border: 2px solid #fff;
                 margin-right: 6px;
@@ -229,6 +231,7 @@ $value_eight: 1910px;
                 }
                 .item-rank-avatar-loading {
                   border-radius: 50%;
+                  max-height: 45px;
                 }
               }
               .item-info {
@@ -743,6 +746,7 @@ $value_eight: 1910px;
               .item-avatar {
                 width: 54px;
                 height: 54px;
+                min-width: 54px;
                 border-radius: 50%;
                 border: 3px solid #fff;
                 margin-right: 10px;
@@ -753,6 +757,7 @@ $value_eight: 1910px;
                 }
                 .item-rank-avatar-loading {
                   border-radius: 50%;
+                  max-height: 54px;
                 }
               }
               .item-info {
@@ -1065,6 +1070,7 @@ $value_eight: 1910px;
                 }
                 .item-rank-avatar-loading {
                   border-radius: 50%;
+                  max-height: 54px;
                 }
               }
               .item-info {

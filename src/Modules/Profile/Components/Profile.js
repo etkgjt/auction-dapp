@@ -6,11 +6,28 @@ import Armorial from "./Armorial"
 import FriendList from "./FriendList"
 import FormProfile from "./FormProfile"
 import { useMediaQuery } from "react-responsive"
+
+import bgLeft from "../assets/images/bg-left.png"
+import bgRight from "../assets/images/bg-right.png"
+
 const Profile = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 })
 
   return (
     <div className="profile-area">
+      <img
+        src={bgLeft}
+        style={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          zIndex: -2
+        }}
+      />
+      <img
+        src={bgRight}
+        style={{ position: "fixed", bottom: 100, right: 0, zIndex: -2 }}
+      />
       {isMobile ? (
         <Row noGutters>
           <Col>

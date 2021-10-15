@@ -30,6 +30,9 @@ import moment from "moment"
 import PopupNewbie from "../../../layouts/components/popupNewbie"
 import { actions as userActions } from "../../../store/user/reducer"
 
+import bgLeft from "../assets/images/bg-left.png"
+import bgRight from "../assets/images/bg-right.png"
+
 const getEndFridayOfMonth = () => {
   const result = moment().endOf("month")
   while (result.day() !== 4) {
@@ -184,6 +187,11 @@ const Home = () => {
 
   return (
     <div className="home__page">
+      <img src={bgLeft} style={{ position: "fixed", left: 0, zIndex: -1 }} />
+      <img
+        src={bgRight}
+        style={{ position: "fixed", right: 0, bottom: 0, zIndex: -1 }}
+      />
       <Banner />
       <Reason />
       <Rules />

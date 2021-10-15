@@ -13,6 +13,9 @@ import gold3 from "../../Achievement/assets/images/gold3.png"
 import title from "../../Achievement/assets/images/title.png"
 import voi from "../../Achievement/assets/images/voi.png"
 
+import bgLeft from "../assets/images/bg-left.png"
+import bgRight from "../assets/images/bg-right.png"
+
 const isServer = typeof window === "undefined"
 const WOW = !isServer ? require("wowjs") : null
 
@@ -29,6 +32,14 @@ const Profile = () => {
   }, [])
   return (
     <div className="gifts-area">
+      <img
+        src={bgLeft}
+        style={{ position: "fixed", left: 0, bottom: 0, zIndex: -2 }}
+      />
+      <img
+        src={bgRight}
+        style={{ position: "fixed", right: 0, bottom: 0, zIndex: -2 }}
+      />
       {isMobile ? (
         <Row>
           <Col xl="6" lg="6" md="6">

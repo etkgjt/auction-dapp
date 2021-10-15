@@ -16,8 +16,9 @@ $value_eight: 1910px;
       padding-top: 90px;
     }
     .profile-area {
-      padding-left: 5vw;
-      padding-right: 5vw;
+      width: 315px;
+      margin-left: auto;
+      margin-right: auto;
       margin-top: 20px;
       margin-bottom: 80px;
       .profile-progress-area {
@@ -228,8 +229,12 @@ $value_eight: 1910px;
 @media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
   .achievement__page {
     .profile-area {
-      margin-top: 120px;
+      margin-top: 80px;
       margin-bottom: 80px;
+      width: 694px;
+      margin-left: auto;
+      margin-right: auto;
+
       .profile-progress-area {
         padding: 28px 12px 28px 12px;
         border-radius: 20px;
@@ -461,6 +466,9 @@ $value_eight: 1910px;
     .profile-area {
       margin-top: 120px;
       margin-bottom: 80px;
+      width: 694px;
+      margin-left: auto;
+      margin-right: auto;
       .profile-progress-area {
         padding: 28px 12px 28px 12px;
         border-radius: 20px;

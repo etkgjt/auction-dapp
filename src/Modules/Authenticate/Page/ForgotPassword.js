@@ -36,6 +36,9 @@ import "../responsive.scss"
 import { sendOtp } from "../store/auth/service"
 import { useMediaQuery } from "react-responsive"
 
+import bgLeft from "../assets/bg-left.png"
+import bgRight from "../assets/bg-right.png"
+
 const ForgotPassword = () => {
   const { i18n } = useTranslation()
   const history = useHistory()
@@ -157,6 +160,11 @@ const ForgotPassword = () => {
 
   return listAccount?.length ? (
     <div className="forgot-password-page-wrapper">
+      <img src={bgLeft} style={{ position: "fixed", left: 0, zIndex: 1 }} />
+      <img
+        src={bgRight}
+        style={{ position: "fixed", right: 0, bottom: 0, zIndex: 1 }}
+      />
       <h1 className="forgot-password-page__header">Tài khoản của bạn</h1>
       <div className="forgot-password-form-wrapper">
         {isMobile ? (
@@ -195,9 +203,20 @@ const ForgotPassword = () => {
       {(formik) => {
         return (
           <Form onSubmit={(ev) => ev.preventDefault()}>
+            <img
+              src={bgLeft}
+              style={{ position: "fixed", left: 0, zIndex: 1 }}
+            />
+            <img
+              src={bgRight}
+              style={{ position: "fixed", right: 0, bottom: -10, zIndex: 1 }}
+            />
             <div className="forgot-password-page-wrapper">
               <h1 className="forgot-password-page__header">Quên mật khẩu</h1>
-              <div className="forgot-password-form-wrapper">
+              <div
+                className="forgot-password-form-wrapper"
+                style={{ zIndex: 9 }}
+              >
                 {isMobile ? (
                   <ForgotPasswordFormWrapperMobile />
                 ) : (

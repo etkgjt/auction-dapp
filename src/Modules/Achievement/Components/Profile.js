@@ -15,6 +15,9 @@ import title from "../assets/images/title.png"
 import voi from "../assets/images/voi.png"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
+import bgLeft from "../assets/images/bg-left.png"
+import bgRight from "../assets/images/bg-right.png"
+
 const isServer = typeof window === "undefined"
 const WOW = !isServer ? require("wowjs") : null
 
@@ -33,6 +36,14 @@ const Profile = () => {
   }, [])
   return (
     <div className="profile-area">
+      <img
+        src={bgLeft}
+        style={{ position: "fixed", left: 0, bottom: 0, zIndex: -2 }}
+      />
+      <img
+        src={bgRight}
+        style={{ position: "fixed", right: 0, bottom: 0, zIndex: -2 }}
+      />
       <Row>
         {isMobile ? (
           <>

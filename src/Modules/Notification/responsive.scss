@@ -15,8 +15,6 @@ $value_eight: 1910px;
     .notification-area {
       background: linear-gradient(180deg, #f68318 0%, #f1691b 100%);
       padding-top: 160px;
-      padding-left: 5vw;
-      padding-right: 5vw;
       padding-bottom: 90px;
       min-height: 100vh;
       .notification-wrapper {
@@ -25,6 +23,9 @@ $value_eight: 1910px;
         border-radius: 20px;
         padding: 20px;
         min-height: 60vh;
+        width: 315px;
+        margin-left: auto;
+        margin-right: auto;
         .notification-item-wrapper {
           cursor: pointer;
           position: relative;
@@ -132,6 +133,9 @@ $value_eight: 1910px;
         border-radius: 20px;
         padding: 24px 32px 24px 32px;
         min-height: 60vh;
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
         .notification-item-wrapper {
           cursor: pointer;
           position: relative;

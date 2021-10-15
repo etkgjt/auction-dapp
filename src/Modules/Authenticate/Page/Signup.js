@@ -35,7 +35,8 @@ import { checkInviteCode, syncUserInfo } from "../store/formSignUp/service"
 import { RETCODE_SUCCESS } from "../../../configs/contants"
 import { useMediaQuery } from "react-responsive"
 import { authLogout } from "../store/auth/actions"
-import { ButtonWrapperWhite } from "../../Profile/assets/icon"
+import bgLeft from "../assets/bg-left.png"
+import bgRight from "../assets/bg-right.png"
 
 const Signup = () => {
   //HOOK
@@ -309,6 +310,11 @@ const Signup = () => {
             onSubmit={(ev) => ev.preventDefault()}
           >
             <div className="form-signup-container">
+              <img src={bgLeft} style={{ position: "fixed", left: 0 }} />
+              <img
+                src={bgRight}
+                style={{ position: "fixed", right: 0, bottom: -10 }}
+              />
               <div className="form-signup-wrapper">
                 <Row>
                   <Col xl="5" lg="5" className="px-0">

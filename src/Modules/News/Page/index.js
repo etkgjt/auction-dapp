@@ -8,6 +8,8 @@ import { useTranslation } from "react-i18next"
 
 /*Components*/
 import BlogList from "@Modules/News/Components/BlogList"
+import bgLeft from "../assets/images/bg-left.png"
+import bgRight from "../assets/images/bg-right.png"
 
 const translateKey = "News"
 
@@ -18,6 +20,8 @@ const News = () => {
   }, [])
   return (
     <div className="news__page">
+      <img src={bgLeft} style={{ position: "fixed", left: 0 }} />
+      <img src={bgRight} style={{ position: "fixed", right: 0 }} />
       <BlogList />
     </div>
   )
