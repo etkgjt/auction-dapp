@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router"
 import { Col, Container, Row } from "reactstrap"
@@ -20,6 +20,8 @@ const BlogOne = () => {
   const listNews = useSelector(getListSelector)
   const listNewsLoading = useSelector(getListLoadingSelector)
 
+  const [keyword, setKeyword] = useState("")
+
   const history = useHistory()
   const onItemPress = (id) => {
     history.push(`/news/${id}/news`)
@@ -38,7 +40,8 @@ const BlogOne = () => {
     dispatch(
       actions.getList({
         page: selected + 1,
-        limit: NEWS_LIST_LIMIT_DEFAULT
+        limit: NEWS_LIST_LIMIT_DEFAULT,
+        name: keyword
       })
     )
   }
@@ -53,6 +56,17 @@ const BlogOne = () => {
     }).init()
   }, [])
   const { paging } = listNews
+
+  const onSearch = () => {
+    dispatch(
+      actions.getList({
+        page: 1,
+        limit: NEWS_LIST_LIMIT_DEFAULT,
+        name: keyword
+      })
+    )
+  }
+
   return (
     <div className="news-list-area">
       <div className="news-list-wrapper">
@@ -62,10 +76,17 @@ const BlogOne = () => {
         </h3>
         <div className="news-search-bar">
           <input
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onSearch()
+              }
+            }}
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
             placeholder="Nhập chủ để để tìm bài viết..."
             className="search-input"
           />
-          <div className="search-button">
+          <div className="search-button" onClick={onSearch}>
             <span>Tìm kiếm</span>
           </div>
         </div>

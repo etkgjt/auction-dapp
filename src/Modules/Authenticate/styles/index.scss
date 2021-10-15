@@ -11,6 +11,9 @@
   align-items: center;
   background-image: url("../assets/bg.png");
   background-position: center;
+  background-size: contain;
+  background-color: #fa8028;
+  background-repeat: no-repeat;
   position: relative;
   background-size: cover;
   min-height: 100vh;
@@ -106,6 +109,8 @@
   padding-bottom: 150px;
   background-image: url("../assets/bg.png");
   background-position: center;
+  background-color: #fa8028;
+  background-repeat: no-repeat;
   min-height: calc(100vh);
   .form-signup-wrapper {
     padding-left: 10%;

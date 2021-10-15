@@ -7,6 +7,7 @@ import { ButtonBlue, ButtonOrange } from "../assets/icons"
 import { getNewsDetails } from "../Store/News/service"
 import { FacebookShareButton } from "react-share"
 import voiImg from "../assets/images/voi.png"
+import moment from "moment"
 
 const isServer = typeof window === "undefined"
 const WOW = !isServer ? require("wowjs") : null
@@ -55,7 +56,9 @@ const BlogDetail = () => {
             />
           </div>
           <div className="news-detail-info-wrapper w-100">
-            <span className="news-detail-date">{dataDetail?.createdAt}</span>
+            <span className="news-detail-date">
+              {moment(dataDetail?.createdAt).format("HH:mm | DD/MM/YYYY")}
+            </span>
             <h1 className="news-detail-title">{dataDetail?.title}</h1>
             <span className="news-detail-poster">
               Đăng bởi {dataDetail?.userCreated || "Tâm Trí Lực"}

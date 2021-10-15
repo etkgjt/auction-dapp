@@ -1,7 +1,11 @@
 @import "@assets/css/_variables.scss";
 .notification__page {
   .notification-area {
-    background: linear-gradient(180deg, #f68318 0%, #f1691b 100%);
+    background-image: url("../../Modules/Authenticate/assets/bg.png");
+    background-position: center;
+    background-size: contain;
+    background-color: #fa8028;
+    background-repeat: no-repeat;
     padding-top: 160px;
     padding-bottom: 90px;
     min-height: 100vh;
