@@ -74,7 +74,7 @@ const GiftItem = ({
     try {
       const res = await postRequestGift({
         userid: userData?.userId,
-        type: item?.type,
+        type: item?.type === "ThuongDaiSu" ? "evoucher" : item?.type,
         name: item?.name,
         value: item?.value,
         description: item?.description,
