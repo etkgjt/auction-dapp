@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[159,273],{342:function(t,e,i){"use strict";i.r(e);i(5);var n=i(502),a=i(14);e.default=function(){return Object(a.jsx)("div",{className:"inviter-banner",children:Object(a.jsx)("img",{src:n.default,width:"100%",height:"auto"})})}},502:function(t,e,i){"use strict";i.r(e),e.default=i.p+"static/media/banner-rules.b54cc7df.png"}}]);
-//# sourceMappingURL=Rules-Components-Banner.c5a28c8f.chunk.js.map
