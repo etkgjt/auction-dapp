@@ -104,7 +104,7 @@ const UploadImage = (
         onClick={(e) => {
           e.target.value = null
         }}
-        style={{ position: "absolute", opacity: 0, bottom: 0 }}
+        style={{ position: "absolute", opacity: 0, bottom: 0, width: 0 }}
         multiple
         accept="image/*"
         ref={uploadRef}

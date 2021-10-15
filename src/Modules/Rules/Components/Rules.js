@@ -25,6 +25,13 @@ import {
 import { useMediaQuery } from "react-responsive"
 import calendarImg from "../assets/images/calendar.png"
 import moment from "moment"
+
+import table1 from "../assets/images/table1.png"
+import bangtuan from "../assets/images/bangtuan.png"
+import bangquy from "../assets/images/bangquy.png"
+import bangthang from "../assets/images/bangthang.png"
+import gifts from "../assets/images/gifts.png"
+
 const getEndFridayOfMonth = () => {
   const result = moment().endOf("month")
   while (result.day() !== 4) {
@@ -145,6 +152,7 @@ const Rules = ({ setIsOpen }) => {
                   className="rules-detail__content"
                   dangerouslySetInnerHTML={{ __html: rules?.value }}
                 ></div>
+
                 <div
                   className="rules-details-button-wrapper"
                   onClick={() => setIsOpen(true)}
@@ -153,6 +161,69 @@ const Rules = ({ setIsOpen }) => {
                   <span className="rules-details-button-text">
                     Xem Video hướng dẫn
                   </span>
+                </div>
+                <div className="rules-detail__content">
+                  <ul style={{ color: "#1E3D74" }}>
+                    <li className="rule-title">Cách thức tính điểm</li>
+                    <div>
+                      Với 1 lượt học viên được mời thành công tham gia chương
+                      trình, các bạn sẽ nhận được 1K. Ngoài ra, bạn còn nhận
+                      được điểm thưởng từ một số hoạt động khác:{" "}
+                    </div>
+                    <h4>Bảng cộng điểm thành tích</h4>
+                    <img
+                      src={table1}
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                    <h4>BẢNG CỘNG ĐIỂM THÀNH TÍCH THEO TUẦN, THÁNG, NĂM</h4>
+                    <Row>
+                      <Col xl="4" lg="4" md="4" sm="4" xs="4">
+                        <div>
+                          <h4>BXH Tuần</h4>
+                          <img
+                            src={bangtuan}
+                            style={{ width: "100%", height: "auto" }}
+                          />
+                        </div>
+                      </Col>
+                      <Col xl="4" lg="4" md="4" sm="4" xs="4">
+                        <div>
+                          <h4>BXH THÁNG</h4>
+                          <img
+                            src={bangthang}
+                            style={{ width: "100%", height: "auto" }}
+                          />
+                        </div>
+                      </Col>
+                      <Col xl="4" lg="4" md="4" sm="4" xs="4">
+                        <div>
+                          <h4>BXH QUÝ</h4>
+                          <img
+                            src={bangquy}
+                            style={{ width: "100%", height: "auto" }}
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <li className="rule-title">Giải thưởng</li>
+                    <div>E-Voucher 100K khi đăng ký thành công tài khoản </div>
+                    <div>Các giải thưởng khi tích lũy:</div>
+                    <Row className="d-flex flex-row justify-content-center mt-2">
+                      <Col xl="10" lg="10" md="10" sm="10" xs="10">
+                        <img src={gifts} width="100%" height="auto" />
+                      </Col>
+                    </Row>
+                    <div style={{ color: "#F68317", marginTop: 10 }}>
+                      Lưu ý: 1K Coin (Coin là số tiền bạn của bạn khi tham gia
+                      Chương trình) = 1.000 VNĐ
+                    </div>
+                    <div style={{ marginTop: 10 }}>
+                      Giải thưởng trị giá 5.000.000đ dành cho người tham gia may
+                      mắn trong Chương trình VÒNG QUAY MAY MẮN - chương trình
+                      nằm trong khuôn khổ Đại Sứ Siêu Trí Nhớ Học Đường được tổ
+                      chức vào 21h ngày thứ 5 cuối cùng mỗi tháng.
+                    </div>
+                  </ul>
                 </div>
               </div>
             </Col>
@@ -176,6 +247,69 @@ const Rules = ({ setIsOpen }) => {
                   <span className="rules-details-button-text">
                     Xem Video hướng dẫn
                   </span>
+                </div>
+                <div className="rules-detail__content">
+                  <ul style={{ color: "#1E3D74" }}>
+                    <li className="rule-title">Cách thức tính điểm</li>
+                    <div>
+                      Với 1 lượt học viên được mời thành công tham gia chương
+                      trình, các bạn sẽ nhận được 1K. Ngoài ra, bạn còn nhận
+                      được điểm thưởng từ một số hoạt động khác:{" "}
+                    </div>
+                    <h4>Bảng cộng điểm thành tích</h4>
+                    <img
+                      src={table1}
+                      style={{ width: "100%", height: "auto" }}
+                    />
+                    <h4>BẢNG CỘNG ĐIỂM THÀNH TÍCH THEO TUẦN, THÁNG, NĂM</h4>
+                    <Row>
+                      <Col xl="4" lg="4" md="4" sm="4" xs="4">
+                        <div>
+                          <h4>BXH Tuần</h4>
+                          <img
+                            src={bangtuan}
+                            style={{ width: "100%", height: "auto" }}
+                          />
+                        </div>
+                      </Col>
+                      <Col xl="4" lg="4" md="4" sm="4" xs="4">
+                        <div>
+                          <h4>BXH THÁNG</h4>
+                          <img
+                            src={bangthang}
+                            style={{ width: "100%", height: "auto" }}
+                          />
+                        </div>
+                      </Col>
+                      <Col xl="4" lg="4" md="4" sm="4" xs="4">
+                        <div>
+                          <h4>BXH QUÝ</h4>
+                          <img
+                            src={bangquy}
+                            style={{ width: "100%", height: "auto" }}
+                          />
+                        </div>
+                      </Col>
+                    </Row>
+                    <li className="rule-title">Giải thưởng</li>
+                    <div>E-Voucher 100K khi đăng ký thành công tài khoản </div>
+                    <div>Các giải thưởng khi tích lũy:</div>
+                    <Row className="d-flex flex-row justify-content-center mt-2">
+                      <Col xl="10" lg="10" md="10" sm="10" xs="10">
+                        <img src={gifts} width="100%" height="auto" />
+                      </Col>
+                    </Row>
+                    <div style={{ color: "#F68317", marginTop: 10 }}>
+                      Lưu ý: 1K Coin (Coin là số tiền bạn của bạn khi tham gia
+                      Chương trình) = 1.000 VNĐ
+                    </div>
+                    <div style={{ marginTop: 10 }}>
+                      Giải thưởng trị giá 5.000.000đ dành cho người tham gia may
+                      mắn trong Chương trình VÒNG QUAY MAY MẮN - chương trình
+                      nằm trong khuôn khổ Đại Sứ Siêu Trí Nhớ Học Đường được tổ
+                      chức vào 21h ngày thứ 5 cuối cùng mỗi tháng.
+                    </div>
+                  </ul>
                 </div>
               </div>
             </Col>

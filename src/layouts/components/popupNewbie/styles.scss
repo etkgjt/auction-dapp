@@ -68,6 +68,7 @@ $value_eight: 1910px;
 @media only #{$media} and ($feature_max : $value_one) {
   .popup-newbie-container {
     position: relative;
+    width: 90%;
     .popup-newbie-content-wrapper {
       position: absolute;
       left: 50%;

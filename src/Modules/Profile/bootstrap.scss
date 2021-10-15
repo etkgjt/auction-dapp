@@ -1,4 +1,12 @@
 @import "../../assets/css/variables";
+@keyframes increase {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
 .profile__page {
   .profile-area {
     margin-top: 120px;
@@ -46,6 +54,7 @@
           position: absolute;
           top: 0px;
           left: 6px;
+          animation: increase 2s linear;
           .done-progress {
             max-height: 20px;
           }
@@ -245,8 +254,12 @@
         .profile-form-edit-avatar-button {
           position: absolute;
           bottom: 0;
-          right: 0;
+          right: 10px;
           cursor: pointer;
+          & > svg {
+            max-width: 46px;
+            max-height: 46px;
+          }
           &:hover {
             transform: scale(1.05);
             transition: transform 0.1s ease-in-out;

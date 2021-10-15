@@ -1,5 +1,5 @@
 import React from "react"
-import { Col, Row } from "reactstrap"
+import { Col, Row, UncontrolledTooltip } from "reactstrap"
 import {
   AchievementHeaderTitle,
   GoldIcon,
@@ -67,7 +67,7 @@ const Achievement = () => {
       </div>
       {data.map((item, index) => {
         const reached =
-          userData?.flagdaisu === 1 &&
+          userData?.flagDaisu === 1 &&
           item.numToReach <= userData?.inviteUserCount
         return (
           <div key={index} className="achivement-item-wrapper">
@@ -94,7 +94,7 @@ const Achievement = () => {
         <Row>
           <Col xl="6" lg="6" sm="6" xs="6">
             <span className="copy-btn-title">Mã giới thiệu</span>
-            <div className="copy-field">
+            <div className="copy-field" id="CodeToolTips">
               <p>{userData?.codeInvite}</p>
               <div
                 onClick={() => {
@@ -112,11 +112,14 @@ const Achievement = () => {
               >
                 {isMobile || isTablet ? <CopyIcon /> : "Sao chép"}
               </div>
+              <UncontrolledTooltip placement="top" target="CodeToolTips">
+                {userData?.codeInvite}
+              </UncontrolledTooltip>
             </div>
           </Col>
           <Col xl="6" lg="6" sm="6" xs="6">
             <span className="copy-btn-title">Link giới thiệu</span>
-            <div className="copy-field">
+            <div className="copy-field" id="LinkToolTips">
               <p>{`${window.location.origin}/signup/${userData?.codeInvite}`}</p>
               <div
                 onClick={() => {
@@ -137,6 +140,9 @@ const Achievement = () => {
                 {isMobile || isTablet ? <LinkIcon /> : "Sao chép"}
               </div>
             </div>
+            <UncontrolledTooltip placement="top" target="LinkToolTips">
+              {`${window.location.origin}/signup/${userData?.codeInvite}`}
+            </UncontrolledTooltip>
           </Col>
         </Row>
       </div>

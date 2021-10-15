@@ -25,7 +25,7 @@ const Footer = () => {
       pathname.indexOf("signup") !== -1 ||
       pathname.indexOf("forgot-password") !== -1
     ) {
-      if (footerBackground !== "#F26F1A") setFooterBackground("#F26F1A")
+      if (footerBackground !== "#fa8028") setFooterBackground("#fa8028")
       return
     }
     if (footerBackground !== "#fff") setFooterBackground("#fff")

@@ -8,6 +8,7 @@ import popupInvite from "../../../assets/images/popup-invite.png"
 
 import "./styles.scss"
 import { toast } from "react-toastify"
+import { UncontrolledTooltip } from "reactstrap"
 const { innerWidth: width, innerHeight: height } = window
 const InvitePopup = () => {
   const userData = useSelector(getUserData)
@@ -37,7 +38,7 @@ const InvitePopup = () => {
           <br /> Mời bạn mới và nhận ngay VoiCoin,
           <br /> đổi ngàn quà tặng hấp dẫn
         </p>
-        <div className="invite-popup-copyfield-wrapper">
+        <div className="invite-popup-copyfield-wrapper" id="LinkToolTips">
           <div className="invite-popup-copyfield">{`${window.location.origin}/signup/${userData?.codeInvite}`}</div>
           <div
             className="invite-popup-copybutton"
@@ -58,6 +59,9 @@ const InvitePopup = () => {
             Sao chép
           </div>
         </div>
+        <UncontrolledTooltip placement="top" target="LinkToolTips">
+          {`${window.location.origin}/signup/${userData?.codeInvite}`}
+        </UncontrolledTooltip>
       </div>
       <div
         className="invite-popup-close-button"

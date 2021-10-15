@@ -205,7 +205,7 @@ $value_eight: 1910px;
 
             .hornor-item-wrapper {
               padding-left: 20%;
-              padding-right: 0px;
+              padding-right: 16%;
               align-items: center;
               margin-bottom: 16px;
               height: auto;
@@ -216,6 +216,7 @@ $value_eight: 1910px;
                 margin-bottom: 0;
               }
               .item-avatar {
+                min-width: 45px;
                 width: 45px;
                 height: 45px;
                 border-radius: 50%;

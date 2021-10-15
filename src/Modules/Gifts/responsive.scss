@@ -78,7 +78,7 @@ $value_eight: 1910px;
             max-height: 70px;
           }
 
-          top: -35px;
+          top: -50px;
         }
         .gifts-tabs-wrapper {
           & > span {
@@ -222,6 +222,9 @@ $value_eight: 1910px;
   }
   .popup-usegift-container {
     position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     .popup-usegift-close-button {
       position: absolute;
       top: -10px;
@@ -282,14 +285,10 @@ $value_eight: 1910px;
     }
   }
   .popup-usegift-modal-wrapper {
-    min-width: 90vw !important;
-    min-height: 30vh !important;
     background: transparent;
     border: none;
   }
   .popup-history-modal-wrapper {
-    min-width: 30vw !important;
-    min-height: 30vh !important;
     background: transparent;
     border: none;
   }
@@ -297,13 +296,14 @@ $value_eight: 1910px;
     background-color: white;
     border: 2px solid #f2f2f2;
     border-radius: 20px;
-    min-height: 50vh;
-    min-width: 40vw;
     position: relative;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     .popup-history__close-button {
       position: absolute;
       top: -20px;
@@ -407,8 +407,6 @@ $value_eight: 1910px;
 @media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
   .gift__page {
     .gifts-area {
-      padding-left: 5vw;
-      padding-right: 5vw;
       margin-top: 120px;
       margin-bottom: 80px;
       .gifts-progress-area {
@@ -468,7 +466,7 @@ $value_eight: 1910px;
             max-height: 100px;
           }
           position: absolute;
-          top: -50px;
+          top: -60px;
           left: 50%;
           transform: translate(-50%);
         }
@@ -818,7 +816,7 @@ $value_eight: 1910px;
             max-height: 100px;
           }
           position: absolute;
-          top: -50px;
+          top: -60px;
           left: 50%;
           transform: translate(-50%);
         }

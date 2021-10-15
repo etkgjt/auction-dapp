@@ -84,6 +84,7 @@ $value_eight: 1910px;
           font-size: 11px;
           line-height: 13px;
           margin-bottom: 12px;
+          margin-top: 10px;
         }
         .notic-text-white {
           font-weight: 700;
@@ -153,6 +154,10 @@ $value_eight: 1910px;
             div {
               font-weight: 500;
               font-size: 11px;
+            }
+            h4 {
+              font-size: 11px;
+              line-height: 13px;
             }
           }
           ul > li > ul {
@@ -287,6 +292,24 @@ $value_eight: 1910px;
             bottom: 0px;
             right: -15%;
           }
+          .calendar-date {
+            position: absolute;
+            font-size: 6vw;
+            color: #fff;
+            font-weight: 800;
+            top: 20%;
+            right: 23%;
+            letter-spacing: 1px;
+          }
+          .calendar-month {
+            position: absolute;
+            font-size: 3vw;
+            color: #fff;
+            font-weight: 800;
+            bottom: 12%;
+            right: 26%;
+            letter-spacing: 1px;
+          }
         }
         .notic {
           font-weight: 500;
@@ -367,6 +390,14 @@ $value_eight: 1910px;
           }
           ul > li > ul {
             padding-left: 26px;
+          }
+        }
+        .rules-details-button-wrapper {
+          &:active {
+          }
+          .rules-details-button-text {
+            font-size: 16px;
+            line-height: 20px;
           }
         }
       }

@@ -24,7 +24,11 @@
     padding-top: 160px;
     padding-bottom: 90px;
     min-height: 100vh;
+    background-size: contain;
     .news-list-wrapper {
+      width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
       background: #ffffff;
       border: 5px solid #f2f2f2;
       border-radius: 40px;
@@ -33,8 +37,6 @@
       flex-direction: column;
       align-items: center;
       position: relative;
-      margin-left: 10%;
-      margin-right: 10%;
       .news-list-title {
         font-weight: bold;
         font-size: 46px;
@@ -153,6 +155,7 @@
         position: absolute;
         right: 100px;
         bottom: -50px;
+        animation: movebounce 5s linear infinite;
         & > img {
           width: 100%;
           height: auto;
@@ -163,15 +166,24 @@
 
   .news-detail-area {
     background-image: url("../../Modules/Authenticate/assets/bg.png");
-    background-position: center;
+    background-position: top;
     padding-top: 160px;
     padding-bottom: 90px;
     min-height: 100vh;
+    background-size: contain;
+    background-color: #fa8028;
+    background-repeat: no-repeat;
+
     .news-detail-wrapper {
       background: #ffffff;
       border: 5px solid #f2f2f2;
       border-radius: 40px;
       padding: 56px 10% 56px 10%;
+
+      width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -187,7 +199,6 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        width: 100%;
         margin-left: -40%;
         .news-detail-image-wrapper {
           width: 245px;
@@ -256,6 +267,7 @@
         position: absolute;
         right: 100px;
         bottom: -50px;
+        animation: movebounce 5s linear infinite;
         & > img {
           width: 100%;
           height: auto;

@@ -109,6 +109,9 @@ $value_eight: 1910px;
 @media only #{$media} and ($feature_max : $value_one) {
   .invite-popup-container {
     position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     .invite-popup-close-button {
       position: absolute;
       top: 0px;
@@ -159,11 +162,11 @@ $value_eight: 1910px;
           min-width: 30%;
           background-color: #555aff;
           font-weight: 500;
-          font-size: 16px;
-          line-height: 22px;
+          font-size: 11px;
+          line-height: 13px;
           color: #ffffff;
-          padding: 14px;
-          border-radius: 20px;
+          padding: 6px;
+          border-radius: 10px;
           text-align: center;
           margin-left: -30px;
           cursor: pointer;
@@ -175,18 +178,18 @@ $value_eight: 1910px;
         .invite-popup-copyfield {
           max-width: 70%;
           background-color: #fff;
-          border-radius: 20px;
+          border-radius: 10px;
           padding-left: 16px;
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
           -webkit-line-clamp: 1; /* number of lines to show */
           -webkit-box-orient: vertical;
-          padding: 14px;
+          padding: 6px;
           font-style: normal;
           font-weight: 500;
-          font-size: 16px;
-          line-height: 22px;
+          font-size: 11px;
+          line-height: 13px;
           color: #c4c4c4;
         }
       }

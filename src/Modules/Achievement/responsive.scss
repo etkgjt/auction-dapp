@@ -100,7 +100,7 @@ $value_eight: 1910px;
             max-height: 55px;
           }
           position: absolute;
-          top: -25px;
+          top: -40px;
           left: 50%;
           transform: translate(-50%);
         }
@@ -228,8 +228,6 @@ $value_eight: 1910px;
 @media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
   .achievement__page {
     .profile-area {
-      padding-left: 8vw;
-      padding-right: 8vw;
       margin-top: 120px;
       margin-bottom: 80px;
       .profile-progress-area {
@@ -319,7 +317,7 @@ $value_eight: 1910px;
         position: relative;
         .achievement-top-header-wrapper {
           position: absolute;
-          top: -30px;
+          top: -50px;
           left: 50%;
           transform: translate(-50%);
           & > svg {
@@ -461,8 +459,6 @@ $value_eight: 1910px;
 @media only #{$media} and ($feature_min : $value_four) and ($feature_max : $value_five) {
   .achievement__page {
     .profile-area {
-      padding-left: 8vw;
-      padding-right: 8vw;
       margin-top: 120px;
       margin-bottom: 80px;
       .profile-progress-area {
@@ -552,7 +548,7 @@ $value_eight: 1910px;
         position: relative;
         .achievement-top-header-wrapper {
           position: absolute;
-          top: -30px;
+          top: -50px;
           left: 50%;
           transform: translate(-50%);
           & > svg {
