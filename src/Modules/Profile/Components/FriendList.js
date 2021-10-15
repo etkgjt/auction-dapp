@@ -40,7 +40,7 @@ const FriendList = () => {
     )
   }, [])
 
-  const paging = { listFriend }
+  const { paging } = listFriend
 
   const onPageChange = ({ selected }) => {
     dispatch(
@@ -78,16 +78,18 @@ const FriendList = () => {
           ))}
         </div>
       </div>
-      <Row className="w-100 mt-5">
-        <div className="d-flex flex-row justify-content-center">
-          <Pagination
-            initialPage={paging?.curPage || 0}
-            pageCount={paging?.totalPage || 1}
-            containerClassName={"d-flex flex-row"}
-            onPageChange={onPageChange}
-          />
-        </div>
-      </Row>
+      {paging?.totalPage < 2 ? null : (
+        <Row className="w-100 mt-5">
+          <div className="d-flex flex-row justify-content-center">
+            <Pagination
+              initialPage={paging?.curPage || 0}
+              pageCount={paging?.totalPage || 1}
+              containerClassName={"d-flex flex-row"}
+              onPageChange={onPageChange}
+            />
+          </div>
+        </Row>
+      )}
     </div>
   )
 }
