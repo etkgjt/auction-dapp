@@ -10,8 +10,8 @@
   justify-content: center;
   align-items: center;
   background-image: url("../assets/bg.png");
-  background-position: center;
-  background-size: cover;
+  background-position: top;
+  background-size: contain;
   background-color: #fa8028;
   background-repeat: no-repeat;
   position: relative;
@@ -107,11 +107,11 @@
   padding-top: 150px;
   padding-bottom: 150px;
   background-image: url("../assets/bg.png");
-  background-position: center;
+  background-position: top;
   background-color: #fa8028;
   background-repeat: no-repeat;
   min-height: calc(100vh);
-  background-size: cover;
+  background-size: contain;
   .form-signup-wrapper {
     padding-left: 10%;
     padding-right: 10%;
