@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[219],{540:function(t,i,a){"use strict";a.r(i),i.default=a.p+"static/media/buy-course.06d671db.png"}}]);
-//# sourceMappingURL=Home-assets-images-buy-course-png.6abe1f4a.chunk.js.map
