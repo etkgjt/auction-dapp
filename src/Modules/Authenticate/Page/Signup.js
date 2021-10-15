@@ -29,7 +29,7 @@ import {
 } from "../store/auth/selectors"
 import "../styles/index.scss"
 import "../responsive.scss"
-import { ForgotPasswordButton } from "../assets/icon"
+import { SubmitFormButtonWhite } from "../assets/icon"
 
 import { checkInviteCode, syncUserInfo } from "../store/formSignUp/service"
 import { RETCODE_SUCCESS } from "../../../configs/contants"
@@ -57,6 +57,10 @@ const Signup = () => {
   const [userAvatar, setUserAvatar] = useState("")
   const [formData, setFormData] = useState({})
   const [disabledInviteCode, setDisableIntiveCode] = useState(false)
+
+  const [startCountDown, setStartCountDown] = React.useState(false)
+  const [countDown, setCountDown] = React.useState(30)
+
   //SELECTOR
   const error = useSelector(formSubmitErrorSelector)
   const response = useSelector(formSubmitDataResponseSelector)
@@ -162,6 +166,7 @@ const Signup = () => {
 
   const getOtp = async (phoneNumber) => {
     setLoadingOtp(true)
+    setStartCountDown(true)
     const res = await sendOtp({ codeLanguage, payload: phoneNumber })
     const data = res.data
     if (data.retCode === 0) {
@@ -270,6 +275,23 @@ const Signup = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  React.useEffect(() => {
+    let id = null
+    if (startCountDown) {
+      id = setInterval(() => {
+        setCountDown((old) => old - 1)
+      }, 1000)
+    }
+    return () => clearInterval(id)
+  }, [startCountDown])
+
+  React.useEffect(() => {
+    if (countDown === 0) {
+      setStartCountDown(false)
+      setCountDown(30)
+    }
+  }, [countDown])
 
   return (
     <Formik
@@ -501,12 +523,31 @@ const Signup = () => {
                         <Button
                           className="send-otp-button"
                           loading={loadingOtp}
-                          onClick={() => getOtp(formik.values.phone)}
+                          onClick={() => {
+                            getOtp(formik.values.phone)
+                          }}
                         >
                           {"Gửi OTP"}
                         </Button>
                       </div>
                     </Col>
+                    <p className="otp-description">
+                      {`Có hiệu lực trong ${countDown}s`} <br />
+                      Chưa nhận được ?{" "}
+                      <span
+                        onClick={
+                          startCountDown
+                            ? () => {}
+                            : () => {
+                                setStartCountDown(true)
+                                getOtp(formData?.number_phone_or_email)
+                              }
+                        }
+                        className="resend_otp"
+                      >
+                        Gửi lại
+                      </span>
+                    </p>
                     <Col>
                       <div
                         className="form-signup__submit-button"
@@ -514,7 +555,7 @@ const Signup = () => {
                           formik.handleSubmit()
                         }}
                       >
-                        <ButtonWrapperWhite />
+                        <SubmitFormButtonWhite />
                         <span>Hoàn thành đăng ký</span>
                       </div>
                     </Col>

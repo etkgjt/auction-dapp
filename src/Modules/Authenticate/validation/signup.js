@@ -78,19 +78,13 @@ export const validationSchema = (i18n) => {
       .required(
         messageError(i18n.t("validation:required"), i18n.t("common:email"))
       )
-      .matches(
-        emailRegex,
-        messageError(i18n.t("validation:invalid_email"), i18n.t("common:email"))
-      ),
+      .matches(emailRegex, messageError("Email không hợp lệ")),
     phone: Yup.string()
       .nullable()
       .required(
         messageError(i18n.t("validation:required"), i18n.t("common:phone"))
       )
-      .matches(
-        phoneRegex,
-        messageError(i18n.t("validation:invalid_phone"), i18n.t("common:phone"))
-      ),
+      .matches(phoneRegex, messageError("Số điện thoại không hợp lệ")),
     otp: Yup.string()
       .nullable()
       .required(
