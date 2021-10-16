@@ -1,78 +1,78 @@
-import React, { useRef, useState } from "react"
-import { Row, Col, Container } from "reactstrap"
+import React, { useRef, useState } from "react";
+import { Row, Col, Container } from "reactstrap";
 import {
   RulesTopBannerTitle,
   CalendarIcon,
   FacebookIcon,
   YoutubeIcon,
-  DetailButton
-} from "../assets/icon"
+  DetailButton,
+} from "../assets/icon";
 
-import coinIcon from "../assets/images/coin-icon.png"
+import coinIcon from "../assets/images/coin-icon.png";
 
 import {
   getListLoadingSelector,
-  getListSelector
-} from "../../Home/Store/Rules/selector"
-import { actions } from "../../Home/Store/Rules/reducer"
-import { useDispatch, useSelector } from "react-redux"
+  getListSelector,
+} from "../../Home/Store/Rules/selector";
+import { actions } from "../../Home/Store/Rules/reducer";
+import { useDispatch, useSelector } from "react-redux";
 
-import { actions as calendarActions } from "../Store/EventCalendar/reducer"
+import { actions as calendarActions } from "../Store/EventCalendar/reducer";
 import {
   getListSelector as getCalendar,
-  getListLoadingSelector as getCalendarLoading
-} from "../Store/EventCalendar/selector"
-import { useMediaQuery } from "react-responsive"
-import calendarImg from "../assets/images/calendar.png"
-import moment from "moment"
+  getListLoadingSelector as getCalendarLoading,
+} from "../Store/EventCalendar/selector";
+import { useMediaQuery } from "react-responsive";
+import calendarImg from "../assets/images/calendar.png";
+import moment from "moment";
 
-import table1 from "../assets/images/table1.png"
-import bangtuan from "../assets/images/bangtuan.png"
-import bangquy from "../assets/images/bangquy.png"
-import bangthang from "../assets/images/bangthang.png"
-import gifts from "../assets/images/gifts.png"
+import table1 from "../assets/images/table1.png";
+import bangtuan from "../assets/images/bangtuan.png";
+import bangquy from "../assets/images/bangquy.png";
+import bangthang from "../assets/images/bangthang.png";
+import gifts from "../assets/images/gifts.png";
 
 const getEndFridayOfMonth = () => {
-  const result = moment().endOf("month")
+  const result = moment().endOf("month");
   while (result.day() !== 4) {
-    result.subtract(1, "day")
+    result.subtract(1, "day");
   }
-  return result
-}
+  return result;
+};
 
 const Rules = ({ setIsOpen }) => {
-  const dispatch = useDispatch()
-  const isMobile = useMediaQuery({ maxWidth: 767 })
-  const rules = useSelector(getListSelector)
-  const rulesLoading = useSelector(getListLoadingSelector)
+  const dispatch = useDispatch();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const rules = useSelector(getListSelector);
+  const rulesLoading = useSelector(getListLoadingSelector);
 
-  const calendar = useSelector(getCalendar)
-  const calendarLoading = useSelector(getCalendarLoading)
+  const calendar = useSelector(getCalendar);
+  const calendarLoading = useSelector(getCalendarLoading);
 
-  const calendarRef = useRef()
-  const rulesRef = useRef()
+  const calendarRef = useRef();
+  const rulesRef = useRef();
 
   const stickyCalendar = (e) => {
-    if (isMobile) return
+    if (isMobile) return;
     if (window.scrollY > rulesRef?.current?.offsetTop) {
-      calendarRef.current.style.position = "fixed"
-      calendarRef.current.style.top = 0
+      calendarRef.current.style.position = "fixed";
+      calendarRef.current.style.top = 0;
     } else {
-      calendarRef.current.style.position = "static"
+      calendarRef.current.style.position = "static";
     }
-  }
+  };
 
   React.useEffect(() => {
-    dispatch(actions.getList())
-    dispatch(calendarActions.getList())
-  }, [])
+    dispatch(actions.getList());
+    dispatch(calendarActions.getList());
+  }, []);
 
   React.useEffect(() => {
-    window.addEventListener("scroll", stickyCalendar)
+    window.addEventListener("scroll", stickyCalendar);
     return () => {
-      window.removeEventListener("scroll", stickyCalendar)
-    }
-  }, [])
+      window.removeEventListener("scroll", stickyCalendar);
+    };
+  }, []);
 
   return (
     <div className="rules-area">
@@ -82,17 +82,10 @@ const Rules = ({ setIsOpen }) => {
             <Col xl="5" lg="5" md="5">
               <div className="event-calendar-container">
                 <Row>
-                  <Col sm="6" xs="6">
+                  <Col sm="6" xs="5" className="event-calendar-wrapper">
                     <div className="calendar-icon__container">
                       <div style={{ position: "relative" }}>
-                        <img
-                          src={calendarImg}
-                          style={{
-                            width: "70%",
-                            height: "auto",
-                            marginLeft: "15%"
-                          }}
-                        />
+                        <img src={calendarImg} className="calendar-icon__img" />
                         <p className="calendar-date">
                           {getEndFridayOfMonth().date()}
                         </p>
@@ -107,7 +100,7 @@ const Rules = ({ setIsOpen }) => {
                       />
                     </div>
                   </Col>
-                  <Col sm="6" xs="6">
+                  <Col sm="6" xs="7">
                     <h1 className="calendar-title">Lịch Sự Kiên</h1>
                     <p className="calendar-text-black">
                       Tất cả điểm của các bạn
@@ -119,7 +112,10 @@ const Rules = ({ setIsOpen }) => {
                 <span
                   className="social-link"
                   onClick={() => {
-                    window.open("https://www.facebook.com/tamtriluc/", "_blank")
+                    window.open(
+                      "https://www.facebook.com/tamtriluc/",
+                      "_blank"
+                    );
                   }}
                 >
                   <FacebookIcon size={14} />
@@ -131,7 +127,7 @@ const Rules = ({ setIsOpen }) => {
                     window.open(
                       "https://www.facebook.com/nguyenphungphongvn",
                       "_blank"
-                    )
+                    );
                   }}
                 >
                   <FacebookIcon size={14} />
@@ -143,7 +139,7 @@ const Rules = ({ setIsOpen }) => {
                     window.open(
                       "https://www.youtube.com/channel/UCM0bv1L91C8-z71gAzrLBCQ",
                       "_blank"
-                    )
+                    );
                   }}
                 >
                   <YoutubeIcon size={14} />
@@ -155,7 +151,7 @@ const Rules = ({ setIsOpen }) => {
                     window.open(
                       "https://www.youtube.com/channel/UC-VY_kqMNBaTvMmDYFdUt-A",
                       "_blank"
-                    )
+                    );
                   }}
                 >
                   <YoutubeIcon size={14} />
@@ -347,7 +343,7 @@ const Rules = ({ setIsOpen }) => {
                       style={{
                         width: "70%",
                         height: "auto",
-                        marginLeft: "15%"
+                        marginLeft: "15%",
                       }}
                     />
                     <p className="calendar-date">
@@ -372,7 +368,10 @@ const Rules = ({ setIsOpen }) => {
                 <span
                   className="social-link"
                   onClick={() => {
-                    window.open("https://www.facebook.com/tamtriluc/", "_blank")
+                    window.open(
+                      "https://www.facebook.com/tamtriluc/",
+                      "_blank"
+                    );
                   }}
                 >
                   <FacebookIcon size={32} />
@@ -384,7 +383,7 @@ const Rules = ({ setIsOpen }) => {
                     window.open(
                       "https://www.facebook.com/nguyenphungphongvn",
                       "_blank"
-                    )
+                    );
                   }}
                 >
                   <FacebookIcon size={32} />
@@ -396,7 +395,7 @@ const Rules = ({ setIsOpen }) => {
                     window.open(
                       "https://www.youtube.com/channel/UCM0bv1L91C8-z71gAzrLBCQ",
                       "_blank"
-                    )
+                    );
                   }}
                 >
                   <YoutubeIcon size={32} />
@@ -408,7 +407,7 @@ const Rules = ({ setIsOpen }) => {
                     window.open(
                       "https://www.youtube.com/channel/UC-VY_kqMNBaTvMmDYFdUt-A",
                       "_blank"
-                    )
+                    );
                   }}
                 >
                   <YoutubeIcon size={32} />
@@ -420,6 +419,6 @@ const Rules = ({ setIsOpen }) => {
         )}
       </Row>
     </div>
-  )
-}
-export default Rules
+  );
+};
+export default Rules;

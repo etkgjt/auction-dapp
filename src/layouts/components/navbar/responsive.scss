@@ -21,11 +21,13 @@ $value_eight: 1910px;
     height: 90px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
+
     .others-option {
       display: flex;
       flex-direction: row;
       margin-right: 0px;
       right: 40px;
+
       .nav-user-progress-container {
         display: flex;
         flex-direction: column;
@@ -33,17 +35,20 @@ $value_eight: 1910px;
         align-items: flex-end;
         padding-right: 16px;
         padding-top: 20px;
+
         .user-point-wrapper {
           position: relative;
           display: flex;
           flex-direction: row;
           justify-content: flex-end;
-          & > svg {
+
+          &>svg {
             max-width: 50%;
             max-height: 28px;
             right: 0px;
           }
-          & > span {
+
+          &>span {
             font-weight: bold;
             font-size: 14px;
             line-height: 17px;
@@ -55,23 +60,31 @@ $value_eight: 1910px;
             padding-right: 16px;
           }
         }
+
         .progress-info-wrapper {
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: space-between;
           margin-right: 0px;
-          & > span {
+
+          &>span {
             font-style: normal;
             font-weight: bold;
             font-size: 18px;
             line-height: 22px;
             color: var(--primaryColor);
             margin-bottom: 4px;
+
+            .sub-info {
+              display: none;
+            }
           }
+
           .progress-bar-wrapper {
             position: relative;
             display: none;
+
             .done-progress-wrapper {
               position: absolute;
               top: 0;
@@ -81,6 +94,7 @@ $value_eight: 1910px;
         }
       }
     }
+
     .nav__select {
       margin-bottom: 0;
       cursor: pointer;
@@ -90,17 +104,20 @@ $value_eight: 1910px;
       padding: 10px 40px 12px 16px;
       border-radius: 10px;
       margin-top: 20px;
+
       &.login {
         padding: 0px 0px 0px 0px;
       }
+
       .nav__select-text {
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
         color: white;
       }
-      .user-icon-wrapper {
-      }
+
+      .user-icon-wrapper {}
+
       .nav-dropdown-container {
         position: absolute;
         top: 20px;
@@ -109,27 +126,34 @@ $value_eight: 1910px;
         background: white;
         border-radius: 20px 0px 20px 20px;
         min-height: auto;
+
         .info-dropdown-container {
           padding: 28px 15px 18px 15px;
-          & > ul > li > hr {
+
+          &>ul>li>hr {
             margin-top: 12px;
             margin-bottom: 12px;
           }
-          & > ul > li > span > svg {
+
+          &>ul>li>span>svg {
             max-width: 22px;
             max-height: 22px;
           }
+
           .info-dropdown__item {
             font-size: 11px;
             line-height: 13px;
+
             .noti-badge {
               width: 10px;
               height: 10px;
               border-radius: 5px;
             }
+
             &.active {
               color: var(--primaryColor);
             }
+
             &:hover {
               color: var(--primaryColor2);
               transform: translateX(5px);
@@ -137,23 +161,29 @@ $value_eight: 1910px;
             }
           }
         }
+
         .signin-form-container {
           padding: 36px 18px 26px 18px;
+
           .form-control {
             font-size: 14px;
             height: 36px;
             border-radius: 15px;
           }
+
           .signin-form__signin-button {
             position: relative;
-            & > svg {
+
+            &>svg {
               max-width: 100%;
             }
+
             &:hover {
               transform: scale(1.05);
               transition: transform 0.2s ease-in-out;
             }
-            & > span {
+
+            &>span {
               position: absolute;
               top: 50%;
               left: 50%;
@@ -164,6 +194,7 @@ $value_eight: 1910px;
               color: #ffffff;
             }
           }
+
           .signin-form__forgot-password-button {
             font-style: italic;
             text-align: center;
@@ -172,10 +203,12 @@ $value_eight: 1910px;
             color: #1e3d74;
             margin-bottom: 10px;
             font-weight: 300;
+
             &:hover {
               text-decoration: underline;
             }
           }
+
           .signin-form__signup-button {
             font-weight: 700;
             font-size: 14px;
@@ -183,6 +216,7 @@ $value_eight: 1910px;
             text-align: center;
             color: #1e3d74;
             margin-top: 10px;
+
             &:hover {
               text-decoration: underline;
             }
@@ -191,19 +225,23 @@ $value_eight: 1910px;
       }
     }
   }
+
   .logout-popup-modal-wrapper {
     background: transparent;
     border: none;
   }
+
   .popup-logout-container {
     position: relative;
+
     .popup-logout-content-wrapper {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -70%);
       user-select: none;
-      & > p {
+
+      &>p {
         font-weight: bold;
         font-size: 16px;
         line-height: 20px;
@@ -211,6 +249,7 @@ $value_eight: 1910px;
         color: #ffffff;
       }
     }
+
     .logout-icon-wrapper {
       position: absolute;
       bottom: -40px;
@@ -218,9 +257,11 @@ $value_eight: 1910px;
       display: flex;
       flex-direction: row;
       transform: translate(-50%);
+
       .margin-right {
         margin-right: 40px;
       }
+
       .popup-logout-button-wrapper:active {
         transform: scale(0.9);
       }
@@ -228,8 +269,6 @@ $value_eight: 1910px;
   }
 }
 
-@media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {
-}
+@media only #{$media} and ($feature_min : $value_two) and ($feature_max : $value_three) {}
 
-@media only #{$media} and ($feature_min : $value_four) and ($feature_max : $value_five) {
-}
+@media only #{$media} and ($feature_min : $value_four) and ($feature_max : $value_five) {}

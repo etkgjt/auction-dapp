@@ -15,12 +15,14 @@ $value_eight: 1910px;
     .inviter-banner {
       padding-top: 90px;
     }
+
     .rules-area {
       width: 315px;
       margin-left: auto;
       margin-right: auto;
       margin-top: 25px;
       margin-bottom: 25px;
+
       .event-calendar-container {
         background: var(--lightOrange);
         border-radius: 20px;
@@ -29,48 +31,67 @@ $value_eight: 1910px;
         flex-direction: column;
         align-items: center;
         margin-bottom: 54px;
+
         .calendar-title {
           font-size: 16px;
           line-height: 20px;
           text-align: left;
         }
+
         .calendar-text-black {
           font-size: 11px;
           line-height: 13px;
           text-align: left;
+          width: 133px;
         }
+
+        .event-calendar-wrapper {
+          padding-left: 0;
+        }
+
         .calendar-icon__container {
           position: relative;
-          & > svg {
+
+          &>svg {
             max-width: 100%;
             max-height: 80px;
           }
+
+          .calendar-icon__img {
+            width: 88.16px;
+            height: 79.76px;
+            margin-left: 0;
+          }
+
           .calendar-date {
             position: absolute;
             font-size: 6vw;
             color: #fff;
             font-weight: 800;
             top: 20%;
-            right: 23%;
+            right: 17%;
             letter-spacing: 1px;
           }
+
           .calendar-month {
             position: absolute;
             font-size: 3vw;
             color: #fff;
             font-weight: 800;
-            bottom: 12%;
+            bottom: 10%;
             right: 26%;
             letter-spacing: 1px;
           }
+
           .calender-coin-icon {
             width: 45px;
             max-height: 50px;
             position: absolute;
             bottom: 0px;
-            right: -20px;
+            right: -30px;
           }
         }
+
         .notic {
           font-weight: 500;
           font-size: 24px;
@@ -80,12 +101,14 @@ $value_eight: 1910px;
           color: #1e3d74;
           width: 100%;
         }
+
         .notic-text-black {
           font-size: 11px;
           line-height: 13px;
           margin-bottom: 12px;
           margin-top: 10px;
         }
+
         .notic-text-white {
           font-weight: 700;
           font-size: 18px;
@@ -93,6 +116,7 @@ $value_eight: 1910px;
           letter-spacing: -0.005em;
           color: #fff;
         }
+
         .social-link {
           display: flex;
           flex-direction: row;
@@ -101,15 +125,18 @@ $value_eight: 1910px;
           align-items: center;
           margin-bottom: 14px;
           cursor: pointer;
-          & > svg {
+
+          &>svg {
             max-width: 14px;
             max-height: 14px;
           }
+
           &:hover {
             transform: translateX(5px);
             transition: transform 0.2s ease-in-out;
           }
-          & > p {
+
+          &>p {
             font-size: 11px;
             line-height: 13px;
             color: #1e3d74;
@@ -117,24 +144,29 @@ $value_eight: 1910px;
           }
         }
       }
+
       .rules-detail-container {
         border: 3px solid #f2f2f2;
         border-radius: 20px;
         padding: 40px 20px 20px 20px;
         position: relative;
+
         .rules-detail__title-container {
           position: absolute;
           top: -30px;
           left: 50%;
           transform: translate(-50%);
-          & > svg {
+
+          &>svg {
             max-width: 50vw;
             max-height: 60px;
           }
         }
+
         .rules-detail__content {
           ul {
             padding-left: 16px;
+
             li {
               list-style-type: disc;
               font-size: 11px;
@@ -142,6 +174,7 @@ $value_eight: 1910px;
               color: #1e3d74;
               font-weight: 500;
             }
+
             .rule-title {
               font-size: 13px;
               line-height: 16px;
@@ -151,39 +184,46 @@ $value_eight: 1910px;
               padding-left: 0;
               margin-top: 20px;
             }
+
             div {
               font-weight: 500;
               font-size: 11px;
             }
+
             h4 {
               font-size: 11px;
               line-height: 13px;
             }
           }
-          ul > li > ul {
+
+          ul>li>ul {
             padding-left: 26px;
           }
         }
+
         .rules-details_list {
-          & > li {
+          &>li {
             font-size: 24px;
             line-height: 28px;
             font-weight: 800;
             color: #1e3d74;
             margin-bottom: 24px;
+
             & .note {
               color: var(--primaryColor);
               font-size: 18px;
               line-height: 26px;
               font-weight: 500;
             }
-            & > div {
+
+            &>div {
               font-size: 18px;
               line-height: 26px;
               font-weight: 500;
               color: #1e3d74;
             }
-            & > ul > li {
+
+            &>ul>li {
               list-style: disc;
               font-size: 18px;
               line-height: 26px;
@@ -191,6 +231,7 @@ $value_eight: 1910px;
               color: #1e3d74;
             }
           }
+
           .rules-details-button-wrapper {
             position: relative;
             display: flex;
@@ -199,11 +240,13 @@ $value_eight: 1910px;
             margin-bottom: 20px;
             margin-top: 10px;
             cursor: pointer;
+
             &:active {
               transform: scale(0.9);
               transition: transform 0.1s ease-in-out;
             }
-            & > span {
+
+            &>span {
               user-select: none;
               position: absolute;
               top: 50%;
@@ -216,6 +259,7 @@ $value_eight: 1910px;
               color: #ffffff;
             }
           }
+
           .rank-table-title {
             font-style: normal;
             font-weight: bold;
@@ -226,6 +270,7 @@ $value_eight: 1910px;
             margin-bottom: 8px;
           }
         }
+
         .rules-details-button-wrapper {
           position: relative;
           display: flex;
@@ -234,13 +279,16 @@ $value_eight: 1910px;
           margin-bottom: 20px;
           margin-top: 10px;
           cursor: pointer;
-          & > svg {
+
+          &>svg {
             max-width: 60%;
           }
+
           &:active {
             transform: scale(0.9);
             transition: transform 0.1s ease-in-out;
           }
+
           .rules-details-button-text {
             user-select: none;
             position: absolute;
@@ -267,25 +315,31 @@ $value_eight: 1910px;
       margin-right: auto;
       margin-top: 110px;
       margin-bottom: 0px;
+
       .event-calendar-container {
         background: var(--lightOrange);
         border-radius: 25px;
         padding: 25px;
         max-width: 264px;
+
         .calendar-title {
           font-size: 30px;
           line-height: 36px;
         }
+
         .calendar-text-black {
           font-size: 13px;
           line-height: 16px;
         }
+
         .calendar-icon__container {
           position: relative;
-          & > svg {
+
+          &>svg {
             max-width: 70%;
             max-height: 150px;
           }
+
           .calender-coin-icon {
             width: 82px;
             max-height: 75px;
@@ -293,6 +347,7 @@ $value_eight: 1910px;
             bottom: 0px;
             right: -15%;
           }
+
           .calendar-date {
             position: absolute;
             font-size: 6vw;
@@ -302,6 +357,7 @@ $value_eight: 1910px;
             right: 23%;
             letter-spacing: 1px;
           }
+
           .calendar-month {
             position: absolute;
             font-size: 3vw;
@@ -312,6 +368,7 @@ $value_eight: 1910px;
             letter-spacing: 1px;
           }
         }
+
         .notic {
           font-weight: 500;
           font-size: 24px;
@@ -321,10 +378,12 @@ $value_eight: 1910px;
           color: #1e3d74;
           width: 100%;
         }
+
         .notic-text-black {
           font-size: 14px;
           line-height: 16px;
         }
+
         .notic-text-white {
           font-weight: 700;
           font-size: 18px;
@@ -332,6 +391,7 @@ $value_eight: 1910px;
           letter-spacing: -0.005em;
           color: #fff;
         }
+
         .social-link {
           display: flex;
           flex-direction: row;
@@ -341,33 +401,38 @@ $value_eight: 1910px;
           margin-bottom: 14px;
           cursor: pointer;
 
-          &:hover {
-          }
-          & > p {
+          &:hover {}
+
+          &>p {
             font-size: 13px;
             line-height: 16px;
           }
         }
       }
+
       .rules-detail-container {
         background: #ffffff;
         border: 5px solid #f2f2f2;
         border-radius: 25px;
         padding: 80px 30px 30px 30px;
         position: relative;
+
         .rules-detail__title-container {
           position: absolute;
           top: -50px;
           left: 50%;
           transform: translate(-50%);
-          & > svg {
+
+          &>svg {
             max-width: 40vw;
             max-height: 100px;
           }
         }
+
         .rules-detail__content {
           ul {
             padding-left: 16px;
+
             li {
               list-style-type: disc;
               font-size: 14px;
@@ -375,6 +440,7 @@ $value_eight: 1910px;
               color: #1e3d74;
               font-weight: 500;
             }
+
             .rule-title {
               font-size: 18px;
               line-height: 24px;
@@ -384,18 +450,21 @@ $value_eight: 1910px;
               padding-left: 0;
               margin-top: 20px;
             }
+
             div {
               font-weight: 500;
               font-size: 14px;
             }
           }
-          ul > li > ul {
+
+          ul>li>ul {
             padding-left: 26px;
           }
         }
+
         .rules-details-button-wrapper {
-          &:active {
-          }
+          &:active {}
+
           .rules-details-button-text {
             font-size: 16px;
             line-height: 20px;
@@ -412,26 +481,32 @@ $value_eight: 1910px;
       margin-top: 110px;
       margin-bottom: 100px;
       width: 700px;
+
       .event-calendar-container {
         background: var(--lightOrange);
         border-radius: 25px;
         padding: 25px;
         max-width: 100%;
         max-width: 264px;
+
         .calendar-title {
           font-size: 30px;
           line-height: 36px;
         }
+
         .calendar-text-black {
           font-size: 13px;
           line-height: 16px;
         }
+
         .calendar-icon__container {
           position: relative;
-          & > svg {
+
+          &>svg {
             max-width: 70%;
             max-height: 150px;
           }
+
           .calender-coin-icon {
             width: 82px;
             max-height: 75px;
@@ -440,6 +515,7 @@ $value_eight: 1910px;
             right: -5%;
           }
         }
+
         .notic {
           font-weight: 500;
           font-size: 24px;
@@ -449,10 +525,12 @@ $value_eight: 1910px;
           color: #1e3d74;
           width: 100%;
         }
+
         .notic-text-black {
           font-size: 14px;
           line-height: 16px;
         }
+
         .notic-text-white {
           font-weight: 700;
           font-size: 18px;
@@ -460,6 +538,7 @@ $value_eight: 1910px;
           letter-spacing: -0.005em;
           color: #fff;
         }
+
         .social-link {
           display: flex;
           flex-direction: row;
@@ -469,33 +548,38 @@ $value_eight: 1910px;
           margin-bottom: 14px;
           cursor: pointer;
 
-          &:hover {
-          }
-          & > p {
+          &:hover {}
+
+          &>p {
             font-size: 13px;
             line-height: 16px;
           }
         }
       }
+
       .rules-detail-container {
         background: #ffffff;
         border: 5px solid #f2f2f2;
         border-radius: 25px;
         padding: 80px 30px 30px 30px;
         position: relative;
+
         .rules-detail__title-container {
           position: absolute;
           top: -50px;
           left: 50%;
           transform: translate(-50%);
-          & > svg {
+
+          &>svg {
             max-width: 40vw;
             max-height: 100px;
           }
         }
+
         .rules-detail__content {
           ul {
             padding-left: 16px;
+
             li {
               list-style-type: disc;
               font-size: 14px;
@@ -503,6 +587,7 @@ $value_eight: 1910px;
               color: #1e3d74;
               font-weight: 500;
             }
+
             .rule-title {
               font-size: 18px;
               line-height: 24px;
@@ -512,12 +597,14 @@ $value_eight: 1910px;
               padding-left: 0;
               margin-top: 20px;
             }
+
             div {
               font-weight: 500;
               font-size: 14px;
             }
           }
-          ul > li > ul {
+
+          ul>li>ul {
             padding-left: 26px;
           }
         }

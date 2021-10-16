@@ -15,12 +15,14 @@ $value_eight: 1910px;
     .inviter-banner {
       padding-top: 90px;
     }
+
     .profile-area {
       width: 315px;
       margin-left: auto;
       margin-right: auto;
       margin-top: 20px;
       margin-bottom: 80px;
+
       .profile-progress-area {
         padding: 15px 12px 15px 12px;
         border-radius: 20px;
@@ -29,61 +31,76 @@ $value_eight: 1910px;
           font-size: 14px;
           line-height: 17px;
         }
+
         .profile-progress__point-wrapper {
           position: relative;
           margin-top: 0px;
-          & > svg {
+
+          &>svg {
             max-width: 60%;
             margin-left: 20%;
             max-height: 45px;
           }
+
           .profile-progress__point {
             font-size: 20px;
             line-height: 24px;
           }
         }
+
         .profile-progress__progress-bar-wrapper {
           width: 100%;
           margin-top: 6px;
 
           position: relative;
+
           .pending-progress {
             max-height: 20px;
           }
+
           .profile-progress__done-progress-wrapper {
             border-radius: 20px;
+
             .done-progress {
               max-height: 20px;
             }
           }
+
           .profile-progress__left-icon-wrapper {
             position: absolute;
             top: 0px;
             left: -10px;
-            & > img {
+
+            &>img {
               width: 30px;
               height: 22px;
             }
           }
+
           .profile-progress__right-icon-wrapper {
             position: absolute;
             top: 0px;
             right: -10px;
-            & > img {
+
+            &>img {
               width: 30px;
               height: 22px;
             }
           }
         }
+
         .profile-progress__button-wrapper {
           margin-top: 5px;
           width: 60%;
-          & > svg {
+          min-width: 149.69px;
+
+          &>svg {
             width: 100%;
             max-height: 35px;
           }
-          &:active {
-          }
+
+          &:active {}
+
           .profile-progress__button-text {
             font-size: 11px;
             line-height: 13px;
@@ -95,30 +112,36 @@ $value_eight: 1910px;
         padding: 42px 5% 122px 5%;
         border-radius: 25px;
         margin-top: 60px;
+
         .achievement-top-header-wrapper {
-          & > svg {
+          &>svg {
             max-width: 50vw;
             max-height: 55px;
           }
+
           position: absolute;
           top: -40px;
           left: 50%;
           transform: translate(-50%);
         }
+
         .achievement-footer {
           border-bottom-right-radius: 10px;
           border-bottom-left-radius: 10px;
           padding: 12px 25px 12px 25px;
+
           .copy-btn-title {
             font-size: 11px;
             line-height: 13px;
           }
+
           .copy-field {
-            & > p {
+            &>p {
               font-size: 11px;
               line-height: 13px;
               max-width: 60%;
             }
+
             background: #fff;
             border-radius: 10px;
             padding-left: 10px;
@@ -130,14 +153,17 @@ $value_eight: 1910px;
             }
           }
         }
+
         .achievement-wrapper {
           position: relative;
+
           .form-profile-field-label {
             font-weight: 500;
             font-size: 18px;
             line-height: 22px;
             color: #ffffff;
           }
+
           .change-password-header-title {
             font-style: normal;
             font-weight: bold;
@@ -148,16 +174,20 @@ $value_eight: 1910px;
             margin-top: 90px;
             margin-bottom: 20px;
           }
+
           .group-btn-wrapper {
             margin-top: 90px;
           }
+
           .update-profile-button-wrapper {
             position: relative;
             cursor: pointer;
+
             &:active {
               transform: scale(0.9);
               transition: transform 0.1s ease-in;
             }
+
             .update-profile-button-label {
               position: absolute;
               top: 50%;
@@ -170,6 +200,7 @@ $value_eight: 1910px;
               color: #ffffff;
               user-select: none;
             }
+
             .update-profile-button-label-red {
               user-select: none;
               position: absolute;
@@ -184,37 +215,45 @@ $value_eight: 1910px;
             }
           }
         }
+
         .achivement-item-wrapper {
           border-radius: 10px;
           padding-right: 15px;
           margin-bottom: 18px;
-          & > svg {
+
+          &>svg {
             max-width: 20px;
             max-height: 20px;
           }
+
           .achivement-item-image {
             width: 70px;
             height: auto;
           }
+
           .achivement-item-info-wrapper {
             padding-top: 16px;
             padding-bottom: 16px;
+
             .achivement-item-title {
               font-size: 11px;
               line-height: 13px;
               margin-bottom: 6px;
             }
+
             .achivement-item-subtitle {
               font-size: 11px;
               line-height: 13px;
 
               margin-bottom: 6px;
             }
+
             .achivement-item-point {
               font-size: 14px;
               line-height: 17px;
               margin-right: 6px;
-              & > svg {
+
+              &>svg {
                 max-width: 15px;
                 max-height: 15px;
               }
@@ -238,6 +277,7 @@ $value_eight: 1910px;
       .profile-progress-area {
         padding: 28px 12px 28px 12px;
         border-radius: 20px;
+
         .profile-progress__title {
           font-weight: bold;
           font-size: 30px;
@@ -245,69 +285,84 @@ $value_eight: 1910px;
           text-align: center;
           color: #ffffff;
         }
+
         .profile-progress__point-wrapper {
           position: relative;
           margin-top: 0px;
-          & > svg {
+
+          &>svg {
             max-width: 80%;
             margin-left: 10%;
             max-height: 70px;
           }
+
           .profile-progress__point {
             font-size: 25px;
             line-height: 30px;
           }
         }
+
         .profile-progress__progress-bar-wrapper {
           width: 100%;
           margin-top: 16px;
 
           position: relative;
+
           .pending-progress {
             max-height: 20px;
           }
+
           .profile-progress__done-progress-wrapper {
             overflow: hidden;
             border-radius: 20px;
             position: absolute;
             top: 0px;
             left: 6px;
+
             .done-progress {
               max-height: 20px;
             }
           }
+
           .profile-progress__left-icon-wrapper {
             position: absolute;
             top: 0px;
             left: -10px;
-            & > img {
+
+            &>img {
               width: 44px;
               height: auto;
             }
           }
+
           .profile-progress__right-icon-wrapper {
             position: absolute;
             top: 0px;
             right: -20px;
-            & > img {
+
+            &>img {
               width: 44px;
               height: auto;
             }
           }
         }
+
         .profile-progress__button-wrapper {
           margin-top: 30px;
           position: relative;
           cursor: pointer;
-          & > svg {
+
+          &>svg {
             width: 80%;
             margin-left: 10%;
             max-height: 50px;
           }
+
           &:active {
             transform: scale(0.9);
             transition: transform 0.2s ease-in-out;
           }
+
           .profile-progress__button-text {
             font-size: 14px;
             line-height: 17px;
@@ -320,17 +375,20 @@ $value_eight: 1910px;
         background: #f16c1c;
         border-radius: 20px;
         position: relative;
+
         .achievement-top-header-wrapper {
           position: absolute;
           top: -50px;
           left: 50%;
           transform: translate(-50%);
-          & > svg {
+
+          &>svg {
             max-width: 140%;
             margin-left: -20%;
             max-height: 90px;
           }
         }
+
         .achievement-footer {
           position: absolute;
           bottom: 0;
@@ -340,6 +398,7 @@ $value_eight: 1910px;
           width: 100%;
           left: 0;
           padding: 25px 40px 25px 40px;
+
           .copy-btn-title {
             font-style: normal;
             font-weight: 500;
@@ -348,6 +407,7 @@ $value_eight: 1910px;
             color: #f16c1c;
             margin-bottom: 6px;
           }
+
           .copy-field {
             background: #fff;
             border-radius: 20px;
@@ -356,24 +416,29 @@ $value_eight: 1910px;
             justify-content: space-between;
             align-items: center;
             padding-left: 10px;
-            & > p {
+
+            &>p {
               font-size: 14px;
               line-height: 17px;
             }
+
             .copy-code-button {
               max-width: 50px;
               border-radius: 20px;
             }
           }
         }
+
         .achievement-wrapper {
           position: relative;
+
           .form-profile-field-label {
             font-weight: 500;
             font-size: 18px;
             line-height: 22px;
             color: #ffffff;
           }
+
           .change-password-header-title {
             font-style: normal;
             font-weight: bold;
@@ -384,16 +449,20 @@ $value_eight: 1910px;
             margin-top: 90px;
             margin-bottom: 20px;
           }
+
           .group-btn-wrapper {
             margin-top: 90px;
           }
+
           .update-profile-button-wrapper {
             position: relative;
             cursor: pointer;
+
             &:active {
               transform: scale(0.9);
               transition: transform 0.1s ease-in;
             }
+
             .update-profile-button-label {
               position: absolute;
               top: 50%;
@@ -406,6 +475,7 @@ $value_eight: 1910px;
               color: #ffffff;
               user-select: none;
             }
+
             .update-profile-button-label-red {
               user-select: none;
               position: absolute;
@@ -420,6 +490,7 @@ $value_eight: 1910px;
             }
           }
         }
+
         .achivement-item-wrapper {
           display: flex;
           flex-direction: row;
@@ -429,27 +500,34 @@ $value_eight: 1910px;
           border-radius: 20px;
           padding-right: 30px;
           margin-bottom: 24px;
-          & > svg {
+
+          &>svg {
             max-width: 25px;
           }
+
           .achivement-item-image {
             width: 77px;
           }
+
           .achivement-item-info-wrapper {
             padding-top: 16px;
             padding-bottom: 16px;
+
             .achivement-item-title {
               font-size: 11px;
               line-height: 13px;
             }
+
             .achivement-item-subtitle {
               font-size: 11px;
               line-height: 13px;
             }
+
             .achivement-item-point {
               font-size: 15px;
               line-height: 18px;
-              & > svg {
+
+              &>svg {
                 max-width: 18px;
                 margin-left: 6px;
               }
@@ -469,9 +547,11 @@ $value_eight: 1910px;
       width: 694px;
       margin-left: auto;
       margin-right: auto;
+
       .profile-progress-area {
         padding: 28px 12px 28px 12px;
         border-radius: 20px;
+
         .profile-progress__title {
           font-weight: bold;
           font-size: 30px;
@@ -479,69 +559,84 @@ $value_eight: 1910px;
           text-align: center;
           color: #ffffff;
         }
+
         .profile-progress__point-wrapper {
           position: relative;
           margin-top: 0px;
-          & > svg {
+
+          &>svg {
             max-width: 80%;
             margin-left: 10%;
             max-height: 70px;
           }
+
           .profile-progress__point {
             font-size: 25px;
             line-height: 30px;
           }
         }
+
         .profile-progress__progress-bar-wrapper {
           width: 100%;
           margin-top: 16px;
 
           position: relative;
+
           .pending-progress {
             max-height: 20px;
           }
+
           .profile-progress__done-progress-wrapper {
             overflow: hidden;
             border-radius: 20px;
             position: absolute;
             top: 0px;
             left: 6px;
+
             .done-progress {
               max-height: 20px;
             }
           }
+
           .profile-progress__left-icon-wrapper {
             position: absolute;
             top: 0px;
             left: -10px;
-            & > img {
+
+            &>img {
               width: 44px;
               height: auto;
             }
           }
+
           .profile-progress__right-icon-wrapper {
             position: absolute;
             top: 0px;
             right: -20px;
-            & > img {
+
+            &>img {
               width: 44px;
               height: auto;
             }
           }
         }
+
         .profile-progress__button-wrapper {
           margin-top: 30px;
           position: relative;
           cursor: pointer;
-          & > svg {
+
+          &>svg {
             width: 80%;
             margin-left: 10%;
             max-height: 50px;
           }
+
           &:active {
             transform: scale(0.9);
             transition: transform 0.2s ease-in-out;
           }
+
           .profile-progress__button-text {
             font-size: 14px;
             line-height: 17px;
@@ -554,17 +649,20 @@ $value_eight: 1910px;
         background: #f16c1c;
         border-radius: 20px;
         position: relative;
+
         .achievement-top-header-wrapper {
           position: absolute;
           top: -50px;
           left: 50%;
           transform: translate(-50%);
-          & > svg {
+
+          &>svg {
             max-width: 140%;
             margin-left: -20%;
             max-height: 90px;
           }
         }
+
         .achievement-footer {
           position: absolute;
           bottom: 0;
@@ -574,6 +672,7 @@ $value_eight: 1910px;
           width: 100%;
           left: 0;
           padding: 25px 40px 25px 40px;
+
           .copy-btn-title {
             font-style: normal;
             font-weight: 500;
@@ -582,6 +681,7 @@ $value_eight: 1910px;
             color: #f16c1c;
             margin-bottom: 6px;
           }
+
           .copy-field {
             background: #fff;
             border-radius: 20px;
@@ -590,24 +690,29 @@ $value_eight: 1910px;
             justify-content: space-between;
             align-items: center;
             padding-left: 10px;
-            & > p {
+
+            &>p {
               font-size: 14px;
               line-height: 17px;
             }
+
             .copy-code-button {
               max-width: 50px;
               border-radius: 20px;
             }
           }
         }
+
         .achievement-wrapper {
           position: relative;
+
           .form-profile-field-label {
             font-weight: 500;
             font-size: 18px;
             line-height: 22px;
             color: #ffffff;
           }
+
           .change-password-header-title {
             font-style: normal;
             font-weight: bold;
@@ -618,16 +723,20 @@ $value_eight: 1910px;
             margin-top: 90px;
             margin-bottom: 20px;
           }
+
           .group-btn-wrapper {
             margin-top: 90px;
           }
+
           .update-profile-button-wrapper {
             position: relative;
             cursor: pointer;
+
             &:active {
               transform: scale(0.9);
               transition: transform 0.1s ease-in;
             }
+
             .update-profile-button-label {
               position: absolute;
               top: 50%;
@@ -640,6 +749,7 @@ $value_eight: 1910px;
               color: #ffffff;
               user-select: none;
             }
+
             .update-profile-button-label-red {
               user-select: none;
               position: absolute;
@@ -654,6 +764,7 @@ $value_eight: 1910px;
             }
           }
         }
+
         .achivement-item-wrapper {
           display: flex;
           flex-direction: row;
@@ -663,27 +774,34 @@ $value_eight: 1910px;
           border-radius: 20px;
           padding-right: 30px;
           margin-bottom: 24px;
-          & > svg {
+
+          &>svg {
             max-width: 25px;
           }
+
           .achivement-item-image {
             width: 77px;
           }
+
           .achivement-item-info-wrapper {
             padding-top: 16px;
             padding-bottom: 16px;
+
             .achivement-item-title {
               font-size: 11px;
               line-height: 13px;
             }
+
             .achivement-item-subtitle {
               font-size: 11px;
               line-height: 13px;
             }
+
             .achivement-item-point {
               font-size: 15px;
               line-height: 18px;
-              & > svg {
+
+              &>svg {
                 max-width: 18px;
                 margin-left: 6px;
               }

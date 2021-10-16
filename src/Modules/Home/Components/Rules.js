@@ -1,40 +1,40 @@
-import React, { useEffect } from "react"
-import { Col, Container, Row } from "reactstrap"
-import banner from "../assets/images/rule-top-banner.png"
+import React, { useEffect } from "react";
+import { Col, Container, Row } from "reactstrap";
+import banner from "../assets/images/rule-top-banner.png";
 
-import { HornorTable, ButtonSvg } from "../assets/icon"
-import { useHistory } from "react-router"
+import { HornorTable, ButtonSvg } from "../assets/icon";
+import { useHistory } from "react-router";
 
 import {
   getListLoadingSelector,
-  getListSelector
-} from "../Store/Rules/selector"
+  getListSelector,
+} from "../Store/Rules/selector";
 
 import {
   getListLoadingSelector as getListRankLoadingSelector,
-  getListSelector as getListRankSelector
-} from "../Store/Ranking/selector"
+  getListSelector as getListRankSelector,
+} from "../Store/Ranking/selector";
 
-import { actions } from "../Store/Rules/reducer"
-import { actions as rankActions } from "../Store/Ranking/reducer"
-import { useDispatch, useSelector } from "react-redux"
-import AsyncImage from "../../../components/AsyncImage"
-import { GoldIcon } from "../../Achievement/assets/icon"
-import { loginSuccessSelector } from "../../Authenticate/store/auth/selectors"
-import voirank from "../assets/images/voirank.png"
-import rankWrapper from "../assets/images/rank.png"
+import { actions } from "../Store/Rules/reducer";
+import { actions as rankActions } from "../Store/Ranking/reducer";
+import { useDispatch, useSelector } from "react-redux";
+import AsyncImage from "../../../components/AsyncImage";
+import { GoldIcon } from "../../Achievement/assets/icon";
+import { loginSuccessSelector } from "../../Authenticate/store/auth/selectors";
+import voirank from "../assets/images/voirank.png";
+import rankWrapper from "../assets/images/rank.png";
 const getHornorTableWidth = () => {
-  const width = window.innerWidth
-  const paddingWidth = width * 0.8
-  return (paddingWidth / 12) * 5
-}
+  const width = window.innerWidth;
+  const paddingWidth = width * 0.8;
+  return (paddingWidth / 12) * 5;
+};
 const getHornorTableHeight = () => {
-  const ratio = 461 / 841
-  return getHornorTableWidth() / ratio
-}
+  const ratio = 461 / 841;
+  return getHornorTableWidth() / ratio;
+};
 
-const isServer = typeof window === "undefined"
-const WOW = !isServer ? require("wowjs") : null
+const isServer = typeof window === "undefined";
+const WOW = !isServer ? require("wowjs") : null;
 
 const Rules = () => {
   useEffect(() => {
@@ -43,30 +43,30 @@ const Rules = () => {
       animateClass: "animated",
       offset: 20,
       mobile: true,
-      live: true
-    }).init()
-  }, [])
+      live: true,
+    }).init();
+  }, []);
 
-  const history = useHistory()
-  const dispatch = useDispatch()
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-  const isLogin = useSelector(loginSuccessSelector)
+  const isLogin = useSelector(loginSuccessSelector);
 
-  const rules = useSelector(getListSelector)
-  const rulesLoading = useSelector(getListLoadingSelector)
+  const rules = useSelector(getListSelector);
+  const rulesLoading = useSelector(getListLoadingSelector);
 
-  const listRank = useSelector(getListRankSelector)
-  const listRankLoading = useSelector(getListRankLoadingSelector)
+  const listRank = useSelector(getListRankSelector);
+  const listRankLoading = useSelector(getListRankLoadingSelector);
 
   const onSeemorePress = () => {
-    history.push("/rules")
-  }
+    history.push("/rules");
+  };
 
   React.useEffect(() => {
-    dispatch(actions.getList())
-    dispatch(rankActions.getList())
-  }, [])
-  console.log(listRank)
+    dispatch(actions.getList());
+    dispatch(rankActions.getList());
+  }, []);
+  console.log(listRank);
   return (
     <div className="rules-area">
       <div className="rules-container">
@@ -102,7 +102,7 @@ const Rules = () => {
               <div
                 className="seemore-button"
                 onClick={() => {
-                  history.push("/rankings")
+                  history.push("/rankings");
                 }}
               >
                 <ButtonSvg />
@@ -133,9 +133,10 @@ const Rules = () => {
                       </div>
                       <div className="item-info">
                         <span className="item-level">
-                          {`Cấp ${item?.inviteUserCount + " | " || ""}${
+                          {`Cấp ${item?.inviteUserCount}`}&nbsp;
+                          <span className="rank-name">{`| ${
                             item?.level?.name || ""
-                          }`}
+                          }`}</span>
                         </span>
                         <span className="item-name">{item.childFullName1}</span>
                         <span className="item-point">
@@ -167,6 +168,6 @@ const Rules = () => {
         </Row>
       </div>
     </div>
-  )
-}
-export default Rules
+  );
+};
+export default Rules;

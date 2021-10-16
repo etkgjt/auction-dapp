@@ -1,50 +1,56 @@
-import React, { Component, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { useHistory } from "react-router"
-import { Col, Container, Row } from "reactstrap"
-import { ButtonBlue, ButtonOrange } from "../assets/icons"
-import { getListLoadingSelector, getListSelector } from "../Store/News/selector"
+import React, { Component, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { useMediaQuery } from "react-responsive";
+import { Col, Container, Row } from "reactstrap";
+import { ButtonBlue, ButtonOrange } from "../assets/icons";
+import {
+  getListLoadingSelector,
+  getListSelector,
+} from "../Store/News/selector";
 
-import { actions } from "../Store/News/reducer"
-import AsyncImage from "../../../components/AsyncImage"
-import { NEWS_LIST_LIMIT_DEFAULT } from "../../../configs/contants"
-import Pagination from "../../../components/Pagination"
-import voiImg from "../assets/images/voi.png"
+import { actions } from "../Store/News/reducer";
+import AsyncImage from "../../../components/AsyncImage";
+import { NEWS_LIST_LIMIT_DEFAULT } from "../../../configs/contants";
+import Pagination from "../../../components/Pagination";
+import voiImg from "../assets/images/voi.png";
+import { SearchIcon } from "../assets/svg";
 
-const isServer = typeof window === "undefined"
-const WOW = !isServer ? require("wowjs") : null
+const isServer = typeof window === "undefined";
+const WOW = !isServer ? require("wowjs") : null;
 
 const BlogOne = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
-  const listNews = useSelector(getListSelector)
-  const listNewsLoading = useSelector(getListLoadingSelector)
+  const listNews = useSelector(getListSelector);
+  const listNewsLoading = useSelector(getListLoadingSelector);
 
-  const [keyword, setKeyword] = useState("")
+  const [keyword, setKeyword] = useState("");
 
-  const history = useHistory()
+  const history = useHistory();
   const onItemPress = (id) => {
-    history.push(`/news/${id}/news`)
-  }
+    history.push(`/news/${id}/news`);
+  };
 
   React.useEffect(() => {
     dispatch(
       actions.getList({
         page: 1,
-        limit: NEWS_LIST_LIMIT_DEFAULT
+        limit: NEWS_LIST_LIMIT_DEFAULT,
       })
-    )
-  }, [])
+    );
+  }, []);
 
   const onPageChange = ({ selected }) => {
     dispatch(
       actions.getList({
         page: selected + 1,
         limit: NEWS_LIST_LIMIT_DEFAULT,
-        name: keyword ? keyword : undefined
+        name: keyword ? keyword : undefined,
       })
-    )
-  }
+    );
+  };
 
   React.useEffect(() => {
     new WOW.WOW({
@@ -52,20 +58,20 @@ const BlogOne = () => {
       animateClass: "animated",
       offset: 20,
       mobile: true,
-      live: true
-    }).init()
-  }, [])
-  const { paging } = listNews
+      live: true,
+    }).init();
+  }, []);
+  const { paging } = listNews;
 
   const onSearch = () => {
     dispatch(
       actions.getList({
         page: 1,
         limit: NEWS_LIST_LIMIT_DEFAULT,
-        name: keyword ? keyword : undefined
+        name: keyword ? keyword : undefined,
       })
-    )
-  }
+    );
+  };
 
   return (
     <div className="news-list-area">
@@ -78,7 +84,7 @@ const BlogOne = () => {
           <input
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                onSearch()
+                onSearch();
               }
             }}
             value={keyword}
@@ -87,7 +93,7 @@ const BlogOne = () => {
             className="search-input"
           />
           <div className="search-button" onClick={onSearch}>
-            <span>Tìm kiếm</span>
+            {isMobile ? <SearchIcon /> : <span>Tìm kiếm</span>}
           </div>
         </div>
         <Row className="w-100">
@@ -96,7 +102,7 @@ const BlogOne = () => {
               <div
                 className="news-item-wrapper"
                 onClick={() => {
-                  onItemPress(item?.id)
+                  onItemPress(item?.id);
                 }}
               >
                 <div className="news-item-image-wrapper">
@@ -133,7 +139,7 @@ const BlogOne = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BlogOne
+export default BlogOne;

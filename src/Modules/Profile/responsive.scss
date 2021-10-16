@@ -14,14 +14,17 @@ $value_eight: 1910px;
   .no-padding-left {
     padding-left: 0 !important;
   }
+
   .no-padding-right {
     padding-right: 0 !important;
   }
+
   .profile__page {
     .inviter-banner {
       padding-top: 60px;
       background: #f16c1c;
-      & > img {
+
+      &>img {
         min-height: 200px;
         width: auto;
         object-fit: cover;
@@ -33,77 +36,96 @@ $value_eight: 1910px;
       padding-right: 5vw;
       margin-top: 26px;
       margin-bottom: 80px;
+      width: auto;
+
       .profile-progress-area {
         padding: 15px 10px 15px 10px;
         border-radius: 10px;
+
         .profile-progress__title {
           font-size: 14px;
           line-height: 17px;
           text-transform: uppercase;
         }
+
         .profile-progress__point-wrapper {
           position: relative;
           margin-top: 8px;
-          & > svg {
+
+          &>svg {
             width: 80%;
             margin-left: 10%;
             max-height: 40px;
           }
+
           .profile-progress__point {
             font-size: 20px;
             line-height: 24px;
           }
         }
+
         .profile-progress__progress-bar-wrapper {
           width: 100%;
           margin-top: 2px;
+
           .pending-progress {
             max-height: 15px;
           }
+
           .profile-progress__done-progress-wrapper {
             border-radius: 20px;
             top: 0px;
             left: 6px;
+
             .done-progress {
               max-height: 15px;
             }
           }
+
           .profile-progress__left-icon-wrapper {
             top: -3px;
             left: -10px;
-            & > img {
+
+            &>img {
               width: 40px;
               height: 30px;
             }
           }
+
           .profile-progress__right-icon-wrapper {
             top: -5px;
             right: -10px;
-            & > img {
+
+            &>img {
               width: 40px;
               height: 30px;
             }
           }
         }
+
         .profile-progress__button-wrapper {
           margin-top: 5px;
           position: relative;
           cursor: pointer;
           width: 60%;
-          & > svg {
+
+          &>svg {
             width: 100%;
             max-height: 35px;
           }
+
           &:active {
             transform: scale(0.9);
             transition: transform 0.2s ease-in-out;
           }
+
           .profile-progress__button-text {
             font-size: 11px;
             line-height: 13px;
           }
         }
       }
+
       .profile-armorial-area {
         border: 2px solid #f2f2f2;
         border-radius: 10px;
@@ -112,21 +134,26 @@ $value_eight: 1910px;
         align-items: center;
         padding: 15px 6px 15px 6px;
         margin-top: 0px;
+
         .profile-armorial__title {
           font-size: 14px;
           line-height: 17px;
         }
+
         .profile-armorial__list-wrapper {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           margin-top: 10px;
+
           .group-icon-row {
             flex-direction: row;
+
             .profile-armorial__img1 {
               max-width: 50%;
             }
+
             .profile-armorial__img2 {
               max-width: 50%;
             }
@@ -138,38 +165,46 @@ $value_eight: 1910px;
             justify-content: center;
             align-items: center;
             margin-top: 7px;
+
             .profile-armorial__img3 {
               max-width: 50px;
             }
+
             .profile-armorial__img4 {
               max-width: 50px;
             }
           }
         }
       }
+
       .profile-friendlist-area {
         margin-top: 32px;
+
         .profile-friendlist-container {
           position: relative;
+
           .profile-friendlist-inner {
-            & > h1 {
+            &>h1 {
               font-size: 16px;
               line-height: 19px;
               margin-top: 60px;
               margin-bottom: 20px;
             }
+
             .friendlist-item-wrapper {
               padding-left: 40px;
               padding-right: 40px;
               align-items: center;
               margin-bottom: 14px;
               height: auto;
+
               .friendlist-item-rank {
                 font-size: 16px;
                 line-height: 19px;
                 margin-right: 6px;
                 margin-bottom: 0px;
               }
+
               .friendlist-item-avatar {
                 width: 48px;
                 height: 48px;
@@ -177,22 +212,27 @@ $value_eight: 1910px;
                 border: 3px solid #fff;
                 margin-right: 6px;
               }
+
               .friendlist-item-info {
                 display: flex;
                 flex-direction: column;
+
                 .friendlist-item-level {
                   font-size: 11px;
                   line-height: 13px;
                 }
+
                 .friendlist-item-point {
                   font-size: 11px;
                   line-height: 13px;
-                  & > svg {
+
+                  &>svg {
                     width: 12px;
                     height: 12px;
                     margin-left: 6px;
                   }
                 }
+
                 .friendlist-item-name {
                   font-size: 11px;
                   line-height: 13px;
@@ -204,10 +244,12 @@ $value_eight: 1910px;
           }
         }
       }
+
       .profile-form-container {
         padding: 140px 10% 100px 10%;
         border-radius: 10px;
         margin-top: 80px;
+
         .profile-form-avatar-wrapper {
           position: absolute;
           top: -100px;
@@ -217,25 +259,30 @@ $value_eight: 1910px;
             bottom: 50px;
             right: 10px;
             cursor: pointer;
+
             &:active {
               transform: scale(0.9);
               transition: transform 0.1s ease-in;
             }
           }
         }
+
         .profile-form-footer {
           border-bottom-right-radius: 10px;
           border-bottom-left-radius: 10px;
           padding: 12px 25px 12px 25px;
+
           .copy-btn-title {
             font-size: 11px;
             line-height: 13px;
           }
+
           .copy-field {
-            & > p {
+            &>p {
               font-size: 11px;
               line-height: 13px;
             }
+
             background: #fff;
             border-radius: 10px;
             padding-left: 10px;
@@ -247,37 +294,46 @@ $value_eight: 1910px;
             }
           }
         }
+
         .profile-form-wrapper {
           position: relative;
+
           .form-profile-field-label {
             font-size: 11px;
             line-height: 13px;
           }
+
           .change-password-header-title {
             font-size: 14px;
             line-height: 17px;
             margin-top: 50px;
             margin-bottom: 20px;
           }
+
           .group-btn-wrapper {
             margin-top: 40px;
           }
+
           .update-profile-button-wrapper {
             position: relative;
             cursor: pointer;
-            & > svg {
+
+            &>svg {
               width: 60%;
               margin-left: 20%;
               height: 50px;
             }
+
             &:active {
               transform: scale(0.9);
               transition: transform 0.1s ease-in;
             }
+
             .update-profile-button-label {
               font-size: 11px;
               line-height: 13px;
             }
+
             .update-profile-button-label-red {
               font-size: 11px;
               line-height: 13px;
@@ -287,34 +343,42 @@ $value_eight: 1910px;
       }
     }
   }
+
   .form-control {
     font-size: 13px;
     height: 36px;
     border-radius: 10px;
   }
+
   .select__control {
     font-size: 13px;
   }
+
   .select__placeholder {
     font-size: 13px;
   }
+
   .logout-popup-modal-wrapper {
     background: transparent;
     border: none;
   }
+
   .popup-logout-container {
     position: relative;
     width: 100%;
+
     .popup-loggout-image-wrapper {
       width: 100%;
     }
+
     .popup-logout-content-wrapper {
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -70%);
       user-select: none;
-      & > p {
+
+      &>p {
         font-weight: bold;
         font-size: 16px;
         line-height: 20px;
@@ -322,6 +386,7 @@ $value_eight: 1910px;
         color: #ffffff;
       }
     }
+
     .logout-icon-wrapper {
       position: absolute;
       bottom: -40px;
@@ -329,15 +394,19 @@ $value_eight: 1910px;
       display: flex;
       flex-direction: row;
       transform: translate(-50%);
+
       .margin-right {
         margin-right: 40px;
       }
+
       .popup-logout-button-wrapper {
         cursor: pointer;
+
         &:hover {
           transform: scale(1.05);
           transition: transform 0.1s ease-in-out;
         }
+
         &:active {
           transform: scale(0.9);
           transition: transform 0.1s ease-in;
@@ -351,89 +420,109 @@ $value_eight: 1910px;
   .no-padding-left {
     padding-left: 0 !important;
   }
+
   .no-padding-right {
     padding-right: 0 !important;
   }
+
   .profile__page {
-    .inviter-banner {
-    }
+    .inviter-banner {}
 
     .profile-area {
       padding-left: 5vw;
       padding-right: 5vw;
       margin-top: 26px;
       margin-bottom: 80px;
+      width: auto;
+
       .profile-progress-area {
         padding: 27px 16px 27px 16px;
         background: #ffc61a;
         border-radius: 25px;
+
         .profile-progress__title {
           font-size: 20px;
           line-height: 24px;
           text-transform: uppercase;
         }
+
         .profile-progress__point-wrapper {
           position: relative;
           margin-top: 26px;
-          & > svg {
+
+          &>svg {
             width: 100%;
             max-height: 70px;
           }
+
           .profile-progress__point {
             font-size: 25px;
             line-height: 30px;
           }
         }
+
         .profile-progress__progress-bar-wrapper {
           width: 100%;
           margin-top: 20px;
+
           .pending-progress {
             max-height: 15px;
           }
+
           .profile-progress__done-progress-wrapper {
             border-radius: 20px;
             top: 0px;
             left: 6px;
+
             .done-progress {
               max-height: 15px;
             }
           }
+
           .profile-progress__left-icon-wrapper {
             top: -3px;
             left: -10px;
-            & > img {
+
+            &>img {
               width: 40px;
               height: 30px;
             }
           }
+
           .profile-progress__right-icon-wrapper {
             top: -5px;
             right: -10px;
-            & > img {
+
+            &>img {
               width: 40px;
               height: 30px;
             }
           }
         }
+
         .profile-progress__button-wrapper {
           margin-top: 20px;
           position: relative;
           cursor: pointer;
           width: 60%;
-          & > svg {
+
+          &>svg {
             width: 100%;
             max-height: 35px;
           }
+
           &:active {
             transform: scale(0.9);
             transition: transform 0.2s ease-in-out;
           }
+
           .profile-progress__button-text {
             font-size: 11px;
             line-height: 13px;
           }
         }
       }
+
       .profile-armorial-area {
         border: 2px solid #f2f2f2;
         border-radius: 25px;
@@ -441,19 +530,23 @@ $value_eight: 1910px;
         flex-direction: column;
         align-items: center;
         padding: 15px 6px 15px 6px;
+
         .profile-armorial__title {
           font-size: 14px;
           line-height: 17px;
         }
+
         .profile-armorial__list-wrapper {
           display: flex;
           flex-direction: row;
 
           .group-icon-row {
             flex-direction: row;
+
             .profile-armorial__img1 {
               max-width: 50%;
             }
+
             .profile-armorial__img2 {
               max-width: 50%;
             }
@@ -462,38 +555,46 @@ $value_eight: 1910px;
           .group-icon-column {
             display: flex;
             flex-direction: row;
+
             .profile-armorial__img3 {
               max-width: 50%;
             }
+
             .profile-armorial__img4 {
               max-width: 50%;
             }
           }
         }
       }
+
       .profile-friendlist-area {
         margin-top: 32px;
+
         .profile-friendlist-container {
           position: relative;
+
           .profile-friendlist-inner {
-            & > h1 {
+            &>h1 {
               font-size: 20px;
               line-height: 24px;
               margin-top: 60px;
               margin-bottom: 20px;
             }
+
             .friendlist-item-wrapper {
               padding-left: 40px;
               padding-right: 40px;
               align-items: center;
               margin-bottom: 14px;
               height: auto;
+
               .friendlist-item-rank {
                 font-size: 16px;
                 line-height: 19px;
                 margin-right: 6px;
                 margin-bottom: 0px;
               }
+
               .friendlist-item-avatar {
                 width: 48px;
                 height: 48px;
@@ -501,22 +602,27 @@ $value_eight: 1910px;
                 border: 3px solid #fff;
                 margin-right: 6px;
               }
+
               .friendlist-item-info {
                 display: flex;
                 flex-direction: column;
+
                 .friendlist-item-level {
                   font-size: 14px;
                   line-height: 17px;
                 }
+
                 .friendlist-item-point {
                   font-size: 14px;
                   line-height: 17px;
-                  & > svg {
+
+                  &>svg {
                     width: 12px;
                     height: 12px;
                     margin-left: 6px;
                   }
                 }
+
                 .friendlist-item-name {
                   font-size: 14px;
                   line-height: 17px;
@@ -528,10 +634,12 @@ $value_eight: 1910px;
           }
         }
       }
+
       .profile-form-container {
         padding: 150px 10% 100px 10%;
         border-radius: 25px;
         margin-top: 80px;
+
         .profile-form-avatar-wrapper {
           position: absolute;
           top: -100px;
@@ -541,25 +649,30 @@ $value_eight: 1910px;
             bottom: 50px;
             right: 10px;
             cursor: pointer;
+
             &:active {
               transform: scale(0.9);
               transition: transform 0.1s ease-in;
             }
           }
         }
+
         .profile-form-footer {
           border-bottom-right-radius: 25px;
           border-bottom-left-radius: 25px;
           padding: 12px 25px 12px 25px;
+
           .copy-btn-title {
             font-size: 11px;
             line-height: 13px;
           }
+
           .copy-field {
-            & > p {
+            &>p {
               font-size: 11px;
               line-height: 13px;
             }
+
             background: #fff;
             border-radius: 10px;
             padding-left: 10px;
@@ -571,37 +684,46 @@ $value_eight: 1910px;
             }
           }
         }
+
         .profile-form-wrapper {
           position: relative;
+
           .form-profile-field-label {
             font-size: 11px;
             line-height: 13px;
           }
+
           .change-password-header-title {
             font-size: 14px;
             line-height: 17px;
             margin-top: 50px;
             margin-bottom: 20px;
           }
+
           .group-btn-wrapper {
             margin-top: 30px;
           }
+
           .update-profile-button-wrapper {
             position: relative;
             cursor: pointer;
-            & > svg {
+
+            &>svg {
               width: 60%;
               margin-left: 20%;
               height: 50px;
             }
+
             &:active {
               transform: scale(0.9);
               transition: transform 0.1s ease-in;
             }
+
             .update-profile-button-label {
               font-size: 11px;
               line-height: 13px;
             }
+
             .update-profile-button-label-red {
               font-size: 11px;
               line-height: 13px;
@@ -611,14 +733,17 @@ $value_eight: 1910px;
       }
     }
   }
+
   .form-control {
     font-size: 14px;
     height: 45px;
     border-radius: 15px;
   }
+
   .select__control {
     font-size: 14px;
   }
+
   .select__placeholder {
     font-size: 14px;
   }
@@ -628,13 +753,16 @@ $value_eight: 1910px;
   .no-padding-left {
     padding-left: 0 !important;
   }
+
   .no-padding-right {
     padding-right: 0 !important;
   }
+
   .profile__page {
     .inviter-banner {
       background: #f16c1c;
-      & > img {
+
+      &>img {
         min-height: 200px;
         width: auto;
         object-fit: cover;
@@ -646,77 +774,95 @@ $value_eight: 1910px;
       padding-right: 5vw;
       margin-top: 46px;
       margin-bottom: 80px;
+
       .profile-progress-area {
         padding: 27px 16px 27px 16px;
         background: #ffc61a;
         border-radius: 25px;
+
         .profile-progress__title {
           font-size: 20px;
           line-height: 24px;
           text-transform: uppercase;
         }
+
         .profile-progress__point-wrapper {
           position: relative;
           margin-top: 26px;
-          & > svg {
+
+          &>svg {
             width: 100%;
             max-height: 70px;
           }
+
           .profile-progress__point {
             font-size: 25px;
             line-height: 30px;
           }
         }
+
         .profile-progress__progress-bar-wrapper {
           width: 100%;
           margin-top: 20px;
+
           .pending-progress {
             max-height: 15px;
           }
+
           .profile-progress__done-progress-wrapper {
             border-radius: 20px;
             top: 0px;
             left: 6px;
+
             .done-progress {
               max-height: 15px;
             }
           }
+
           .profile-progress__left-icon-wrapper {
             top: -3px;
             left: -10px;
-            & > img {
+
+            &>img {
               width: 40px;
               height: 30px;
             }
           }
+
           .profile-progress__right-icon-wrapper {
             top: -5px;
             right: -10px;
-            & > img {
+
+            &>img {
               width: 40px;
               height: 30px;
             }
           }
         }
+
         .profile-progress__button-wrapper {
           margin-top: 20px;
           position: relative;
           cursor: pointer;
           width: 60%;
-          & > svg {
+
+          &>svg {
             width: 100%;
             max-height: 35px;
           }
+
           &:active {
             transform: scale(0.9);
             transition: transform 0.2s ease-in-out;
           }
+
           .profile-progress__button-text {
             font-size: 11px;
             line-height: 13px;
           }
         }
       }
+
       .profile-armorial-area {
         border: 2px solid #f2f2f2;
         border-radius: 25px;
@@ -724,19 +870,23 @@ $value_eight: 1910px;
         flex-direction: column;
         align-items: center;
         padding: 15px 6px 15px 6px;
+
         .profile-armorial__title {
           font-size: 14px;
           line-height: 17px;
         }
+
         .profile-armorial__list-wrapper {
           display: flex;
           flex-direction: row;
 
           .group-icon-row {
             flex-direction: row;
+
             .profile-armorial__img1 {
               max-width: 50%;
             }
+
             .profile-armorial__img2 {
               max-width: 50%;
             }
@@ -745,38 +895,46 @@ $value_eight: 1910px;
           .group-icon-column {
             display: flex;
             flex-direction: row;
+
             .profile-armorial__img3 {
               max-width: 50%;
             }
+
             .profile-armorial__img4 {
               max-width: 50%;
             }
           }
         }
       }
+
       .profile-friendlist-area {
         margin-top: 32px;
+
         .profile-friendlist-container {
           position: relative;
+
           .profile-friendlist-inner {
-            & > h1 {
+            &>h1 {
               font-size: 20px;
               line-height: 24px;
               margin-top: 60px;
               margin-bottom: 20px;
             }
+
             .friendlist-item-wrapper {
               padding-left: 40px;
               padding-right: 40px;
               align-items: center;
               margin-bottom: 14px;
               height: auto;
+
               .friendlist-item-rank {
                 font-size: 16px;
                 line-height: 19px;
                 margin-right: 6px;
                 margin-bottom: 0px;
               }
+
               .friendlist-item-avatar {
                 width: 48px;
                 height: 48px;
@@ -784,22 +942,27 @@ $value_eight: 1910px;
                 border: 3px solid #fff;
                 margin-right: 6px;
               }
+
               .friendlist-item-info {
                 display: flex;
                 flex-direction: column;
+
                 .friendlist-item-level {
                   font-size: 14px;
                   line-height: 17px;
                 }
+
                 .friendlist-item-point {
                   font-size: 14px;
                   line-height: 17px;
-                  & > svg {
+
+                  &>svg {
                     width: 12px;
                     height: 12px;
                     margin-left: 6px;
                   }
                 }
+
                 .friendlist-item-name {
                   font-size: 14px;
                   line-height: 17px;
@@ -811,10 +974,12 @@ $value_eight: 1910px;
           }
         }
       }
+
       .profile-form-container {
         padding: 150px 10% 100px 10%;
         border-radius: 25px;
         margin-top: 80px;
+
         .profile-form-avatar-wrapper {
           position: absolute;
           top: -100px;
@@ -824,25 +989,30 @@ $value_eight: 1910px;
             bottom: 20px;
             right: -20px;
             cursor: pointer;
+
             &:active {
               transform: scale(0.9);
               transition: transform 0.1s ease-in;
             }
           }
         }
+
         .profile-form-footer {
           border-bottom-right-radius: 25px;
           border-bottom-left-radius: 25px;
           padding: 12px 25px 12px 25px;
+
           .copy-btn-title {
             font-size: 11px;
             line-height: 13px;
           }
+
           .copy-field {
-            & > p {
+            &>p {
               font-size: 11px;
               line-height: 13px;
             }
+
             background: #fff;
             border-radius: 10px;
             padding-left: 10px;
@@ -854,37 +1024,46 @@ $value_eight: 1910px;
             }
           }
         }
+
         .profile-form-wrapper {
           position: relative;
+
           .form-profile-field-label {
             font-size: 11px;
             line-height: 13px;
           }
+
           .change-password-header-title {
             font-size: 14px;
             line-height: 17px;
             margin-top: 50px;
             margin-bottom: 20px;
           }
+
           .group-btn-wrapper {
             margin-top: 30px;
           }
+
           .update-profile-button-wrapper {
             position: relative;
             cursor: pointer;
-            & > svg {
+
+            &>svg {
               width: 60%;
               margin-left: 20%;
               height: 50px;
             }
+
             &:active {
               transform: scale(0.9);
               transition: transform 0.1s ease-in;
             }
+
             .update-profile-button-label {
               font-size: 11px;
               line-height: 13px;
             }
+
             .update-profile-button-label-red {
               font-size: 11px;
               line-height: 13px;
@@ -894,14 +1073,17 @@ $value_eight: 1910px;
       }
     }
   }
+
   .form-control {
     font-size: 14px;
     height: 45px;
     border-radius: 15px;
   }
+
   .select__control {
     font-size: 14px;
   }
+
   .select__placeholder {
     font-size: 14px;
   }

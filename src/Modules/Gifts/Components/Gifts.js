@@ -1,73 +1,72 @@
-import React, { useEffect, useState } from "react"
-import { GiftsHeaderTitle, GoldIcon } from "../assets/icon"
-import voi1 from "../assets/images/voicon.png"
+import React, { useEffect, useState } from "react";
+import { GiftsHeaderTitle, GoldIcon } from "../assets/icon";
+import voi1 from "../assets/images/voicon.png";
 
-import { actions as allGiftActions } from "../Store/AllGifts/reducer"
-import { actions as myGiftActions } from "../Store/MyGifts/reducer"
-import { actions as usedGiftActions } from "../Store/UsedGifts/reducer"
+import { actions as allGiftActions } from "../Store/AllGifts/reducer";
+import { actions as myGiftActions } from "../Store/MyGifts/reducer";
+import { actions as usedGiftActions } from "../Store/UsedGifts/reducer";
 
 import {
   getListSelector as getAllGiftsSelector,
-  getListLoadingSelector as getAllGiftLoadingSelector
-} from "../Store/AllGifts/selector"
+  getListLoadingSelector as getAllGiftLoadingSelector,
+} from "../Store/AllGifts/selector";
 
 import {
   getListSelector as getMyGiftsSelector,
-  getListLoadingSelector as getMyGiftLoadingSelector
-} from "../Store/MyGifts/selector"
+  getListLoadingSelector as getMyGiftLoadingSelector,
+} from "../Store/MyGifts/selector";
 
 import {
   getListSelector as getUsedGiftsSelector,
-  getListLoadingSelector as getUsedGiftLoadingSelector
-} from "../Store/UsedGifts/selector"
-import { useDispatch, useSelector } from "react-redux"
-import { getUserData } from "../../../store/user/selector"
-import GiftItem from "./GiftItem"
+  getListLoadingSelector as getUsedGiftLoadingSelector,
+} from "../Store/UsedGifts/selector";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserData } from "../../../store/user/selector";
+import GiftItem from "./GiftItem";
 
-import { GIFT_LIST_LIMIT_DETAULT } from "../../../configs/contants"
-import { Row } from "reactstrap"
-import Pagination from "../../../components/Pagination"
+import { GIFT_LIST_LIMIT_DETAULT } from "../../../configs/contants";
+import { Row } from "reactstrap";
+import Pagination from "../../../components/Pagination";
 
-const Gifts = () => {
-  const dispatch = useDispatch()
+const Gifts = ({ activeTab, setActiveTabs }) => {
+  const dispatch = useDispatch();
 
-  const [activeTab, setActiveTabs] = useState(1)
-  const userData = useSelector(getUserData)
+  const userData = useSelector(getUserData);
 
-  const allGift = useSelector(getAllGiftsSelector)
-  const allGiftLoading = useSelector(getAllGiftLoadingSelector)
-  const myGift = useSelector(getMyGiftsSelector)
-  const myGiftLoading = useSelector(getMyGiftLoadingSelector)
-  const usedGift = useSelector(getUsedGiftsSelector)
-  const usedGiftLoading = useSelector(getUsedGiftLoadingSelector)
+  const allGift = useSelector(getAllGiftsSelector);
+  const allGiftLoading = useSelector(getAllGiftLoadingSelector);
+  const myGift = useSelector(getMyGiftsSelector);
+  const myGiftLoading = useSelector(getMyGiftLoadingSelector);
+  const usedGift = useSelector(getUsedGiftsSelector);
+  const usedGiftLoading = useSelector(getUsedGiftLoadingSelector);
 
-  const listAllGift = allGift?.listData || []
-  const listUsedGift = usedGift?.listData || []
-  const listMyGift = myGift?.listData || []
+  const listAllGift = allGift?.listData || [];
+  const listUsedGift = usedGift?.listData || [];
+  const listMyGift = myGift?.listData || [];
 
   useEffect(() => {
     dispatch(
       allGiftActions.getList({
         page: 1,
-        limit: GIFT_LIST_LIMIT_DETAULT
+        limit: GIFT_LIST_LIMIT_DETAULT,
       })
-    )
+    );
     dispatch(
       usedGiftActions.getList({
         page: 1,
         limit: GIFT_LIST_LIMIT_DETAULT,
         status: 1,
-        userid: userData?.userId
+        userid: userData?.userId,
       })
-    )
+    );
     dispatch(
       myGiftActions.getList({
         page: 1,
         limit: GIFT_LIST_LIMIT_DETAULT,
-        userid: userData?.userId
+        userid: userData?.userId,
       })
-    )
-  }, [])
+    );
+  }, []);
 
   const renderAllGift = React.useMemo(() => {
     return (
@@ -81,24 +80,24 @@ const Gifts = () => {
               key={item?.id}
               isTrade={true}
             />
-          )
+          );
         })}
       </>
-    )
-  }, [JSON.stringify(listAllGift)])
+    );
+  }, [JSON.stringify(listAllGift)]);
   const renderMyGift = React.useMemo(() => {
     return (
       <>
         {listMyGift?.length ? (
           listMyGift.map((item, index) => {
-            return <GiftItem item={item} index={index} key={item?.id} />
+            return <GiftItem item={item} index={index} key={item?.id} />;
           })
         ) : (
           <p className="text-center mt-2">Không có dữ liệu</p>
         )}
       </>
-    )
-  }, [JSON.stringify(listMyGift)])
+    );
+  }, [JSON.stringify(listMyGift)]);
   const renderUsedGift = React.useMemo(() => {
     return (
       <>
@@ -111,24 +110,24 @@ const Gifts = () => {
                 key={item?.id}
                 isUsed={true}
               />
-            )
+            );
           })
         ) : (
           <p className="text-center mt-2">Không có dữ liệu</p>
         )}
       </>
-    )
-  }, [JSON.stringify(listUsedGift)])
+    );
+  }, [JSON.stringify(listUsedGift)]);
 
   const getPaging = () => {
     if (activeTab === 0) {
-      return usedGift?.paging
+      return usedGift?.paging;
     }
     if (activeTab === 1) {
-      return myGift?.paging
+      return myGift?.paging;
     }
-    return allGift?.paging
-  }
+    return allGift?.paging;
+  };
 
   const onPageChange = ({ selected }) => {
     if (activeTab === 0) {
@@ -137,29 +136,29 @@ const Gifts = () => {
           page: selected + 1,
           limit: GIFT_LIST_LIMIT_DETAULT,
           status: 1,
-          userid: userData?.userId
+          userid: userData?.userId,
         })
-      )
+      );
     } else if (activeTab === 1) {
       dispatch(
         myGiftActions.getList({
           page: selected + 1,
           limit: GIFT_LIST_LIMIT_DETAULT,
-          userid: userData?.userId
+          userid: userData?.userId,
         })
-      )
+      );
     } else {
       dispatch(
         allGiftActions.getList({
           page: selected + 1,
-          limit: GIFT_LIST_LIMIT_DETAULT
+          limit: GIFT_LIST_LIMIT_DETAULT,
         })
-      )
+      );
     }
-  }
+  };
 
   return (
-    <div className="gifts-container">
+    <div className="gifts-container" id="tab-gift">
       <div className="gifts-top-header-wrapper">
         <GiftsHeaderTitle />
       </div>
@@ -204,6 +203,6 @@ const Gifts = () => {
         ) : null}
       </div>
     </div>
-  )
-}
-export default Gifts
+  );
+};
+export default Gifts;

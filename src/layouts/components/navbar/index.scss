@@ -1,8 +1,10 @@
 @import "@assets/css/_variables.scss";
+
 @keyframes increase {
   0% {
     width: 0;
   }
+
   100% {
     width: 100%;
   }
@@ -12,28 +14,34 @@
   max-width: 100vw;
   min-width: 99vw;
 }
+
 .navbar {
   background: var(--lightOrange);
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   padding: 16px 30px 16px 30px;
   height: 85px;
+
   .others-option {
     display: flex;
     flex-direction: row;
     margin-right: 20px;
+
     .nav-user-progress-container {
       display: flex;
       flex-direction: row;
       margin-right: 50px;
       align-items: center;
+
       .user-point-wrapper {
         position: relative;
-        & > svg {
+
+        &>svg {
           max-height: 50px;
           max-width: 180px;
         }
-        & > span {
+
+        &>span {
           font-weight: bold;
           font-size: 18px;
           line-height: 22px;
@@ -44,13 +52,15 @@
           top: 25%;
         }
       }
+
       .progress-info-wrapper {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-between;
         margin-right: 20px;
-        & > span {
+
+        &>span {
           font-style: normal;
           font-weight: bold;
           font-size: 18px;
@@ -58,8 +68,10 @@
           color: var(--primaryColor);
           margin-bottom: 4px;
         }
+
         .progress-bar-wrapper {
           position: relative;
+
           .done-progress-wrapper {
             position: absolute;
             top: 0;
@@ -71,6 +83,7 @@
       }
     }
   }
+
   .nav__select {
     margin-bottom: 0;
     cursor: pointer;
@@ -79,15 +92,18 @@
     height: 45px;
     padding: 12px 45px 12px 16px;
     border-radius: 10px;
+
     &.login {
       padding: 0px 0px 0px 0px;
     }
+
     .nav__select-text {
       font-weight: 500;
       font-size: 18px;
       line-height: 22px;
       color: white;
     }
+
     .user-icon-wrapper {
       position: absolute;
       top: -6px;
@@ -98,18 +114,21 @@
       overflow: hidden;
       user-select: none;
 
-      & > svg {
+      &>svg {
         max-width: 100%;
       }
+
       &:hover {
         transform: scale(1.05);
         transition: transform 0.1s ease-in-out;
       }
+
       &:active {
         transform: scale(0.9);
         transition: transform 0.1s ease-in;
       }
     }
+
     .nav-dropdown-container {
       position: absolute;
       top: 20px;
@@ -119,8 +138,10 @@
       max-width: 250px;
       background: white;
       border-radius: 40px 0px 40px 40px;
+
       .info-dropdown-container {
         padding: 45px 24px 30px 24px;
+
         .info-dropdown__item {
           color: #1e3d74;
           font-style: normal;
@@ -132,15 +153,18 @@
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
+
           .noti-badge {
             width: 14px;
             height: 14px;
             background-color: #ffa300;
             border-radius: 7px;
           }
+
           &.active {
             color: #eb5024;
           }
+
           &:hover {
             color: #eb5024;
             transform: translateX(5px);
@@ -148,19 +172,24 @@
           }
         }
       }
+
       .signin-form-container {
         padding: 45px 26px 30px 26px;
+
         .signin-form__signin-button {
           position: relative;
+
           &:hover {
             transform: scale(1.05);
             transition: transform 0.1s ease-in-out;
           }
+
           &:active {
             transform: scale(0.9);
             transition: transform 0.1s ease-in-out;
           }
-          & > span {
+
+          &>span {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -172,6 +201,7 @@
             transform: translate(-50%, -50%);
           }
         }
+
         .signin-form__forgot-password-button {
           font-style: italic;
           text-align: center;
@@ -180,10 +210,12 @@
           color: #1e3d74;
           margin-bottom: 10px;
           font-weight: 300;
+
           &:hover {
             text-decoration: underline;
           }
         }
+
         .signin-form__signup-button {
           font-weight: 700;
           font-size: 18px;
@@ -191,6 +223,7 @@
           text-align: center;
           color: #1e3d74;
           margin-top: 30px;
+
           &:hover {
             text-decoration: underline;
           }
@@ -199,19 +232,23 @@
     }
   }
 }
+
 .logout-popup-modal-wrapper {
   background: transparent;
   border: none;
 }
+
 .popup-logout-container {
   position: relative;
+
   .popup-logout-content-wrapper {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -70%);
     user-select: none;
-    & > p {
+
+    &>p {
       font-weight: bold;
       font-size: 30px;
       line-height: 36px;
@@ -219,6 +256,7 @@
       color: #ffffff;
     }
   }
+
   .logout-icon-wrapper {
     position: absolute;
     bottom: -40px;
@@ -226,24 +264,30 @@
     display: flex;
     flex-direction: row;
     transform: translate(-50%);
+
     .margin-right {
       margin-right: 40px;
     }
+
     .popup-logout-button-wrapper:active {
       transform: scale(0.9);
     }
   }
 }
+
 .dropdown {
   position: absolute;
   top: 0;
   right: 0;
   box-shadow: none;
+
   .btn {
     box-shadow: none;
   }
-  & > button {
+
+  &>button {
     background-color: transparent;
+
     &:hover,
     &:focus,
     &:active {
@@ -254,11 +298,13 @@
     }
   }
 }
+
 .dropdown-menu {
   background-color: transparent;
   border: none;
   z-index: 0;
 }
+
 .dropdown-header {
   position: absolute;
   top: -25px;

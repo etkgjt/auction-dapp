@@ -1,4 +1,5 @@
 @import "../../assets/css/variables";
+
 .rules__page {
   .rules-area {
     margin-top: 110px;
@@ -6,6 +7,7 @@
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
+
     .event-calendar-container {
       background: var(--lightOrange);
       border-radius: 40px;
@@ -14,6 +16,7 @@
       flex-direction: column;
       align-items: center;
       max-width: 380px;
+
       .calendar-title {
         font-weight: bold;
         font-size: 46px;
@@ -21,6 +24,7 @@
         text-align: center;
         color: #fff;
       }
+
       .calendar-text-black {
         font-weight: 500;
         font-size: 18px;
@@ -29,9 +33,17 @@
         letter-spacing: -0.005em;
         color: #1e3d74;
       }
+
       .calendar-icon__container {
         position: relative;
         width: 100%;
+
+        .calendar-icon__img {
+          width: 70%;
+          height: auto;
+          margin-left: 15%
+        }
+
         .calender-coin-icon {
           width: 124px;
           max-height: 115px;
@@ -39,6 +51,7 @@
           bottom: 0px;
           right: -20%;
         }
+
         .calendar-date {
           position: absolute;
           font-size: 4rem;
@@ -48,6 +61,7 @@
           right: 20%;
           letter-spacing: 3px;
         }
+
         .calendar-month {
           position: absolute;
           font-size: 2rem;
@@ -58,6 +72,7 @@
           letter-spacing: 3px;
         }
       }
+
       .notic {
         font-weight: 500;
         font-size: 24px;
@@ -67,6 +82,7 @@
         color: #1e3d74;
         width: 100%;
       }
+
       .notic-text-black {
         font-weight: 600;
         font-size: 18px;
@@ -76,6 +92,7 @@
         width: 100%;
         text-align: left;
       }
+
       .notic-text-white {
         font-weight: 700;
         font-size: 18px;
@@ -83,6 +100,7 @@
         letter-spacing: -0.005em;
         color: #fff;
       }
+
       .social-link {
         display: flex;
         flex-direction: row;
@@ -96,7 +114,8 @@
           transform: translateX(5px);
           transition: transform 0.2s ease-in-out;
         }
-        & > p {
+
+        &>p {
           font-style: normal;
           font-weight: bold;
           font-size: 18px;
@@ -106,38 +125,44 @@
         }
       }
     }
+
     .rules-detail-container {
       background: #ffffff;
       border: 5px solid #f2f2f2;
       border-radius: 40px;
       padding: 150px 50px 50px 50px;
       position: relative;
+
       .rules-detail__title-container {
         position: absolute;
         top: -70px;
         left: 50%;
         transform: translate(-50%);
       }
+
       .rules-details_list {
-        & > li {
+        &>li {
           font-size: 24px;
           line-height: 28px;
           font-weight: 800;
           color: #1e3d74;
           margin-bottom: 24px;
+
           & .note {
             color: var(--primaryColor);
             font-size: 18px;
             line-height: 26px;
             font-weight: 500;
           }
-          & > div {
+
+          &>div {
             font-size: 18px;
             line-height: 26px;
             font-weight: 500;
             color: #1e3d74;
           }
-          & > ul > li {
+
+          &>ul>li {
             list-style: disc;
             font-size: 18px;
             line-height: 26px;
@@ -156,9 +181,11 @@
           margin-bottom: 8px;
         }
       }
+
       .rules-detail__content {
         ul {
           padding-left: 0;
+
           li {
             list-style-type: disc;
             font-size: 18px;
@@ -166,6 +193,7 @@
             color: #1e3d74;
             font-weight: 500;
           }
+
           .rule-title {
             font-size: 24px;
             line-height: 28px;
@@ -175,9 +203,11 @@
             padding-left: 0;
             margin-top: 20px;
           }
+
           div {
             font-weight: 700;
           }
+
           h4 {
             font-size: 15px;
             line-height: 18px;
@@ -187,10 +217,12 @@
             margin-bottom: 6px;
           }
         }
-        ul > li > ul {
+
+        ul>li>ul {
           padding-left: 26px;
         }
       }
+
       .rules-details-button-wrapper {
         position: relative;
         display: flex;
@@ -199,10 +231,12 @@
         margin-bottom: 20px;
         margin-top: 10px;
         cursor: pointer;
+
         &:active {
           transform: scale(0.9);
           transition: transform 0.1s ease-in-out;
         }
+
         .rules-details-button-text {
           user-select: none;
           position: absolute;

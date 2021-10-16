@@ -1,68 +1,68 @@
-import React from "react"
-import { Form, Button, Spinner } from "reactstrap"
-import { Formik } from "formik"
-import FormField from "../../../components/FormField"
+import React from "react";
+import { Form, Button, Spinner } from "reactstrap";
+import { Formik } from "formik";
+import FormField from "../../../components/FormField";
 import {
   validationSchema,
-  getValueForm
-} from "../../../Modules/Authenticate/validation/signin"
+  getValueForm,
+} from "../../../Modules/Authenticate/validation/signin";
 
 import {
   errorSelector,
   loadingSelector,
-  loginSuccessSelector
-} from "../../../Modules/Authenticate/store/auth/selectors"
-import { useDispatch, useSelector } from "react-redux"
-import { useTranslation } from "react-i18next"
-import { Link } from "react-router-dom"
+  loginSuccessSelector,
+} from "../../../Modules/Authenticate/store/auth/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
-import { SignInButton } from "./icon"
-import { useHistory } from "react-router"
+import { SignInButton } from "./icon";
+import { useHistory } from "react-router";
 
 import {
   authSignIn,
-  signInReset
-} from "../../../Modules/Authenticate/store/auth/actions"
-import PopupNewbie from "../popupNewbie"
+  signInReset,
+} from "../../../Modules/Authenticate/store/auth/actions";
+import PopupNewbie from "../popupNewbie";
 
-import { toast } from "react-toastify"
-import { getUserData } from "../../../store/user/selector"
-import SlideInModal from "../../../components/SlideInModal"
+import { toast } from "react-toastify";
+import { getUserData } from "../../../store/user/selector";
+import SlideInModal from "../../../components/SlideInModal";
 const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
-  const { i18n } = useTranslation()
-  const history = useHistory()
-  const dispatch = useDispatch()
+  const { i18n } = useTranslation();
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-  const error = useSelector((state) => errorSelector(state))
-  const loading = useSelector((state) => loadingSelector(state))
-  const loginSuccess = useSelector((state) => loginSuccessSelector(state))
+  const error = useSelector((state) => errorSelector(state));
+  const loading = useSelector((state) => loadingSelector(state));
+  const loginSuccess = useSelector((state) => loginSuccessSelector(state));
 
   const onSubmit = (values) => {
-    dispatch(authSignIn(values))
-  }
+    dispatch(authSignIn(values));
+  };
 
   React.useEffect(() => {
     if (error) {
       toast.error(i18n.t(`FormSignIn:errors:user_name_or_password.wrong`), {
         position: "top-center",
-        autoClose: 3000
-      })
+        autoClose: 3000,
+      });
     }
     if (loginSuccess) {
-      history.push("/home")
+      history.push("/home");
       if (userData?.flagDaisu === 0) {
         SlideInModal.show(
           () => {},
           <PopupNewbie />,
           "invite-popup-modal-wrapper"
-        )
+        );
       }
-      setIsDropdownOpen(false)
+      setIsDropdownOpen(false);
     }
     return () => {
-      dispatch(signInReset())
-    }
-  }, [loginSuccess, error])
+      dispatch(signInReset());
+    };
+  }, [loginSuccess, error]);
 
   return (
     <div className="signin-form-container">
@@ -97,7 +97,7 @@ const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
                 <Link
                   to="/forgot-password"
                   onClick={() => {
-                    setIsDropdownOpen(false)
+                    setIsDropdownOpen(false);
                   }}
                 >
                   <span className="signin-form__forgot-password-button">
@@ -117,7 +117,7 @@ const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
                   <Link
                     to="/signup/0"
                     onClick={() => {
-                      setIsDropdownOpen(false)
+                      setIsDropdownOpen(false);
                     }}
                   >
                     <p className="signin-form__signup-button">
@@ -128,10 +128,10 @@ const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
                 </p>
               </div>
             </Form>
-          )
+          );
         }}
       </Formik>
     </div>
-  )
-}
-export default SignInForm
+  );
+};
+export default SignInForm;

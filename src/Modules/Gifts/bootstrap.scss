@@ -1,4 +1,5 @@
 @import "../../assets/css/variables";
+
 .gift__page {
   .gifts-area {
     margin-top: 120px;
@@ -6,6 +7,11 @@
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
+
+    .img-gift-ddcd {
+      cursor: pointer;
+    }
+
     .gifts-progress-area {
       padding: 40px 20px 40px 20px;
       background: #ffc61a;
@@ -14,17 +20,21 @@
       flex-direction: column;
       align-items: center;
       position: relative;
+
       .gifts-progress__point-container {
         position: absolute;
         left: 50%;
         transform: translate(-50%);
         top: -100px;
+
         .gifts-progress__point-wrapper {
           position: relative;
           margin-top: 45px;
-          & > svg {
+
+          &>svg {
             max-height: 92px;
           }
+
           .gifts-progress__point {
             position: absolute;
             font-weight: bold;
@@ -44,6 +54,7 @@
         margin-top: 56px;
 
         position: relative;
+
         .gifts-progress__done-progress-wrapper {
           overflow: hidden;
           border-radius: 20px;
@@ -51,29 +62,35 @@
           top: 10px;
           left: 6px;
         }
+
         .gifts-progress__left-icon-wrapper {
           position: absolute;
           top: 0;
           left: -10px;
         }
+
         .gifts-progress__right-icon-wrapper {
           position: absolute;
           top: 0;
           right: -20px;
         }
       }
+
       .gifts-progress__button-wrapper {
         margin-top: 20px;
         position: relative;
         cursor: pointer;
+
         &:hover {
           transform: scale(1.05);
           transition: transform 0.1s ease-in-out;
         }
+
         &:active {
           transform: scale(0.9);
           transition: transform 0.2s ease-in-out;
         }
+
         .gifts-progress__button-text {
           user-select: none;
           position: absolute;
@@ -87,6 +104,7 @@
           transform: translate(-50%, -50%);
           width: 100%;
         }
+
         .gifts-progress__button-text--red {
           user-select: none;
           position: absolute;
@@ -108,23 +126,26 @@
       background: #f16c1c;
       border-radius: 40px;
       position: relative;
+
       .gifts-top-header-wrapper {
         position: absolute;
         top: -80px;
         left: 50%;
         transform: translate(-50%);
-        & > svg {
+
+        &>svg {
           animation: movebounce 5s linear infinite;
           max-width: 390px;
         }
       }
+
       .gifts-tabs-wrapper {
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
 
-        & > span {
+        &>span {
           font-style: normal;
           font-weight: bold;
           font-size: 25px;
@@ -140,12 +161,14 @@
           cursor: pointer;
           user-select: none;
         }
+
         .active {
           background-color: #fff;
           color: #f16c1c;
           border-radius: 20px 20px 0px 0px;
         }
       }
+
       .list-gifts-wrapper {
         padding-left: 15%;
         padding-right: 15%;
@@ -156,6 +179,7 @@
         border-bottom-right-radius: 40px;
         padding-top: 40px;
         min-height: 40vh;
+
         .gifts-item-wrapper {
           display: flex;
           flex-direction: row;
@@ -173,6 +197,7 @@
             border-radius: 15px;
             height: 100px;
             padding: 8px;
+
             .gifts-item-image {
               height: 84px;
               aspect-ratio: 1;
@@ -182,9 +207,11 @@
               background-color: #fff;
               padding: 12px;
             }
+
             .gifts-item-info-wrapper {
               padding-top: 8px;
               padding-bottom: 8px;
+
               .gifts-item-title {
                 font-style: normal;
                 font-weight: bold;
@@ -193,6 +220,7 @@
                 color: #fff;
                 margin-bottom: 0px;
               }
+
               .gifts-item-subtitle {
                 font-style: normal;
                 font-weight: 500;
@@ -201,6 +229,7 @@
                 color: #fff;
                 margin-bottom: 6px;
               }
+
               .gifts-item-point {
                 font-weight: bold;
                 font-size: 20px;
@@ -209,6 +238,7 @@
                 margin-bottom: 0;
                 margin-right: 6px;
               }
+
               .gifts-item-point-red {
                 font-weight: bold;
                 font-size: 24px;
@@ -222,10 +252,8 @@
         }
 
         .ticket-right {
-          background-image: linear-gradient(
-            #fff 33%,
-            rgba(255, 255, 255, 0) 0%
-          );
+          background-image: linear-gradient(#fff 33%,
+              rgba(255, 255, 255, 0) 0%);
           background-position: left;
           background-size: 2px 12px;
           background-repeat: repeat-y;
@@ -238,7 +266,8 @@
           justify-content: center;
           align-items: center;
           cursor: pointer;
-          & > p {
+
+          &>p {
             font-weight: bold;
             font-size: 15px;
             line-height: 18px;
@@ -260,6 +289,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    cursor: pointer;
+
     .gold1 {
       position: absolute;
       position: absolute;
@@ -268,6 +299,7 @@
       top: 50%;
       right: -10px;
     }
+
     .gold2 {
       position: absolute;
       width: 45px;
@@ -275,6 +307,7 @@
       bottom: -20px;
       left: 20px;
     }
+
     .gold3 {
       position: absolute;
       width: 18px;
@@ -282,42 +315,52 @@
       top: 20px;
       left: -10px;
     }
+
     .roll {
       position: absolute;
     }
+
     .title {
       max-width: 80%;
       margin-left: 10%;
     }
+
     .voi {
       width: 100%;
       height: auto;
     }
   }
 }
+
 .popup-usegift-modal-wrapper {
   background: transparent;
   border: none;
 }
+
 .popup-usegift-container {
   position: relative;
+
   .popup-usegift-image-wrapper {
     width: 100%;
   }
+
   .popup-usegift-close-button {
     position: absolute;
     top: -30px;
     right: -30px;
     cursor: pointer;
+
     &:hover {
       transform: scale(1.05);
       transition: transform 0.1s ease-in-out;
     }
+
     &:active {
       transform: scale(0.9);
       transition: transform 0.1s ease-in;
     }
   }
+
   .popup-usegift-content-wrapper {
     user-select: none;
     width: 70%;
@@ -329,7 +372,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    & > h1 {
+
+    &>h1 {
       font-style: normal;
       font-weight: bold;
       font-size: 30px;
@@ -337,7 +381,8 @@
       text-align: center;
       color: #ffffff;
     }
-    & > p {
+
+    &>p {
       font-style: normal;
       font-weight: 500;
       font-size: 18px;
@@ -345,23 +390,28 @@
       text-align: center;
       color: #ffffff;
     }
+
     .popup-usegift-copyfield-wrapper {
       display: flex;
       flex-direction: row;
       align-items: center;
       padding-left: 15px;
       justify-content: center;
+
       .use-button {
         position: relative;
         cursor: pointer;
+
         &:hover {
           transform: scale(1.05);
           transition: transform 0.1s ease-in-out;
         }
+
         &:active {
           transform: scale(0.9);
           transition: transform 0.1s ease-in;
         }
+
         .use-button-text {
           user-select: none;
           font-weight: 500;
@@ -378,10 +428,12 @@
     }
   }
 }
+
 .popup-history-modal-wrapper {
   background: transparent;
   border: none;
 }
+
 .popup-history-container {
   background-color: white;
   border: 5px solid #f2f2f2;
@@ -391,20 +443,24 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   .popup-history__close-button {
     position: absolute;
     top: -40px;
     right: -40px;
     cursor: pointer;
+
     &:hover {
       transform: scale(1.05);
       transition: transform 0.1s ease-in-out;
     }
+
     &:active {
       transform: scale(0.9);
       transition: transform 0.1s ease-in;
     }
   }
+
   .history-list-wrapper {
     .history-item-wrapper {
       .history-item-date {
@@ -414,6 +470,7 @@
         color: #c4c4c4;
         margin-bottom: 10px;
       }
+
       .history-item-title {
         font-style: normal;
         font-weight: bold;
@@ -421,6 +478,7 @@
         line-height: 22px;
         color: #1e3d74;
       }
+
       .history-item-subtitle {
         font-style: normal;
         font-weight: 500;
@@ -428,6 +486,7 @@
         line-height: 22px;
         color: #c4c4c4;
       }
+
       .history-item-point {
         font-weight: bold;
         font-size: 24px;
@@ -438,15 +497,19 @@
     }
   }
 }
+
 .ticket-popup-modal-wrapper {
   background: transparent;
   border: none;
 }
+
 .popup-ticket-container {
   position: relative;
+
   .popup-ticket-container-image-wrapper {
     width: 100%;
   }
+
   .popup-ticket-content-wrapper {
     position: absolute;
     left: 50%;
@@ -456,7 +519,8 @@
     width: 100%;
     padding-left: 10%;
     padding-right: 15%;
-    & > p {
+
+    &>p {
       font-weight: bold;
       font-size: 16px;
       line-height: 27px;
@@ -464,7 +528,8 @@
       color: #ffffff;
       margin-top: 20px;
     }
-    & > h2 {
+
+    &>h2 {
       font-weight: bold;
       font-size: 26px;
       line-height: 30px;
@@ -478,10 +543,12 @@
     top: -20px;
     right: -20px;
     cursor: pointer;
+
     &:hover {
       transform: scale(1.05);
       transition: transform 0.1s ease-in-out;
     }
+
     &:active {
       transform: scale(0.9);
       transition: transform 0.1s ease-in-out;
