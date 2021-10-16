@@ -54,7 +54,7 @@ const Rules = ({ setIsOpen }) => {
 
   const stickyCalendar = (e) => {
     if (isMobile) return;
-    if (window.scrollY > rulesRef?.current?.offsetTop) {
+    if (window.scrollY > rulesRef?.current?.offsetTop && calendarRef?.current) {
       calendarRef.current.style.position = "fixed";
       calendarRef.current.style.top = 0;
     } else {
@@ -103,8 +103,8 @@ const Rules = ({ setIsOpen }) => {
                   <Col sm="6" xs="7">
                     <h1 className="calendar-title">Lịch Sự Kiên</h1>
                     <p className="calendar-text-black">
-                      Tất cả điểm của các bạn
-                      <br /> được tính đến
+                      VÒNG QUAY MAY MẮN
+                      <br /> được tổ chức vào
                     </p>
                   </Col>
                 </Row>
@@ -331,21 +331,14 @@ const Rules = ({ setIsOpen }) => {
             </Col>
             <Col xl="5" lg="5" md="5" style={{ position: "relative" }}>
               <div className="event-calendar-container" ref={calendarRef}>
-                <h1 className="calendar-title">Lịch Sự Kiên</h1>
+                <div className="calendar-title">Lịch Sự Kiện</div>
                 <p className="calendar-text-black">
                   VÒNG QUAY MAY MẮN
                   <br /> được tổ chức vào
                 </p>
                 <div className="calendar-icon__container">
                   <div style={{ position: "relative" }}>
-                    <img
-                      src={calendarImg}
-                      style={{
-                        width: "70%",
-                        height: "auto",
-                        marginLeft: "15%",
-                      }}
-                    />
+                    <img src={calendarImg} className="calendar-icon__img" />
                     <p className="calendar-date">
                       {getEndFridayOfMonth().date()}
                     </p>

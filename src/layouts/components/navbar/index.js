@@ -97,9 +97,9 @@ const Navbar = () => {
                   <div className="progress-info-wrapper">
                     <span>
                       {`Cấp ${userData?.inviteUserCount || 0}`}&nbsp;
-                      <span className="sub-info">{` | ${
-                        userData?.level?.name || "Chưa có dữ liệu"
-                      }`}</span>
+                      {userData?.level?.name ? (
+                        <span className="sub-info">{`| ${userData?.level?.name}`}</span>
+                      ) : null}
                     </span>
                     <div className="progress-bar-wrapper">
                       <div className="done-progress-wrapper">

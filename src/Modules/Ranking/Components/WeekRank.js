@@ -1,27 +1,31 @@
-import React, { useState } from "react"
-import goldRank from "../assets/images/gold.png"
-import silverRank from "../assets/images/silver.png"
-import diamondRank from "../assets/images/diamond.png"
-import rank1 from "../assets/images/rank1.png"
-import rank2 from "../assets/images/rank2.png"
-import rank3 from "../assets/images/rank3.png"
+import React, { useState } from "react";
+import goldRank from "../assets/images/gold.png";
+import silverRank from "../assets/images/silver.png";
+import diamondRank from "../assets/images/diamond.png";
+import rank1 from "../assets/images/rank1.png";
+import rank2 from "../assets/images/rank2.png";
+import rank3 from "../assets/images/rank3.png";
 
-import { SeemoreButton, CoinIcon } from "../assets/icon"
-import { Col, Row, Collapse } from "reactstrap"
-import AsyncImage from "../../../components/AsyncImage"
-import moment from "moment"
+import { SeemoreButton, CoinIcon } from "../assets/icon";
+import { Col, Row, Collapse } from "reactstrap";
+import AsyncImage from "../../../components/AsyncImage";
+import moment from "moment";
+import { useMediaQuery } from "react-responsive";
+
 function weekOfMonth(input = moment()) {
-  const firstDayOfMonth = input.clone().startOf("month")
-  const firstDayOfWeek = firstDayOfMonth.clone().startOf("week")
+  const firstDayOfMonth = input.clone().startOf("month");
+  const firstDayOfWeek = firstDayOfMonth.clone().startOf("week");
 
-  const offset = firstDayOfMonth.diff(firstDayOfWeek, "days")
+  const offset = firstDayOfMonth.diff(firstDayOfWeek, "days");
 
-  return Math.ceil((input.date() + offset) / 7)
+  return Math.ceil((input.date() + offset) / 7);
 }
-const isServer = typeof window === "undefined"
-const WOW = !isServer ? require("wowjs") : null
+const isServer = typeof window === "undefined";
+const WOW = !isServer ? require("wowjs") : null;
 const QuaterRank = ({ topLabel, data = [] }) => {
-  const [isCollapse, setIsCollapse] = useState(false)
+  const [isCollapse, setIsCollapse] = useState(false);
+
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   React.useEffect(() => {
     new WOW.WOW({
@@ -29,9 +33,9 @@ const QuaterRank = ({ topLabel, data = [] }) => {
       animateClass: "animated",
       offset: 20,
       mobile: true,
-      live: true
-    }).init()
-  }, [])
+      live: true,
+    }).init();
+  }, []);
   return (
     <div className="ranking2-container">
       <div className="ranking1-top-label">
@@ -41,7 +45,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
         Năm {moment().year()}
       </div>
       <div className="medal-container">
-        <Row>
+        <Row className="row-medal-container">
           <Col xl="3" lg="3" md="3" sm="3" xs="3">
             <div
               className="medal-item-wrapper wow animate__bounceInUp"
@@ -149,7 +153,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
           </Col>
         </Row>
         <Collapse isOpen={isCollapse}>
-          <Row className="mt-5 px-5">
+          <Row className={`mt-5 ${isMobile ? "" : "px-5"}`}>
             <Col xl="6" lg="6" md="6" sm="6" xs="6">
               {data.map((item, index) => {
                 return index > 2 && index < 7 ? (
@@ -174,7 +178,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                       </span>
                     </div>
                   </div>
-                ) : null
+                ) : null;
               })}
             </Col>
             <Col xl="6" lg="6" md="6">
@@ -200,7 +204,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                       </span>
                     </div>
                   </div>
-                ) : null
+                ) : null;
               })}
             </Col>
           </Row>
@@ -214,7 +218,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
           <SeemoreButton />
           <div
             style={{
-              position: "relative"
+              position: "relative",
             }}
           >
             <p className="seemore-button-text">
@@ -224,6 +228,6 @@ const QuaterRank = ({ topLabel, data = [] }) => {
         </div>
       ) : null}
     </div>
-  )
-}
-export default QuaterRank
+  );
+};
+export default QuaterRank;

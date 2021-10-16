@@ -15,17 +15,20 @@ $value_eight: 1910px;
     .inviter-banner {
       padding-top: 90px;
     }
+
     .ranking-area {
       padding-left: 4vw;
       padding-right: 4vw;
       margin-bottom: 110px;
       margin-top: 100px;
+
       .ranking1-container {
         background: var(--orange1);
         border-radius: 20px;
         position: relative;
         min-height: 400px;
         padding: 27px 22px 100px 22px;
+
         .ranking1-top-label {
           width: 68px;
           height: 40px;
@@ -37,25 +40,32 @@ $value_eight: 1910px;
           font-size: 9px;
           line-height: 11px;
         }
+
         .listRankWrapper {
           margin-top: 340px;
         }
+
         .ranking-top-banner-title {
           position: absolute;
           top: -60px;
           left: 50%;
           transform: translate(-50%);
-          & > svg {
+
+          &>svg {
             max-width: 40vw;
             max-height: 82px;
           }
         }
+
         .medal-item-wrapper {
           display: flex;
           flex-direction: column;
           align-items: center;
           position: relative;
+
           .medal-image-wrapper {
+            position: relative;
+
             .top-2-avatar {
               position: absolute;
               width: 60%;
@@ -65,6 +75,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-2-avatar-loading {
               position: absolute;
               width: 60%;
@@ -74,6 +85,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-1-avatar {
               position: absolute;
               width: 40%;
@@ -83,6 +95,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-1-avatar-loading {
               position: absolute;
               width: 40%;
@@ -93,6 +106,7 @@ $value_eight: 1910px;
               border-radius: 50%;
             }
           }
+
           .medal-info-wrapper {
             position: absolute;
             left: 50%;
@@ -104,6 +118,7 @@ $value_eight: 1910px;
             flex-direction: column;
             align-items: center;
           }
+
           .gold-medal-info-wrapper {
             position: absolute;
             left: 0%;
@@ -113,6 +128,7 @@ $value_eight: 1910px;
             flex-direction: column;
             align-items: center;
           }
+
           .silver-medal-info-wrapper {
             position: absolute;
             right: 50%;
@@ -124,6 +140,7 @@ $value_eight: 1910px;
             flex-direction: column;
             align-items: center;
           }
+
           .silver-medal-image-wrapper {
             width: 125px;
             height: auto;
@@ -131,33 +148,40 @@ $value_eight: 1910px;
             right: 50%;
             top: 50%;
             transform: translate(30%);
+
             .silver-medal-image {
               width: 100%;
               height: auto;
             }
           }
+
           .diamon-rank-text {
             width: 40px;
             height: 30px;
             top: 140px;
           }
+
           .silver-rank-text {
             width: 40px;
             height: 30px;
           }
+
           .gold-rank-text {
             width: 40px;
             height: 30px;
           }
+
           .medal-name {
             font-size: 11px;
             line-height: 13px;
           }
+
           .medal-level {
             font-size: 11px;
             line-height: 13px;
             margin-right: 6px;
           }
+
           .diamond-medal-image-wrapper {
             width: 125px;
             height: auto;
@@ -165,11 +189,13 @@ $value_eight: 1910px;
             left: 50%;
             top: 50%;
             transform: translate(-30%);
+
             .diamond-medal-image {
               width: 100%;
               height: auto;
             }
           }
+
           .gold-medal-image-wrapper {
             width: 160px;
             height: auto;
@@ -178,21 +204,25 @@ $value_eight: 1910px;
             top: 50%;
             left: 50%;
             transform: translate(-50%);
+
             .gold-medal-image {
               width: 160px;
               height: auto;
             }
           }
         }
+
         .another-rank-item {
           align-items: center;
           margin-bottom: 20px;
+
           .rank-item__index {
             font-size: 16px;
             line-height: 19px;
             margin-left: 0px;
             width: 10px;
           }
+
           .rank-item_avatar-wrapper {
             width: 48px;
             height: 48px;
@@ -201,40 +231,49 @@ $value_eight: 1910px;
             border-radius: 24px;
             margin-left: 6px;
             margin-right: 6px;
+
             .rank-item_avatar {
               border-radius: 50%;
             }
+
             .rank-item_avatar-loading {
               border-radius: 50%;
             }
           }
+
           .rank-item__level {
             font-size: 11px;
             line-height: 13px;
           }
+
           .rank-item__name {
             font-size: 11px;
             line-height: 13px;
           }
+
           .rank-item__point {
             font-size: 11px;
             line-height: 13px;
           }
         }
+
         .seemore_button {
           position: absolute;
           bottom: -25px;
           left: 50%;
           transform: translate(-50%);
           cursor: pointer;
-          & > svg {
+
+          &>svg {
             max-width: 80%;
             margin-left: 10%;
           }
+
           &:active {
             transform: scale(0.9) translate(-50%);
             transform-origin: left;
           }
+
           .seemore-button-text {
             position: absolute;
             top: -40px;
@@ -249,6 +288,7 @@ $value_eight: 1910px;
           }
         }
       }
+
       .ranking2-container {
         background: var(--orange1);
         border-radius: 20px;
@@ -256,6 +296,7 @@ $value_eight: 1910px;
         min-height: 400px;
         padding: 27px 22px 100px 22px;
         margin-top: 70px;
+
         .ranking1-top-label {
           width: 68px;
           height: 40px;
@@ -267,18 +308,29 @@ $value_eight: 1910px;
           font-size: 9px;
           line-height: 11px;
         }
+
         .ranking-top-banner-title {
           position: absolute;
           top: -200px;
           left: 50%;
           transform: translate(-50%);
         }
+
+        .medal-container {
+          .row-medal-container {
+            min-width: 301px;
+            min-height: 336px;
+          }
+        }
+
         .medal-item-wrapper {
           display: flex;
           flex-direction: column;
           align-items: center;
           position: relative;
+
           .medal-image-wrapper {
+
             .top-2-avatar {
               position: absolute;
               width: 60%;
@@ -288,6 +340,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-2-avatar-loading {
               position: absolute;
               width: 60%;
@@ -297,6 +350,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-1-avatar {
               position: absolute;
               width: 40%;
@@ -306,6 +360,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-1-avatar-loading {
               position: absolute;
               width: 40%;
@@ -316,6 +371,7 @@ $value_eight: 1910px;
               border-radius: 50%;
             }
           }
+
           .medal-info-wrapper {
             position: absolute;
             left: 50%;
@@ -327,6 +383,7 @@ $value_eight: 1910px;
             flex-direction: column;
             align-items: center;
           }
+
           .gold-medal-info-wrapper {
             position: absolute;
             left: 0%;
@@ -336,6 +393,7 @@ $value_eight: 1910px;
             flex-direction: column;
             align-items: center;
           }
+
           .silver-medal-info-wrapper {
             position: absolute;
             right: 50%;
@@ -347,6 +405,7 @@ $value_eight: 1910px;
             flex-direction: column;
             align-items: center;
           }
+
           .silver-medal-image-wrapper {
             width: 125px;
             height: auto;
@@ -354,33 +413,40 @@ $value_eight: 1910px;
             right: 50%;
             top: 50%;
             transform: translate(30%);
+
             .silver-medal-image {
               width: 100%;
               height: auto;
             }
           }
+
           .diamon-rank-text {
             width: 40px;
             height: 30px;
             top: 140px;
           }
+
           .silver-rank-text {
             width: 40px;
             height: 30px;
           }
+
           .gold-rank-text {
             width: 40px;
             height: 30px;
           }
+
           .medal-name {
             font-size: 11px;
             line-height: 13px;
           }
+
           .medal-level {
             font-size: 11px;
             line-height: 13px;
             margin-right: 6px;
           }
+
           .diamond-medal-image-wrapper {
             width: 125px;
             height: auto;
@@ -388,11 +454,13 @@ $value_eight: 1910px;
             left: 50%;
             top: 50%;
             transform: translate(-30%);
+
             .diamond-medal-image {
               width: 100%;
               height: auto;
             }
           }
+
           .gold-medal-image-wrapper {
             width: 160px;
             height: auto;
@@ -401,21 +469,25 @@ $value_eight: 1910px;
             top: 50%;
             left: 50%;
             transform: translate(-50%);
+
             .gold-medal-image {
               width: 160px;
               height: auto;
             }
           }
         }
+
         .another-rank-item {
           align-items: center;
           margin-bottom: 20px;
+
           .rank-item__index {
             font-size: 16px;
             line-height: 19px;
             margin-left: 0px;
             width: 10px;
           }
+
           .rank-item_avatar-wrapper {
             width: 48px;
             height: 48px;
@@ -424,40 +496,49 @@ $value_eight: 1910px;
             border-radius: 24px;
             margin-left: 6px;
             margin-right: 6px;
+
             .rank-item_avatar {
               border-radius: 50%;
             }
+
             .rank-item_avatar-loading {
               border-radius: 50%;
             }
           }
+
           .rank-item__level {
             font-size: 11px;
             line-height: 13px;
           }
+
           .rank-item__name {
             font-size: 11px;
             line-height: 13px;
           }
+
           .rank-item__point {
             font-size: 11px;
             line-height: 13px;
           }
         }
+
         .seemore_button {
           position: absolute;
           bottom: -25px;
           left: 50%;
           transform: translate(-50%);
           cursor: pointer;
-          & > svg {
+
+          &>svg {
             max-width: 80%;
             margin-left: 10%;
           }
+
           &:active {
             transform: scale(0.9) translate(-50%);
             transform-origin: left;
           }
+
           .seemore-button-text {
             position: absolute;
             top: -40px;
@@ -483,12 +564,14 @@ $value_eight: 1910px;
       padding-right: 8vw;
       margin-bottom: 110px;
       margin-top: 220px;
+
       .ranking1-container {
         background: var(--orange1);
         border-radius: 40px;
         position: relative;
         min-height: 500px;
         padding: 100px 8% 100px 8%;
+
         .ranking1-top-label {
           width: 110px;
           height: 52px;
@@ -508,21 +591,26 @@ $value_eight: 1910px;
           color: #ffffff;
           text-transform: uppercase;
         }
+
         .ranking-top-banner-title {
           position: absolute;
           top: -170px;
           left: 50%;
           transform: translate(-50%);
-          & > svg {
+
+          &>svg {
             max-width: 50vw;
           }
         }
+
         .medal-item-wrapper {
           display: flex;
           flex-direction: column;
           align-items: center;
+
           .medal-image-wrapper {
             position: relative;
+
             .top-2-avatar {
               position: absolute;
               width: 60%;
@@ -532,6 +620,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-2-avatar-loading {
               position: absolute;
               width: 60%;
@@ -541,6 +630,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-1-avatar {
               position: absolute;
               width: 40%;
@@ -550,6 +640,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-1-avatar-loading {
               position: absolute;
               width: 40%;
@@ -560,6 +651,7 @@ $value_eight: 1910px;
               border-radius: 50%;
             }
           }
+
           .diamon-rank-text {
             position: absolute;
             top: 140px;
@@ -568,6 +660,7 @@ $value_eight: 1910px;
             width: 68px;
             height: 50px;
           }
+
           .silver-rank-text {
             position: absolute;
             top: 140px;
@@ -576,6 +669,7 @@ $value_eight: 1910px;
             width: 68px;
             height: 50px;
           }
+
           .gold-rank-text {
             position: absolute;
             top: 0px;
@@ -584,6 +678,7 @@ $value_eight: 1910px;
             width: 68px;
             height: 50px;
           }
+
           .medal-name {
             font-style: normal;
             font-weight: bold;
@@ -591,6 +686,7 @@ $value_eight: 1910px;
             line-height: 17px;
             color: #ffffff;
           }
+
           .medal-level {
             font-style: normal;
             font-weight: bold;
@@ -599,20 +695,24 @@ $value_eight: 1910px;
             color: #ffc61a;
             margin-right: 6px;
           }
+
           .diamond-medal-image {
             height: auto;
             margin-top: 140px;
           }
-          .gold-medal-image {
-          }
+
+          .gold-medal-image {}
+
           .silver-medal-image {
             height: auto;
             margin-top: 140px;
           }
         }
+
         .another-rank-item {
           align-items: center;
           margin-bottom: 20px;
+
           .rank-item__index {
             font-size: 35px;
             line-height: 42px;
@@ -623,6 +723,7 @@ $value_eight: 1910px;
               0 -2px 0 #faa418, 1px 1px #faa418, -1px -1px 0 #faa418,
               1px -1px 0 #faa418, -1px 1px 0 #faa418;
           }
+
           .rank-item_avatar-wrapper {
             width: 54px;
             height: 54px;
@@ -632,13 +733,16 @@ $value_eight: 1910px;
             border-radius: 27px;
             margin-left: 20px;
             margin-right: 20px;
+
             .rank-item_avatar {
               border-radius: 50%;
             }
+
             .rank-item_avatar-loading {
               border-radius: 50%;
             }
           }
+
           .rank-item__level {
             font-style: normal;
             font-weight: bold;
@@ -647,6 +751,7 @@ $value_eight: 1910px;
             color: #ffc61a;
             margin-bottom: 4px;
           }
+
           .rank-item__name {
             font-style: normal;
             font-weight: bold;
@@ -655,6 +760,7 @@ $value_eight: 1910px;
             color: #ffffff;
             margin-bottom: 2px;
           }
+
           .rank-item__point {
             font-style: normal;
             font-weight: bold;
@@ -665,16 +771,19 @@ $value_eight: 1910px;
             margin-right: 6px;
           }
         }
+
         .seemore_button {
           position: absolute;
           bottom: -25px;
           left: 50%;
           transform: translate(-50%);
           cursor: pointer;
+
           &:active {
             transform: scale(0.9) translate(-50%);
             transform-origin: left;
           }
+
           .seemore-button-text {
             position: absolute;
             top: -45px;
@@ -689,6 +798,7 @@ $value_eight: 1910px;
           }
         }
       }
+
       .ranking2-container {
         background: var(--orange1);
         border-radius: 40px;
@@ -696,6 +806,7 @@ $value_eight: 1910px;
         min-height: 500px;
         padding: 50px 8% 100px 8%;
         margin-top: 70px;
+
         .ranking1-top-label {
           width: 110px;
           height: 52px;
@@ -715,18 +826,22 @@ $value_eight: 1910px;
           color: #ffffff;
           text-transform: uppercase;
         }
+
         .ranking-top-banner-title {
           position: absolute;
           top: -200px;
           left: 50%;
           transform: translate(-50%);
         }
+
         .medal-item-wrapper {
           display: flex;
           flex-direction: column;
           align-items: center;
+
           .medal-image-wrapper {
             position: relative;
+
             .top-2-avatar {
               position: absolute;
               width: 60%;
@@ -736,6 +851,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-2-avatar-loading {
               position: absolute;
               width: 60%;
@@ -745,6 +861,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-1-avatar {
               position: absolute;
               width: 40%;
@@ -754,6 +871,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-1-avatar-loading {
               position: absolute;
               width: 40%;
@@ -764,6 +882,7 @@ $value_eight: 1910px;
               border-radius: 50%;
             }
           }
+
           .diamon-rank-text {
             position: absolute;
             top: 140px;
@@ -772,6 +891,7 @@ $value_eight: 1910px;
             width: 68px;
             height: 50px;
           }
+
           .silver-rank-text {
             position: absolute;
             top: 140px;
@@ -780,6 +900,7 @@ $value_eight: 1910px;
             width: 68px;
             height: 50px;
           }
+
           .gold-rank-text {
             position: absolute;
             top: 0px;
@@ -788,6 +909,7 @@ $value_eight: 1910px;
             width: 68px;
             height: 50px;
           }
+
           .medal-name {
             font-style: normal;
             font-weight: bold;
@@ -795,6 +917,7 @@ $value_eight: 1910px;
             line-height: 17px;
             color: #ffffff;
           }
+
           .medal-level {
             font-style: normal;
             font-weight: bold;
@@ -803,20 +926,24 @@ $value_eight: 1910px;
             color: #ffc61a;
             margin-right: 6px;
           }
+
           .diamond-medal-image {
             height: auto;
             margin-top: 140px;
           }
-          .gold-medal-image {
-          }
+
+          .gold-medal-image {}
+
           .silver-medal-image {
             height: auto;
             margin-top: 140px;
           }
         }
+
         .another-rank-item {
           align-items: center;
           margin-bottom: 20px;
+
           .rank-item__index {
             font-size: 35px;
             line-height: 42px;
@@ -827,6 +954,7 @@ $value_eight: 1910px;
               0 -2px 0 #faa418, 1px 1px #faa418, -1px -1px 0 #faa418,
               1px -1px 0 #faa418, -1px 1px 0 #faa418;
           }
+
           .rank-item_avatar-wrapper {
             width: 54px;
             height: 54px;
@@ -836,13 +964,16 @@ $value_eight: 1910px;
             border-radius: 27px;
             margin-left: 20px;
             margin-right: 20px;
+
             .rank-item_avatar {
               border-radius: 50%;
             }
+
             .rank-item_avatar-loading {
               border-radius: 50%;
             }
           }
+
           .rank-item__level {
             font-style: normal;
             font-weight: bold;
@@ -851,6 +982,7 @@ $value_eight: 1910px;
             color: #ffc61a;
             margin-bottom: 4px;
           }
+
           .rank-item__name {
             font-style: normal;
             font-weight: bold;
@@ -859,6 +991,7 @@ $value_eight: 1910px;
             color: #ffffff;
             margin-bottom: 2px;
           }
+
           .rank-item__point {
             font-style: normal;
             font-weight: bold;
@@ -869,16 +1002,19 @@ $value_eight: 1910px;
             margin-right: 6px;
           }
         }
+
         .seemore_button {
           position: absolute;
           bottom: -25px;
           left: 50%;
           transform: translate(-50%);
           cursor: pointer;
+
           &:active {
             transform: scale(0.9) translate(-50%);
             transform-origin: left;
           }
+
           .seemore-button-text {
             position: absolute;
             top: -45px;
@@ -904,12 +1040,14 @@ $value_eight: 1910px;
       padding-right: 8vw;
       margin-bottom: 110px;
       margin-top: 220px;
+
       .ranking1-container {
         background: var(--orange1);
         border-radius: 40px;
         position: relative;
         min-height: 500px;
         padding: 100px 8% 100px 8%;
+
         .ranking1-top-label {
           width: 110px;
           height: 52px;
@@ -929,21 +1067,26 @@ $value_eight: 1910px;
           color: #ffffff;
           text-transform: uppercase;
         }
+
         .ranking-top-banner-title {
           position: absolute;
           top: -170px;
           left: 50%;
           transform: translate(-50%);
-          & > svg {
+
+          &>svg {
             max-width: 50vw;
           }
         }
+
         .medal-item-wrapper {
           display: flex;
           flex-direction: column;
           align-items: center;
+
           .medal-image-wrapper {
             position: relative;
+
             .top-2-avatar {
               position: absolute;
               width: 60%;
@@ -953,6 +1096,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-2-avatar-loading {
               position: absolute;
               width: 60%;
@@ -962,6 +1106,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-1-avatar {
               position: absolute;
               width: 40%;
@@ -971,6 +1116,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-1-avatar-loading {
               position: absolute;
               width: 40%;
@@ -981,6 +1127,7 @@ $value_eight: 1910px;
               border-radius: 50%;
             }
           }
+
           .diamon-rank-text {
             position: absolute;
             top: 140px;
@@ -989,6 +1136,7 @@ $value_eight: 1910px;
             width: 68px;
             height: 50px;
           }
+
           .silver-rank-text {
             position: absolute;
             top: 140px;
@@ -997,6 +1145,7 @@ $value_eight: 1910px;
             width: 68px;
             height: 50px;
           }
+
           .gold-rank-text {
             position: absolute;
             top: 0px;
@@ -1005,6 +1154,7 @@ $value_eight: 1910px;
             width: 68px;
             height: 50px;
           }
+
           .medal-name {
             font-style: normal;
             font-weight: bold;
@@ -1012,6 +1162,7 @@ $value_eight: 1910px;
             line-height: 17px;
             color: #ffffff;
           }
+
           .medal-level {
             font-style: normal;
             font-weight: bold;
@@ -1020,20 +1171,24 @@ $value_eight: 1910px;
             color: #ffc61a;
             margin-right: 6px;
           }
+
           .diamond-medal-image {
             height: auto;
             margin-top: 140px;
           }
-          .gold-medal-image {
-          }
+
+          .gold-medal-image {}
+
           .silver-medal-image {
             height: auto;
             margin-top: 140px;
           }
         }
+
         .another-rank-item {
           align-items: center;
           margin-bottom: 20px;
+
           .rank-item__index {
             font-size: 35px;
             line-height: 42px;
@@ -1044,6 +1199,7 @@ $value_eight: 1910px;
               0 -2px 0 #faa418, 1px 1px #faa418, -1px -1px 0 #faa418,
               1px -1px 0 #faa418, -1px 1px 0 #faa418;
           }
+
           .rank-item_avatar-wrapper {
             width: 54px;
             height: 54px;
@@ -1053,13 +1209,16 @@ $value_eight: 1910px;
             border-radius: 27px;
             margin-left: 20px;
             margin-right: 20px;
+
             .rank-item_avatar {
               border-radius: 50%;
             }
+
             .rank-item_avatar-loading {
               border-radius: 50%;
             }
           }
+
           .rank-item__level {
             font-style: normal;
             font-weight: bold;
@@ -1068,6 +1227,7 @@ $value_eight: 1910px;
             color: #ffc61a;
             margin-bottom: 4px;
           }
+
           .rank-item__name {
             font-style: normal;
             font-weight: bold;
@@ -1076,6 +1236,7 @@ $value_eight: 1910px;
             color: #ffffff;
             margin-bottom: 2px;
           }
+
           .rank-item__point {
             font-style: normal;
             font-weight: bold;
@@ -1086,16 +1247,19 @@ $value_eight: 1910px;
             margin-right: 6px;
           }
         }
+
         .seemore_button {
           position: absolute;
           bottom: -25px;
           left: 50%;
           transform: translate(-50%);
           cursor: pointer;
+
           &:active {
             transform: scale(0.9) translate(-50%);
             transform-origin: left;
           }
+
           .seemore-button-text {
             position: absolute;
             top: -45px;
@@ -1110,6 +1274,7 @@ $value_eight: 1910px;
           }
         }
       }
+
       .ranking2-container {
         background: var(--orange1);
         border-radius: 40px;
@@ -1117,6 +1282,7 @@ $value_eight: 1910px;
         min-height: 500px;
         padding: 50px 8% 100px 8%;
         margin-top: 70px;
+
         .ranking1-top-label {
           width: 110px;
           height: 52px;
@@ -1136,18 +1302,22 @@ $value_eight: 1910px;
           color: #ffffff;
           text-transform: uppercase;
         }
+
         .ranking-top-banner-title {
           position: absolute;
           top: -200px;
           left: 50%;
           transform: translate(-50%);
         }
+
         .medal-item-wrapper {
           display: flex;
           flex-direction: column;
           align-items: center;
+
           .medal-image-wrapper {
             position: relative;
+
             .top-2-avatar {
               position: absolute;
               width: 60%;
@@ -1157,6 +1327,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-2-avatar-loading {
               position: absolute;
               width: 60%;
@@ -1166,6 +1337,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-1-avatar {
               position: absolute;
               width: 40%;
@@ -1175,6 +1347,7 @@ $value_eight: 1910px;
               transform: translate(-50%);
               border-radius: 50%;
             }
+
             .top-1-avatar-loading {
               position: absolute;
               width: 40%;
@@ -1185,6 +1358,7 @@ $value_eight: 1910px;
               border-radius: 50%;
             }
           }
+
           .diamon-rank-text {
             position: absolute;
             top: 140px;
@@ -1193,6 +1367,7 @@ $value_eight: 1910px;
             width: 68px;
             height: 50px;
           }
+
           .silver-rank-text {
             position: absolute;
             top: 140px;
@@ -1201,6 +1376,7 @@ $value_eight: 1910px;
             width: 68px;
             height: 50px;
           }
+
           .gold-rank-text {
             position: absolute;
             top: 0px;
@@ -1209,6 +1385,7 @@ $value_eight: 1910px;
             width: 68px;
             height: 50px;
           }
+
           .medal-name {
             font-style: normal;
             font-weight: bold;
@@ -1216,6 +1393,7 @@ $value_eight: 1910px;
             line-height: 17px;
             color: #ffffff;
           }
+
           .medal-level {
             font-style: normal;
             font-weight: bold;
@@ -1224,20 +1402,24 @@ $value_eight: 1910px;
             color: #ffc61a;
             margin-right: 6px;
           }
+
           .diamond-medal-image {
             height: auto;
             margin-top: 140px;
           }
-          .gold-medal-image {
-          }
+
+          .gold-medal-image {}
+
           .silver-medal-image {
             height: auto;
             margin-top: 140px;
           }
         }
+
         .another-rank-item {
           align-items: center;
           margin-bottom: 20px;
+
           .rank-item__index {
             font-size: 35px;
             line-height: 42px;
@@ -1248,6 +1430,7 @@ $value_eight: 1910px;
               0 -2px 0 #faa418, 1px 1px #faa418, -1px -1px 0 #faa418,
               1px -1px 0 #faa418, -1px 1px 0 #faa418;
           }
+
           .rank-item_avatar-wrapper {
             width: 54px;
             height: 54px;
@@ -1257,13 +1440,16 @@ $value_eight: 1910px;
             border-radius: 27px;
             margin-left: 20px;
             margin-right: 20px;
+
             .rank-item_avatar {
               border-radius: 50%;
             }
+
             .rank-item_avatar-loading {
               border-radius: 50%;
             }
           }
+
           .rank-item__level {
             font-style: normal;
             font-weight: bold;
@@ -1272,6 +1458,7 @@ $value_eight: 1910px;
             color: #ffc61a;
             margin-bottom: 4px;
           }
+
           .rank-item__name {
             font-style: normal;
             font-weight: bold;
@@ -1280,6 +1467,7 @@ $value_eight: 1910px;
             color: #ffffff;
             margin-bottom: 2px;
           }
+
           .rank-item__point {
             font-style: normal;
             font-weight: bold;
@@ -1290,16 +1478,19 @@ $value_eight: 1910px;
             margin-right: 6px;
           }
         }
+
         .seemore_button {
           position: absolute;
           bottom: -25px;
           left: 50%;
           transform: translate(-50%);
           cursor: pointer;
+
           &:active {
             transform: scale(0.9) translate(-50%);
             transform-origin: left;
           }
+
           .seemore-button-text {
             position: absolute;
             top: -45px;

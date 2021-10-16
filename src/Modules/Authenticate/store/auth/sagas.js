@@ -7,6 +7,7 @@ import { getCodeLanguage } from "@store/common/selectors";
 import apiMethodSTNHD from "@utility/ApiMethodSuperSchoolMemory";
 import apiMethod from "@utility/ApiMethod";
 import { actions as ActionsUser } from "../../../../store/user/reducer";
+import { readNotifyAction } from "@store/common/actions";
 
 /**
  * Fetch data saga
@@ -53,6 +54,7 @@ function* fetchSignInSaga({ payload }) {
 }
 
 function* fetchLogoutSaga() {
+  yield put(readNotifyAction(false));
   yield put(ActionsAuth.authLogoutSuccess({}));
   yield put(ActionsUser.clearData({}));
 }

@@ -28,6 +28,8 @@ import PopupNewbie from "../popupNewbie";
 import { toast } from "react-toastify";
 import { getUserData } from "../../../store/user/selector";
 import SlideInModal from "../../../components/SlideInModal";
+import { readNotifyAction } from "@store/common/actions";
+
 const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
   const { i18n } = useTranslation();
   const history = useHistory();
@@ -49,7 +51,8 @@ const SignInForm = ({ setIsDropdownOpen = () => {} }) => {
       });
     }
     if (loginSuccess) {
-      history.push("/home");
+      dispatch(readNotifyAction(false));
+      window.location.href("/");
       if (userData?.flagDaisu === 0) {
         SlideInModal.show(
           () => {},

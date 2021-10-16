@@ -1,10 +1,11 @@
-import storage from 'redux-persist/lib/storage';
-import { persistReducer } from 'redux-persist';
-import * as Actions from './constants';
+import storage from "redux-persist/lib/storage";
+import { persistReducer } from "redux-persist";
+import * as Actions from "./constants";
 
 const initState = {
-  language: 'vi',
-  codeLanguage: 'vi',
+  language: "vi",
+  codeLanguage: "vi",
+  readNotify: false,
 };
 
 const CommonReducer = (state = initState, action = {}) => {
@@ -16,13 +17,15 @@ const CommonReducer = (state = initState, action = {}) => {
         codeLanguage: action.payload,
         itemsLanguageSelect: action.payload,
       };
+    case Actions.READ_NOTIFY:
+      return { ...state, readNotify: action.payload };
     default:
       return state;
   }
 };
 
 const persistConfig = {
-  key: 'common',
+  key: "common",
   storage,
 };
 

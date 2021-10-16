@@ -73,16 +73,19 @@ Default CSS
   src: url("../fonts/GothamRnd-Bold_0.otf");
   font-weight: bold, 700;
 }
+
 @font-face {
   font-family: "GothamRnd";
   src: url("../fonts/GothamRnd-Book_0.otf");
   font-weight: 400, 500;
 }
+
 @font-face {
   font-family: "GothamRnd";
   src: url("../fonts/GothamRnd-Light_0.otf");
   font-weight: 300;
 }
+
 @font-face {
   font-family: "GothamRnd";
   src: url("../fonts/GothamRnd-Medium_0.otf");
@@ -222,13 +225,13 @@ button {
 
   &:not(:disabled):not(.disabled).active:focus,
   &:not(:disabled):not(.disabled):active:focus,
-  .show > .btn-primary.dropdown-toggle:focus {
+  .show>.btn-primary.dropdown-toggle:focus {
     box-shadow: unset;
   }
 
   &:not(:disabled):not(.disabled).active,
   &:not(:disabled):not(.disabled):active,
-  .show > .btn-primary.dropdown-toggle {
+  .show>.btn-primary.dropdown-toggle {
     color: var(--whiteColor);
     background: var(--templateColor);
     transform: translateY(-5px);
@@ -268,13 +271,13 @@ button {
 
   &:not(:disabled):not(.disabled).active:focus,
   &:not(:disabled):not(.disabled):active:focus,
-  .show > .btn-blue.dropdown-toggle:focus {
+  .show>.btn-blue.dropdown-toggle:focus {
     box-shadow: unset;
   }
 
   &:not(:disabled):not(.disabled).active,
   &:not(:disabled):not(.disabled):active,
-  .show > .btn-blue.dropdown-toggle {
+  .show>.btn-blue.dropdown-toggle {
     color: var(--whiteColor);
     background: var(--blueActive);
     transform: translateY(-5px);
@@ -314,13 +317,13 @@ button {
 
   &:not(:disabled):not(.disabled).active:focus,
   &:not(:disabled):not(.disabled):active:focus,
-  .show > .btn-blue.dropdown-toggle:focus {
+  .show>.btn-blue.dropdown-toggle:focus {
     box-shadow: unset;
   }
 
   &:not(:disabled):not(.disabled).active,
   &:not(:disabled):not(.disabled):active,
-  .show > .btn-blue.dropdown-toggle {
+  .show>.btn-blue.dropdown-toggle {
     color: var(--whiteColor);
     background: var(--pinkHover);
     transform: translateY(-5px);
@@ -360,13 +363,13 @@ button {
 
   &:not(:disabled):not(.disabled).active:focus,
   &:not(:disabled):not(.disabled):active:focus,
-  .show > .btn-blue.dropdown-toggle:focus {
+  .show>.btn-blue.dropdown-toggle:focus {
     box-shadow: unset;
   }
 
   &:not(:disabled):not(.disabled).active,
   &:not(:disabled):not(.disabled):active,
-  .show > .btn-blue.dropdown-toggle {
+  .show>.btn-blue.dropdown-toggle {
     color: var(--whiteColor);
     background: var(--lightBlueHover);
     transform: translateY(-5px);
@@ -406,13 +409,13 @@ button {
 
   &:not(:disabled):not(.disabled).active:focus,
   &:not(:disabled):not(.disabled):active:focus,
-  .show > .btn-blue.dropdown-toggle:focus {
+  .show>.btn-blue.dropdown-toggle:focus {
     box-shadow: unset;
   }
 
   &:not(:disabled):not(.disabled).active,
   &:not(:disabled):not(.disabled):active,
-  .show > .btn-blue.dropdown-toggle {
+  .show>.btn-blue.dropdown-toggle {
     color: var(--whiteColor);
     background: var(--mintHover);
     transform: translateY(-5px);
@@ -452,13 +455,13 @@ button {
 
   &:not(:disabled):not(.disabled).active:focus,
   &:not(:disabled):not(.disabled):active:focus,
-  .show > .btn-blue.dropdown-toggle:focus {
+  .show>.btn-blue.dropdown-toggle:focus {
     box-shadow: unset;
   }
 
   &:not(:disabled):not(.disabled).active,
   &:not(:disabled):not(.disabled):active,
-  .show > .btn-blue.dropdown-toggle {
+  .show>.btn-blue.dropdown-toggle {
     color: var(--whiteColor);
     background: var(--greenHover);
     transform: translateY(-5px);
@@ -498,13 +501,13 @@ button {
 
   &:not(:disabled):not(.disabled).active:focus,
   &:not(:disabled):not(.disabled):active:focus,
-  .show > .btn-blue.dropdown-toggle:focus {
+  .show>.btn-blue.dropdown-toggle:focus {
     box-shadow: unset;
   }
 
   &:not(:disabled):not(.disabled).active,
   &:not(:disabled):not(.disabled):active,
-  .show > .btn-blue.dropdown-toggle {
+  .show>.btn-blue.dropdown-toggle {
     color: var(--whiteColor);
     background: var(--purpleHover);
     transform: translateY(-5px);
@@ -544,13 +547,13 @@ button {
 
   &:not(:disabled):not(.disabled).active:focus,
   &:not(:disabled):not(.disabled):active:focus,
-  .show > .btn-blue.dropdown-toggle:focus {
+  .show>.btn-blue.dropdown-toggle:focus {
     box-shadow: unset;
   }
 
   &:not(:disabled):not(.disabled).active,
   &:not(:disabled):not(.disabled):active,
-  .show > .btn-blue.dropdown-toggle {
+  .show>.btn-blue.dropdown-toggle {
     color: var(--whiteColor);
     background: var(--yellowHover);
     transform: translateY(-5px);
@@ -729,6 +732,7 @@ button {
   }
 
   &:hover {
+
     &::after,
     &::before {
       width: 50%;
@@ -867,8 +871,7 @@ Preloader CSS
       margin: 6px;
       box-sizing: border-box;
       border: 36px solid var(--templateColor);
-      border-color: var(--templateColor) transparent var(--templateColor2)
-        transparent;
+      border-color: var(--templateColor) transparent var(--templateColor2) transparent;
       animation: lds-hourglass 2.9s infinite;
     }
   }
@@ -1256,6 +1259,7 @@ Navbar CSS
               }
 
               .bar-3 {
+
                 &::after,
                 &::before {
                   opacity: 0;
@@ -1695,6 +1699,7 @@ Main Banner CSS
 
     .btn {
       &:hover {
+
         &::after,
         &::before {
           background: var(--whiteColor);
@@ -1705,9 +1710,10 @@ Main Banner CSS
     }
 
     .btn-primary {
+
       &:not(:disabled):not(.disabled).active,
       &:not(:disabled):not(.disabled):active,
-      .show > .btn-primary.dropdown-toggle {
+      .show>.btn-primary.dropdown-toggle {
         color: var(--templateColor2);
         background: var(--whiteColor);
       }
@@ -2088,8 +2094,7 @@ Main Banner CSS
   }
 
   &.marketing-home {
-    background: var(--whiteColor) url("../images/bg-point.png") no-repeat fixed
-      right -500px center/auto;
+    background: var(--whiteColor) url("../images/bg-point.png") no-repeat fixed right -500px center/auto;
 
     .hero-content {
       h1 {
@@ -2113,6 +2118,7 @@ Main Banner CSS
 
       .btn {
         &:hover {
+
           &::after,
           &::before {
             background: var(--templateColor);
@@ -2121,9 +2127,10 @@ Main Banner CSS
       }
 
       .btn-primary {
+
         &:not(:disabled):not(.disabled).active,
         &:not(:disabled):not(.disabled):active,
-        .show > .btn-primary.dropdown-toggle {
+        .show>.btn-primary.dropdown-toggle {
           background: var(--templateColor);
           color: var(--whiteColor);
         }
@@ -2797,8 +2804,7 @@ Features CSS
   }
 
   &.book-features {
-    background: #f9fafc url("../images/bg-point.png") no-repeat fixed right -600px
-      center/ auto;
+    background: #f9fafc url("../images/bg-point.png") no-repeat fixed right -600px center/ auto;
   }
 }
 
@@ -3450,11 +3456,9 @@ Overview CSS
       position: absolute;
 
       &.item-one {
-        background-image: -webkit-linear-gradient(
-          40deg,
-          #e87e16 0,
-          #f0de14 100%
-        );
+        background-image: -webkit-linear-gradient(40deg,
+            #e87e16 0,
+            #f0de14 100%);
         box-shadow: 0 20px 40px 0 rgba(224, 149, 32, 0.4);
         right: 0;
         top: -150px;
@@ -3462,33 +3466,27 @@ Overview CSS
       }
 
       &.item-two {
-        background-image: -webkit-linear-gradient(
-          40deg,
-          #13c4a1 0,
-          #41cbb0 100%
-        );
+        background-image: -webkit-linear-gradient(40deg,
+            #13c4a1 0,
+            #41cbb0 100%);
         box-shadow: 0 20px 40px 0 rgba(19, 196, 161, 0.4);
         left: 60px;
         top: 0;
       }
 
       &.item-three {
-        background-image: -webkit-linear-gradient(
-          40deg,
-          #008000 0,
-          #268b26 100%
-        );
+        background-image: -webkit-linear-gradient(40deg,
+            #008000 0,
+            #268b26 100%);
         box-shadow: 0 20px 40px 0 rgba(0, 128, 0, 0.4);
         left: 90px;
         bottom: -10px;
       }
 
       &.item-four {
-        background-image: -webkit-linear-gradient(
-          40deg,
-          #ff8a73 0,
-          #f89b88 100%
-        );
+        background-image: -webkit-linear-gradient(40deg,
+            #ff8a73 0,
+            #f89b88 100%);
         box-shadow: 0 20px 40px 0 rgba(255, 138, 115, 0.4);
         right: 35px;
         top: -15px;
@@ -3695,11 +3693,9 @@ Overview CSS
       position: absolute;
 
       &.item-one {
-        background-image: -webkit-linear-gradient(
-          40deg,
-          #e87e16 0,
-          #f0de14 100%
-        );
+        background-image: -webkit-linear-gradient(40deg,
+            #e87e16 0,
+            #f0de14 100%);
         box-shadow: 0 20px 40px 0 rgba(224, 149, 32, 0.4);
         right: 0;
         top: -150px;
@@ -3707,33 +3703,27 @@ Overview CSS
       }
 
       &.item-two {
-        background-image: -webkit-linear-gradient(
-          40deg,
-          #13c4a1 0,
-          #41cbb0 100%
-        );
+        background-image: -webkit-linear-gradient(40deg,
+            #13c4a1 0,
+            #41cbb0 100%);
         box-shadow: 0 20px 40px 0 rgba(19, 196, 161, 0.4);
         left: 60px;
         top: 0;
       }
 
       &.item-three {
-        background-image: -webkit-linear-gradient(
-          40deg,
-          #008000 0,
-          #268b26 100%
-        );
+        background-image: -webkit-linear-gradient(40deg,
+            #008000 0,
+            #268b26 100%);
         box-shadow: 0 20px 40px 0 rgba(0, 128, 0, 0.4);
         left: 90px;
         bottom: -10px;
       }
 
       &.item-four {
-        background-image: -webkit-linear-gradient(
-          40deg,
-          #ff8a73 0,
-          #f89b88 100%
-        );
+        background-image: -webkit-linear-gradient(40deg,
+            #ff8a73 0,
+            #f89b88 100%);
         box-shadow: 0 20px 40px 0 rgba(255, 138, 115, 0.4);
         right: 35px;
         top: -15px;
@@ -3800,6 +3790,7 @@ CTA CSS
 
   .btn {
     &:hover {
+
       &::after,
       &::before {
         background: var(--whiteColor);
@@ -3808,9 +3799,10 @@ CTA CSS
   }
 
   .btn-primary {
+
     &:not(:disabled):not(.disabled).active,
     &:not(:disabled):not(.disabled):active,
-    .show > .btn-primary.dropdown-toggle {
+    .show>.btn-primary.dropdown-toggle {
       color: var(--templateColor2);
       background: var(--whiteColor);
     }
@@ -4295,6 +4287,7 @@ Payment CSS
   }
 
   .section-title {
+
     h2,
     p {
       color: var(--whiteColor);
@@ -4338,6 +4331,7 @@ Work Process CSS
   }
 
   .section-title {
+
     h2,
     p {
       color: var(--whiteColor);
@@ -4900,6 +4894,7 @@ Pricing CSS
   .price-footer {
     .btn {
       &:hover {
+
         &::after,
         &::before {
           background: var(--whiteColor);
@@ -4908,9 +4903,10 @@ Pricing CSS
     }
 
     .btn-primary {
+
       &:not(:disabled):not(.disabled).active,
       &:not(:disabled):not(.disabled):active,
-      .show > .btn-primary.dropdown-toggle {
+      .show>.btn-primary.dropdown-toggle {
         color: var(--templateColor2);
         background: var(--whiteColor);
       }
@@ -4960,10 +4956,8 @@ Pricing CSS
       position: absolute;
       right: -50%;
       top: -130%;
-      background: repeating-radial-gradient(
-        rgba(255, 255, 255, 0.05),
-        rgba(255, 255, 255, 0.2) 20%
-      );
+      background: repeating-radial-gradient(rgba(255, 255, 255, 0.05),
+          rgba(255, 255, 255, 0.2) 20%);
       transition: 0.4s;
     }
   }
@@ -5388,6 +5382,7 @@ How App Works CSS
   }
 
   .section-title {
+
     h2,
     p {
       color: var(--whiteColor);
@@ -5730,33 +5725,31 @@ Team CSS
   padding: 30px;
 
   img {
-    clip-path: polygon(
-      50% 0%,
-      38.11% 6.7%,
-      24.99% 6.72%,
-      18.06% 18.44%,
-      6.7% 25%,
-      6.56% 38.64%,
-      0% 50%,
-      6.7% 61.89%,
-      6.7% 75%,
-      18.44% 81.94%,
-      25% 93.3%,
-      38.64% 93.44%,
-      50% 100%,
-      61.88% 93.3%,
-      75% 93.3%,
-      81.94% 81.56%,
-      93.3% 74.9%,
-      93.44% 61.36%,
-      100% 50%,
-      93.3% 38.11%,
-      93.3% 25%,
-      81.56% 18.06%,
-      74.96% 6.7%,
-      61.36% 6.56%,
-      50% 0%
-    );
+    clip-path: polygon(50% 0%,
+        38.11% 6.7%,
+        24.99% 6.72%,
+        18.06% 18.44%,
+        6.7% 25%,
+        6.56% 38.64%,
+        0% 50%,
+        6.7% 61.89%,
+        6.7% 75%,
+        18.44% 81.94%,
+        25% 93.3%,
+        38.64% 93.44%,
+        50% 100%,
+        61.88% 93.3%,
+        75% 93.3%,
+        81.94% 81.56%,
+        93.3% 74.9%,
+        93.44% 61.36%,
+        100% 50%,
+        93.3% 38.11%,
+        93.3% 25%,
+        81.56% 18.06%,
+        74.96% 6.7%,
+        61.36% 6.56%,
+        50% 0%);
   }
 
   .team-content {
@@ -5886,33 +5879,31 @@ Feedback CSS
 
   .client-info {
     img {
-      clip-path: polygon(
-        50% 0%,
-        38.11% 6.7%,
-        24.99% 6.72%,
-        18.06% 18.44%,
-        6.7% 25%,
-        6.56% 38.64%,
-        0% 50%,
-        6.7% 61.89%,
-        6.7% 75%,
-        18.44% 81.94%,
-        25% 93.3%,
-        38.64% 93.44%,
-        50% 100%,
-        61.88% 93.3%,
-        75% 93.3%,
-        81.94% 81.56%,
-        93.3% 74.9%,
-        93.44% 61.36%,
-        100% 50%,
-        93.3% 38.11%,
-        93.3% 25%,
-        81.56% 18.06%,
-        74.96% 6.7%,
-        61.36% 6.56%,
-        50% 0%
-      );
+      clip-path: polygon(50% 0%,
+          38.11% 6.7%,
+          24.99% 6.72%,
+          18.06% 18.44%,
+          6.7% 25%,
+          6.56% 38.64%,
+          0% 50%,
+          6.7% 61.89%,
+          6.7% 75%,
+          18.44% 81.94%,
+          25% 93.3%,
+          38.64% 93.44%,
+          50% 100%,
+          61.88% 93.3%,
+          75% 93.3%,
+          81.94% 81.56%,
+          93.3% 74.9%,
+          93.44% 61.36%,
+          100% 50%,
+          93.3% 38.11%,
+          93.3% 25%,
+          81.56% 18.06%,
+          74.96% 6.7%,
+          61.36% 6.56%,
+          50% 0%);
       position: absolute;
       top: -50px;
       left: 0;
@@ -6176,8 +6167,7 @@ App Download CSS
 Platform Connect CSS
 =================================================*/
 .platform-connect {
-  background: var(--whiteColor) url("../images/bg-point.png") no-repeat fixed
-    left -600px center/ auto;
+  background: var(--whiteColor) url("../images/bg-point.png") no-repeat fixed left -600px center/ auto;
 
   h2 {
     text-align: center;
@@ -6380,8 +6370,7 @@ List course CSS
 Blog CSS
 =================================================*/
 .blog-area {
-  background: #f9fafc url("../images/bg-point.png") no-repeat fixed right -600px
-    center/ auto;
+  background: #f9fafc url("../images/bg-point.png") no-repeat fixed right -600px center/ auto;
 
   &.blog-section {
     background: unset;
@@ -6502,7 +6491,7 @@ Blog Details CSS
     .article-img {
       position: relative;
 
-      > img {
+      >img {
         width: 100%;
       }
 
@@ -6633,7 +6622,7 @@ Blog Details CSS
     background: var(--whiteColor);
     padding: 30px;
     box-shadow: 0 5px 10px rgba(0, 9, 128, 0.035),
-      0 7px 18px rgba(0, 9, 128, 0.05);
+    0 7px 18px rgba(0, 9, 128, 0.05);
 
     .controls-left {
       float: left;
@@ -6977,6 +6966,7 @@ Subscribe CSS
   }
 
   .section-title {
+
     h2,
     p {
       color: var(--whiteColor);
@@ -8853,6 +8843,7 @@ Checkout CSS
       }
 
       [type="radio"] {
+
         &:checked,
         &:not(:checked) {
           position: absolute;
@@ -8861,9 +8852,10 @@ Checkout CSS
       }
 
       [type="radio"] {
+
         &:checked,
         &:not(:checked) {
-          + label {
+          +label {
             padding-left: 30px;
             cursor: pointer;
             display: block;
@@ -8906,7 +8898,7 @@ Checkout CSS
 
       [type="radio"] {
         &:not(:checked) {
-          + label {
+          +label {
             &::after {
               opacity: 0;
               visibility: hidden;
@@ -8918,7 +8910,7 @@ Checkout CSS
 
       [type="radio"] {
         &:checked {
-          + label {
+          +label {
             &::after {
               opacity: 1;
               visibility: visible;
@@ -9028,6 +9020,7 @@ Contact Us CSS
   }
 
   #msgSubmit {
+
     &.text-danger,
     &.text-success {
       margin: 20px 0 0;
@@ -9187,6 +9180,7 @@ Footer CSS
   padding: 12px 0;
   background: linear-gradient(90deg, #f57d18 0%, #fea003 100%);
   border-radius: 40px 40px 0px 0px;
+
   .container {
     p {
       color: var(--whiteColor);
@@ -9391,4 +9385,26 @@ textarea.form-control {
 
 .content-body {
   min-height: 100vh;
+}
+
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+html[xmlns] .clearfix {
+  display: block;
+}
+
+* html .clearfix {
+  height: 1%;
 }

@@ -60,7 +60,7 @@ const Signup = () => {
   const [disabledInviteCode, setDisableIntiveCode] = useState(false)
 
   const [startCountDown, setStartCountDown] = React.useState(false)
-  const [countDown, setCountDown] = React.useState(30)
+  const [countDown, setCountDown] = React.useState(120)
 
   //SELECTOR
   const error = useSelector(formSubmitErrorSelector)

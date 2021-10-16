@@ -1,44 +1,49 @@
 // ** React Imports
-import React, { Suspense, useContext, lazy, useState, useEffect } from 'react';
+import React, { Suspense, useContext, lazy, useState, useEffect } from "react";
 
 /*Store state Redux Saga */
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 // ** Custom Components
 // import Spinner from '@components/spinner/Loading-spinner' // Uncomment if your require content fallback
-import LayoutWrapper from '@layouts/layout-wrapper';
+import LayoutWrapper from "@layouts/layout-wrapper";
 
 // ** Router Components
-import { BrowserRouter as AppRouter, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as AppRouter,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
 // ** Layouts
-import BlankLayout from '@layouts/BlankLayout';
+import BlankLayout from "@layouts/BlankLayout";
 
-import Helmet from 'react-helmet';
-import { useTranslation } from 'react-i18next';
+import Helmet from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 const Router = ({ Routes }) => {
   // ** Hooks
   const { t } = useTranslation();
 
-  const auth = JSON.parse(localStorage.getItem('persist:Auth'));
+  const auth = JSON.parse(localStorage.getItem("persist:Auth"));
   let accessToken = auth?.accessToken;
   if (accessToken) {
     accessToken = JSON.parse(accessToken);
   }
 
-  const [defaultRoute, setDefaultRoute] = useState('/');
+  const [defaultRoute, setDefaultRoute] = useState("/");
 
   useEffect(() => {
     if (!accessToken || accessToken === null) {
-      setDefaultRoute('/');
+      setDefaultRoute("/");
     } else {
-      setDefaultRoute('/home');
+      setDefaultRoute("/home");
     }
   }, [JSON.stringify(accessToken)]);
 
   // ** Default Layout
-  const DefaultLayout = 'BlankLayout';
+  const DefaultLayout = "BlankLayout";
 
   // ** All of the available layouts
   const Layouts = {
@@ -98,7 +103,9 @@ const Router = ({ Routes }) => {
                       });
 
                       return (
-                          <Suspense fallback={<div style={{height: "100vh"}}></div>}>
+                        <Suspense
+                          fallback={<div style={{ height: "100vh" }}></div>}
+                        >
                           {/* Layout Wrapper to add classes based on route's layout, appLayout and className */}
                           <LayoutWrapper
                             layout={DefaultLayout}
@@ -138,6 +145,13 @@ const Router = ({ Routes }) => {
                   />
                 );
               })}
+              {accessToken ? (
+                <Route path="*" component={Error} />
+              ) : (
+                <Route path="*">
+                  <Redirect to="/" />
+                </Route>
+              )}
             </Switch>
           </LayoutTag>
         </Route>

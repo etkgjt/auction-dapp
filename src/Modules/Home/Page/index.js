@@ -1,45 +1,49 @@
-import "../bootstrap.scss"
-import "../responsive.scss"
+import "../bootstrap.scss";
+import "../responsive.scss";
 
-import React, { useState } from "react"
-import Banner from "@Modules/Home/Components/Banner"
-import Reason from "@Modules/Home/Components/Reason"
-import Rules from "@Modules/Home/Components/Rules"
-import News from "@Modules/Home/Components/News"
+import React, { useState } from "react";
+import Banner from "@Modules/Home/Components/Banner";
+import Reason from "@Modules/Home/Components/Reason";
+import Rules from "@Modules/Home/Components/Rules";
+import News from "@Modules/Home/Components/News";
 
-import { actions as NotiAction } from "../../../Modules/Notification/Store/Notification/reducer"
-import { useDispatch, useSelector } from "react-redux"
+import { actions as NotiAction } from "../../../Modules/Notification/Store/Notification/reducer";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getIsShowedPopupNewbie,
-  getUserData
-} from "../../../store/user/selector"
+  getUserData,
+} from "../../../store/user/selector";
 import {
   getCountNotiSelector,
-  getCountNotiLoadingSelector
-} from "../../Notification/Store/Notification/selector"
+  getCountNotiLoadingSelector,
+} from "../../Notification/Store/Notification/selector";
 
-import PopupNoti from "../Components/PopupNoti"
-import PopupVoucher from "../Components/PopupVoucher"
-import PopupLevelUp from "../Components/PopupLevelUp"
-import PopupNotiDrawEvent from "../Components/PopupNotiDrawEvent"
+import PopupNoti from "../Components/PopupNoti";
+import PopupVoucher from "../Components/PopupVoucher";
+import PopupLevelUp from "../Components/PopupLevelUp";
+import PopupNotiDrawEvent from "../Components/PopupNotiDrawEvent";
 
-import SlideInModal from "../../../components/SlideInModal"
-import { loginSuccessSelector } from "../../Authenticate/store/auth/selectors"
-import moment from "moment"
+import SlideInModal from "../../../components/SlideInModal";
+import { loginSuccessSelector } from "../../Authenticate/store/auth/selectors";
+import moment from "moment";
 
-import PopupNewbie from "../../../layouts/components/popupNewbie"
-import { actions as userActions } from "../../../store/user/reducer"
+import PopupNewbie from "../../../layouts/components/popupNewbie";
+import { actions as userActions } from "../../../store/user/reducer";
 
-import bgLeft from "../assets/images/bg-left.png"
-import bgRight from "../assets/images/bg-right.png"
+import bgLeft from "../assets/images/bg-left.png";
+import bgRight from "../assets/images/bg-right.png";
+
+import { getReadNotify } from "@store/common/selectors";
+import { readNotifyAction } from "@store/common/actions";
 
 const getEndFridayOfMonth = () => {
-  const result = moment().endOf("month")
+  const result = moment().endOf("month");
+
   while (result.day() !== 4) {
-    result.subtract(1, "day")
+    result.subtract(1, "day");
   }
-  return result
-}
+  return result;
+};
 
 const eventData = {
   title: (
@@ -57,60 +61,64 @@ const eventData = {
       <br /> tham gia VÒNG QUAY MAY MẮN <br /> và nhận ngay giải thưởng
       <br /> trị giá 5.000.000đ."
     </>
-  )
-}
+  ),
+};
 
 const Home = () => {
-  const dispatch = useDispatch()
-  const isLogin = useSelector(loginSuccessSelector)
-  const userData = useSelector(getUserData)
-  const countNoti = useSelector(getCountNotiSelector)
-  const { notification } = countNoti
+  const dispatch = useDispatch();
 
-  const [firstTime, setFirstTime] = useState(true)
-  const countLoading = useSelector(getCountNotiLoadingSelector)
-  const isWedDayOrSunDay = moment().day() === 3 || moment().day() === 0
+  const isLogin = useSelector(loginSuccessSelector);
+  const userData = useSelector(getUserData);
+  const readNotify = useSelector((state) => getReadNotify(state));
+  const countNoti = useSelector(getCountNotiSelector);
+  const { notification } = countNoti;
+  const countLoading = useSelector(getCountNotiLoadingSelector);
 
-  const [isFetched, setIsFetched] = useState(false)
-  const [isStartFetch, setIsStartFetch] = useState(false)
+  const [firstTime, setFirstTime] = useState(true);
+  const isWedDayOrSunDay = moment().day() === 3 || moment().day() === 0;
 
-  const isShowedNewBie = useSelector(getIsShowedPopupNewbie)
+  const [isFetched, setIsFetched] = useState(false);
+  const [isStartFetch, setIsStartFetch] = useState(false);
+
+  const isShowedNewBie = useSelector(getIsShowedPopupNewbie);
 
   React.useEffect(() => {
-    dispatch(NotiAction.setCountNotiLoading(true))
-    window.scrollTo(0, 0)
-  }, [])
+    dispatch(NotiAction.setCountNotiLoading(true));
+    window.scrollTo(0, 0);
+  }, []);
+
   React.useEffect(() => {
     if (isLogin && userData?.userId) {
-      setIsFetched(false)
-      setFirstTime(true)
-      setIsStartFetch(true)
+      setIsFetched(false);
+      setFirstTime(true);
+      setIsStartFetch(true);
       dispatch(
         NotiAction.getCountUnreadNoti({
-          userid: userData?.userId
+          userid: userData?.userId,
         })
-      )
+      );
     }
-  }, [isLogin, userData?.userId])
+  }, [isLogin, userData?.userId]);
 
   React.useEffect(() => {
     if (isStartFetch && !countLoading) {
-      setIsFetched(true)
+      setIsFetched(true);
     }
-  }, [isStartFetch, countLoading])
+  }, [isStartFetch, countLoading]);
 
   React.useEffect(() => {
-    if (notification) {
-      setFirstTime(false)
+    if (notification && !readNotify) {
+      setFirstTime(false);
+      dispatch(readNotifyAction(true));
       if (notification.type === "popup") {
         SlideInModal.show(
           () => {},
           <PopupNoti data={notification} />,
           "home-noti-popup-modal-wrapper",
           () => {
-            dispatch(NotiAction.setCountUnreadNoti({}))
+            dispatch(NotiAction.setCountUnreadNoti({}));
           }
-        )
+        );
       } else if (notification.type === "level1") {
         SlideInModal.show(
           () => {},
@@ -123,49 +131,57 @@ const Home = () => {
                 <PopupVoucher />,
                 "popup-voucher-modal-wrapper",
                 () => {
-                  dispatch(NotiAction.setCountUnreadNoti({}))
+                  dispatch(NotiAction.setCountUnreadNoti({}));
                 }
-              )
-            }, 200)
+              );
+            }, 200);
           }
-        )
+        );
       } else if (notification.type === "event") {
         SlideInModal.show(
           () => {},
           <PopupNotiDrawEvent data={notification} />,
           "popup-voucher-modal-wrapper",
           () => {
-            dispatch(NotiAction.setCountUnreadNoti({}))
+            dispatch(NotiAction.setCountUnreadNoti({}));
           }
-        )
+        );
       } else {
         SlideInModal.show(
           () => {},
           <PopupLevelUp data={notification} />,
           "popup-voucher-modal-wrapper",
           () => {
-            dispatch(NotiAction.setCountUnreadNoti({}))
+            dispatch(NotiAction.setCountUnreadNoti({}));
           }
-        )
+        );
       }
     }
-  }, [countNoti])
+  }, [countNoti]);
 
   React.useEffect(() => {
-    if (isWedDayOrSunDay && isFetched && !notification && firstTime) {
+    if (
+      isWedDayOrSunDay &&
+      isFetched &&
+      !notification &&
+      firstTime &&
+      !readNotify
+    ) {
       SlideInModal.show(
         () => {},
         <PopupNotiDrawEvent data={eventData} />,
         "popup-voucher-modal-wrapper",
         () => {
-          dispatch(NotiAction.setCountUnreadNoti({}))
-          setFirstTime(false)
+          dispatch(readNotifyAction(true));
+          dispatch(NotiAction.setCountUnreadNoti({}));
+          setFirstTime(false);
         }
-      )
+      );
     } else if (isFetched) {
-      setFirstTime(false)
+      setFirstTime(false);
+      dispatch(readNotifyAction(true));
     }
-  }, [notification, isFetched])
+  }, [notification, isFetched]);
 
   React.useEffect(() => {
     if (
@@ -179,11 +195,11 @@ const Home = () => {
         <PopupNewbie />,
         "invite-popup-modal-wrapper",
         () => {
-          dispatch(userActions.setIsShowPopuoNewBie(true))
+          dispatch(userActions.setIsShowPopuoNewBie(true));
         }
-      )
+      );
     }
-  }, [firstTime])
+  }, [firstTime]);
 
   return (
     <div className="home__page">
@@ -197,6 +213,6 @@ const Home = () => {
       <Rules />
       <News />
     </div>
-  )
-}
-export default Home
+  );
+};
+export default Home;

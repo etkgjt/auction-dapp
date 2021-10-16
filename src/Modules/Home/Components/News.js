@@ -60,7 +60,7 @@ const News = () => {
             >
               <ArrowRightIcon />
             </div>
-            {listNews && listNews.listData.length && (
+            {listNews && listNews.listData?.length && (
               <Carousel
                 margin={numItems === 3 ? 20 : 0}
                 ref={carouselRef}

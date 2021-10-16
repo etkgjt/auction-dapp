@@ -11,7 +11,7 @@
     .event-calendar-container {
       background: var(--lightOrange);
       border-radius: 40px;
-      padding: 50px;
+      padding: 45px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -23,6 +23,7 @@
         line-height: 55px;
         text-align: center;
         color: #fff;
+        margin-bottom: 20px;
       }
 
       .calendar-text-black {
@@ -41,7 +42,9 @@
         .calendar-icon__img {
           width: 70%;
           height: auto;
-          margin-left: 15%
+          margin-left: 0;
+          width: 208.43px;
+          height: 188.58px;
         }
 
         .calender-coin-icon {
@@ -49,7 +52,7 @@
           max-height: 115px;
           position: absolute;
           bottom: 0px;
-          right: -20%;
+          right: -5%;
         }
 
         .calendar-date {
@@ -58,7 +61,7 @@
           color: #fff;
           font-weight: 800;
           top: 15%;
-          right: 20%;
+          right: 35%;
           letter-spacing: 3px;
         }
 
@@ -68,7 +71,7 @@
           color: #fff;
           font-weight: 800;
           bottom: 10%;
-          right: 26%;
+          right: 40%;
           letter-spacing: 3px;
         }
       }

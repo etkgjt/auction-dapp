@@ -1,4 +1,5 @@
 @import "../../assets/css/variables";
+
 .ambassador__page {
   .step-area {
     padding-top: 75px;
@@ -6,6 +7,7 @@
     width: 980px;
     margin-left: auto;
     margin-right: auto;
+
     .step-area__title {
       font-weight: 800;
       font-size: 38px;
@@ -13,23 +15,28 @@
       text-align: center;
       color: #f67e18;
     }
+
     .step-area__subtitle-wrapper {
       padding-left: 10%;
       padding-right: 10%;
       margin-top: 24px;
+
       .step-area__subtitle {
         font-weight: 500;
         font-size: 15px;
         line-height: 18px;
         text-align: center;
         color: #000000;
+        font-family: 'GothamRnd';
       }
     }
+
     .step1-container {
       margin-top: 40px;
       width: 730px;
       margin-left: auto;
       margin-right: auto;
+
       // display: flex;
       // flex-direction: row;
       // justify-content: center;
@@ -39,6 +46,7 @@
         border-radius: 40px;
         position: relative;
         padding: 120px 10% 45px 10%;
+
         .step1-title {
           position: absolute;
           top: 38px;
@@ -49,6 +57,7 @@
           text-align: right;
           color: #1e3d74;
         }
+
         .step1-label {
           background: #faa418;
           border-top-left-radius: 30px;
@@ -65,23 +74,27 @@
           left: -5px;
           padding: 20px 28px;
         }
+
         .step1__item-wrapper {
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: space-between;
           cursor: pointer;
+
           .step1__item-icon-wrapper {
             &:active {
               transform: scale(0.95);
               transition: transform 0.1s ease-in-out;
             }
           }
+
           &:hover {
             transform: translateY(-10px);
             transition: transform 0.4s ease-in-out;
           }
-          & > p {
+
+          &>p {
             font-size: 15px;
             line-height: 18px;
             text-align: center;
@@ -89,18 +102,22 @@
             font-weight: 700;
             text-transform: uppercase;
             margin-top: 20px;
+            font-family: 'GothamRnd';
           }
         }
       }
     }
+
     .step2-container {
       margin-top: 90px;
+
       .step2-wrapper {
         border-radius: 40px;
         background: #ffffff;
         border: 5px solid #f2f2f2;
         position: relative;
         height: 100%;
+
         .step2-title-wrapper {
           padding: 40px 50px 40px 50px;
           text-align: left;
@@ -111,6 +128,7 @@
           color: #ffffff;
           border-radius: 25px;
         }
+
         .step2-label {
           padding: 20px 28px;
           background: #f16c1c;
@@ -127,6 +145,7 @@
           top: -5px;
           right: -5px;
         }
+
         .step2-content-wrapper {
           padding: 20px 40px;
           font-weight: 500;
@@ -134,14 +153,17 @@
           line-height: 22px;
           text-align: justify;
           color: #1e3d74;
+          font-family: 'GothamRnd';
         }
       }
     }
+
     .step3-wrapper {
       border-radius: 40px;
       background: #ffffff;
       border: 5px solid #f2f2f2;
       position: relative;
+
 
       .step3-title-wrapper {
         padding: 40px 50px 40px 50px;
@@ -152,7 +174,9 @@
         line-height: 30px;
         color: #ffffff;
         border-radius: 40px;
+
       }
+
       .step3-label {
         padding: 20px 28px;
         background: #ffc61a;
@@ -169,6 +193,7 @@
         top: -5px;
         right: -5px;
       }
+
       .step3-content-wrapper {
         padding: 20px 40px;
         font-weight: 500;
@@ -176,8 +201,10 @@
         line-height: 22px;
         text-align: justify;
         color: #1e3d74;
+        font-family: 'GothamRnd';
       }
     }
+
     .step4-container {
       margin-top: 100px;
       display: flex;
@@ -186,11 +213,13 @@
       width: 980px;
       margin-left: auto;
       margin-right: auto;
+
       .step4-inner {
         background: var(--lightOrange);
         border-radius: 40px;
         position: relative;
         padding: 95px 40px 70px 20px;
+
         .step4-title {
           position: absolute;
           top: 38px;
@@ -201,6 +230,7 @@
           text-align: right;
           color: #1e3d74;
         }
+
         .step4-label {
           width: 50%;
           min-height: 140px;
@@ -219,20 +249,25 @@
           left: -5px;
           padding: 30px 40px;
         }
+
         .step4-content {
           width: 100%;
         }
-        .step4-content > p {
+
+        .step4-content>p {
           font-weight: 600;
           font-size: 18px;
           line-height: 22px;
           text-align: justify;
           color: #1e3d74;
+          font-family: 'GothamRnd';
         }
+
         .step4-image-mock {
           width: 650px;
           min-width: 650px;
         }
+
         .step4-img {
           width: 650px;
           height: auto;
@@ -240,6 +275,7 @@
           right: 0;
           bottom: -50px;
         }
+
         .step4-image-wrapper {
           display: flex;
           flex-direction: row;
