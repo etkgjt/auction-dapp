@@ -1,0 +1,2 @@
+(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[255],{568:function(t,a,i){"use strict";i.r(a),a.default=i.p+"static/media/bg-news.33bfab0d.png"}}]);
+//# sourceMappingURL=Notification-assets-images-bg-news-png.3a615999.chunk.js.map

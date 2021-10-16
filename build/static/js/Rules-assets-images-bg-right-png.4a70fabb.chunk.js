@@ -1,0 +1,2 @@
+(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[298],{554:function(t,i,a){"use strict";a.r(i),i.default=a.p+"static/media/bg-right.40522fa0.png"}}]);
+//# sourceMappingURL=Rules-assets-images-bg-right-png.4a70fabb.chunk.js.map

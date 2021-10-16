@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[192],{447:function(t,i,a){"use strict";a.r(i),i.default=a.p+"static/media/voicon.238779d4.png"}}]);
-//# sourceMappingURL=Achievement-assets-images-voicon-png.a4c6b39c.chunk.js.map
