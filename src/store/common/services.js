@@ -1,5 +1,6 @@
 import API from "../../configs/api"
 import apiMethod from "../../utility/ApiMethodSuperSchoolMemory"
+import apiDaisu from "../../utility/ApiMethod"
 
 export const getListCity = (payload) => {
   return apiMethod.get(API.GET_COMMON_GET_CITY, payload)
@@ -14,4 +15,7 @@ export const getListClass = (payload) => {
 }
 export const sendOtp = ({ codeLanguage, payload }) => {
   return apiMethod.post(codeLanguage + API.POST_SEND_OTP, payload)
+}
+export const getFacebookInfo = () => {
+  return apiDaisu.get(API.GET_FACEBOOK_INFO)
 }

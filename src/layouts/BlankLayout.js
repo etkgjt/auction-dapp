@@ -17,6 +17,9 @@ import { FACEBOOK_PAGE_ID } from "../configs/environment"
 import { actions } from "../store/user/reducer"
 import { getInfoUserSTNHD } from "../store/user/service"
 
+import { getFacebookInfo } from "../store/common/actions"
+import { getFacebookSelector } from "../store/common/selectors"
+
 const BlankLayout = ({ children, ...rest }) => {
   const dispatch = useDispatch()
   // ** States
@@ -24,6 +27,14 @@ const BlankLayout = ({ children, ...rest }) => {
   const [isMounted, setIsMounted] = useState(false)
   const userData = useSelector(getUserData)
   const isLogin = useSelector(loginSuccessSelector)
+  const facebookData = useSelector(getFacebookSelector)
+
+  const getFacebookData = () => {
+    const { value } = facebookData
+    const toArray = value?.split(",")
+    return [toArray]
+  }
+
   const fetchDataUserAgain = async (e) => {
     if (userData?.flagDaisu === 1) {
       dispatch(
@@ -52,6 +63,7 @@ const BlankLayout = ({ children, ...rest }) => {
 
   useEffect(() => {
     fetchDataUserAgain()
+    dispatch(getFacebookInfo())
   }, [])
   if (!isMounted) {
     return null
@@ -116,8 +128,8 @@ const BlankLayout = ({ children, ...rest }) => {
         }}
       >
         <MessengerCustomerChat
-          pageId={FACEBOOK_PAGE_ID}
-          appId="657246228332033"
+          pageId={getFacebookData()?.[1]}
+          appId={getFacebookData()?.[0]}
         />
       </div>
     </Fragment>

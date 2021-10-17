@@ -1,12 +1,13 @@
-import storage from "redux-persist/lib/storage";
-import { persistReducer } from "redux-persist";
-import * as Actions from "./constants";
+import storage from "redux-persist/lib/storage"
+import { persistReducer } from "redux-persist"
+import * as Actions from "./constants"
 
 const initState = {
   language: "vi",
   codeLanguage: "vi",
   readNotify: false,
-};
+  facebookInfo: null
+}
 
 const CommonReducer = (state = initState, action = {}) => {
   switch (action.type) {
@@ -15,18 +16,20 @@ const CommonReducer = (state = initState, action = {}) => {
         ...state,
         language: action.payload,
         codeLanguage: action.payload,
-        itemsLanguageSelect: action.payload,
-      };
+        itemsLanguageSelect: action.payload
+      }
     case Actions.READ_NOTIFY:
-      return { ...state, readNotify: action.payload };
+      return { ...state, readNotify: action.payload }
+    case Actions.SET_FACEBOOK_INFO:
+      return { ...state, facebookInfo: action.payload }
     default:
-      return state;
+      return state
   }
-};
+}
 
 const persistConfig = {
   key: "common",
-  storage,
-};
+  storage
+}
 
-export default persistReducer(persistConfig, CommonReducer);
+export default persistReducer(persistConfig, CommonReducer)

@@ -12,6 +12,7 @@ export default {
   GET_LIST_CLASS: "/SchoolClass",
   POST_SEND_OTP: "/vi-VN/SieuTriNhoHocDuong/SendOTP",
   GET_USER_PROFILE: "/mypage/Getprofile",
-  GET_USER_PROFILE_STNHD: "/UserInfo/GetProfile"
+  GET_USER_PROFILE_STNHD: "/UserInfo/GetProfile",
+  GET_FACEBOOK_INFO: "/home/setting/accountfacebook"
   /*End Common*/
 }

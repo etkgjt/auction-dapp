@@ -1,43 +1,47 @@
-import React, { useEffect, useState } from "react";
-import { useMediaQuery } from "react-responsive";
-import { PopupBlockWrapper, AcceptIcon, CancelIcon } from "../../../assets/svg";
-import SlideInModal from "../../../components/SlideInModal";
+import React, { useEffect, useState } from "react"
+import { useMediaQuery } from "react-responsive"
+import { PopupBlockWrapper, AcceptIcon, CancelIcon } from "../../../assets/svg"
+import SlideInModal from "../../../components/SlideInModal"
 
-import popupRed from "../../../assets/images/popup-red.png";
-const { innerWidth: width, innerHeight: height } = window;
+import popupRed from "../../../assets/images/popup-red.png"
+const { innerWidth: width, innerHeight: height } = window
 
 const PopupDownload = ({ data = {} }) => {
-  const [error, setError] = useState(false);
-  const [version, setVersion] = useState();
+  const [error, setError] = useState(false)
+  const [version, setVersion] = useState()
   const onChoose32 = () => {
-    setError(false);
-    setVersion("32");
-  };
+    setError(false)
+    setVersion("32")
+    window.open(data?.link_TaiDesktop32Bit, "_blank")
+    SlideInModal.hide()
+  }
 
   const onChoose64 = () => {
-    setError(false);
-    setVersion("64");
-  };
+    setError(false)
+    setVersion("64")
+    window.open(data?.link_TaiDesktop, "_blank")
+    SlideInModal.hide()
+  }
 
   const onCancel = () => {
-    setError(false);
-    setVersion(undefined);
-    SlideInModal.hide();
-  };
+    setError(false)
+    setVersion(undefined)
+    SlideInModal.hide()
+  }
 
   const onSubmit = () => {
     if (version) {
       if (version === "32") {
-        window.open(data?.link_TaiDesktop32Bit, "_blank");
+        window.open(data?.link_TaiDesktop32Bit, "_blank")
       }
       if (version === "64") {
-        window.open(data?.link_TaiDesktop, "_blank");
+        window.open(data?.link_TaiDesktop, "_blank")
       }
-      SlideInModal.hide();
+      SlideInModal.hide()
     } else {
-      setError(true);
+      setError(true)
     }
-  };
+  }
 
   return (
     <div className="popup-download-container">
@@ -81,6 +85,6 @@ const PopupDownload = ({ data = {} }) => {
         </div>
       </div>
     </div>
-  );
-};
-export default PopupDownload;
+  )
+}
+export default PopupDownload

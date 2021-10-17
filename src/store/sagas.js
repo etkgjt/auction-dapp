@@ -1,2 +1,3 @@
 import userSagas from "./user/sagas"
-export default [userSagas()]
+import commonSagas from "./common/saga"
+export default [userSagas(), commonSagas()]
