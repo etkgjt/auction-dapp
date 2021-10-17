@@ -1,34 +1,52 @@
-import React, { useState } from "react"
-import { Col, Container, Row } from "reactstrap"
-import { RETCODE_SUCCESS } from "../../../configs/contants"
-import { MacOSIcon, DesktopIcon, GooglePlayIcon } from "../assets/icon"
-import voucher from "../assets/images/voucher.png"
-import { getDownloadAppLink } from "../Store/service"
+import React, { useState } from "react";
+import { Col, Container, Row } from "reactstrap";
+import { RETCODE_SUCCESS } from "../../../configs/contants";
+import {
+  MacOSIcon,
+  DesktopIcon,
+  GooglePlayIcon,
+  MacIcon,
+} from "../assets/icon";
+import voucher from "../assets/images/voucher.png";
+import { getDownloadAppLink } from "../Store/service";
+import SlideInModal from "../../../components/SlideInModal";
+import PopupDownload from "./PopupDownload";
 
-const isServer = typeof window === "undefined"
-const WOW = !isServer ? require("wowjs") : null
+const isServer = typeof window === "undefined";
+const WOW = !isServer ? require("wowjs") : null;
 
 const Step = () => {
-  const [state, setState] = useState()
+  const [state, setState] = useState();
   const fetchDownLoadingLink = async () => {
     try {
-      const res = await getDownloadAppLink()
-      setState(res.data)
+      const res = await getDownloadAppLink();
+      setState(res.data);
     } catch (err) {}
-  }
+  };
 
   React.useEffect(() => {
-    fetchDownLoadingLink()
-  }, [])
+    fetchDownLoadingLink();
+  }, []);
+
   const googlePlayClick = () => {
-    window.open(state?.link_TaiAndroid, "_blank")
-  }
+    window.open(state?.link_TaiAndroid, "_blank");
+  };
+
+  const macOSClick = () => {
+    window.open(state?.link_TaiMacos, "_blank");
+  };
+
   const appStoreClick = () => {
-    window.open(state?.link_TaiIOS, "_blank")
-  }
+    window.open(state?.link_TaiIOS, "_blank");
+  };
+
   const windowClick = () => {
-    window.open(state?.link_TaiDesktop, "_blank")
-  }
+    SlideInModal.show(
+      () => {},
+      <PopupDownload data={state} />,
+      "download-popup-modal-wrapper"
+    );
+  };
 
   React.useEffect(() => {
     new WOW.WOW({
@@ -36,9 +54,9 @@ const Step = () => {
       animateClass: "animated",
       offset: 20,
       mobile: true,
-      live: true
-    }).init()
-  }, [])
+      live: true,
+    }).init();
+  }, []);
   return (
     <div className="step-area">
       <h1 className="step-area__title">TRỞ THÀNH ĐẠI SỨ</h1>
@@ -76,9 +94,19 @@ const Step = () => {
               <p>Google Play</p>
             </div>
             <div
-              onClick={windowClick}
+              onClick={macOSClick}
               className="step1__item-wrapper wow animate__bounceInUp"
               data-wow-delay="1.2s"
+            >
+              <div className="step1__item-icon-wrapper">
+                <MacIcon />
+              </div>
+              <p>Mac OS</p>
+            </div>
+            <div
+              onClick={windowClick}
+              className="step1__item-wrapper wow animate__bounceInUp"
+              data-wow-delay="1.6s"
             >
               <div className="step1__item-icon-wrapper">
                 <DesktopIcon />
@@ -150,11 +178,14 @@ const Step = () => {
               <p>
                 Khi hoàn thành ba bước trên, bạn sẽ nhận được phần quà từ BTC
                 chính là:
-                <br />
-                - Điểm thưởng 5K vào tài khoản
-                <br />- E-Voucher có giá trị 100.000đ áp dụng khi mua các ấn
-                phẩm của Tâm Trí Lực như: Sách, Flashcard, Túi Vải, Mũ bảo
-                hiểm...
+                <ul>
+                  <li>Điểm thưởng 5K vào tài khoản</li>
+                  <li>
+                    E-Voucher có giá trị 100.000đ áp dụng khi mua các ấn phẩm
+                    của Tâm Trí Lực như: Sách, Flashcard, Túi Vải, Mũ bảo
+                    hiểm...
+                  </li>
+                </ul>
               </p>
             </span>
             <div className="step4-image-mock"></div>
@@ -168,6 +199,6 @@ const Step = () => {
         </div>
       </div>
     </div>
-  )
-}
-export default Step
+  );
+};
+export default Step;

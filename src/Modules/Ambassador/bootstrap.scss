@@ -251,16 +251,31 @@
         }
 
         .step4-content {
-          width: 100%;
-        }
+          p {
+            width: 100%;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 22px;
+            text-align: justify;
+            color: #1e3d74;
+            font-family: 'GothamRnd';
+          }
 
-        .step4-content>p {
-          font-weight: 600;
-          font-size: 18px;
-          line-height: 22px;
-          text-align: justify;
-          color: #1e3d74;
-          font-family: 'GothamRnd';
+
+          ul {
+            padding: 0;
+            margin-left: 20px;
+
+            li {
+              width: 100%;
+              font-weight: 600;
+              font-size: 18px;
+              line-height: 22px;
+              text-align: justify;
+              color: #1e3d74;
+              font-family: 'GothamRnd';
+            }
+          }
         }
 
         .step4-image-mock {
@@ -282,6 +297,111 @@
           position: relative;
         }
       }
+    }
+  }
+}
+
+.download-popup-modal-wrapper {
+  background: transparent;
+  border: none;
+}
+
+.popup-download-container {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 20px;
+  width: 388px;
+  height: 147px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+
+  .popup-download-content-wrapper {
+    height: 100%;
+    width: 100%;
+    padding: 26px;
+
+
+
+    .popup-download-content-wrapper__title {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 14.9195px;
+      line-height: 18px;
+      text-align: center;
+      color: #1E3D74;
+      font-family: 'GothamRnd';
+      margin-bottom: 13px;
+    }
+
+    .popup-download-content-wrapper__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .btn-version {
+
+        &:hover,
+        &.choose {
+          transform: scale(1.05);
+          transition: transform 0.1s ease-in-out;
+          box-shadow: 0px 4px 20px -2px rgba(61, 61, 61, 0.5);
+        }
+      }
+
+      .popup-download-content-wrapper__content32 {
+        width: 155px;
+        height: 40px;
+        background: #C4C4C4;
+        border-radius: 10px;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14.9195px;
+        line-height: 18px;
+        text-align: center;
+        color: #FFFFFF;
+        font-family: 'GothamRnd';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .popup-download-content-wrapper__content64 {
+        width: 155px;
+        height: 40px;
+        left: 207px;
+        top: 52px;
+        background: #EA5023;
+        border-radius: 10px;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14.9195px;
+        line-height: 18px;
+        text-align: center;
+        color: #FFFFFF;
+        font-family: 'GothamRnd';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+    }
+  }
+
+  .download-icon-wrapper {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    display: flex;
+    flex-direction: row;
+    transform: translate(-50%);
+
+    .margin-right {
+      margin-right: 40px;
+    }
+
+    .popup-download-button-wrapper:active {
+      transform: scale(0.9);
     }
   }
 }
