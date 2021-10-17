@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[252],{473:function(t,i,a){"use strict";a.r(i),i.default=a.p+"static/media/voi.71feb184.png"}}]);
-//# sourceMappingURL=News-assets-images-voi-png.1db11cc5.chunk.js.map

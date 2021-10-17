@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[218],{558:function(i,t,a){"use strict";a.r(t),t.default=a.p+"static/media/voichamchi.6595a46e.png"}}]);
-//# sourceMappingURL=Gifts-assets-images-voichamchi-png.4394b8c1.chunk.js.map
