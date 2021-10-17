@@ -1,0 +1,2 @@
+(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[262],{530:function(t,a,i){"use strict";i.r(a),a.default=i.p+"static/media/voi2.6a76a86d.png"}}]);
+//# sourceMappingURL=Notification-assets-images-voi2-png.abb703ba.chunk.js.map
