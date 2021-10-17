@@ -32,7 +32,7 @@ const BlankLayout = ({ children, ...rest }) => {
   const getFacebookData = () => {
     const { value } = facebookData
     const toArray = value?.split(",")
-    return [toArray]
+    return toArray
   }
 
   const fetchDataUserAgain = async (e) => {

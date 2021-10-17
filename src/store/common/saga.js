@@ -16,7 +16,6 @@ const getInfoFacebook = function* ({ payload }) {
   } catch (e) {
     yield put(setFacebookInfo({}))
   } finally {
-    yield put(actions.setLoading(false))
   }
 }
 
