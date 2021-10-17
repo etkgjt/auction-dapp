@@ -44,15 +44,17 @@ const BlankLayout = ({ children, ...rest }) => {
         })
       )
     } else {
-      const res = await getInfoUserSTNHD({
-        username: userData?.userName
-      })
-      dispatch(
-        actions.getInfoUser({
-          userId: userData?.userId,
-          flagDaisu: 1
+      if (isLogin && userData?.userId) {
+        const res = await getInfoUserSTNHD({
+          username: userData?.userName
         })
-      )
+        dispatch(
+          actions.getInfoUser({
+            userId: userData?.userId,
+            flagDaisu: 1
+          })
+        )
+      }
     }
   }
   //** ComponentDidMount
