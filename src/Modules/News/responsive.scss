@@ -74,8 +74,8 @@ $value_eight: 1910px;
 
         .news-item-wrapper {
           margin-bottom: 28px;
-          padding: 0px;
-
+          padding: 4px;
+          border-radius: 10px;
           &:hover {
             opacity: 0.7;
           }
