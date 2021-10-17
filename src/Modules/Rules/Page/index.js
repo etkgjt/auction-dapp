@@ -10,7 +10,7 @@ import bgLeft from "../assets/images/bg-left.png"
 import bgRight from "../assets/images/bg-right.png"
 import { getListSelector } from "../Store/RulesCenter/selector"
 import { useSelector } from "react-redux"
-function youtubeParser(url) {
+function youtubeParser(url = "") {
   const regExp =
     /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
   const match = url.match(regExp)

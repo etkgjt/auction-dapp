@@ -81,12 +81,7 @@ const UploadImage = (
               />
             </div>
           ) : (
-            <AsyncImage
-              src={src}
-              alt=""
-              className={"upload_image_inner"}
-              placeholderClassName="upload_image_inner"
-            />
+            <img src={src} alt="avatar" className={"upload_image_inner"} />
           )}
         </div>
       </Col>
