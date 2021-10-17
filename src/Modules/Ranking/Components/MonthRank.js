@@ -62,9 +62,11 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                   {data[1]?.childFullName1 || "Hạng Nhì"}
                 </p>
                 {data[1]?.level?.name && data[1]?.monthPoint ? (
-                  <span className="d-flex flex-row">
+                  <span className="d-flex flex-row justify-content-center">
                     <p className="medal-level">{`${
-                      data[1]?.level?.name || ""
+                      data[1]?.inviteUserCount
+                        ? "Cấp " + data[1]?.inviteUserCount
+                        : ""
                     } | ${data[1]?.monthPoint || ""}K`}</p>
                     <CoinIcon />
                   </span>
@@ -97,9 +99,11 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                   {data[0]?.childFullName1 || "Hạng Nhất"}
                 </p>
                 {data[0]?.level?.name && data[0]?.monthPoint ? (
-                  <span className="d-flex flex-row">
+                  <span className="d-flex flex-row justify-content-center">
                     <p className="medal-level">{`${
-                      data[0]?.level?.name || ""
+                      data[0]?.inviteUserCount
+                        ? "Cấp " + data[0]?.inviteUserCount
+                        : ""
                     } | ${data[0]?.monthPoint || ""}K`}</p>
                     <CoinIcon />
                   </span>
@@ -115,7 +119,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
               <div className="medal-image-wrapper">
                 <div className="silver-medal-image-wrapper">
                   <AsyncImage
-                    src={data[1]?.avatar || defaultAvatar}
+                    src={data[2]?.avatar || defaultAvatar}
                     className="top-2-avatar"
                     placeholderClassName="top-2-avatar-loading"
                   />
@@ -132,9 +136,11 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                   {data[2]?.childFullName1 || "Hạng Ba"}
                 </p>
                 {data[2]?.level?.name && data[2]?.monthPoint ? (
-                  <span className="d-flex flex-row">
+                  <span className="d-flex flex-row justify-content-center">
                     <p className="medal-level">{`${
-                      data[2]?.level?.name || ""
+                      data[2]?.inviteUserCount
+                        ? "Cấp " + data[2]?.inviteUserCount
+                        : ""
                     } | ${data[2]?.monthPoint || ""}K`}</p>
                     <CoinIcon />
                   </span>
@@ -158,9 +164,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                       />
                     </div>
                     <div className="rank-item__info-wrapper">
-                      <p className="rank-item__level">{`${
-                        item?.level?.name || ""
-                      }`}</p>
+                      <p className="rank-item__level">{`Cấp ${item?.inviteUserCount}`}</p>
                       <p className="rank-item__name">{item?.childFullName1}</p>
                       <span className="d-flex flex-row align-items-center">
                         <p className="rank-item__point">{`${item?.monthPoint}k`}</p>
@@ -184,9 +188,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                       />
                     </div>
                     <div className="rank-item__info-wrapper">
-                      <p className="rank-item__level">{`${
-                        item?.level?.name || ""
-                      }`}</p>
+                      <p className="rank-item__level">{`Cấp ${item?.inviteUserCount}`}</p>
                       <p className="rank-item__name">{item?.childFullName1}</p>
                       <span className="d-flex flex-row align-items-center">
                         <p className="rank-item__point">{`${item?.monthPoint}k`}</p>

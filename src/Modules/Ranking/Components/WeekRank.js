@@ -71,10 +71,12 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                   {data[1]?.childFullName1 || "Hạng Nhì"}
                 </p>
                 {data[1]?.level?.name && data[1]?.quarterYearPoint ? (
-                  <span className="d-flex flex-row">
+                  <span className="d-flex flex-row justify-content-center">
                     <p className="medal-level">{`${
-                      data[1]?.level?.name || "Hạng Nhì"
-                    } | ${data[1]?.quarterYearPoint || ""}K`}</p>
+                      data[1]?.inviteUserCount
+                        ? "Cấp " + data[1]?.inviteUserCount + " | "
+                        : ""
+                    } ${data[1]?.quarterYearPoint || ""}K`}</p>
                     <CoinIcon />
                   </span>
                 ) : null}
@@ -106,10 +108,12 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                   {data[0]?.childFullName1 || "Hạng Nhất"}
                 </p>
                 {data[0]?.level?.name && data[0]?.quarterYearPoint ? (
-                  <span className="d-flex flex-row">
+                  <span className="d-flex flex-row justify-content-center">
                     <p className="medal-level">{`${
-                      data[0]?.level?.name || "Hạng Nhất"
-                    } | ${data[0]?.quarterYearPoint || ""}K`}</p>
+                      data[0]?.inviteUserCount
+                        ? "Cấp " + data[0]?.inviteUserCount + " | "
+                        : ""
+                    }  ${data[0]?.quarterYearPoint || ""}K`}</p>
                     <CoinIcon />
                   </span>
                 ) : null}
@@ -141,10 +145,12 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                   {data[2]?.childFullName1 || "Hạng Ba"}
                 </p>
                 {data[2]?.level?.name && data[2]?.quarterYearPoint ? (
-                  <span className="d-flex flex-row">
+                  <span className="d-flex flex-row justify-content-center">
                     <p className="medal-level">{`${
-                      data[2]?.level?.name || ""
-                    } | ${data[2]?.quarterYearPoint || ""}K`}</p>
+                      data[2]?.inviteUserCount
+                        ? "Cấp " + data[2]?.inviteUserCount + " | "
+                        : ""
+                    }${data[2]?.quarterYearPoint || ""}K`}</p>
                     <CoinIcon />
                   </span>
                 ) : null}
@@ -168,9 +174,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                       />
                     </div>
                     <div className="rank-item__info-wrapper">
-                      <p className="rank-item__level">{`${
-                        item?.level?.name || ""
-                      }`}</p>
+                      <p className="rank-item__level">{`Cấp ${item?.inviteUserCount}`}</p>
                       <p className="rank-item__name">{item?.childFullName1}</p>
                       <span className="d-flex flex-row align-items-center">
                         <p className="rank-item__point">{`${item?.weekPoint}k`}</p>
@@ -194,9 +198,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                       />
                     </div>
                     <div className="rank-item__info-wrapper">
-                      <p className="rank-item__level">{`${
-                        item?.level?.name || ""
-                      }`}</p>
+                      <p className="rank-item__level">{`Cấp ${item?.inviteUserCount}`}</p>
                       <p className="rank-item__name">{item?.childFullName1}</p>
                       <span className="d-flex flex-row align-items-center">
                         <p className="rank-item__point">{`${item?.weekPoint}k`}</p>
