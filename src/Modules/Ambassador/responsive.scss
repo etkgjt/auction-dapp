@@ -45,7 +45,7 @@ $value_eight: 1910px;
           background: var(--lightOrange);
           border-radius: 20px;
           position: relative;
-          padding: 60px 30px 20px 30px;
+          padding: 60px 10px 20px 10px;
 
           .step1-title {
             position: absolute;
@@ -71,6 +71,7 @@ $value_eight: 1910px;
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
+            width: 80px;
 
             .step1__item-icon-wrapper {
               &>svg {
@@ -90,7 +91,7 @@ $value_eight: 1910px;
             }
 
             &>p {
-              font-size: 13px;
+              font-size: 10px;
               line-height: 11px;
               text-align: center;
               color: #1e3d74;
@@ -402,7 +403,7 @@ $value_eight: 1910px;
           background: var(--lightOrange);
           border-radius: 25px;
           position: relative;
-          padding: 80px 90px 45px 80px;
+          padding: 80px 60px 45px 60px;
 
           .step1-title {
             position: absolute;
