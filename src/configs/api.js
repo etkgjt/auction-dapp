@@ -11,6 +11,7 @@ export default {
   GET_COMMON_GET_DISTRICT: "/District",
   GET_LIST_CLASS: "/SchoolClass",
   POST_SEND_OTP: "/vi-VN/SieuTriNhoHocDuong/SendOTP",
-  GET_USER_PROFILE: "/mypage/Getprofile"
+  GET_USER_PROFILE: "/mypage/Getprofile",
+  GET_USER_PROFILE_STNHD: "/UserInfo/GetProfile"
   /*End Common*/
 }

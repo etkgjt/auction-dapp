@@ -8,24 +8,48 @@ import SlideInModal from "../components/SlideInModal"
 import { InviteFriendIcon } from "../assets/svg"
 import PopupInvite from "./components/popupInvite"
 import PopupNewBie from "./components/popupNewbie"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { getUserData } from "../store/user/selector"
 import { loginSuccessSelector } from "../Modules/Authenticate/store/auth/selectors"
 import MessengerCustomerChat from "react-messenger-customer-chat"
 import "./responsive.scss"
 import { FACEBOOK_PAGE_ID } from "../configs/environment"
+import { actions } from "../store/user/reducer"
+import { getInfoUserSTNHD } from "../store/user/service"
+
 const BlankLayout = ({ children, ...rest }) => {
+  const dispatch = useDispatch()
   // ** States
+
   const [isMounted, setIsMounted] = useState(false)
   const userData = useSelector(getUserData)
   const isLogin = useSelector(loginSuccessSelector)
-
+  const fetchDataUserAgain = async () => {
+    if (userData?.flagDaisu === 1) {
+      dispatch(
+        actions.getInfoUser({
+          userId: userData?.userId,
+          flagDaisu: 1
+        })
+      )
+    } else {
+      const res = await getInfoUserSTNHD({
+        username: userData?.userName
+      })
+    }
+  }
   //** ComponentDidMount
   useEffect(() => {
     setIsMounted(true)
     return () => setIsMounted(false)
   }, [])
 
+  useEffect(() => {
+    window.addEventListener("beforeunload", fetchDataUserAgain)
+    return () => {
+      window.removeEventListener("beforeunload", fetchDataUserAgain)
+    }
+  }, [])
   if (!isMounted) {
     return null
   }

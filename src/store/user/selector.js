@@ -7,5 +7,9 @@ export const getIsShowedPopupNewbie = createSelector(
   user,
   (data) => data?.isShowedPopupNewbie || false
 )
+export const getIsShowedPopupDrawEvent = createSelector(
+  user,
+  (data) => data?.iShowPopupDrawEvent || false
+)
 
 // export

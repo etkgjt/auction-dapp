@@ -10,7 +10,7 @@ import popupRed from "../../../assets/images/popup-red.png"
 
 import "./styles.scss"
 const { innerWidth: width, innerHeight: height } = window
-const NewbiePopup = () => {
+const NewbiePopup = ({ isTicket = false, data = {} }) => {
   const userData = useSelector(getUserData)
   const history = useHistory()
   const isMobile = useMediaQuery({ maxWidth: 767 })
@@ -33,16 +33,19 @@ const NewbiePopup = () => {
     <div className="popup-newbie-container">
       <img src={popupRed} className="popup-newbie-wrapper" />
       <div className="popup-newbie-content-wrapper">
-        <p className="popup-newbie-title">Chúc mừng bạn mới</p>
+        <p className="popup-newbie-title">
+          {isTicket ? data?.title : "Chúc mừng bạn mới"}
+        </p>
         <p className="popup-newbie-content">
-          Chào mừng bạn đã tham gia sân chơi Đại Sứ Siêu Trí Nhớ Học Đường. BTC
-          đã chuẩn bị và dành tặng cho bạn những món quà bất ngờ. Để nhận quà,
-          bạn hãy thực hiện ngay nhiệm vụ được giao theo hướng dẫn dưới đây
-          nhé!!!
+          {isTicket
+            ? data?.content
+            : "Chào mừng bạn đã tham gia sân chơi Đại Sứ Siêu Trí Nhớ Học Đường. BTC đã chuẩn bị và dành tặng cho bạn những món quà bất ngờ. Để nhận quà, bạn hãy thực hiện ngay nhiệm vụ được giao theo hướng dẫn dưới đây nhé!!!"}
         </p>
-        <p className="popup-newbie-subtitle">
-          TẢI APP TÂM TRÍ LỰC VÀ TRẢI NGHIỆM SIÊU TRÍ NHỚ HỌC ĐƯỜNG
-        </p>
+        {isTicket ? null : (
+          <p className="popup-newbie-subtitle">
+            TẢI APP TÂM TRÍ LỰC VÀ TRẢI NGHIỆM SIÊU TRÍ NHỚ HỌC ĐƯỜNG
+          </p>
+        )}
       </div>
       <div className="newbie-icon-wrapper">
         <div
@@ -50,6 +53,10 @@ const NewbiePopup = () => {
           onClick={() => {
             SlideInModal.hide()
             setTimeout(() => {
+              if (isTicket) {
+                history.push("/gifts")
+                return
+              }
               history.push("/inviter")
             }, 200)
           }}

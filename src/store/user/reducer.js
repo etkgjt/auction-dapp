@@ -7,7 +7,8 @@ export const types = {
   SET_USER_DATA: "SuperSchoolMemory/user/SET_USER_DATA",
   SET_LOADING: "SuperSchoolMemory/user/SET_LOADING",
   SET_IS_SHOWED_NEWBIE: "SET_IS_SHOWED_NEWBIE",
-  CLEAR_DATA: "common/user/CLEAR_DATA"
+  CLEAR_DATA: "common/user/CLEAR_DATA",
+  SET_IS_SHOWED_POPUP_DRAW_EVENT: "SET_IS_SHOWED_POPUP_DRAW_EVENT"
 }
 
 export const actions = {
@@ -15,14 +16,16 @@ export const actions = {
   setInfoData: createAction(types.SET_USER_DATA),
   getInfoUser: createAction(types.GET_INFO_USER),
   setIsShowPopuoNewBie: createAction(types.SET_IS_SHOWED_NEWBIE),
-  clearData: createAction(types.CLEAR_DATA)
+  clearData: createAction(types.CLEAR_DATA),
+  setIsShowPopupDrawEvent: createAction(types.SET_IS_SHOWED_POPUP_DRAW_EVENT)
 }
 
 const defaultState = {
   userData: {},
   loading: false,
   error: "",
-  isShowedPopupNewbie: false
+  isShowedPopupNewbie: false,
+  iShowPopupDrawEvent: false
 }
 
 const UserReducer = handleActions(
@@ -38,6 +41,9 @@ const UserReducer = handleActions(
     },
     [types.CLEAR_DATA]: (state, { payload }) => {
       return { ...defaultState }
+    },
+    [types.SET_IS_SHOWED_POPUP_DRAW_EVENT]: (state, { payload }) => {
+      return { ...state, iShowPopupDrawEvent: payload }
     }
   },
   defaultState

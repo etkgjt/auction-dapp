@@ -123,7 +123,7 @@ $value_eight: 1910px;
               padding: 5px;
               .gifts-item-image {
                 height: 55px;
-                aspect-ratio: 1;
+                width: 55px;
                 border-radius: 10px;
                 margin-right: 8px;
                 padding: 6px;
@@ -167,7 +167,7 @@ $value_eight: 1910px;
           .ticket-right {
             background-size: 1px 12px;
             border-radius: 10px;
-
+            width: 85px;
             & > p {
               font-size: 11px;
               line-height: 13px;

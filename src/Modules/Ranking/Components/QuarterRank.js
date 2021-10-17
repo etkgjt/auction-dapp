@@ -1,29 +1,30 @@
-import React, { useState } from "react";
-import goldRank from "../assets/images/gold.png";
-import silverRank from "../assets/images/silver.png";
-import diamondRank from "../assets/images/diamond.png";
-import rank1 from "../assets/images/rank1.png";
-import rank2 from "../assets/images/rank2.png";
-import rank3 from "../assets/images/rank3.png";
+import React, { useState } from "react"
+import goldRank from "../assets/images/gold.png"
+import silverRank from "../assets/images/silver.png"
+import diamondRank from "../assets/images/diamond.png"
+import rank1 from "../assets/images/rank1.png"
+import rank2 from "../assets/images/rank2.png"
+import rank3 from "../assets/images/rank3.png"
 
-import { SeemoreButton, RankingTopBannerTitle, CoinIcon } from "../assets/icon";
-import { Col, Row, Collapse } from "reactstrap";
-import AsyncImage from "../../../components/AsyncImage";
-import moment from "moment";
+import { SeemoreButton, RankingTopBannerTitle, CoinIcon } from "../assets/icon"
+import { Col, Row, Collapse } from "reactstrap"
+import AsyncImage from "../../../components/AsyncImage"
+import moment from "moment"
+import defaultAvatar from "../../../assets/images/default-avatar.jpg"
 
-const isServer = typeof window === "undefined";
-const WOW = !isServer ? require("wowjs") : null;
+const isServer = typeof window === "undefined"
+const WOW = !isServer ? require("wowjs") : null
 const YearRank = ({ data = [] }) => {
-  const [isCollapse, setIsCollapse] = useState(false);
+  const [isCollapse, setIsCollapse] = useState(false)
   React.useEffect(() => {
     new WOW.WOW({
       boxClass: "wow",
       animateClass: "animated",
       offset: 20,
       mobile: true,
-      live: true,
-    }).init();
-  }, []);
+      live: true
+    }).init()
+  }, [])
   return (
     <div className="ranking1-container">
       <div className="ranking-top-banner-title">
@@ -34,7 +35,10 @@ const YearRank = ({ data = [] }) => {
         Năm {moment().year()}
       </div>
       <div className="medal-container">
-        <Row className="row-medal-container">
+        <Row
+          className="row-medal-container"
+          style={{ border: "1px solid #f16c1c" }}
+        >
           <Col xl="3" lg="3" md="3" sm="3" xs="3">
             <div
               className="medal-item-wrapper wow animate__bounceInUp"
@@ -48,7 +52,7 @@ const YearRank = ({ data = [] }) => {
                     className="diamond-medal-image"
                   />
                   <AsyncImage
-                    src={data[1]?.avatar}
+                    src={data[1]?.avatar || defaultAvatar}
                     className="top-2-avatar"
                     placeholderClassName="top-2-avatar-loading"
                   />
@@ -56,12 +60,16 @@ const YearRank = ({ data = [] }) => {
                 </div>
               </div>
               <div className="medal-info-wrapper">
-                <p className="medal-name">{data[1]?.childFullName1}</p>
+                <p className="medal-name">
+                  {data[1]?.childFullName1 || "Hạng Nhì"}
+                </p>
                 {data[1]?.level?.name && data[1]?.quarterYearPoint ? (
-                  <span className="d-flex flex-row">
+                  <span className="d-flex flex-row justify-content-center">
                     <p className="medal-level">{`${
-                      data[1]?.level?.name || "Hạng Nhì"
-                    } | ${data[1]?.quarterYearPoint || ""}K`}</p>
+                      data[1]?.inviteUserCount
+                        ? "Cấp " + data[1]?.inviteUserCount + " | "
+                        : ""
+                    }  ${data[1]?.quarterYearPoint || ""}K`}</p>
                     <CoinIcon />
                   </span>
                 ) : null}
@@ -76,7 +84,7 @@ const YearRank = ({ data = [] }) => {
               <div className="medal-image-wrapper">
                 <div className="gold-medal-image-wrapper">
                   <AsyncImage
-                    src={data[0]?.avatar}
+                    src={data[0]?.avatar || defaultAvatar}
                     className="top-1-avatar"
                     placeholderClassName="top-1-avatar-loading"
                   />
@@ -89,12 +97,16 @@ const YearRank = ({ data = [] }) => {
                 </div>
               </div>
               <div className="gold-medal-info-wrapper">
-                <p className="medal-name">{data[0]?.childFullName1}</p>
+                <p className="medal-name">
+                  {data[0]?.childFullName1 || "Hạng Nhất"}
+                </p>
                 {data[0]?.level?.name && data[0]?.quarterYearPoint ? (
-                  <span className="d-flex flex-row">
+                  <span className="d-flex flex-row justify-content-center">
                     <p className="medal-level">{`${
-                      data[0]?.level?.name || "Hạng Nhất"
-                    } | ${data[0]?.quarterYearPoint || ""}K`}</p>
+                      data[0]?.inviteUserCount
+                        ? "Cấp " + data[0]?.inviteUserCount + " | "
+                        : ""
+                    }  ${data[0]?.quarterYearPoint || ""}K`}</p>
                     <CoinIcon />
                   </span>
                 ) : null}
@@ -109,7 +121,7 @@ const YearRank = ({ data = [] }) => {
               <div className="medal-image-wrapper">
                 <div className="silver-medal-image-wrapper">
                   <AsyncImage
-                    src={data[2]?.avatar}
+                    src={data[2]?.avatar || defaultAvatar}
                     className="top-2-avatar"
                     placeholderClassName="top-2-avatar-loading"
                   />
@@ -126,10 +138,12 @@ const YearRank = ({ data = [] }) => {
                   {data[2]?.childFullName1 || "Hạng Ba"}
                 </p>
                 {data[2]?.level?.name && data[2]?.quarterYearPoint ? (
-                  <span className="d-flex flex-row">
+                  <span className="d-flex flex-row justify-content-center">
                     <p className="medal-level">{`${
-                      data[2]?.level?.name || ""
-                    } | ${data[2]?.quarterYearPoint || ""}K`}</p>
+                      data[2]?.inviteUserCount
+                        ? "Cấp " + data[2]?.inviteUserCount + " | "
+                        : ""
+                    }${data[2]?.quarterYearPoint || ""}K`}</p>
                     <CoinIcon />
                   </span>
                 ) : null}
@@ -147,15 +161,13 @@ const YearRank = ({ data = [] }) => {
                       <h1 className="rank-item__index">{index + 1}</h1>
                       <div className="rank-item_avatar-wrapper">
                         <AsyncImage
-                          src={item?.avatar}
+                          src={item?.avatar || defaultAvatar}
                           className="rank-item_avatar"
                           placeholderClassName="rank-item_avatar-loading"
                         />
                       </div>
                       <div className="rank-item__info-wrapper">
-                        <p className="rank-item__level">{`${
-                          item?.level?.name || ""
-                        }`}</p>
+                        <p className="rank-item__level">{`Cấp ${item?.inviteUserCount}`}</p>
                         <p className="rank-item__name">
                           {item?.childFullName1}
                         </p>
@@ -165,7 +177,7 @@ const YearRank = ({ data = [] }) => {
                         </span>
                       </div>
                     </div>
-                  ) : null;
+                  ) : null
                 })}
               </Col>
               <Col xl="6" lg="6" md="6" sm="6" xs="6">
@@ -175,15 +187,13 @@ const YearRank = ({ data = [] }) => {
                       <h1 className="rank-item__index">{index + 1}</h1>
                       <div className="rank-item_avatar-wrapper">
                         <AsyncImage
-                          src={item?.avatar}
+                          src={item?.avatar || defaultAvatar}
                           className="rank-item_avatar"
                           placeholderClassName="rank-item_avatar-loading"
                         />
                       </div>
                       <div className="rank-item__info-wrapper">
-                        <p className="rank-item__level">{`${
-                          item?.level?.name || ""
-                        }`}</p>
+                        <p className="rank-item__level">{`Cấp ${item?.inviteUserCount}`}</p>
                         <p className="rank-item__name">
                           {item?.childFullName1}
                         </p>
@@ -193,7 +203,7 @@ const YearRank = ({ data = [] }) => {
                         </span>
                       </div>
                     </div>
-                  ) : null;
+                  ) : null
                 })}
               </Col>
             </Row>
@@ -208,7 +218,7 @@ const YearRank = ({ data = [] }) => {
           <SeemoreButton />
           <div
             style={{
-              position: "relative",
+              position: "relative"
             }}
           >
             <p className="seemore-button-text">
@@ -218,6 +228,6 @@ const YearRank = ({ data = [] }) => {
         </div>
       ) : null}
     </div>
-  );
-};
-export default YearRank;
+  )
+}
+export default YearRank
