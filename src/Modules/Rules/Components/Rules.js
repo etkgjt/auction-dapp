@@ -175,9 +175,8 @@ const Rules = ({ setIsOpen }) => {
                 </div>
                 <div
                   className="rules-detail__content"
-                  dangerouslySetInnerHTML={{ __html: rules?.value }}
+                  dangerouslySetInnerHTML={{ __html: rulesHeader?.value }}
                 ></div>
-
                 <div
                   className="rules-details-button-wrapper"
                   onClick={() => setIsOpen(true)}

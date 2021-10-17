@@ -118,7 +118,7 @@
           transition: transform 0.2s ease-in-out;
         }
 
-        &>p {
+        & > p {
           font-style: normal;
           font-weight: bold;
           font-size: 18px;
@@ -144,7 +144,7 @@
       }
 
       .rules-details_list {
-        &>li {
+        & > li {
           font-size: 24px;
           line-height: 28px;
           font-weight: 800;
@@ -158,14 +158,14 @@
             font-weight: 500;
           }
 
-          &>div {
+          & > div {
             font-size: 18px;
             line-height: 26px;
             font-weight: 500;
             color: #1e3d74;
           }
 
-          &>ul>li {
+          & > ul > li {
             list-style: disc;
             font-size: 18px;
             line-height: 26px;
@@ -202,7 +202,7 @@
             line-height: 28px;
             font-weight: 800;
             color: #1e3d74;
-            list-style: decimal;
+            list-style: none;
             padding-left: 0;
             margin-top: 20px;
           }
@@ -221,7 +221,7 @@
           }
         }
 
-        ul>li>ul {
+        ul > li > ul {
           padding-left: 26px;
         }
       }

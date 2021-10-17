@@ -109,6 +109,8 @@ $value_eight: 1910px;
 
           .rules-content {
             ul {
+              list-style: none;
+              font-size: 11px;
               li {
                 list-style-type: disc;
                 font-size: 11px;
@@ -122,7 +124,7 @@ $value_eight: 1910px;
                 line-height: 15px;
                 font-weight: 800;
                 color: #1e3d74;
-                list-style: decimal;
+                list-style: none;
                 padding-left: 0;
                 margin-top: 20px;
               }

@@ -82,7 +82,7 @@ const Rules = () => {
               <img src={banner} alt="banner" className="rule-top-banner" />
               <div
                 className="rules-content"
-                dangerouslySetInnerHTML={{ __html: rules?.description }}
+                dangerouslySetInnerHTML={{ __html: rules?.value }}
               />
               <div className="seemore-button" onClick={onSeemorePress}>
                 <ButtonSvg />
