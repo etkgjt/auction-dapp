@@ -311,7 +311,7 @@
   background: #FFFFFF;
   border-radius: 20px;
   width: 388px;
-  height: 147px;
+  height: 165px;
   display: flex;
   align-items: center;
   user-select: none;
@@ -385,6 +385,11 @@
         justify-content: center;
       }
 
+    }
+
+    .popup-download-content-wrapper__error {
+      color: #ff4d4f;
+      margin-top: 5px;
     }
   }
 
