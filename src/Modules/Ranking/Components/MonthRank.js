@@ -1,23 +1,24 @@
-import React, { useState } from "react";
-import goldRank from "../assets/images/gold.png";
-import silverRank from "../assets/images/silver.png";
-import diamondRank from "../assets/images/diamond.png";
-import rank1 from "../assets/images/rank1.png";
-import rank2 from "../assets/images/rank2.png";
-import rank3 from "../assets/images/rank3.png";
+import React, { useState } from "react"
+import goldRank from "../assets/images/gold.png"
+import silverRank from "../assets/images/silver.png"
+import diamondRank from "../assets/images/diamond.png"
+import rank1 from "../assets/images/rank1.png"
+import rank2 from "../assets/images/rank2.png"
+import rank3 from "../assets/images/rank3.png"
 
-import { SeemoreButton, CoinIcon } from "../assets/icon";
-import { Col, Row, Collapse } from "reactstrap";
-import AsyncImage from "../../../components/AsyncImage";
-import moment from "moment";
-import { useMediaQuery } from "react-responsive";
+import { SeemoreButton, CoinIcon } from "../assets/icon"
+import { Col, Row, Collapse } from "reactstrap"
+import AsyncImage from "../../../components/AsyncImage"
+import moment from "moment"
+import { useMediaQuery } from "react-responsive"
+import defaultAvatar from "../../../assets/images/default-avatar.jpg"
 
-const isServer = typeof window === "undefined";
-const WOW = !isServer ? require("wowjs") : null;
+const isServer = typeof window === "undefined"
+const WOW = !isServer ? require("wowjs") : null
 
 const QuaterRank = ({ topLabel, data = [] }) => {
-  const [isCollapse, setIsCollapse] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const [isCollapse, setIsCollapse] = useState(false)
+  const isMobile = useMediaQuery({ maxWidth: 767 })
 
   React.useEffect(() => {
     new WOW.WOW({
@@ -25,9 +26,9 @@ const QuaterRank = ({ topLabel, data = [] }) => {
       animateClass: "animated",
       offset: 20,
       mobile: true,
-      live: true,
-    }).init();
-  }, []);
+      live: true
+    }).init()
+  }, [])
 
   return (
     <div className="ranking2-container">
@@ -44,7 +45,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
               <div className="medal-image-wrapper">
                 <div className="diamond-medal-image-wrapper">
                   <AsyncImage
-                    src={data[1]?.avatar}
+                    src={data[1]?.avatar || defaultAvatar}
                     className="top-2-avatar"
                     placeholderClassName="top-2-avatar-loading"
                   />
@@ -79,7 +80,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
               <div className="medal-image-wrapper">
                 <div className="gold-medal-image-wrapper">
                   <AsyncImage
-                    src={data[0]?.avatar}
+                    src={data[0]?.avatar || defaultAvatar}
                     className="top-1-avatar"
                     placeholderClassName="top-1-avatar-loading"
                   />
@@ -114,7 +115,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
               <div className="medal-image-wrapper">
                 <div className="silver-medal-image-wrapper">
                   <AsyncImage
-                    src={data[1]?.avatar}
+                    src={data[1]?.avatar || defaultAvatar}
                     className="top-2-avatar"
                     placeholderClassName="top-2-avatar-loading"
                   />
@@ -151,7 +152,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                     <h1 className="rank-item__index">{index + 1}</h1>
                     <div className="rank-item_avatar-wrapper">
                       <AsyncImage
-                        src={item?.avatar}
+                        src={item?.avatar || defaultAvatar}
                         className="rank-item_avatar"
                         placeholderClassName="rank-item_avatar-loading"
                       />
@@ -167,7 +168,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                       </span>
                     </div>
                   </div>
-                ) : null;
+                ) : null
               })}
             </Col>
             <Col xl="6" lg="6" md="6">
@@ -177,7 +178,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                     <h1 className="rank-item__index">{index + 1}</h1>
                     <div className="rank-item_avatar-wrapper">
                       <AsyncImage
-                        src={item?.avatar}
+                        src={item?.avatar || defaultAvatar}
                         className="rank-item_avatar"
                         placeholderClassName="rank-item_avatar-loading"
                       />
@@ -193,7 +194,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
                       </span>
                     </div>
                   </div>
-                ) : null;
+                ) : null
               })}
             </Col>
           </Row>
@@ -207,7 +208,7 @@ const QuaterRank = ({ topLabel, data = [] }) => {
           <SeemoreButton />
           <div
             style={{
-              position: "relative",
+              position: "relative"
             }}
           >
             <p className="seemore-button-text">
@@ -217,6 +218,6 @@ const QuaterRank = ({ topLabel, data = [] }) => {
         </div>
       ) : null}
     </div>
-  );
-};
-export default QuaterRank;
+  )
+}
+export default QuaterRank

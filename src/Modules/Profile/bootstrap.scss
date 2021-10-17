@@ -38,7 +38,7 @@
         position: relative;
         margin-top: 26px;
 
-        &>svg {
+        & > svg {
           max-height: 100px;
         }
 
@@ -95,7 +95,7 @@
         position: relative;
         cursor: pointer;
 
-        &>svg {
+        & > svg {
           max-width: 250px;
           max-height: 50px;
         }
@@ -195,7 +195,7 @@
           flex-direction: column;
           align-items: center;
 
-          &>h1 {
+          & > h1 {
             font-weight: bold;
             font-size: 24px;
             line-height: 30px;
@@ -249,6 +249,17 @@
               background: #c4c4c4;
               border: 3px solid #fff;
               margin-right: 16px;
+              box-sizing: border-box;
+              .friendlist-item-avatar-loading {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+              }
+              .friendlist-item-avatar-image {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+              }
             }
 
             .friendlist-item-info {
@@ -270,7 +281,7 @@
                 line-height: 24px;
                 color: #ffc61a;
 
-                &>svg {
+                & > svg {
                   margin-left: 6px;
                 }
               }
@@ -308,7 +319,7 @@
           right: 10px;
           cursor: pointer;
 
-          &>svg {
+          & > svg {
             max-width: 46px;
             max-height: 46px;
           }
@@ -345,7 +356,7 @@
         }
 
         .copy-field {
-          &>p {
+          & > p {
             font-style: normal;
             font-weight: 500;
             font-size: 15px;
@@ -486,7 +497,7 @@
     transform: translate(-50%, -70%);
     user-select: none;
 
-    &>p {
+    & > p {
       font-weight: bold;
       font-size: 16px;
       line-height: 20px;
