@@ -1,1 +1,0 @@
-{"version":3,"sources":["Modules/Ambassador/configs/api.js"],"names":["GET_DOWNLOAD_LINK"],"mappings":"qIAAA,OAAe,WACbA,kBAAmB","file":"static/js/Ambassador-configs-api.c7e18475.chunk.js","sourcesContent":["export default {\r\n  GET_DOWNLOAD_LINK: \"/vi-VN/WebsiteSTNHD/ShareInfo\"\r\n}\r\n"],"sourceRoot":""}

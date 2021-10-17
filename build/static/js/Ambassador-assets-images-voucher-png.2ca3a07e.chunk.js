@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[206],{549:function(t,i,a){"use strict";a.r(i),i.default=a.p+"static/media/voucher.49968030.png"}}]);
-//# sourceMappingURL=Ambassador-assets-images-voucher-png.2ca3a07e.chunk.js.map
