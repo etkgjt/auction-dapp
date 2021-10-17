@@ -1,79 +1,91 @@
-import React, { useRef, useState } from "react";
-import { Row, Col, Container } from "reactstrap";
+import React, { useRef, useState } from "react"
+import { Row, Col, Container } from "reactstrap"
 import {
   RulesTopBannerTitle,
   CalendarIcon,
   FacebookIcon,
   YoutubeIcon,
-  DetailButton,
-} from "../assets/icon";
+  DetailButton
+} from "../assets/icon"
 
-import coinIcon from "../assets/images/coin-icon.png";
+import coinIcon from "../assets/images/coin-icon.png"
 
 import {
   getListLoadingSelector,
-  getListSelector,
-} from "../../Home/Store/Rules/selector";
-import { actions } from "../../Home/Store/Rules/reducer";
-import { useDispatch, useSelector } from "react-redux";
+  getListSelector
+} from "../../Home/Store/Rules/selector"
+import { actions } from "../../Home/Store/Rules/reducer"
+import { useDispatch, useSelector } from "react-redux"
 
-import { actions as calendarActions } from "../Store/EventCalendar/reducer";
+import { actions as calendarActions } from "../Store/EventCalendar/reducer"
 import {
   getListSelector as getCalendar,
-  getListLoadingSelector as getCalendarLoading,
-} from "../Store/EventCalendar/selector";
-import { useMediaQuery } from "react-responsive";
-import calendarImg from "../assets/images/calendar.png";
-import moment from "moment";
+  getListLoadingSelector as getCalendarLoading
+} from "../Store/EventCalendar/selector"
 
-import table1 from "../assets/images/table1.png";
-import bangtuan from "../assets/images/bangtuan.png";
-import bangquy from "../assets/images/bangquy.png";
-import bangthang from "../assets/images/bangthang.png";
-import gifts from "../assets/images/gifts.png";
+import { actions as rulesHeaderActions } from "../Store/RulesHeader/reducer"
+import { actions as rulesCenterActions } from "../Store/RulesCenter/reducer"
+import { actions as rulesFooterActions } from "../Store/RulesFooter/reducer"
+
+import { getListSelector as getRulesHeaderSelector } from "../Store/RulesHeader/selector"
+import { getListSelector as getRulesCenterSelector } from "../Store/RulesCenter/selector"
+import { getListSelector as getRulesFooterSelector } from "../Store/RulesFooter/selector"
+
+import { useMediaQuery } from "react-responsive"
+import calendarImg from "../assets/images/calendar.png"
+import moment from "moment"
+
+import table1 from "../assets/images/table1.png"
+import bangtuan from "../assets/images/bangtuan.png"
+import bangquy from "../assets/images/bangquy.png"
+import bangthang from "../assets/images/bangthang.png"
+import gifts from "../assets/images/gifts.png"
 
 const getEndFridayOfMonth = () => {
-  const result = moment().endOf("month");
+  const result = moment().endOf("month")
   while (result.day() !== 4) {
-    result.subtract(1, "day");
+    result.subtract(1, "day")
   }
-  return result;
-};
+  return result
+}
 
 const Rules = ({ setIsOpen }) => {
-  const dispatch = useDispatch();
-  const isMobile = useMediaQuery({ maxWidth: 767 });
-  const rules = useSelector(getListSelector);
-  const rulesLoading = useSelector(getListLoadingSelector);
+  const dispatch = useDispatch()
+  const isMobile = useMediaQuery({ maxWidth: 767 })
+  const rules = useSelector(getListSelector)
+  const calendar = useSelector(getCalendar)
 
-  const calendar = useSelector(getCalendar);
-  const calendarLoading = useSelector(getCalendarLoading);
+  const rulesHeader = useSelector(getRulesHeaderSelector)
+  const rulesCenter = useSelector(getRulesCenterSelector)
+  const rulesFooter = useSelector(getRulesFooterSelector)
 
-  const calendarRef = useRef();
-  const rulesRef = useRef();
+  const calendarRef = useRef()
+  const rulesRef = useRef()
 
   const stickyCalendar = (e) => {
-    if (isMobile) return;
+    if (isMobile) return
     if (window.scrollY > rulesRef?.current?.offsetTop && calendarRef?.current) {
-      calendarRef.current.style.position = "fixed";
-      calendarRef.current.style.top = 0;
+      calendarRef.current.style.position = "fixed"
+      calendarRef.current.style.top = 0
     } else {
-      calendarRef.current.style.position = "static";
+      calendarRef.current.style.position = "static"
     }
-  };
+  }
 
   React.useEffect(() => {
-    dispatch(actions.getList());
-    dispatch(calendarActions.getList());
-  }, []);
+    dispatch(actions.getList())
+    dispatch(calendarActions.getList())
+    dispatch(rulesHeaderActions.getList())
+    dispatch(rulesCenterActions.getList())
+    dispatch(rulesFooterActions.getList())
+  }, [])
 
   React.useEffect(() => {
-    window.addEventListener("scroll", stickyCalendar);
+    window.addEventListener("scroll", stickyCalendar)
     return () => {
-      window.removeEventListener("scroll", stickyCalendar);
-    };
-  }, []);
-
+      window.removeEventListener("scroll", stickyCalendar)
+    }
+  }, [])
   return (
     <div className="rules-area">
       <Row>
@@ -101,7 +113,7 @@ const Rules = ({ setIsOpen }) => {
                     </div>
                   </Col>
                   <Col sm="6" xs="7">
-                    <h1 className="calendar-title">Lịch Sự Kiên</h1>
+                    <h1 className="calendar-title">Lịch Sự Kiện</h1>
                     <p className="calendar-text-black">
                       VÒNG QUAY MAY MẮN
                       <br /> được tổ chức vào
@@ -112,10 +124,7 @@ const Rules = ({ setIsOpen }) => {
                 <span
                   className="social-link"
                   onClick={() => {
-                    window.open(
-                      "https://www.facebook.com/tamtriluc/",
-                      "_blank"
-                    );
+                    window.open("https://www.facebook.com/tamtriluc/", "_blank")
                   }}
                 >
                   <FacebookIcon size={14} />
@@ -127,7 +136,7 @@ const Rules = ({ setIsOpen }) => {
                     window.open(
                       "https://www.facebook.com/nguyenphungphongvn",
                       "_blank"
-                    );
+                    )
                   }}
                 >
                   <FacebookIcon size={14} />
@@ -139,7 +148,7 @@ const Rules = ({ setIsOpen }) => {
                     window.open(
                       "https://www.youtube.com/channel/UCM0bv1L91C8-z71gAzrLBCQ",
                       "_blank"
-                    );
+                    )
                   }}
                 >
                   <YoutubeIcon size={14} />
@@ -151,7 +160,7 @@ const Rules = ({ setIsOpen }) => {
                     window.open(
                       "https://www.youtube.com/channel/UC-VY_kqMNBaTvMmDYFdUt-A",
                       "_blank"
-                    );
+                    )
                   }}
                 >
                   <YoutubeIcon size={14} />
@@ -178,69 +187,10 @@ const Rules = ({ setIsOpen }) => {
                     Xem Video hướng dẫn
                   </span>
                 </div>
-                <div className="rules-detail__content">
-                  <ul style={{ color: "#1E3D74" }}>
-                    <li className="rule-title">Cách thức tính điểm</li>
-                    <div>
-                      Với 1 lượt học viên được mời thành công tham gia chương
-                      trình, các bạn sẽ nhận được 1K. Ngoài ra, bạn còn nhận
-                      được điểm thưởng từ một số hoạt động khác:{" "}
-                    </div>
-                    <h4>Bảng cộng điểm thành tích</h4>
-                    <img
-                      src={table1}
-                      style={{ width: "100%", height: "auto" }}
-                    />
-                    <h4>BẢNG CỘNG ĐIỂM THÀNH TÍCH THEO TUẦN, THÁNG, NĂM</h4>
-                    <Row>
-                      <Col xl="4" lg="4" md="4" sm="4" xs="4">
-                        <div>
-                          <h4>BXH Tuần</h4>
-                          <img
-                            src={bangtuan}
-                            style={{ width: "100%", height: "auto" }}
-                          />
-                        </div>
-                      </Col>
-                      <Col xl="4" lg="4" md="4" sm="4" xs="4">
-                        <div>
-                          <h4>BXH THÁNG</h4>
-                          <img
-                            src={bangthang}
-                            style={{ width: "100%", height: "auto" }}
-                          />
-                        </div>
-                      </Col>
-                      <Col xl="4" lg="4" md="4" sm="4" xs="4">
-                        <div>
-                          <h4>BXH QUÝ</h4>
-                          <img
-                            src={bangquy}
-                            style={{ width: "100%", height: "auto" }}
-                          />
-                        </div>
-                      </Col>
-                    </Row>
-                    <li className="rule-title">Giải thưởng</li>
-                    <div>E-Voucher 100K khi đăng ký thành công tài khoản </div>
-                    <div>Các giải thưởng khi tích lũy:</div>
-                    <Row className="d-flex flex-row justify-content-center mt-2">
-                      <Col xl="10" lg="10" md="10" sm="10" xs="10">
-                        <img src={gifts} width="100%" height="auto" />
-                      </Col>
-                    </Row>
-                    <div style={{ color: "#F68317", marginTop: 10 }}>
-                      Lưu ý: 1K Coin (Coin là số tiền bạn của bạn khi tham gia
-                      Chương trình) = 1.000 VNĐ
-                    </div>
-                    <div style={{ marginTop: 10 }}>
-                      Giải thưởng trị giá 5.000.000đ dành cho người tham gia may
-                      mắn trong Chương trình VÒNG QUAY MAY MẮN - chương trình
-                      nằm trong khuôn khổ Đại Sứ Siêu Trí Nhớ Học Đường được tổ
-                      chức vào 21h ngày thứ 5 cuối cùng mỗi tháng.
-                    </div>
-                  </ul>
-                </div>
+                <div
+                  className="rules-detail__content"
+                  dangerouslySetInnerHTML={{ __html: rulesFooter?.value }}
+                ></div>
               </div>
             </Col>
           </>
@@ -253,7 +203,7 @@ const Rules = ({ setIsOpen }) => {
                 </div>
                 <div
                   className="rules-detail__content"
-                  dangerouslySetInnerHTML={{ __html: rules?.value }}
+                  dangerouslySetInnerHTML={{ __html: rulesHeader?.value }}
                 ></div>
                 <div
                   className="rules-details-button-wrapper"
@@ -264,69 +214,10 @@ const Rules = ({ setIsOpen }) => {
                     Xem Video hướng dẫn
                   </span>
                 </div>
-                <div className="rules-detail__content">
-                  <ul style={{ color: "#1E3D74" }}>
-                    <li className="rule-title">Cách thức tính điểm</li>
-                    <div>
-                      Với 1 lượt học viên được mời thành công tham gia chương
-                      trình, các bạn sẽ nhận được 1K. Ngoài ra, bạn còn nhận
-                      được điểm thưởng từ một số hoạt động khác:{" "}
-                    </div>
-                    <h4>Bảng cộng điểm thành tích</h4>
-                    <img
-                      src={table1}
-                      style={{ width: "100%", height: "auto" }}
-                    />
-                    <h4>BẢNG CỘNG ĐIỂM THÀNH TÍCH THEO TUẦN, THÁNG, NĂM</h4>
-                    <Row>
-                      <Col xl="4" lg="4" md="4" sm="4" xs="4">
-                        <div>
-                          <h4>BXH Tuần</h4>
-                          <img
-                            src={bangtuan}
-                            style={{ width: "100%", height: "auto" }}
-                          />
-                        </div>
-                      </Col>
-                      <Col xl="4" lg="4" md="4" sm="4" xs="4">
-                        <div>
-                          <h4>BXH THÁNG</h4>
-                          <img
-                            src={bangthang}
-                            style={{ width: "100%", height: "auto" }}
-                          />
-                        </div>
-                      </Col>
-                      <Col xl="4" lg="4" md="4" sm="4" xs="4">
-                        <div>
-                          <h4>BXH QUÝ</h4>
-                          <img
-                            src={bangquy}
-                            style={{ width: "100%", height: "auto" }}
-                          />
-                        </div>
-                      </Col>
-                    </Row>
-                    <li className="rule-title">Giải thưởng</li>
-                    <div>E-Voucher 100K khi đăng ký thành công tài khoản </div>
-                    <div>Các giải thưởng khi tích lũy:</div>
-                    <Row className="d-flex flex-row justify-content-center mt-2">
-                      <Col xl="10" lg="10" md="10" sm="10" xs="10">
-                        <img src={gifts} width="100%" height="auto" />
-                      </Col>
-                    </Row>
-                    <div style={{ color: "#F68317", marginTop: 10 }}>
-                      Lưu ý: 1K Coin (Coin là số tiền bạn của bạn khi tham gia
-                      Chương trình) = 1.000 VNĐ
-                    </div>
-                    <div style={{ marginTop: 10 }}>
-                      Giải thưởng trị giá 5.000.000đ dành cho người tham gia may
-                      mắn trong Chương trình VÒNG QUAY MAY MẮN - chương trình
-                      nằm trong khuôn khổ Đại Sứ Siêu Trí Nhớ Học Đường được tổ
-                      chức vào 21h ngày thứ 5 cuối cùng mỗi tháng.
-                    </div>
-                  </ul>
-                </div>
+                <div
+                  className="rules-detail__content"
+                  dangerouslySetInnerHTML={{ __html: rulesFooter?.value }}
+                ></div>
               </div>
             </Col>
             <Col xl="5" lg="5" md="5" style={{ position: "relative" }}>
@@ -361,10 +252,7 @@ const Rules = ({ setIsOpen }) => {
                 <span
                   className="social-link"
                   onClick={() => {
-                    window.open(
-                      "https://www.facebook.com/tamtriluc/",
-                      "_blank"
-                    );
+                    window.open("https://www.facebook.com/tamtriluc/", "_blank")
                   }}
                 >
                   <FacebookIcon size={32} />
@@ -376,7 +264,7 @@ const Rules = ({ setIsOpen }) => {
                     window.open(
                       "https://www.facebook.com/nguyenphungphongvn",
                       "_blank"
-                    );
+                    )
                   }}
                 >
                   <FacebookIcon size={32} />
@@ -388,7 +276,7 @@ const Rules = ({ setIsOpen }) => {
                     window.open(
                       "https://www.youtube.com/channel/UCM0bv1L91C8-z71gAzrLBCQ",
                       "_blank"
-                    );
+                    )
                   }}
                 >
                   <YoutubeIcon size={32} />
@@ -400,7 +288,7 @@ const Rules = ({ setIsOpen }) => {
                     window.open(
                       "https://www.youtube.com/channel/UC-VY_kqMNBaTvMmDYFdUt-A",
                       "_blank"
-                    );
+                    )
                   }}
                 >
                   <YoutubeIcon size={32} />
@@ -412,6 +300,6 @@ const Rules = ({ setIsOpen }) => {
         )}
       </Row>
     </div>
-  );
-};
-export default Rules;
+  )
+}
+export default Rules

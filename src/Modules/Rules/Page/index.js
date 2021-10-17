@@ -8,9 +8,18 @@ import ModalVideo from "react-modal-video"
 
 import bgLeft from "../assets/images/bg-left.png"
 import bgRight from "../assets/images/bg-right.png"
+import { getListSelector } from "../Store/RulesCenter/selector"
+import { useSelector } from "react-redux"
+function youtubeParser(url) {
+  const regExp =
+    /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
+  const match = url.match(regExp)
+  return match && match[7].length === 11 ? match[7] : false
+}
 
 const Home = () => {
   const [isOpen, setIsOpen] = React.useState(false)
+  const rulesCenter = useSelector(getListSelector)
   React.useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -27,8 +36,8 @@ const Home = () => {
       <Banner />
       <Rules setIsOpen={setIsOpen} />
       <ModalVideo
-        channel="custom"
-        url="https://gdurl.com/nUNM/https://drive.google.com/file/d/1W2ew1GztKX24NEoWFTW0SnILGq0_Tw6t/view"
+        channel="youtube"
+        videoId={youtubeParser(rulesCenter?.value)}
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
       />

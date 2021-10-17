@@ -23,15 +23,6 @@ const FriendList = () => {
   const listFriend = useSelector(getListSelector)
   const listFriendLoading = useSelector(getListLoadingSelector)
 
-  const getFriendListWrapperWidth = () => {
-    const width = window.innerWidth
-    const paddingWidth = width * 0.84
-    return (paddingWidth / 12) * 6
-  }
-  const getFriendListWrapperHeight = () => {
-    const ratio = 558 / 949
-    return getFriendListWrapperWidth() / ratio
-  }
   useEffect(() => {
     dispatch(
       actions.getList({
@@ -53,7 +44,7 @@ const FriendList = () => {
       })
     )
   }
-  console.log(listFriend)
+
   return (
     <div className="profile-friendlist-area">
       <div className="profile-friendlist-container">

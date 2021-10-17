@@ -45,7 +45,7 @@ const Progress = () => {
 
       <div className="gifts-progress__button-wrapper" onClick={onVoicoinClick}>
         <ButtonWrapper />
-        <p className="gifts-progress__button-text">Nhận thêm voi Coin</p>
+        <p className="gifts-progress__button-text">Nhận thêm Voicoin</p>
       </div>
       <div className="gifts-progress__button-wrapper" onClick={onHistoryPress}>
         <ButtonWrapperBlue />

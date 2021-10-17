@@ -24,7 +24,7 @@ const BlankLayout = ({ children, ...rest }) => {
   const [isMounted, setIsMounted] = useState(false)
   const userData = useSelector(getUserData)
   const isLogin = useSelector(loginSuccessSelector)
-  const fetchDataUserAgain = async () => {
+  const fetchDataUserAgain = async (e) => {
     if (userData?.flagDaisu === 1) {
       dispatch(
         actions.getInfoUser({
@@ -45,10 +45,7 @@ const BlankLayout = ({ children, ...rest }) => {
   }, [])
 
   useEffect(() => {
-    window.addEventListener("beforeunload", fetchDataUserAgain)
-    return () => {
-      window.removeEventListener("beforeunload", fetchDataUserAgain)
-    }
+    fetchDataUserAgain()
   }, [])
   if (!isMounted) {
     return null
