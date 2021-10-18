@@ -39,8 +39,7 @@ const BlankLayout = ({ children, ...rest }) => {
     if (userData?.flagDaisu === 1) {
       dispatch(
         actions.getInfoUser({
-          userId: userData?.userId,
-          flagDaisu: 1
+          userId: userData?.userId
         })
       )
     } else {
