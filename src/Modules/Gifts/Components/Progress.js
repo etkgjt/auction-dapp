@@ -53,7 +53,7 @@ const Progress = () => {
       </div>
       <div className="gifts-progress__button-wrapper" onClick={onContactClick}>
         <ButtonWrapperWhite />
-        <p className="gifts-progress__button-text--red">Liên hện hỗ trợ</p>
+        <p className="gifts-progress__button-text--red">Liên hệ hỗ trợ</p>
       </div>
     </div>
   )

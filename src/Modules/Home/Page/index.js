@@ -60,7 +60,7 @@ const eventData = {
       {getEndFridayOfMonth().format(" DD/MM/YYYY")}
       , bạn sẽ có cơ hội
       <br /> tham gia VÒNG QUAY MAY MẮN <br /> và nhận ngay giải thưởng
-      <br /> trị giá 5.000.000đ."
+      <br /> trị giá 5.000.000đ.
     </>
   )
 }
