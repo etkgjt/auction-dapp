@@ -4,5 +4,6 @@ export default {
   GET_HOME_RULES: "/home/setting/rules",
   GET_HOME_RANK: "/User/GetTopPoint",
   GET_HOME_VOUCHER_LIST: "/giftcardall/list",
-  POST_REQUEST_GIFT: "/giftcard/request"
-}
+  POST_REQUEST_GIFT: "/giftcard/request",
+  GET_HOME_INTRO_DATA: "/home/setting/intruction",
+};

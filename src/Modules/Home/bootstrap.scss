@@ -30,7 +30,7 @@
       .bg__slider {
         min-height: 300px;
 
-        & > img {
+        &>img {
           width: 100%;
           height: auto;
           object-fit: cover;
@@ -95,7 +95,7 @@
           flex: 1;
           height: 100%;
 
-          & > span {
+          &>span {
             text-align: center;
             font-weight: bold;
             font-size: 15px;
@@ -131,6 +131,7 @@
         .rules-content {
           ul {
             list-style: none;
+
             li {
               list-style-type: disc;
               font-size: 15px;
@@ -154,7 +155,7 @@
             }
           }
 
-          ul > li > ul {
+          ul>li>ul {
             padding-left: 26px;
           }
         }
@@ -492,7 +493,7 @@
           border: 5px solid #f2f2f2;
           border-radius: 40px;
 
-          & > img {
+          &>img {
             width: 100%;
             height: 100%;
             border-radius: 40px;
@@ -528,6 +529,7 @@
       }
     }
   }
+
   .intro-wrapper {
     width: 790px;
     margin-left: auto;
@@ -544,32 +546,38 @@
       border-top-right-radius: 37px;
       padding-top: 20px;
       padding-bottom: 20px;
-      & > span {
+
+      &>span {
         font-size: 15px;
         line-height: 18px;
         font-weight: 500;
         color: #fff;
         text-align: center;
       }
-      & > h3 {
+
+      &>h3 {
         font-weight: 700;
         font-size: 20px;
         line-height: 24px;
         margin-bottom: 0px;
       }
     }
+
     .intro-bottom-side {
       display: flex;
       justify-content: center;
       padding-top: 12px;
       padding-bottom: 20px;
-      & > span {
+
+      &>span {
         color: #4a50ff;
         font-size: 10px;
         line-height: 12px;
         text-align: center;
+        max-width: 400px;
       }
     }
+
     .intro-image-1 {
       width: 116px;
       height: auto;
@@ -578,6 +586,7 @@
       bottom: 20px;
       animation: movebounce 5s linear infinite;
     }
+
     .intro-image-2 {
       width: 100px;
       height: auto;
@@ -587,6 +596,7 @@
       animation: movebounce 4s linear infinite;
       animation-delay: 2s;
     }
+
     .intro-image-3 {
       width: 110px;
       height: auto;
@@ -596,6 +606,7 @@
       animation: movebounce 5s linear infinite;
       animation-delay: 1s;
     }
+
     .intro-image-4 {
       width: 160px;
       height: auto;
@@ -630,7 +641,7 @@
     transform: translate(-50%, -50%);
     user-select: none;
 
-    & > p {
+    &>p {
       font-weight: bold;
       font-size: 24px;
       line-height: 36px;
@@ -639,7 +650,7 @@
       margin-top: 20px;
     }
 
-    & > h2 {
+    &>h2 {
       font-weight: bold;
       font-size: 30px;
       line-height: 36px;
@@ -672,13 +683,11 @@
 }
 
 .popup-voucher-container {
-  background: linear-gradient(
-    0deg,
-    #ea5023 1.16%,
-    #f16c1c 24.33%,
-    #f57d18 58.62%,
-    #f68317.59%
-  );
+  background: linear-gradient(0deg,
+      #ea5023 1.16%,
+      #f16c1c 24.33%,
+      #f57d18 58.62%,
+      #f68317.59%);
   border: 5px solid #f2f2f2;
   border-radius: 40px;
   position: relative;
@@ -797,7 +806,7 @@
     transform: translate(-50%, 0%);
     min-width: 60%;
 
-    & > div {
+    &>div {
       font-style: normal;
       font-weight: bold;
       font-size: 18px;
@@ -807,7 +816,7 @@
       margin-bottom: 20px;
     }
 
-    & > p {
+    &>p {
       font-style: normal;
       font-weight: bold;
       font-size: 16px;
