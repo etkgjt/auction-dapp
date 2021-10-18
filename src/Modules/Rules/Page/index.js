@@ -16,6 +16,18 @@ function youtubeParser(url = "") {
   const match = url.match(regExp)
   return match && match[7].length === 11 ? match[7] : false
 }
+const matchYoutubeUrl = (url) => {
+    try{
+        const p =
+            /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+        if (url.match(p)) {
+            return url.match(p)[1];
+        }
+        return false;
+    }catch (e){
+        return false
+    }
+};
 
 const Home = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -35,12 +47,20 @@ const Home = () => {
       />
       <Banner />
       <Rules setIsOpen={setIsOpen} />
-      <ModalVideo
-        channel="youtube"
-        videoId={youtubeParser(rulesCenter?.value)}
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-      />
+        {
+            matchYoutubeUrl(rulesCenter?.value) ? <ModalVideo
+                channel="youtube"
+                videoId={youtubeParser(rulesCenter?.value)}
+                isOpen={isOpen}
+                onClose={() => setIsOpen(false)}
+            /> : <ModalVideo
+                channel="custom"
+                url={rulesCenter?.value}
+                isOpen={isOpen}
+                onClose={() => setIsOpen(false)}
+            />
+        }
+
     </div>
   )
 }
