@@ -6,6 +6,7 @@ import Banner from "@Modules/Home/Components/Banner"
 import Reason from "@Modules/Home/Components/Reason"
 import Rules from "@Modules/Home/Components/Rules"
 import News from "@Modules/Home/Components/News"
+import Intro from "@Modules/Home/Components/Intro"
 
 import { actions as NotiAction } from "../../../Modules/Notification/Store/Notification/reducer"
 import { useDispatch, useSelector } from "react-redux"
@@ -225,6 +226,7 @@ const Home = () => {
       />
       <Banner />
       <Reason />
+      <Intro />
       <Rules />
       <News />
     </div>
