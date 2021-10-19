@@ -63,6 +63,7 @@ const getGiftBackground = (type) => {
 const GiftItem = ({
   item,
   index,
+  isAll = false,
   isUsed = false,
   isTrade = false,
   setActiveTab = () => {}
@@ -147,7 +148,7 @@ const GiftItem = ({
           />
           <div className="gifts-item-info-wrapper">
             <p className="gifts-item-title">{item.name}</p>
-            <p className="gifts-item-subtitle">{`${
+            <p className="gifts-item-subtitle">{isAll ? "" : `${
               item?.type === "ticket"
                 ? "Ngày quay: " + moment(item?.expDate).format("DD/MM/YYYY")
                 : "Hạn sử dụng : " + moment(item?.expDate).format("DD/MM/YYYY")

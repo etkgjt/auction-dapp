@@ -79,6 +79,7 @@ const Gifts = ({ activeTab, setActiveTabs }) => {
               index={index}
               key={item?.id}
               isTrade={true}
+              isAll={true}
             />
           );
         })}
