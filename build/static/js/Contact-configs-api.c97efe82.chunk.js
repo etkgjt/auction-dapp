@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[97],{387:function(t,i,a){"use strict";a.r(i),i.default={}}}]);
-//# sourceMappingURL=Contact-configs-api.c97efe82.chunk.js.map
