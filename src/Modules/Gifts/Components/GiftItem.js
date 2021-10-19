@@ -20,6 +20,7 @@ import SlideInModal from "../../../components/SlideInModal"
 import { actions } from "../Store/MyGifts/reducer"
 import PopupNoti from "../Components/PopupNoti"
 import { actions as userActions } from "../../../store/user/reducer"
+import { UncontrolledTooltip } from "reactstrap"
 
 const TickedNotiData = {
   title: "CƠ HỘI NHẬN GIẢI THƯỞNG ĐẶC BIỆT ĐÃ ĐẾN!!!",
@@ -135,6 +136,7 @@ const GiftItem = ({
       <div key={index} className="gifts-item-wrapper">
         <div
           className="d-flex flex-row ticket-left"
+          id={"CodeToolTips" + item?.id}
           style={{
             backgroundColor: isUsed
               ? "#A2A2A2"
@@ -150,7 +152,7 @@ const GiftItem = ({
             <p className="gifts-item-subtitle">{`${
               item?.type === "ticket"
                 ? "Ngày quay: " + moment(item?.expDate).format("DD/MM/YYYY")
-                : "Hạn sử dụng : " + moment(item?.expDate).format("DD/MM/YYYY")
+                : "Hạn sử dụng: " + moment(item?.expDate).format("DD/MM/YYYY")
             }`}</p>
             {item?.type === "ticket" ? (
               <span className="d-flex flex-row align-items-center">
@@ -166,7 +168,15 @@ const GiftItem = ({
             )}
           </div>
         </div>
-
+        <UncontrolledTooltip
+          delay={{ show: 0, hide: 0 }}
+          style={{ backgroundColor: "#777" }}
+          key={index}
+          placement="top"
+          target={"CodeToolTips" + item?.id}
+        >
+          {item?.name}
+        </UncontrolledTooltip>
         <div
           onClick={
             isUsed
