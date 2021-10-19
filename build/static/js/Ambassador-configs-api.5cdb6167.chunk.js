@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[76],{311:function(t,i,e){"use strict";e.r(i),i.default={GET_DOWNLOAD_LINK:"/vi-VN/WebsiteSTNHD/ShareInfo"}}}]);
-//# sourceMappingURL=Ambassador-configs-api.5cdb6167.chunk.js.map
