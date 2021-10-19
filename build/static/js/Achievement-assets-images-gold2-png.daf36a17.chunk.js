@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[192],{487:function(t,i,a){"use strict";a.r(i),i.default=a.p+"static/media/gold2.e3f4f350.png"}}]);
-//# sourceMappingURL=Achievement-assets-images-gold2-png.daf36a17.chunk.js.map

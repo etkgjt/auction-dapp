@@ -109,7 +109,8 @@ const GiftItem = ({
           actions.getList({
             limit: GIFT_LIST_LIMIT_DETAULT,
             page: 1,
-            userid: userData?.userId
+            userid: userData?.userId,
+            status: -1
           })
         )
         dispatch(userActions.getInfoUser({ userid: userData?.userId }))
@@ -126,6 +127,20 @@ const GiftItem = ({
     } catch (err) {}
   }
   const onUseGiftPress = () => {
+    if(item?.status === 2){
+      toast.success(
+          "Yêu cầu của bạn đang được xử lý!",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+          }
+      )
+      return true;
+    }
     SlideInModal.show(
       () => {},
       <PopupUseGift item={item} />,
@@ -231,9 +246,15 @@ const GiftItem = ({
                 </>
               )
             ) : (
-              <>
-                Sử <br /> dụng
-              </>
+                item?.status === 0 ? (
+                    <>
+                      Sử <br /> dụng
+                    </>
+                    ) : (
+                    <>
+                      Chờ <br /> xử lý
+                    </>
+                )
             )}
           </p>
         </div>

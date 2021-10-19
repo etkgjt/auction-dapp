@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[310],{550:function(t,a,i){"use strict";i.r(a),a.default=i.p+"static/media/calendar.7d878cf9.png"}}]);
-//# sourceMappingURL=Rules-assets-images-calendar-png.638a0958.chunk.js.map

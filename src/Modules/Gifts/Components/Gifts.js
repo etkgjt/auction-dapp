@@ -64,6 +64,7 @@ const Gifts = ({ activeTab, setActiveTabs }) => {
         page: 1,
         limit: GIFT_LIST_LIMIT_DETAULT,
         userid: userData?.userId,
+        status: -1,
       })
     );
   }, []);
@@ -146,6 +147,7 @@ const Gifts = ({ activeTab, setActiveTabs }) => {
           page: selected + 1,
           limit: GIFT_LIST_LIMIT_DETAULT,
           userid: userData?.userId,
+            status: -1,
         })
       );
     } else {

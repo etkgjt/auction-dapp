@@ -49,7 +49,8 @@ const PopupUseGift = ({ item }) => {
           actions.getList({
             limit: GIFT_LIST_LIMIT_DETAULT,
             page: 1,
-            userid: userData?.userId
+            userid: userData?.userId,
+            status: -1,
           })
         )
         dispatch(
@@ -99,7 +100,8 @@ const PopupUseGift = ({ item }) => {
           actions.getList({
             limit: GIFT_LIST_LIMIT_DETAULT,
             page: 1,
-            userid: userData?.userId
+            userid: userData?.userId,
+            status: -1
           })
         )
         dispatch(
@@ -159,6 +161,14 @@ const PopupUseGift = ({ item }) => {
     }
   }
   const onCopyCodeClick = () => {
+    toast.success("Sao chép thành công", {
+      position: "top-center",
+      autoClose: 5000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    })
     navigator.clipboard.writeText(userData?.phone)
   }
   return (
@@ -239,7 +249,15 @@ const PopupUseGift = ({ item }) => {
                     </FormField>
                     <div className="use-button" onClick={formik.handleSubmit}>
                       <ButtonWrapperBlue />
-                      <p className="use-button-text">Sử dụng</p>
+                      <p style={{
+                        left: "0%",
+                        transform: "translate(20%, -50%)"
+                      }} className="use-button-text">
+                        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M13.3506 0C5.95872 0 0 5.99258 0 13.4264C0 20.1017 4.90274 25.6391 11.2386 26.7011V17.295H7.84439V13.4264H11.2386V10.468C11.2386 7.13041 13.1997 5.23402 16.2922 5.23402C17.7253 5.23402 19.3093 5.46159 19.3093 5.46159V8.79923H17.6499C15.9905 8.79923 15.4625 9.8612 15.4625 10.9232V13.4264H19.1584L18.555 17.295H15.4625V26.7011C21.8738 25.715 26.7011 20.1775 26.7011 13.4264C26.7011 5.99258 20.7424 0 13.3506 0Z" fill="white"/>
+                        </svg>
+                        <span style={{marginLeft: "5px"}}>Fanpage Tâm Trí Lực</span>
+                      </p>
                     </div>
                   </Form>
                 )
