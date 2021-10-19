@@ -319,7 +319,7 @@
             padding-right: 30px;
             align-items: center;
             margin-bottom: 20px;
-            height: 80px;
+            height: 65px;
 
             .item-rank {
               font-style: normal;
@@ -329,6 +329,7 @@
               text-align: center;
               color: #ffffff;
               margin-right: 16px;
+              margin-bottom: 0px;
               text-shadow: #ffb42b 3px 0px 0px, #ffb42b 2.83487px 0.981584px 0px,
                 #ffb42b 2.35766px 1.85511px 0px, #ffb42b 1.62091px 2.52441px 0px,
                 #ffb42b 0.705713px 2.91581px 0px,
@@ -349,8 +350,8 @@
             }
 
             .item-avatar {
-              width: 68px;
-              height: 68px;
+              width: 65px;
+              height: 65px;
               border-radius: 50%;
               background: #c4c4c4;
               border: 2px solid #fff;
@@ -393,8 +394,8 @@
                 font-size: 14px;
                 line-height: 18px;
                 color: #ffffff;
-                margin-top: 4px;
-                margin-bottom: 4px;
+                margin-top: 1px;
+                margin-bottom: 1px;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;

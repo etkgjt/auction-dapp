@@ -25,6 +25,7 @@ import voirank from "../assets/images/voirank.png"
 import rankWrapper from "../assets/images/rank.png"
 
 import defaultAvatar from "../../../assets/images/default-avatar.jpg"
+import { useMediaQuery } from "react-responsive"
 const getHornorTableWidth = () => {
   const width = window.innerWidth
   const paddingWidth = width * 0.8
@@ -51,7 +52,7 @@ const Rules = () => {
 
   const history = useHistory()
   const dispatch = useDispatch()
-
+  const isMobile = useMediaQuery({ maxWidth: 767 })
   const isLogin = useSelector(loginSuccessSelector)
 
   const rules = useSelector(getListSelector)
@@ -112,8 +113,14 @@ const Rules = () => {
               </div>
               <div className="hornor-table-list-container">
                 <h1 className="hornor-table-list__title">
-                  Bảng <br />
-                  xếp hạng
+                  {isMobile ? (
+                    "Bảng xếp hạng"
+                  ) : (
+                    <>
+                      Bảng <br />
+                      xếp hạng
+                    </>
+                  )}
                 </h1>
 
                 {listRank !== undefined &&

@@ -102,10 +102,10 @@ const Rules = ({ setIsOpen }) => {
                           {getEndFridayOfMonth().date()}
                         </p>
                         <p className="calendar-month">
-                          {
-                            getEndFridayOfMonth().year() === 2021 && getEndFridayOfMonth().month() === 9 ?
-                                getEndFridayOfMonth().month() + 2 : getEndFridayOfMonth().month() + 1
-                          }
+                          {getEndFridayOfMonth().year() === 2021 &&
+                          getEndFridayOfMonth().month() === 9
+                            ? getEndFridayOfMonth().month() + 2
+                            : getEndFridayOfMonth().month() + 1}
                         </p>
                       </div>
                       <img
@@ -125,13 +125,13 @@ const Rules = ({ setIsOpen }) => {
                 </Row>
                 <span className="notic-text-black">{calendar?.value}</span>
                 <span
-                    className="social-link"
-                    onClick={() => {
-                      window.open(
-                          "https://www.youtube.com/channel/UC-VY_kqMNBaTvMmDYFdUt-A",
-                          "_blank"
-                      )
-                    }}
+                  className="social-link"
+                  onClick={() => {
+                    window.open(
+                      "https://www.youtube.com/channel/UC-VY_kqMNBaTvMmDYFdUt-A",
+                      "_blank"
+                    )
+                  }}
                 >
                   <YoutubeIcon size={14} />
                   <p>Youtube Siêu Trí Nhớ Học Đường</p>
@@ -139,7 +139,10 @@ const Rules = ({ setIsOpen }) => {
                 <span
                   className="social-link"
                   onClick={() => {
-                    window.open("https://www.facebook.com/sieutrinhohocduong/", "_blank")
+                    window.open(
+                      "https://www.facebook.com/sieutrinhohocduong/",
+                      "_blank"
+                    )
                   }}
                 >
                   <FacebookIcon size={14} />
@@ -158,22 +161,22 @@ const Rules = ({ setIsOpen }) => {
                   <p>Youtube Nguyễn Phùng Phong</p>
                 </span>
                 <span
-                    className="social-link"
-                    onClick={() => {
-                      window.open(
-                          "https://www.facebook.com/nguyenphungphongvn",
-                          "_blank"
-                      )
-                    }}
+                  className="social-link"
+                  onClick={() => {
+                    window.open(
+                      "https://www.facebook.com/nguyenphungphongvn",
+                      "_blank"
+                    )
+                  }}
                 >
                   <FacebookIcon size={14} />
-                  <p>Facebook Nguyễn Tùng Phong</p>
+                  <p>Facebook Nguyễn Phùng Phong</p>
                 </span>
                 <span
-                    className="social-link"
-                    onClick={() => {
-                      window.open("https://www.facebook.com/tamtriluc/", "_blank")
-                    }}
+                  className="social-link"
+                  onClick={() => {
+                    window.open("https://www.facebook.com/tamtriluc/", "_blank")
+                  }}
                 >
                   <FacebookIcon size={14} />
                   <p>Fanpage Tâm Trí Lực</p>
@@ -245,10 +248,10 @@ const Rules = ({ setIsOpen }) => {
                       {getEndFridayOfMonth().date()}
                     </p>
                     <p className="calendar-month">
-                      {
-                        getEndFridayOfMonth().year() === 2021 && getEndFridayOfMonth().month() === 9 ?
-                            getEndFridayOfMonth().month() + 2 : getEndFridayOfMonth().month() + 1
-                      }
+                      {getEndFridayOfMonth().year() === 2021 &&
+                      getEndFridayOfMonth().month() === 9
+                        ? getEndFridayOfMonth().month() + 2
+                        : getEndFridayOfMonth().month() + 1}
                     </p>
                   </div>
                   {/* <CalendarIcon /> */}
@@ -264,55 +267,58 @@ const Rules = ({ setIsOpen }) => {
                 <span className="notic-text-black">{calendar?.value}</span>
                 <div className="my-3" />
                 <span
-                    className="social-link"
-                    onClick={() => {
-                      window.open(
-                          "https://www.youtube.com/channel/UC-VY_kqMNBaTvMmDYFdUt-A",
-                          "_blank"
-                      )
-                    }}
+                  className="social-link"
+                  onClick={() => {
+                    window.open(
+                      "https://www.youtube.com/channel/UC-VY_kqMNBaTvMmDYFdUt-A",
+                      "_blank"
+                    )
+                  }}
                 >
                   <YoutubeIcon size={32} />
                   <p>Youtube Siêu Trí Nhớ Học Đường</p>
                 </span>
                 <span
-                    className="social-link"
-                    onClick={() => {
-                      window.open("https://www.facebook.com/sieutrinhohocduong/", "_blank")
-                    }}
+                  className="social-link"
+                  onClick={() => {
+                    window.open(
+                      "https://www.facebook.com/sieutrinhohocduong/",
+                      "_blank"
+                    )
+                  }}
                 >
                   <FacebookIcon size={32} />
                   <p>Fanpage Siêu Trí Nhớ Học Đường</p>
                 </span>
                 <span
-                    className="social-link"
-                    onClick={() => {
-                      window.open(
-                          "https://www.youtube.com/channel/UCM0bv1L91C8-z71gAzrLBCQ",
-                          "_blank"
-                      )
-                    }}
+                  className="social-link"
+                  onClick={() => {
+                    window.open(
+                      "https://www.youtube.com/channel/UCM0bv1L91C8-z71gAzrLBCQ",
+                      "_blank"
+                    )
+                  }}
                 >
                   <YoutubeIcon size={32} />
                   <p>Youtube Nguyễn Phùng Phong</p>
                 </span>
                 <span
-                    className="social-link"
-                    onClick={() => {
-                      window.open(
-                          "https://www.facebook.com/nguyenphungphongvn",
-                          "_blank"
-                      )
-                    }}
+                  className="social-link"
+                  onClick={() => {
+                    window.open(
+                      "https://www.facebook.com/nguyenphungphongvn",
+                      "_blank"
+                    )
+                  }}
                 >
                   <FacebookIcon size={32} />
-                  <p>Facebook Nguyễn Tùng Phong</p>
+                  <p>Facebook Nguyễn Phùng Phong</p>
                 </span>
                 <span
-                    className="social-link"
-                    onClick={() => {
-                      window.open("https://www.facebook.com/tamtriluc/", "_blank")
-                    }}
+                  className="social-link"
+                  onClick={() => {
+                    window.open("https://www.facebook.com/tamtriluc/", "_blank")
+                  }}
                 >
                   <FacebookIcon size={32} />
                   <p>Fanpage Tâm Trí Lực</p>
