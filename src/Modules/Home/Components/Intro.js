@@ -1,22 +1,41 @@
-import React from "react"
-import intro1 from "../assets/images/intro1.png"
-import intro2 from "../assets/images/intro2.png"
-import intro3 from "../assets/images/intro3.png"
-import intro4 from "../assets/images/intro4.png"
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import intro1 from "../assets/images/intro1.png";
+import intro2 from "../assets/images/intro2.png";
+import intro3 from "../assets/images/intro3.png";
+import intro4 from "../assets/images/intro4.png";
 
-const isServer = typeof window === "undefined"
-const WOW = !isServer ? require("wowjs") : null
+import { actions } from "../Store/Intro/reducer";
+import {
+  getListLoadingSelector,
+  getListSelector,
+} from "../Store/Intro/selector";
+
+const isServer = typeof window === "undefined";
+const WOW = !isServer ? require("wowjs") : null;
 
 const Intro = () => {
+  const dispatch = useDispatch();
+
+  const intro = useSelector(getListSelector);
+  const introLoading = useSelector(getListLoadingSelector);
+
+  console.log("intro", intro);
+
   React.useEffect(() => {
     new WOW.WOW({
       boxClass: "wow",
       animateClass: "animated",
       offset: 20,
       mobile: true,
-      live: true
-    }).init()
-  }, [])
+      live: true,
+    }).init();
+  }, []);
+
+  React.useEffect(() => {
+    dispatch(actions.getList());
+  }, []);
+
   return (
     <div className="intro-wrapper wow fadeInLeft" data-wow-delay="0.5s">
       <img src={intro1} className="intro-image-1" />
@@ -35,16 +54,13 @@ const Intro = () => {
           đến với tất cả mọi người
         </span>
       </div>
-      <div className="intro-bottom-side wow fadeInRight" data-wow-delay="1.3s">
-        <span>
-          Hãy chia sẻ thật nhiều để trở thành Đại Sứ Siêu Trí Nhớ Học Đường
-          <br />
-          và có cơ hội nhận được những phần quà đặc biệt
-          <br />
-          có giá trị tiền mặt lên đến 5.000.000 VNĐ.
-        </span>
+      <div
+          className="intro-bottom-side wow fadeInRight"
+          data-wow-delay="1.3s"
+          dangerouslySetInnerHTML={{ __html: intro?.value }}
+      >
       </div>
     </div>
-  )
-}
-export default Intro
+  );
+};
+export default Intro;

@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[239],{512:function(t,i,a){"use strict";a.r(i),i.default=a.p+"static/media/intro1.854ae4d8.png"}}]);
-//# sourceMappingURL=Home-assets-images-intro1-png.e7b047bf.chunk.js.map
