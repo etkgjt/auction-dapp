@@ -23,15 +23,17 @@ $value_eight: 1910px;
         .bg__slider {
           min-height: auto;
 
-          &>img {
+          & > img {
             min-height: auto;
           }
         }
 
-        .owl-dots {}
+        .owl-dots {
+        }
       }
 
-      .owl-dots {}
+      .owl-dots {
+      }
     }
 
     .reason-area {
@@ -56,7 +58,7 @@ $value_eight: 1910px;
           height: 52px;
           width: auto;
 
-          &>img {
+          & > img {
             height: 100%;
             width: auto;
           }
@@ -68,7 +70,7 @@ $value_eight: 1910px;
             align-items: flex-start;
             justify-content: center;
 
-            &>span {
+            & > span {
               text-align: left;
               font-weight: 500;
               font-size: 11px;
@@ -134,7 +136,7 @@ $value_eight: 1910px;
               }
             }
 
-            ul>li>ul {
+            ul > li > ul {
               padding-left: 26px;
             }
           }
@@ -325,7 +327,7 @@ $value_eight: 1910px;
           top: 50%;
           z-index: 999;
 
-          &>svg {
+          & > svg {
             width: 22px;
             height: 20px;
           }
@@ -337,7 +339,7 @@ $value_eight: 1910px;
           top: 50%;
           z-index: 999;
 
-          &>svg {
+          & > svg {
             width: 22px;
             height: 20px;
           }
@@ -371,7 +373,7 @@ $value_eight: 1910px;
             border: 2px solid #f2f2f2;
             border-radius: 10px;
 
-            &>img {
+            & > img {
               border-radius: 10px;
             }
           }
@@ -399,8 +401,9 @@ $value_eight: 1910px;
       margin-left: auto;
       margin-right: auto;
       border-radius: 20px;
-      margin-bottom: 170px;
+      padding-bottom: 10px;
       margin-top: -30px;
+      margin-bottom: 40px;
 
       .intro-top-side {
         background-color: #4a50ff;
@@ -411,7 +414,7 @@ $value_eight: 1910px;
         padding-top: 20px;
         padding-bottom: 20px;
 
-        &>span {
+        & > span {
           font-size: 9px;
           line-height: 11px;
           font-weight: 500;
@@ -419,7 +422,7 @@ $value_eight: 1910px;
           text-align: center;
         }
 
-        &>h3 {
+        & > h3 {
           font-weight: 700;
           font-size: 12px;
           line-height: 15px;
@@ -431,48 +434,51 @@ $value_eight: 1910px;
         display: flex;
         justify-content: center;
         padding-top: 12px;
-        padding-bottom: 20px;
+        padding-bottom: 0px;
 
-        &>span {
+        & > span {
           color: #4a50ff;
-          font-size: 7px;
-          line-height: 8px;
+          font-size: 9px;
+          line-height: 10px;
           text-align: center;
           max-width: auto;
+          width: 170px;
+          margin-left: auto;
+          margin-right: auto;
         }
       }
 
       .intro-image-1 {
-        width: 75px;
+        width: 40px;
         height: auto;
         position: absolute;
-        left: 20px;
-        bottom: -120px;
+        left: -10px;
+        bottom: 10px;
       }
 
       .intro-image-2 {
-        width: 66px;
+        width: 36px;
         height: auto;
         position: absolute;
-        bottom: -120px;
-        left: 100px;
+        bottom: 10px;
+        left: 35px;
       }
 
       .intro-image-3 {
-        width: 75px;
+        width: 40px;
         height: auto;
         position: absolute;
-        bottom: -60px;
+        bottom: 40px;
         right: 20px;
         top: auto;
       }
 
       .intro-image-4 {
-        width: 105px;
+        width: 58px;
         height: auto;
         position: absolute;
         right: 10px;
-        bottom: -120px;
+        bottom: 10px;
       }
     }
   }
@@ -502,7 +508,7 @@ $value_eight: 1910px;
       right: -20px;
       cursor: pointer;
 
-      &>svg {
+      & > svg {
         max-width: 45px;
         max-height: 45px;
       }
@@ -524,7 +530,7 @@ $value_eight: 1910px;
       margin-right: auto;
       cursor: pointer;
 
-      &>svg {
+      & > svg {
         max-width: 80%;
         margin-left: 10%;
       }
@@ -563,12 +569,12 @@ $value_eight: 1910px;
       border-radius: 10px;
       padding: 16px;
 
-      &>div>span>svg {
+      & > div > span > svg {
         max-width: 15px;
         max-height: 15px;
       }
 
-      &>svg {
+      & > svg {
         max-width: 20px;
         max-height: 20px;
       }
@@ -605,7 +611,7 @@ $value_eight: 1910px;
       transform: translate(-50%, 0%);
       min-width: 60%;
 
-      &>div {
+      & > div {
         font-style: normal;
         font-weight: bold;
         font-size: 16px;
@@ -615,7 +621,7 @@ $value_eight: 1910px;
         margin-bottom: 2px;
       }
 
-      &>p {
+      & > p {
         font-style: normal;
         font-weight: bold;
         font-size: 11px;
@@ -707,13 +713,13 @@ $value_eight: 1910px;
       transform: translate(-50%, -50%);
       user-select: none;
 
-      &>p {
+      & > p {
         font-size: 11px;
         line-height: 13px;
         margin-top: 10px;
       }
 
-      &>h2 {
+      & > h2 {
         font-weight: bold;
         font-size: 16px;
         line-height: 19px;
@@ -755,17 +761,19 @@ $value_eight: 1910px;
           min-height: auto;
           width: 100%;
 
-          &>img {
+          & > img {
             min-height: auto;
             width: 100%;
             height: auto;
           }
         }
 
-        .owl-dots {}
+        .owl-dots {
+        }
       }
 
-      .owl-dots {}
+      .owl-dots {
+      }
     }
 
     .reason-area {
@@ -784,7 +792,7 @@ $value_eight: 1910px;
           padding-left: 10px;
 
           .reason-item-container {
-            &>span {
+            & > span {
               font-size: 14px;
               margin-top: 15px;
             }
@@ -840,7 +848,7 @@ $value_eight: 1910px;
               }
             }
 
-            ul>li>ul {
+            ul > li > ul {
               padding-left: 26px;
             }
           }
@@ -1022,7 +1030,7 @@ $value_eight: 1910px;
         .arrow-left {
           left: -60px;
 
-          &>svg {
+          & > svg {
             width: 30px;
             height: 27px;
           }
@@ -1036,7 +1044,7 @@ $value_eight: 1910px;
         .arrow-right {
           right: -50px;
 
-          &>svg {
+          & > svg {
             width: 30px;
             height: 27px;
           }
@@ -1078,7 +1086,7 @@ $value_eight: 1910px;
             border: 3px solid #f2f2f2;
             border-radius: 25px;
 
-            &>img {
+            & > img {
               border-radius: 25px;
             }
           }
@@ -1119,7 +1127,8 @@ $value_eight: 1910px;
       margin-bottom: 60px;
       margin-top: -30px;
 
-      .intro-top-side {}
+      .intro-top-side {
+      }
 
       .intro-bottom-side {
         span {
@@ -1176,17 +1185,19 @@ $value_eight: 1910px;
           min-height: auto;
           width: 100%;
 
-          &>img {
+          & > img {
             min-height: auto;
             width: 100%;
             height: auto;
           }
         }
 
-        .owl-dots {}
+        .owl-dots {
+        }
       }
 
-      .owl-dots {}
+      .owl-dots {
+      }
     }
 
     .reason-area {
@@ -1201,7 +1212,7 @@ $value_eight: 1910px;
           padding-left: 10px;
 
           .reason-item-container {
-            &>span {
+            & > span {
               font-size: 14px;
               margin-top: 15px;
             }
@@ -1254,7 +1265,7 @@ $value_eight: 1910px;
               }
             }
 
-            ul>li>ul {
+            ul > li > ul {
               padding-left: 26px;
             }
           }
@@ -1433,7 +1444,7 @@ $value_eight: 1910px;
         .arrow-left {
           left: -60px;
 
-          &>svg {
+          & > svg {
             width: 30px;
             height: 27px;
           }
@@ -1447,7 +1458,7 @@ $value_eight: 1910px;
         .arrow-right {
           right: -50px;
 
-          &>svg {
+          & > svg {
             width: 30px;
             height: 27px;
           }
@@ -1489,7 +1500,7 @@ $value_eight: 1910px;
             border: 3px solid #f2f2f2;
             border-radius: 25px;
 
-            &>img {
+            & > img {
               border-radius: 25px;
             }
           }
