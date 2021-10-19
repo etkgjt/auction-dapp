@@ -392,7 +392,7 @@
     & > p {
       font-style: normal;
       font-weight: 500;
-      font-size: 18px;
+      font-size: 15px;
       line-height: 150%;
       text-align: center;
       color: #ffffff;
@@ -404,11 +404,52 @@
       align-items: center;
       padding-left: 15px;
       justify-content: center;
-
+      .form-label {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 150%;
+        text-align: left;
+        color: #ffffff;
+        margin-bottom: 0px;
+      }
+      .form-group {
+        .copy-button {
+          background-color: #4a50ff;
+          position: absolute;
+          height: 100%;
+          top: 0px;
+          right: 0px;
+          border-radius: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-left: 10px;
+          padding-right: 10px;
+          cursor: pointer;
+          user-select: none;
+          &:hover {
+            transform: scale(1.05);
+            transition: transform 0.1s ease-in-out;
+          }
+          &:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease-in;
+          }
+          & > p {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 150%;
+            text-align: center;
+            color: #ffffff;
+          }
+        }
+      }
       .use-button {
         position: relative;
         cursor: pointer;
-
+        margin-top: 20px;
         &:hover {
           transform: scale(1.05);
           transition: transform 0.1s ease-in-out;

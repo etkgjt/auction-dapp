@@ -94,6 +94,7 @@ const PopupUseGift = ({ item }) => {
           draggable: true,
           progress: undefined
         })
+        window.open("https://m.me/469807056541116?ref=VOUCHER-100K", "_blank")
         dispatch(
           actions.getList({
             limit: GIFT_LIST_LIMIT_DETAULT,
@@ -157,26 +158,21 @@ const PopupUseGift = ({ item }) => {
       })
     }
   }
-  const getModalWidth = () => {
-    return !isMobile && !isTablet
-      ? width * 0.3
-      : isMobile
-      ? width * 0.9
-      : width * 0.6
+  const onCopyCodeClick = () => {
+    navigator.clipboard.writeText(userData?.phone)
   }
-  const getModalHeight = () => {
-    return !isMobile && !isTablet
-      ? height * 0.5
-      : isMobile
-      ? height * 0.4
-      : height * 0.4
-  }
-
   return (
     <div className="popup-usegift-container">
       <img src={popupInvite} className="popup-usegift-image-wrapper" />
       <div className="popup-usegift-content-wrapper">
         <h1>{item?.type === "card" ? "Sử dụng thẻ cào" : "Sử dụng Voucher"}</h1>
+        {item?.type !== "card" ? (
+          <p>
+            Copy MÃ SỬ DỤNG bên dưới và gửi vào Fanpage Tâm Trí Lực để được hỗ
+            trợ đổi voucher này nhé!
+          </p>
+        ) : null}
+
         <div className="popup-usegift-copyfield-wrapper">
           {item?.type === "card" ? (
             <Formik
@@ -229,17 +225,19 @@ const PopupUseGift = ({ item }) => {
               {(formik) => {
                 return (
                   <Form onSubmit={(e) => e.preventDefault()}>
+                    <p className="form-label">Mã sử dụng</p>
                     <FormField
                       {...formik}
                       field="phone"
                       placeholder="Số điện thoại"
                       cl
                       className="w-100"
-                    />
-                    <div
-                      className="use-button mt-5"
-                      onClick={formik.handleSubmit}
                     >
+                      <div className="copy-button" onClick={onCopyCodeClick}>
+                        <p>Sao chép</p>
+                      </div>
+                    </FormField>
+                    <div className="use-button" onClick={formik.handleSubmit}>
                       <ButtonWrapperBlue />
                       <p className="use-button-text">Sử dụng</p>
                     </div>

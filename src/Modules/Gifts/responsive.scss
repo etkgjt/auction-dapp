@@ -249,22 +249,60 @@ $value_eight: 1910px;
       & > p {
         font-style: normal;
         font-weight: 500;
-        font-size: 13px;
-        line-height: 150%;
+        font-size: 11px;
+        line-height: 13px;
         text-align: center;
         color: #ffffff;
       }
+
       .popup-usegift-copyfield-wrapper {
         display: flex;
         flex-direction: row;
         align-items: center;
         padding-left: 15px;
         justify-content: center;
+        .form-label {
+          font-size: 11px;
+          line-height: 13px;
+        }
+        .form-group {
+          margin-bottom: 0px;
+          .form-control {
+            height: 30px;
+            font-size: 11px;
+            line-height: 13px;
+            margin-top: 6px;
+          }
+
+          .copy-button {
+            background-color: #4a50ff;
+            position: absolute;
+            height: 100%;
+            top: 0px;
+            right: 0px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            & > p {
+              font-style: normal;
+              font-weight: 500;
+              font-size: 11px;
+              line-height: 13;
+              text-align: center;
+              color: #ffffff;
+            }
+          }
+        }
         .use-button {
           position: relative;
           cursor: pointer;
+          margin-top: 0px;
           & > svg {
-            max-width: 100%;
+            max-width: 80%;
+            margin-left: 10%;
           }
           &:active {
             transform: scale(0.9);
@@ -273,8 +311,8 @@ $value_eight: 1910px;
           .use-button-text {
             user-select: none;
             font-weight: 500;
-            font-size: 18px;
-            line-height: 22px;
+            font-size: 11px;
+            line-height: 13px;
             text-align: center;
             color: #ffffff;
             position: absolute;
