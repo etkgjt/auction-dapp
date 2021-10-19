@@ -54,8 +54,11 @@ const Intro = () => {
           đến với tất cả mọi người
         </span>
       </div>
-      <div className="intro-bottom-side wow fadeInRight" data-wow-delay="1.3s">
-        <span>{intro.value}</span>
+      <div
+          className="intro-bottom-side wow fadeInRight"
+          data-wow-delay="1.3s"
+          dangerouslySetInnerHTML={{ __html: intro?.value }}
+      >
       </div>
     </div>
   );
