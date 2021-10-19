@@ -47,12 +47,20 @@ const BlankLayout = ({ children, ...rest }) => {
         const res = await getInfoUserSTNHD({
           username: userData?.userName
         })
-        dispatch(
-          actions.getInfoUser({
-            userId: userData?.userId,
-            flagDaisu: 1
-          })
-        )
+        if (res.data.data?.isDaiSu) {
+          dispatch(
+            actions.getInfoUser({
+              userId: userData?.userId,
+              flagDaisu: 1
+            })
+          )
+        } else {
+          dispatch(
+            actions.getInfoUser({
+              userId: userData?.userId
+            })
+          )
+        }
       }
     }
   }

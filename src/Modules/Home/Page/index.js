@@ -217,6 +217,8 @@ const Home = () => {
     }
   }, [firstTime])
 
+  console.log("HOME INFO", userData)
+
   return (
     <div className="home__page">
       <img src={bgLeft} style={{ position: "fixed", left: 0, zIndex: -1 }} />
