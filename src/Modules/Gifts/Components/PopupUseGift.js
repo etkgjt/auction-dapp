@@ -146,7 +146,7 @@ const PopupUseGift = ({ item }) => {
         userid: userData?.userId,
         phone: values?.phone,
         email: userData?.email,
-        childFullName1: userData?.childFullName1,
+        childFullName1: userData?.childFullName1 || userData?.fullName,
         network: values?.provider,
         amount: item?.value,
         description: item?.description
@@ -157,7 +157,7 @@ const PopupUseGift = ({ item }) => {
         userid: userData?.userId,
         phone: values?.phone,
         email: userData?.email,
-        childFullName1: userData?.childFullName1,
+        childFullName1: userData?.childFullName1 || userData?.fullName,
         namevoucher: item?.name,
         amount: item?.value,
         description: item?.description
