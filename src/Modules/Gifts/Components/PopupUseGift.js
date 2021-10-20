@@ -50,7 +50,8 @@ const PopupUseGift = ({ item }) => {
           actions.getList({
             limit: GIFT_LIST_LIMIT_DETAULT,
             page: 1,
-            userid: userData?.userId
+            userid: userData?.userId,
+            status: -1
           })
         )
         dispatch(
@@ -103,7 +104,8 @@ const PopupUseGift = ({ item }) => {
           actions.getList({
             limit: GIFT_LIST_LIMIT_DETAULT,
             page: 1,
-            userid: userData?.userId
+            userid: userData?.userId,
+            status: -1
           })
         )
         dispatch(
@@ -163,6 +165,14 @@ const PopupUseGift = ({ item }) => {
     }
   }
   const onCopyCodeClick = () => {
+    toast.success("Sao chép thành công", {
+      position: "top-center",
+      autoClose: 5000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    })
     navigator.clipboard.writeText(userData?.phone)
   }
   return (

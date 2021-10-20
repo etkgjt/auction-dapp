@@ -1,2 +1,0 @@
-(this["webpackJsonpwebadmin-tam-tri-luc"]=this["webpackJsonpwebadmin-tam-tri-luc"]||[]).push([[222],{492:function(t,i,a){"use strict";a.r(i),i.default=a.p+"static/media/ticket.0c4d562d.png"}}]);
-//# sourceMappingURL=Gifts-assets-images-ticket-png.20db5f5d.chunk.js.map
