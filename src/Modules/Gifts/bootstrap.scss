@@ -461,6 +461,7 @@
         }
 
         .use-button-text {
+          width: 100%;
           user-select: none;
           font-weight: 500;
           font-size: 18px;
@@ -471,6 +472,9 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
+          .facebook-icon {
+            margin-right: 8px;
+          }
         }
       }
     }

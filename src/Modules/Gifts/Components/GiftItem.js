@@ -150,11 +150,17 @@ const GiftItem = ({
           />
           <div className="gifts-item-info-wrapper">
             <p className="gifts-item-title">{item.name}</p>
-            <p className="gifts-item-subtitle">{isAll ? "" : `${
-              item?.type === "ticket"
-                ? "Ngày quay: " + moment(item?.expDate).format("DD/MM/YYYY")
-                : "Hạn sử dụng: " + moment(item?.expDate).format("DD/MM/YYYY")
-            }`}</p>
+            <p className="gifts-item-subtitle">
+              {isAll
+                ? ""
+                : `${
+                    item?.type === "ticket"
+                      ? "Ngày quay: " +
+                        moment(item?.expDate).format("DD/MM/YYYY")
+                      : "Hạn sử dụng: " +
+                        moment(item?.expDate).format("DD/MM/YYYY")
+                  }`}
+            </p>
             {item?.type === "ticket" ? (
               <span className="d-flex flex-row align-items-center">
                 <p className="gifts-item-point-red">
@@ -230,9 +236,13 @@ const GiftItem = ({
                   quà
                 </>
               )
-            ) : (
+            ) : item?.status !== 2 ? (
               <>
                 Sử <br /> dụng
+              </>
+            ) : (
+              <>
+                Đang <br /> xử lý
               </>
             )}
           </p>

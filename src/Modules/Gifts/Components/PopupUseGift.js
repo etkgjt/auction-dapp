@@ -24,6 +24,8 @@ import { actions } from "../Store/MyGifts/reducer"
 import { actions as usedGiftActions } from "../Store/UsedGifts/reducer"
 import { useMediaQuery } from "react-responsive"
 import popupInvite from "../../../assets/images/popup-invite.png"
+import { FacebookIcon } from "../../../layouts/components/footer/icon"
+import facebook from "../assets/images/fb.png"
 
 const { innerWidth: width, innerHeight: height } = window
 
@@ -31,8 +33,7 @@ const PopupUseGift = ({ item }) => {
   const dispatch = useDispatch()
   const { i18n } = useTranslation()
   const userData = useSelector(getUserData)
-  const isMobile = useMediaQuery({ maxWidth: 767 })
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1199 })
+  console.log("ITEM", item)
   const fetchUseCard = async (payload) => {
     try {
       const res = await postUseCard(payload)
@@ -94,7 +95,10 @@ const PopupUseGift = ({ item }) => {
           draggable: true,
           progress: undefined
         })
-        window.open("https://m.me/469807056541116?ref=VOUCHER-100K", "_blank")
+        if (item?.type === "ThuongDaiSu") {
+          window.open("https://m.me/469807056541116?ref=VOUCHER-100K", "_blank")
+        }
+
         dispatch(
           actions.getList({
             limit: GIFT_LIST_LIMIT_DETAULT,
@@ -166,12 +170,12 @@ const PopupUseGift = ({ item }) => {
       <img src={popupInvite} className="popup-usegift-image-wrapper" />
       <div className="popup-usegift-content-wrapper">
         <h1>{item?.type === "card" ? "Sử dụng thẻ cào" : "Sử dụng Voucher"}</h1>
-        {item?.type !== "card" ? (
+        {item?.type === "card" || item?.type !== "ThuongDaiSu" ? null : (
           <p>
             Copy MÃ SỬ DỤNG bên dưới và gửi vào Fanpage Tâm Trí Lực để được hỗ
             trợ đổi voucher này nhé!
           </p>
-        ) : null}
+        )}
 
         <div className="popup-usegift-copyfield-wrapper">
           {item?.type === "card" ? (
@@ -225,7 +229,11 @@ const PopupUseGift = ({ item }) => {
               {(formik) => {
                 return (
                   <Form onSubmit={(e) => e.preventDefault()}>
-                    <p className="form-label">Mã sử dụng</p>
+                    <p className="form-label">
+                      {item?.type !== "ThuongDaiSu"
+                        ? "Số điện thoại"
+                        : "Mã sử dụng"}
+                    </p>
                     <FormField
                       {...formik}
                       field="phone"
@@ -233,13 +241,24 @@ const PopupUseGift = ({ item }) => {
                       cl
                       className="w-100"
                     >
-                      <div className="copy-button" onClick={onCopyCodeClick}>
-                        <p>Sao chép</p>
-                      </div>
+                      {item?.type !== "ThuongDaiSu" ? null : (
+                        <div className="copy-button" onClick={onCopyCodeClick}>
+                          <p>Sao chép</p>
+                        </div>
+                      )}
                     </FormField>
                     <div className="use-button" onClick={formik.handleSubmit}>
                       <ButtonWrapperBlue />
-                      <p className="use-button-text">Sử dụng</p>
+                      <span className="use-button-text">
+                        {item?.type !== "ThuongDaiSu" ? (
+                          "Sử dụng"
+                        ) : (
+                          <>
+                            <img src={facebook} className="facebook-icon" />
+                            Fanpage Tâm Trí Lực
+                          </>
+                        )}
+                      </span>
                     </div>
                   </Form>
                 )
