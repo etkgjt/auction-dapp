@@ -50,6 +50,12 @@ export default class SlideInModal extends React.PureComponent {
   render() {
     return (
       <Modal
+        backdrop={
+          SlideInModal?.instance?.state?.modalClassName?.indexOf("static") ===
+          -1
+            ? undefined
+            : "static"
+        }
         isOpen={SlideInModal?.instance?.state?.visible || false}
         toggle={() => {
           SlideInModal.hide()

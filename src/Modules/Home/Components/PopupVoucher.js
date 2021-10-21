@@ -82,14 +82,14 @@ const PopupVoucher = () => {
 
   return (
     <div className="popup-voucher-container">
-      <div
+      {/* <div
         className="popup-voucher__close-button"
         onClick={() => {
           SlideInModal.hide()
         }}
       >
         <CircleCloseButton />
-      </div>
+      </div> */}
       <p className="popup-voucher-list-title">
         Bạn được tặng 1 voucher Tâm Trí Lực, hãy chọn Voucher
       </p>

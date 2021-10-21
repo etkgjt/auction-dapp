@@ -133,7 +133,7 @@ const Home = () => {
               SlideInModal.show(
                 () => {},
                 <PopupVoucher />,
-                "popup-voucher-modal-wrapper",
+                "popup-voucher-modal-wrapper static",
                 () => {
                   dispatch(NotiAction.setCountUnreadNoti({}))
                 }
