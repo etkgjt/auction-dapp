@@ -258,7 +258,7 @@ const FormProfile = () => {
           userId: userData?.userId
         })
       )
-      history.goBack()
+      // history.goBack()
     }
 
     return () => {
@@ -328,9 +328,9 @@ const FormProfile = () => {
                   <Col xl="3">
                     <span className="form-profile-field-label">Giới tính</span>
                   </Col>
-                  <Col xl="3">
+                  <Col xl="9">
                     <FormFieldSelect
-                      className="mb-0"
+                      // className="mb-0"
                       field="gender"
                       {...formik}
                       placeholder={i18n.t(`Giới tính`)}
@@ -344,10 +344,10 @@ const FormProfile = () => {
                       }}
                     />
                   </Col>
-                  <Col xl="2">
+                  <Col xl="3">
                     <span className="form-profile-field-label">Ngày sinh</span>
                   </Col>
-                  <Col xl="4">
+                  <Col xl="9">
                     <FormField
                       className="mb-0"
                       field="birth_day"
@@ -454,7 +454,7 @@ const FormProfile = () => {
                   <Col xl="3">
                     <span className="form-profile-field-label">Email</span>
                   </Col>
-                  <Col xl="6">
+                  <Col xl="9">
                     <FormField
                       field="email"
                       {...formik}

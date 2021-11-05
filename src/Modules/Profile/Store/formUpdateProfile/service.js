@@ -7,7 +7,7 @@ export const formUpdateProfileSuperSchoolMemoryCallMethod = ({
   return apiMethod.put(codeLanguage + API.PUT_UPDATE_PROFILE, {
     userId: parseInt(payload.userId),
     userName: payload.user_name,
-    fullName: payload.parent_fullname,
+    fullname: payload.parent_fullname,
 
     childFullName1: payload.children_fullname,
     child1_SchoolName: payload.school_name,
