@@ -248,10 +248,12 @@
             tr {
               td:nth-child(2) {
                 border-left: 2px solid #4a50ff;
-                border-right: 2px solid #4a50ff;
               }
               td:first-child {
                 text-align: left;
+              }
+              td:nth-child(3) {
+                border-left: 2px solid #4a50ff;
               }
             }
             tr > td {

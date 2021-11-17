@@ -1,98 +1,98 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useLocation } from "react-router";
-import PopupInvite from "../../components/popupInvite";
-import PopupNewBie from "../../components/popupNewbie";
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { useHistory, useLocation } from "react-router"
+import PopupInvite from "../../components/popupInvite"
+import PopupNewBie from "../../components/popupNewbie"
 
 /*REDUX */
-import { actions as NotiAction } from "../../../Modules/Notification/Store/Notification/reducer";
-import { getCountNotiSelector } from "../../../Modules/Notification/Store/Notification/selector";
-import { getUserData } from "../../../store/user/selector";
+import { actions as NotiAction } from "../../../Modules/Notification/Store/Notification/reducer"
+import { getCountNotiSelector } from "../../../Modules/Notification/Store/Notification/selector"
+import { getUserData } from "../../../store/user/selector"
 
 /*STYLE ASSET*/
-import { StarIcon } from "./icon";
-import "./index.scss";
-import { loginSuccessSelector } from "../../../Modules/Authenticate/store/auth/selectors";
-import SlideInModal from "../../../components/SlideInModal";
-import PopupLogout from "../../../Modules/Profile/Components/PopupLogout";
-import { authLogout } from "../../../Modules/Authenticate/store/auth/actions";
+import { StarIcon } from "./icon"
+import "./index.scss"
+import { loginSuccessSelector } from "../../../Modules/Authenticate/store/auth/selectors"
+import SlideInModal from "../../../components/SlideInModal"
+import PopupLogout from "../../../Modules/Profile/Components/PopupLogout"
+import { authLogout } from "../../../Modules/Authenticate/store/auth/actions"
 
 const data = [
   {
     title: "Trang chủ",
     onClick: (history) => {
-      history.push("/");
+      history.push("/")
     },
-    key: "/",
+    key: "/"
   },
   {
     title: "Tài khoản cá nhân",
     onClick: (history) => {
-      history.push("/profile");
+      history.push("/profile")
     },
-    key: "/profile",
+    key: "/profile"
   },
+  // {
+  //   title: "Thông báo",
+  //   onClick: (history) => {
+  //     history.push("/notifications");
+  //   },
+  //   key: "/notifications",
+  //   flag: "noti",
+  // },
+  // {
+  //   title: "Thành tựu Voi",
+  //   onClick: (history) => {
+  //     history.push("/achievement");
+  //   },
+  //   key: "/achievement",
+  // },
   {
-    title: "Thông báo",
+    title: "Quà tặng",
     onClick: (history) => {
-      history.push("/notifications");
+      history.push("/gifts")
     },
-    key: "/notifications",
-    flag: "noti",
+    key: "/gifts"
   },
+  // {
+  //   title: "Tin tức",
+  //   onClick: (history) => {
+  //     history.push("/news")
+  //   },
+  //   key: "/news"
+  // },
   {
-    title: "Thành tựu Voi",
+    title: "Cách tham gia CT",
     onClick: (history) => {
-      history.push("/achievement");
+      history.push("/rules")
     },
-    key: "/achievement",
+    key: "/rules"
   },
-  {
-    title: "Danh sách quà",
-    onClick: (history) => {
-      history.push("/gifts");
-    },
-    key: "/gifts",
-  },
-  {
-    title: "Tin tức",
-    onClick: (history) => {
-      history.push("/news");
-    },
-    key: "/news",
-  },
-  {
-    title: "Trở thành Đại Sứ",
-    onClick: (history) => {
-      history.push("/inviter");
-    },
-    key: "/inviter",
-  },
-  {
-    title: "Siêu Trí Nhớ Học Đường",
-    onClick: () => {
-      window.open("https://sieutrinhohocduong.com/", "_blank");
-    },
-    icon: <StarIcon />,
-  },
-  {
-    title: "Mời bạn mới",
-    onClick: (history, userData) => {
-      if (userData?.flagDaisu === 1) {
-        SlideInModal.show(
-          () => {},
-          <PopupInvite />,
-          "invite-popup-modal-wrapper"
-        );
-      } else {
-        SlideInModal.show(
-          () => {},
-          <PopupNewBie />,
-          "invite-popup-modal-wrapper"
-        );
-      }
-    },
-  },
+  // {
+  //   title: "Siêu Trí Nhớ Học Đường",
+  //   onClick: () => {
+  //     window.open("https://sieutrinhohocduong.com/", "_blank")
+  //   },
+  //   icon: <StarIcon />
+  // },
+  // {
+  //   title: "Mời bạn mới",
+  //   onClick: (history, userData) => {
+  //     if (userData?.flagDaisu === 1) {
+  //       SlideInModal.show(
+  //         () => {},
+  //         <PopupInvite />,
+  //         "invite-popup-modal-wrapper"
+  //       )
+  //     } else {
+  //       SlideInModal.show(
+  //         () => {},
+  //         <PopupNewBie />,
+  //         "invite-popup-modal-wrapper"
+  //       )
+  //     }
+  //   }
+  // },
   {
     title: "Đăng xuất",
     onClick: (history, userData, onDoneFuc) => {
@@ -100,26 +100,26 @@ const data = [
         () => {},
         <PopupLogout onSubmitPress={onDoneFuc} />,
         "logout-popup-modal-wrapper"
-      );
-    },
-  },
-];
+      )
+    }
+  }
+]
 
 const InfoDropdown = ({ setIsDropdownOpen = () => {} }) => {
   //HOOK
-  const dispatch = useDispatch();
-  const history = useHistory();
-  const location = useLocation();
+  const dispatch = useDispatch()
+  const history = useHistory()
+  const location = useLocation()
   //SELECTOR
-  const userData = useSelector(getUserData);
-  const countNoti = useSelector(getCountNotiSelector);
+  const userData = useSelector(getUserData)
+  const countNoti = useSelector(getCountNotiSelector)
   const onDoneFunc = () => {
-    SlideInModal.hide();
+    SlideInModal.hide()
     setTimeout(() => {
-      dispatch(authLogout());
-      history.push("/");
-    }, 200);
-  };
+      dispatch(authLogout())
+      history.push("/")
+    }, 200)
+  }
 
   return (
     <div className="info-dropdown-container">
@@ -128,8 +128,8 @@ const InfoDropdown = ({ setIsDropdownOpen = () => {} }) => {
           <li
             key={index}
             onClick={() => {
-              item.onClick(history, userData, onDoneFunc);
-              setIsDropdownOpen(false);
+              item.onClick(history, userData, onDoneFunc)
+              setIsDropdownOpen(false)
             }}
           >
             {index !== 0 ? (
@@ -138,7 +138,7 @@ const InfoDropdown = ({ setIsDropdownOpen = () => {} }) => {
                   height: 1,
                   backgroundColor: "#F2F2F2",
                   marginTop: 12,
-                  marginBottom: 12,
+                  marginBottom: 12
                 }}
               />
             ) : null}
@@ -158,7 +158,7 @@ const InfoDropdown = ({ setIsDropdownOpen = () => {} }) => {
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default InfoDropdown;
+export default InfoDropdown
