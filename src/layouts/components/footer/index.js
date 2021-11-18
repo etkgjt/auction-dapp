@@ -12,6 +12,7 @@ import {
 } from "./icon"
 import "./index.scss"
 const logo = require("@src/assets/images/logo.png").default
+const logo5ptb = require("@src/assets/images/5ptb-white.png").default
 const Footer = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 })
   const [footerBackground, setFooterBackground] = useState("#fff")
@@ -49,7 +50,14 @@ const Footer = () => {
                 <TTLIcon />
               </span>
               <span className="stnhd-footer">
-                {isMobile ? <img src={logo} /> : <STNHDIcon />}
+                {isMobile ? (
+                  <img src={logo} />
+                ) : (
+                  <img
+                    src={logo5ptb}
+                    style={{ maxWidth: 200, height: "auto" }}
+                  />
+                )}
               </span>
             </Col>
 
