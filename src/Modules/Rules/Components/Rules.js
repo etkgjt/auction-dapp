@@ -134,7 +134,7 @@ const Rules = ({ setIsOpen }) => {
                   }}
                 >
                   <YoutubeIcon size={14} />
-                  <p>Youtube Siêu Trí Nhớ Học Đường</p>
+                  <p>Youtube 5 Phút Thuộc Bài</p>
                 </span>
                 <span
                   className="social-link"
@@ -146,7 +146,7 @@ const Rules = ({ setIsOpen }) => {
                   }}
                 >
                   <FacebookIcon size={14} />
-                  <p>Fanpage Siêu Trí Nhớ Học Đường</p>
+                  <p>Fanpage 5 Phút Thuộc Bài</p>
                 </span>
                 <span
                   className="social-link"
@@ -276,7 +276,7 @@ const Rules = ({ setIsOpen }) => {
                   }}
                 >
                   <YoutubeIcon size={32} />
-                  <p>Youtube Siêu Trí Nhớ Học Đường</p>
+                  <p>Youtube 5 Phút Thuộc Bài</p>
                 </span>
                 <span
                   className="social-link"
@@ -288,7 +288,7 @@ const Rules = ({ setIsOpen }) => {
                   }}
                 >
                   <FacebookIcon size={32} />
-                  <p>Fanpage Siêu Trí Nhớ Học Đường</p>
+                  <p>Fanpage 5 Phút Thuộc Bài</p>
                 </span>
                 <span
                   className="social-link"
