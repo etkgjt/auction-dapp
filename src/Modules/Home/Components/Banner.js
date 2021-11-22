@@ -8,6 +8,12 @@ import {
 import { actions } from "../Store/BannerSlider/reducer"
 import { useDispatch, useSelector } from "react-redux"
 
+const banners = [
+  "https://get.club/wp-content/uploads/2016/07/auction-banner-copy-1000x474.jpg",
+  "https://get.club/wp-content/uploads/2016/07/auction-banner-copy-1000x474.jpg",
+  "https://get.club/wp-content/uploads/2016/07/auction-banner-copy-1000x474.jpg"
+]
+
 const options = {
   autoplay: true,
   nav: false,
@@ -44,23 +50,10 @@ const Banner = () => {
   return (
     <div style={{ background: "white" }} className="main-banner">
       <Carousel className="blog-slides owl-carousel owl-theme" {...options}>
-        {listBanner?.listData?.map((item) => (
-          <div
-            key={item?.id}
-            className="col-lg-12 col-md-12"
-            onClick={() => {
-              window.open(item?.clickUrl, "_blank")
-            }}
-          >
+        {banners?.map((item, index) => (
+          <div key={index} className="col-lg-12 col-md-12">
             <div className="bg__slider">
-              <img
-                src={
-                  item?.urlImage
-                    ? item?.urlImage
-                    : require("@src/assets/images/home-banner1.png").default
-                }
-                alt="blog-image"
-              />
+              <img src={item} alt="blog-image" />
             </div>
           </div>
         ))}

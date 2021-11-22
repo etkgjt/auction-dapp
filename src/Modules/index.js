@@ -1,4 +1,5 @@
 export default [
+  { key: "Detail" },
   { key: "Gifts" },
   { key: "Notification" },
   { key: "Achievement" },

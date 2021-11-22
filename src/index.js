@@ -14,7 +14,7 @@ import "react-accessible-accordion/dist/fancy-example.css"
 import "@assets/css/style.scss"
 import "@assets/css/responsive.scss"
 import "react-toastify/dist/ReactToastify.css"
-
+import "react-input-range/lib/css/index.css"
 // ** Lazy load app
 import Bootstrap from "./bootstrap"
 

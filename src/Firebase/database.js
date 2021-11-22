@@ -11,7 +11,7 @@ if (!firebase.apps.length) {
 }
 
 export const realtimeDB = firebase.database()
-export const firestoreDB = firebase.firestore().ref
+export const firestoreDB = firebase.firestore()
 export const authDB = firebase.auth()
 export const firebaseStorage = firebase.storage()
 

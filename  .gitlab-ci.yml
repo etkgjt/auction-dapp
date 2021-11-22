@@ -1,9 +1,0 @@
-deploy-test:
-  before_script:
-    - cd /home/ttl-web-daisu.develop.com.vn/public_html/
-  script:
-    - sudo su
-    - whoami
-    - git pull
-  only:
-    - develop
