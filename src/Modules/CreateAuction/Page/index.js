@@ -7,9 +7,8 @@ import React, { useState, useEffect, Fragment } from "react"
 import { useTranslation } from "react-i18next"
 
 /*Components*/
-import BlogList from "@Modules/Notification/Components/BlogList"
-import { Container } from "reactstrap"
-
+import CheckoutBody from "../Components/CheckoutBody"
+import OrderSummary from "../Components/OrderSummary"
 const translateKey = "News"
 
 const News = () => {
@@ -19,7 +18,7 @@ const News = () => {
   }, [])
   return (
     <div className="notification__page">
-      <BlogList />
+      <CheckoutBody />
     </div>
   )
 }

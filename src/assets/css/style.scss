@@ -588,8 +588,6 @@ button {
   transition: 0.9s;
 
   &.btn-primary {
-    border-radius: 20px;
-
     &::after,
     &::before {
       content: "";
@@ -600,12 +598,12 @@ button {
       transition: 0.4s;
       background: var(--templateColor);
       z-index: -1;
-      border-radius: 20px;
+     
     }
   }
 
   &.btn-blue {
-    border-radius: 20px;
+    
 
     &::after,
     &::before {
@@ -617,12 +615,12 @@ button {
       transition: 0.4s;
       background: var(--blueActive);
       z-index: -1;
-      border-radius: 20px;
+      
     }
   }
 
   &.btn-light-blue {
-    border-radius: 20px;
+    
 
     &::after,
     &::before {
@@ -634,12 +632,12 @@ button {
       transition: 0.4s;
       background: var(--lightBlueHover);
       z-index: -1;
-      border-radius: 20px;
+      
     }
   }
 
   &.btn-mint {
-    border-radius: 20px;
+    
 
     &::after,
     &::before {
@@ -651,12 +649,12 @@ button {
       transition: 0.4s;
       background: var(--mintHover);
       z-index: -1;
-      border-radius: 20px;
+      
     }
   }
 
   &.btn-green {
-    border-radius: 20px;
+    
 
     &::after,
     &::before {
@@ -668,12 +666,12 @@ button {
       transition: 0.4s;
       background: var(--greenHover);
       z-index: -1;
-      border-radius: 20px;
+      
     }
   }
 
   &.btn-purple {
-    border-radius: 20px;
+    
 
     &::after,
     &::before {
@@ -685,12 +683,12 @@ button {
       transition: 0.4s;
       background: var(--purpleHover);
       z-index: -1;
-      border-radius: 20px;
+      
     }
   }
 
   &.btn-yellow {
-    border-radius: 20px;
+    
 
     &::after,
     &::before {
@@ -702,12 +700,12 @@ button {
       transition: 0.4s;
       background: var(--yellowHover);
       z-index: -1;
-      border-radius: 20px;
+      
     }
   }
 
   &.btn-pink {
-    border-radius: 20px;
+    
 
     &::after,
     &::before {
@@ -719,7 +717,7 @@ button {
       transition: 0.4s;
       background: var(--pinkHover);
       z-index: -1;
-      border-radius: 20px;
+      
     }
   }
 

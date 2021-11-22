@@ -1,10 +1,27 @@
-import React, { Component } from "react"
+import React, { Component, useState } from "react"
 import { Link } from "react-router-dom"
 
+import Categories from "../../../Firebase/Categories"
+import CourseItem from "./CourseItem"
+
 export default function ShopVTwo() {
+  const [category, setCategory] = useState([])
+
+  const fetchListCate = async () => {
+    try {
+      const res = await Categories.getAllCategori()
+      setCategory(res)
+    } catch (err) {
+      console.log("FETCH LIST CATE ERR", err)
+    }
+  }
+  React.useEffect(() => {
+    fetchListCate()
+  }, [])
+
   return (
     <section className="product-area ptb-100">
-      <div className="container">
+      <div className="container px-5">
         <div className="row">
           <div className="col-lg-8 col-md-12">
             <div className="row">
@@ -42,60 +59,7 @@ export default function ShopVTwo() {
               </div>
 
               {[1, 2, 3, 4, 5].map((data, idx) => (
-                <div className="col-lg-6 col-md-6" key={idx}>
-                  <div className="single-product">
-                    <div className="product-img">
-                      <img
-                        src={
-                          "https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                        }
-                        alt="item"
-                      />
-
-                      <Link to="#">
-                        <a className="add-to-cart-btn" onClick={(e) => {}}>
-                          Add to Cart <i className="icofont-shopping-cart"></i>
-                        </a>
-                      </Link>
-                    </div>
-
-                    <div className="product-content">
-                      <h3>
-                        <Link to="/detail">
-                          <a>{"LOREM ILAU"}</a>
-                        </Link>
-                      </h3>
-
-                      <div className="row h-100 justify-content-center align-items-center">
-                        <div className="col-lg-5">
-                          <h5>
-                            ${1000} <span>${500 - 3}</span>
-                          </h5>
-                        </div>
-
-                        <div className="col-lg-7">
-                          <ul>
-                            <li>
-                              <i className="icofont-star"></i>
-                            </li>
-                            <li>
-                              <i className="icofont-star"></i>
-                            </li>
-                            <li>
-                              <i className="icofont-star"></i>
-                            </li>
-                            <li>
-                              <i className="icofont-star"></i>
-                            </li>
-                            <li>
-                              <i className="icofont-star"></i>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <CourseItem key={idx} data={data} />
               ))}
 
               <div className="col-lg-12 col-md-12">
@@ -154,49 +118,21 @@ export default function ShopVTwo() {
               </div>
 
               <div className="widget widget_product_categories">
-                <h3 className="widget-title">Product Categories</h3>
+                <h3 className="widget-title">Danh mục</h3>
                 <div className="bar"></div>
 
                 <ul>
-                  <li>
-                    <a href="#">
-                      <i className="icofont-bubble-right"></i> Art
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="icofont-bubble-right"></i> Book
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="icofont-bubble-right"></i> Watch
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="icofont-bubble-right"></i> TV
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="icofont-bubble-right"></i> Gifts
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="icofont-bubble-right"></i> Design
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="icofont-bubble-right"></i> Smart TV
-                    </a>
-                  </li>
+                  {category?.map((item, index) => (
+                    <li key={index}>
+                      <a href="#">
+                        <i className="icofont-bubble-right"></i> {item?.name}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              <div className="widget widget_recent_products">
+              {/* <div className="widget widget_recent_products">
                 <h3 className="widget-title">Recent Post</h3>
                 <div className="bar"></div>
 
@@ -348,8 +284,8 @@ export default function ShopVTwo() {
                     </div>
                   </li>
                 </ul>
-              </div>
-
+              </div> */}
+              {/* 
               <div className="widget widget_tag_cloud">
                 <h3 className="widget-title">Popular Tags</h3>
                 <div className="bar"></div>
@@ -363,8 +299,8 @@ export default function ShopVTwo() {
                   <a href="#">Smart TV</a>
                   <a href="#">Design</a>
                 </div>
-              </div>
-
+              </div> */}
+              {/* 
               <div className="widget widget_text">
                 <h3 className="widget-title">Instagram</h3>
                 <div className="bar"></div>
@@ -436,7 +372,7 @@ export default function ShopVTwo() {
                     </Link>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

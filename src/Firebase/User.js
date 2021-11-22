@@ -6,19 +6,24 @@ export default class Users {
   static login = async (
     wallet_address,
     onCreateNewUser = () => {},
-    onError = () => {}
+    onError = () => {},
+    onLoginSuccess = () => {}
   ) => {
     const listUserDocs = await firestoreDB.collection(refUsers).get()
     let flag = false
+    let data = null
     if (listUserDocs.docs) {
       for (const doc of listUserDocs.docs) {
         let temp = doc.data()
-        if (wallet_address === temp?.address) {
+        if (wallet_address.toLowerCase() === temp?.address.toLowerCase()) {
           flag = true
+          data = temp
         }
       }
       if (!flag) {
-        onCreateNewUser()
+        onCreateNewUser(wallet_address)
+      } else {
+        onLoginSuccess(data)
       }
       return
     }

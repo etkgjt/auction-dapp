@@ -5,9 +5,9 @@ import initReducer from "./Store/initReducer"
 import initSagas from "./Store/initSagas"
 
 export default {
-  name: "Notification",
-  dir: "Notification",
-  pathRoot: "notifications",
+  name: "CreateAuction",
+  dir: "CreateAuction",
+  pathRoot: "create",
   routes: [
     {
       url: "",
@@ -17,7 +17,7 @@ export default {
       },
       props: {
         title: "Thông báo",
-        titleI18n: "Notification:title"
+        titleI18n: "CreateAuction:title"
       }
     }
   ],

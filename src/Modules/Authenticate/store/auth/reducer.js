@@ -1,6 +1,6 @@
 import storage from "redux-persist/lib/storage"
-import {persistReducer} from 'redux-persist'
-import * as Actions from './constants'
+import { persistReducer } from "redux-persist"
+import * as Actions from "./constants"
 import { logout } from "../../helpers"
 
 const initState = {
@@ -8,26 +8,23 @@ const initState = {
   userData: {},
   loading: false,
   loginSuccess: false,
-  error: ''
+  error: ""
 }
 
 const AuthReducer = (state = initState, action = {}) => {
   switch (action.type) {
     case Actions.CALL_SIGN_IN_METHOD:
-      return {...state, loading: true}
+      return { ...state, loading: true }
     case Actions.SIGN_IN_SUCCESS:
-      const {token} = action.payload
-      const accessToken = `Bearer ${token}`
       return {
         ...state,
         loading: false,
-        error: '',
+        error: "",
         loginSuccess: true,
-        accessToken,
-        userData: {...action.payload}
+        userData: { ...action.payload }
       }
     case Actions.SIGN_IN_ERROR:
-      const {error} = action
+      const { error } = action
       return {
         ...state,
         loading: false,
@@ -41,7 +38,7 @@ const AuthReducer = (state = initState, action = {}) => {
       return {
         ...state,
         loading: false,
-        error: '',
+        error: "",
         loginSuccess: false,
         accessToken: null,
         userData: {}
@@ -50,7 +47,7 @@ const AuthReducer = (state = initState, action = {}) => {
       return {
         ...state,
         loading: false,
-        error: ''
+        error: ""
       }
     default:
       return state
@@ -58,9 +55,9 @@ const AuthReducer = (state = initState, action = {}) => {
 }
 
 const persistConfig = {
-  key: 'Auth',
+  key: "Auth",
   storage,
-  blacklist: ['loading', 'error']
+  blacklist: ["loading", "error"]
 }
 
 export default persistReducer(persistConfig, AuthReducer)

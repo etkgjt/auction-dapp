@@ -2,7 +2,8 @@ import "./index.scss"
 import "./responsive.scss"
 
 import React, { useState, useEffect } from "react"
-
+import Web3 from "web3"
+import Identicon from "identicon.js"
 /*Hooks*/
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
@@ -16,27 +17,17 @@ import navigation from "@src/navigation"
 import * as actionsCommon from "@store/common/actions"
 import { getCodeLanguage } from "@store/common/selectors"
 import { getUserData } from "../../../store/user/selector"
+import { actions } from "../../../store/user/reducer"
 import { loginSuccessSelector } from "../../../Modules/Authenticate/store/auth/selectors"
+import { SIGN_IN_SUCCESS } from "../../../Modules/Authenticate/store/auth/constants"
 
 /*COMPONENT*/
-import {
-  UserIcon,
-  UserPointerWrapper,
-  DoneProgress,
-  PendingProgress
-} from "./icon"
-import DropdownCustom from "./Dropdown"
-import { useMediaQuery } from "react-responsive"
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min"
-import {
-  Button,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle
-} from "reactstrap"
 
-const PROGRESS_LENGTH = 250
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min"
+import { Button } from "reactstrap"
+import SlideInModal from "../../../components/SlideInModal"
+import SigninForm from "./SigninForm"
+import User from "../../../Firebase/User"
 
 const Navbar = () => {
   const { t } = useTranslation()
@@ -56,13 +47,6 @@ const Navbar = () => {
   const layOutCls = ""
   const logo = require("@src/assets/images/logo-gif.gif").default
 
-  const classOne = collapsed
-    ? "collapse navbar-collapse"
-    : "collapse navbar-collapse show"
-  const classTwo = collapsed
-    ? "navbar-toggler navbar-toggler-right collapsed"
-    : "navbar-toggler navbar-toggler-right"
-
   const toggleNavbar = () => {
     setCollapsed(!collapsed)
   }
@@ -73,14 +57,54 @@ const Navbar = () => {
       setIsMounted(true)
     }
   }, [])
+  const showLoginModal = () => {
+    SlideInModal.show(() => {}, <SigninForm />)
+  }
 
-  useEffect(() => {
-    setIsDropdownOpen(false)
-  }, [location])
-  const percent =
-    userData?.levelProgress * 100 > 100 ? 100 : userData?.levelProgress * 100
-  const PROGRES_DONE_LENGTH = parseInt((250 * percent) / 100)
-
+  const connectMetaMask = () => {
+    let web3 = null
+    if (window.ethereum) {
+      web3 = new Web3(window.ethereum)
+      try {
+        window.ethereum.enable().then(function (address, b) {
+          User.login(
+            address[0],
+            (data) => {
+              SlideInModal.show(() => {}, <SigninForm address={data} />)
+            },
+            () => {
+              toast.success("Có lỗi xảy ra, xin vui lòng thử lại!", {
+                position: "top-center",
+                autoClose: 5000,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+              })
+            },
+            (user_info) => {
+              dispatch({
+                type: SIGN_IN_SUCCESS,
+                payload: user_info
+              })
+              dispatch(
+                actions.setInfoData({
+                  ...user_info
+                })
+              )
+            }
+          )
+        })
+      } catch (e) {
+        console.log("USER DENIED")
+      }
+    } else if (window.web3) {
+      web3 = new Web3(window.web3.currentProvider)
+    } else {
+      alert("You have to install MetaMask !")
+    }
+  }
+  const avatar = new Identicon(userData?.address, 30).toString()
   return (
     <header id="header" className="header-inner">
       <div id="navbar" className={`crake-nav ${layOutCls}`}>
@@ -97,25 +121,36 @@ const Navbar = () => {
             <div className="ms-auto others-option">
               <Link to="/">
                 <a className="nav-list__item">
-                  <h5>Đấu giá</h5>
+                  <h5 className="mb-0">Đấu giá</h5>
                 </a>
               </Link>
               <Link to="/">
                 <a className="nav-list__item">
-                  <h5>Thống kê</h5>
+                  <h5 className="mb-0">Thống kê</h5>
                 </a>
               </Link>
               <Link to="/">
                 <a className="nav-list__item">
-                  <h5>Lịch sử</h5>
+                  <h5 className="mb-0">Lịch sử</h5>
                 </a>
               </Link>
               <Link to="/">
                 <a className="nav-list__item">
-                  <h5>Danh mục</h5>
+                  <h5 className="mb-0">Danh mục</h5>
                 </a>
               </Link>
-              <Button color="primary">Đăng nhập</Button>
+              {isLogin ? (
+                <img
+                  className="ml-2"
+                  width="30"
+                  height="30"
+                  src={`data:image/png;base64,${avatar}`}
+                />
+              ) : (
+                <Button onClick={connectMetaMask} color="primary">
+                  Đăng nhập
+                </Button>
+              )}
             </div>
           </nav>
         </div>

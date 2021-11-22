@@ -1,4 +1,5 @@
 export default [
+  { key: "CreateAuction" },
   { key: "Detail" },
   { key: "Gifts" },
   { key: "Notification" },

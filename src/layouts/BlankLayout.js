@@ -105,42 +105,6 @@ const BlankLayout = ({ children, ...rest }) => {
         pauseOnHover
       />
       <SlideInModal />
-      {isLogin ? (
-        <span
-          className="invite-friend-button"
-          onClick={() => {
-            if (userData?.flagDaisu === 1) {
-              SlideInModal.show(
-                () => {},
-                <PopupInvite />,
-                "invite-popup-modal-wrapper"
-              )
-            } else {
-              SlideInModal.show(
-                () => {},
-                <PopupNewBie />,
-                "invite-popup-modal-wrapper"
-              )
-            }
-          }}
-        >
-          <InviteFriendIcon />
-        </span>
-      ) : null}
-      <div
-        style={{
-          position: "fixed",
-          bottom: 100,
-          right: 20,
-          width: 100,
-          height: 100
-        }}
-      >
-        <MessengerCustomerChat
-          pageId={getFacebookData()?.[1]}
-          appId={getFacebookData()?.[0]}
-        />
-      </div>
     </Fragment>
   )
 }
