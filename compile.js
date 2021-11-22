@@ -2,7 +2,7 @@ const path = require("path")
 const fs = require("fs")
 const solc = require("solc")
 
-const lotteryPath = path.resolve(__dirname, "contracts", "Bid.sol")
+const lotteryPath = path.resolve(__dirname, "", "Bid.sol")
 const source = fs.readFileSync(lotteryPath, "utf8")
 const input = {
   language: "Solidity",
