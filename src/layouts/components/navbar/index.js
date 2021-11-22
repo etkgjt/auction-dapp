@@ -104,7 +104,7 @@ const Navbar = () => {
       alert("You have to install MetaMask !")
     }
   }
-  const avatar = new Identicon(userData?.address, 30).toString()
+
   return (
     <header id="header" className="header-inner">
       <div id="navbar" className={`crake-nav ${layOutCls}`}>
@@ -144,7 +144,10 @@ const Navbar = () => {
                   className="ml-2"
                   width="30"
                   height="30"
-                  src={`data:image/png;base64,${avatar}`}
+                  src={`data:image/png;base64,${new Identicon(
+                    userData?.address,
+                    30
+                  ).toString()}`}
                 />
               ) : (
                 <Button onClick={connectMetaMask} color="primary">
