@@ -139,7 +139,7 @@ const Navbar = () => {
                   <h5 className="mb-0">Danh mục</h5>
                 </a>
               </Link>
-              {isLogin ? (
+              {isLogin && userData?.address ? (
                 <img
                   className="ml-2"
                   width="30"

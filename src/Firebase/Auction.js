@@ -22,28 +22,25 @@ export default class Auction {
   static createAuctions = (
     auction_data = {
       abi: "",
-      duration: 800000,
       max_bid: 0,
       owner: "",
       product_info: ""
     }
   ) => {
-    const id = Date.now()
-    const { abi, duration, max_bid, owner, owner, product_info, address } =
-      auction_data
+    const id = Date.now() + ""
+    const { abi, max_bid, owner, product_info, address } = auction_data
     firestoreDB.collection(autionCollection).doc(id).set({
       address,
       abi,
-      duration,
       max_bid: 0,
       owner,
       product_info,
-      status: AUCTION_STATUS.CREATING
+      status: AUCTION_STATUS.BIDDING
     })
     realtimeDB.ref(`/${refAuction}/${id}`).update({
       max_bid: 0,
       players: [],
-      status: AUCTION_STATUS.CREATING
+      status: AUCTION_STATUS.BIDDING
     })
   }
   static createBid = (

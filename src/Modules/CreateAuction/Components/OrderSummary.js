@@ -52,6 +52,27 @@ export default function OrderSummary({
             />
           </div>
         </div>
+        <div className="col-lg-12 col-md-6">
+          <div className="form-group">
+            <label>Thời gian kết thúc</label>
+            <input
+              type="date"
+              name="endDate"
+              onChange={(e) => {
+                handleOnchange(e, formik)
+              }}
+              className="form-control"
+            />
+            <input
+              type="time"
+              name="endTime"
+              onChange={(e) => {
+                handleOnchange(e, formik)
+              }}
+              className="form-control mt-2"
+            />
+          </div>
+        </div>
 
         {/* <Payment amount={totalAmount * 100} disabled={this.props.disabled} /> */}
       </div>

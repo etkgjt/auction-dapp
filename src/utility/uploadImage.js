@@ -1,6 +1,7 @@
 import { rootDir } from "../configs/dirUpload"
 import { firebaseStorage } from "../Firebase/database"
 // import firebase from "firebase/app"
+
 const uploadImage = async (
   file = {},
   refFolder = "",
@@ -14,19 +15,14 @@ const uploadImage = async (
   }
   try {
     onBeginUpLoad()
-
-    await firebaseStorage
-      .ref(rootDir + refFolder)
-      .child(fileName)
-      .put(file)
+    await firebaseStorage.ref(refFolder).child(fileName).put(file)
     const resUrl = await firebaseStorage
-      .ref(rootDir + refFolder)
+      .ref(refFolder)
       .child(fileName)
       .getDownloadURL()
 
     return resUrl
   } catch (err) {
-    console.log("UPLOAD ERR", err)
     onUpLoadError()
   } finally {
     onEndUpLoad()
