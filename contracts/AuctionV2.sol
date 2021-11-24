@@ -6,6 +6,7 @@ contract Auction {
     event initedAuctionEvent();
     event bidEvent(address player, uint bidValue);
     event endAuctionEvent();
+    event bidFailed(string status);
     
      // auction product_infor
     struct ProductAuction{
@@ -46,23 +47,26 @@ contract Auction {
 
     function bid() public payable{
         if (block.timestamp > productAuction.endTime){
-            revert("Auction has ended");
-        }
-        if (msg.value <= highestPrice){
-             revert("Need to pay higher price");
+            emit bidFailed("Auction has ended");
+            // revert("Auction has ended");
+        } else if (msg.value <= highestPrice){
+            emit bidFailed("Need to pay higher price");
+            // revert("Need to pay higher price");
+        }else {
+            if (!isExistPlayer(msg.sender)){
+                    listPlayer.push(msg.sender); 
+            }
+            // record history
+            records.push(HistoryRecord(msg.sender, block.timestamp, msg.value));
+            pendingResultPlayer[msg.sender] += msg.value;
+                    
+            // set new highestBidder
+            highestPrice = msg.value;
+            highestBidder = msg.sender;
+            emit bidEvent(msg.sender,msg.value);
         }
         
-        if (!isExistPlayer(msg.sender)){
-          listPlayer.push(msg.sender); 
-        }
-        // record history
-        records.push(HistoryRecord(msg.sender, block.timestamp, msg.value));
-        pendingResultPlayer[msg.sender] += msg.value;
-        
-        // set new highestBidder
-        highestPrice = msg.value;
-        highestBidder = msg.sender;
-        emit bidEvent(msg.sender,msg.value);
+       
         
     }
     
@@ -86,6 +90,7 @@ contract Auction {
     
     function withdraw() public returns(bool){
         if (msg.sender == highestBidder){
+            emit bidFailed("You can not withdraw");
             revert("You can not withdraw");
         }
         uint amount = pendingResultPlayer[msg.sender];
@@ -102,9 +107,11 @@ contract Auction {
     
     function auctionEnd() public{
         if (isAuctionEnd){
+            emit bidFailed("Auction has ended");
              revert("Auction has ended");
         }
         if (block.timestamp < productAuction.endTime){
+            emit bidFailed("The game is not over yet");
             revert("The game is not over yet");
         }
         isAuctionEnd = true;

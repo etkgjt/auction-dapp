@@ -1,0 +1,19 @@
+{
+  "images": [
+    "https://firebasestorage.googleapis.com/v0/b/firstdapp-e1416.appspot.com/o/auctions%2Fimages%2Fabc%2F1637680381755_0.jpg?alt=media&token=6870729e-da1c-4330-868a-8de6e5b2cd60"
+  ],
+  "locale": "4",
+  "savedLocale": "asdas",
+  "address": "405/13 Truong Chinh, Ward 13, Tan Binh District, Ho Chi Minh city",
+  "city": "TP. Hồ Chí Minh",
+  "district": "asd",
+  "email": "asda@gmail.com",
+  "phone": "0332511060",
+  "introduce": "HHAHAAA",
+  "prodName": "Ban Phim Co",
+  "initBidValue": "1",
+  "stepValue": "1",
+  "unlockValue": "1",
+  "endDate": 1636470720000,
+  "endTime": "22:12"
+}

@@ -607,3 +607,12 @@
     }
   }
 }
+.prod-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  cursor: pointer;
+  &.prod-image-active {
+    border: 2px solid #e03f0d;
+  }
+}

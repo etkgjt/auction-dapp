@@ -2,10 +2,13 @@ import React, { Component, useState } from "react"
 import { Link } from "react-router-dom"
 
 import Categories from "../../../Firebase/Categories"
+import Auction from "../../../Firebase/Auction"
 import CourseItem from "./CourseItem"
 
 export default function ShopVTwo() {
   const [category, setCategory] = useState([])
+
+  const [listAuction, setListAuction] = useState([])
 
   const fetchListCate = async () => {
     try {
@@ -15,10 +18,21 @@ export default function ShopVTwo() {
       console.log("FETCH LIST CATE ERR", err)
     }
   }
+
+  const fetchListAuction = async () => {
+    try {
+      const res = await Auction.getListAuction()
+      setListAuction(res)
+    } catch (err) {
+      console.log("FETCH LIST CATE ERR", err)
+    }
+  }
+
   React.useEffect(() => {
     fetchListCate()
+    fetchListAuction()
   }, [])
-
+  console.log(listAuction)
   return (
     <section className="product-area ptb-100">
       <div className="container px-5">
@@ -58,7 +72,7 @@ export default function ShopVTwo() {
                 </div>
               </div>
 
-              {[1, 2, 3, 4, 5].map((data, idx) => (
+              {listAuction?.map((data, idx) => (
                 <CourseItem key={idx} data={data} />
               ))}
 

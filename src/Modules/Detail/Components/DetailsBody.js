@@ -1,123 +1,238 @@
-import React, { Component } from "react"
-import { connect } from "react-redux"
+import React, { Component, useState } from "react"
+import { connect, useSelector } from "react-redux"
 
 import RelatedProducts from "./RelatedProducts"
 import Description from "./Description"
+import { useParams } from "react-router"
+import Auction from "../../../Firebase/Auction"
+import web3_infura from "../../../utility/web3Infura"
+import web3Local from "../../../utility/web3Local"
+import Web3 from "web3"
+import { getUserData } from "../../../store/user/selector"
+import { toast } from "react-toastify"
 
-class DetailsBody extends Component {
-  state = {
-    qty: 1,
-    max: 10,
-    min: 1,
-    sizeGuide: false,
-    shipModal: false
-  }
+const DetailsBody = () => {
+  const { id } = useParams()
+  const userData = useSelector(getUserData)
 
-  onFormSubmit = (e) => {
-    e.preventDefault()
-  }
+  const [imgIndex, setImgIndex] = useState(0)
 
-  handleAddToCartFromView = () => {}
+  const [productData, setProductData] = useState()
 
-  render() {
-    return (
-      <section className="shop-details-area ptb-100">
-        <div className="container ptb-100">
-          <div className="shop-details">
-            <div className="row h-100 justify-content-center align-items-center">
-              <div className="col-lg-5 col-md-12">
-                <img src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg" />
-              </div>
-              <div className="col-lg-7 col-md-12">
-                <div className="product-entry-summary">
-                  <h3>Gold Buyer's Survival Manual</h3>
-                  <h4>
-                    <span>$44.00</span> $30.00
-                  </h4>
+  const [bidVal, setBidVal] = useState(0)
 
-                  <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry’s
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book. It has survived not only five centuries,
-                    but also the leap into electronic typesetting, remaining
-                    essentially unchanged.
-                  </p>
+  const productInfo = productData?.product_info
+    ? JSON.parse(productData?.product_info)
+    : {}
 
-                  <ul className="product-categories">
-                    <li>Categories:</li>
-                    <li>
-                      <a href="#">Books</a>,
-                    </li>
-                    <li>
-                      <a href="#">Art</a>
-                    </li>
-                  </ul>
-
-                  <form onSubmit={this.onFormSubmit}>
-                    <input
-                      type="number"
-                      name="quantity"
-                      title="Qty"
-                      className="form-control"
-                      value={this.state.qty}
-                      min={this.state.min}
-                      max={this.state.max}
-                      onChange={(e) => this.setState({ qty: e.target.value })}
-                    />
-                    <button
-                      type="submit"
-                      className="btn btn-primary"
-                      onClick={this.handleAddToCartFromView}
-                    >
-                      Add to Cart
-                    </button>
-                  </form>
-
-                  <ul className="share-social">
-                    <li>Share:</li>
-                    <li>
-                      <a href="#" target="_blank">
-                        <i className="icofont-facebook"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank">
-                        <i className="icofont-twitter"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank">
-                        <i className="icofont-linkedin"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" target="_blank">
-                        <i className="icofont-instagram"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <Description />
-          </div>
-        </div>
-
-        <RelatedProducts />
-      </section>
-    )
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addQuantityWithNumber: (id, qty) => {
-      dispatch(addQuantityWithNumber(id, qty))
+  const getProductDetails = async () => {
+    try {
+      const res = await Auction.getListAuction()
+      let item = res?.find((item) => item?.id === id)
+      setProductData(item)
+    } catch (err) {
+      console.log("GET DETAIL ERR", err)
     }
   }
+
+  const handleCreateBidding = async () => {
+    if (!userData?.address) {
+      toast.error("Vui lòng đăng nhập trước khi đấu giá!", {
+        position: "top-center",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      })
+      return
+    }
+    try {
+      const contract_MM = new web3Local.eth.Contract(
+        JSON.parse(productData?.abi),
+        productData?.address
+      )
+      contract_MM.methods.bid().send({
+        from: userData?.address,
+        value: getWei(bidVal),
+        gas: 500000
+      })
+    } catch (err) {
+      console.log("CREATE BID ERR", err)
+    }
+  }
+  const pushNewBiddingToDB = () => {
+    Auction.createBid(id, {
+      player_address: userData?.address,
+      bid_value: getWei(bidVal),
+      name: userData?.user_name
+    })
+  }
+  React.useEffect(() => {
+    getProductDetails()
+  }, [id])
+
+  React.useEffect(() => {
+    if (productData?.abi) {
+      try {
+        web3_infura.eth.getBlockNumber((err, num) => {
+          if (err) {
+            return 0
+          }
+          if (num) {
+            const contract_Infura = new web3_infura.eth.Contract(
+              JSON.parse(productData?.abi),
+              productData?.address
+            )
+            contract_Infura.events.bidFailed(
+              { filter: {}, fromBlock: num },
+              (err, data) => {
+                if (err) {
+                  console.log("BID ERROR", err)
+                  toast.error("Đấu giá thất bại", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                  })
+                } else {
+                  toast.error("Đấu giá thất bại", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                  })
+                }
+              }
+            )
+            contract_Infura.events.bidEvent(
+              { filter: {}, fromBlock: num },
+              (err, data) => {
+                if (err) {
+                  console.log("BID ERROR", err)
+                  toast.error("Đấu giá thất bại", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                  })
+                } else {
+                  pushNewBiddingToDB()
+                  toast.success("Đấu giá thành công", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                  })
+                  console.log("BID SUCCESS", data)
+                }
+              }
+            )
+          }
+        })
+      } catch (err) {
+        toast.error("Đấu giá thất bại", {
+          position: "top-center",
+          autoClose: 5000,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined
+        })
+      }
+    }
+  }, [productData])
+
+  const getWei = (val) => {
+    return val * 1000000000000000000
+  }
+
+  return (
+    <section className="shop-details-area ptb-100">
+      <div className="container ptb-100">
+        <div className="shop-details">
+          <div className="row h-100 justify-content-center align-items-center">
+            <div className="col-lg-5 col-md-12">
+              <img
+                style={{ maxHeight: 300, width: "100%", objectFit: "contain" }}
+                src={productInfo?.images?.[imgIndex]}
+              />
+              <div className="row mt-2">
+                {productInfo?.images?.map((item, index) => (
+                  <div
+                    onClick={() => {
+                      setImgIndex(index)
+                    }}
+                    className="col-lg-3 col-md-3"
+                    key={index}
+                  >
+                    <img
+                      className={
+                        "prod-image" +
+                        (imgIndex === index ? " prod-image-active" : "")
+                      }
+                      src={productInfo?.images?.[imgIndex]}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="col-lg-7 col-md-12">
+              <div className="product-entry-summary">
+                <h3>{productInfo?.prodName}</h3>
+                <h4>Giá hiện tại: {productData?.max_bid}ETH</h4>
+
+                <p>{productInfo?.introduce}</p>
+
+                <ul className="product-categories">
+                  <li>Categories:</li>
+                  <li>
+                    <a href="#">Books</a>,
+                  </li>
+                  <li>
+                    <a href="#">Art</a>
+                  </li>
+                </ul>
+
+                <form>
+                  <input
+                    type="number"
+                    name="quantity"
+                    title="Qty"
+                    className="form-control"
+                    value={bidVal}
+                    min={0}
+                    max={999999999}
+                    contentEditable={false}
+                    onChange={(e) => setBidVal(e.target.value)}
+                  />
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    onClick={handleCreateBidding}
+                  >
+                    Đấu giá
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <Description data={productInfo} />
+        </div>
+      </div>
+
+      <RelatedProducts />
+    </section>
+  )
 }
 
-export default connect(null, mapDispatchToProps)(DetailsBody)
+export default DetailsBody

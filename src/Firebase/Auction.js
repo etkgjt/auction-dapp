@@ -5,7 +5,7 @@ const refAuction = "auctions"
 const autionCollection = "auctions"
 const playerCollection = "players"
 
-const AUCTION_STATUS = {
+export const AUCTION_STATUS = {
   CREATING: "CREATING",
   BIDDING: "BIDDING",
   ENDED: "ENDED",
@@ -35,12 +35,14 @@ export default class Auction {
       max_bid: 0,
       owner,
       product_info,
-      status: AUCTION_STATUS.BIDDING
+      status: AUCTION_STATUS.BIDDING,
+      id: id
     })
     realtimeDB.ref(`/${refAuction}/${id}`).update({
       max_bid: 0,
       players: [],
-      status: AUCTION_STATUS.BIDDING
+      status: AUCTION_STATUS.BIDDING,
+      id: id
     })
   }
   static createBid = (
@@ -61,11 +63,11 @@ export default class Auction {
       .collection(autionCollection)
       .doc(auction_id)
       .collection(playerCollection)
-      .doc(player_address)
-      .update({
+      .doc(player_address + "_" + id)
+      .set({
         bid_value: bid_value,
         has_returnd: false,
-        name: name
+        name: name || "name"
       })
   }
 
@@ -80,6 +82,9 @@ export default class Auction {
     })
   }
   static endAuctions = (auction_id) => {
+    if (!auction_id) {
+      return
+    }
     firestoreDB.collection(autionCollection).doc(auction_id).set({
       status: AUCTION_STATUS.ENDED
     })
@@ -98,6 +103,20 @@ export default class Auction {
       players: [],
       status: AUCTION_STATUS.HIDE
     })
+  }
+
+  static getListAuction = async () => {
+    const listAuctionsDocs = await firestoreDB
+      .collection(autionCollection)
+      .get()
+    const data = []
+    if (listAuctionsDocs.docs) {
+      for (const doc of listAuctionsDocs.docs) {
+        let temp = doc.data()
+        data.push(temp)
+      }
+    }
+    return data
   }
 
   static unRegisterListenAuctionsChange = (auction_id, fnListen, type = "") => {

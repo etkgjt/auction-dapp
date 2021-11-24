@@ -10,7 +10,7 @@ export default {
   pathRoot: "",
   routes: [
     {
-      url: "detail",
+      url: "detail/:id",
       component: "Page/index",
       meta: {
         authRoute: true

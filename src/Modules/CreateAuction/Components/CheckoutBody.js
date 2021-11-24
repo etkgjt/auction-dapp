@@ -15,6 +15,7 @@ import LoadingImg from "../assets/Gear.gif"
 import SlideInModal from "../../../components/SlideInModal"
 import { toast } from "react-toastify"
 import { useHistory } from "react-router"
+import Categories from "../../../Firebase/Categories"
 
 const Loading = () => {
   return (
@@ -34,8 +35,18 @@ const Loading = () => {
 function CheckoutBody({ total, shipping }) {
   const history = useHistory()
   const [submitLoading, setSubmitLoading] = useState(false)
+  const [category, setCategory] = useState([])
   const [listFile, setListFile] = useState([])
   const userData = useSelector(getUserData)
+
+  const fetchListCate = async () => {
+    try {
+      const res = await Categories.getAllCategori()
+      setCategory(res)
+    } catch (err) {
+      console.log("FETCH LIST CATE ERR", err)
+    }
+  }
 
   const handleOnchange = (e, formik) => {
     formik.setFieldValue(e.target.name, e.target.value)
@@ -70,7 +81,7 @@ function CheckoutBody({ total, shipping }) {
           data: bytecode,
           arguments: [prodInfo, startValue, duration]
         })
-        .send({ gas: "2000000", from: userData?.address })
+        .send({ gas: "4000000", from: userData?.address })
       console.log(result)
       console.log("Contract deployed to", result.options.address)
       cb(abi, result.options.address)
@@ -107,7 +118,7 @@ function CheckoutBody({ total, shipping }) {
         return
       }
       SlideInModal.show(() => {}, <Loading />, "static")
-      setSubmitLoading(true)
+
       const times = values?.endDate + " " + values?.endTime
       const dateTemp = moment(times)
       const listPromise = []
@@ -162,7 +173,6 @@ function CheckoutBody({ total, shipping }) {
         progress: undefined
       })
     } finally {
-      setSubmitLoading(false)
     }
   }
 
@@ -173,6 +183,10 @@ function CheckoutBody({ total, shipping }) {
     const url = await uploadImage(blob, "auctions/images/abc", fileName)
     return url
   }
+
+  React.useEffect(() => {
+    fetchListCate()
+  }, [])
 
   return (
     <section className="checkout-area ptb-100">
@@ -241,6 +255,29 @@ function CheckoutBody({ total, shipping }) {
                                 <option value="0">Nhật Bản</option>
                                 <option value="3">Pháp</option>
                                 <option value="4">Tây Ban Nha</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-lg-12 col-md-12">
+                          <div className="form-group">
+                            <label>
+                              Danh mục <span className="required">*</span>
+                            </label>
+
+                            <div className="select-box">
+                              <select
+                                name="category"
+                                onChange={(e) => {
+                                  handleOnchange(e, formik)
+                                }}
+                                className="form-control"
+                              >
+                                {category?.map((item, index) => (
+                                  <option value={item?.id} key={index}>
+                                    {item?.name}
+                                  </option>
+                                ))}
                               </select>
                             </div>
                           </div>
