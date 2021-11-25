@@ -13,8 +13,13 @@ export const AUCTION_STATUS = {
 }
 
 export default class Auction {
-  static registerListenAuctionsChange = (auction_id, fnListen, type = "") => {
+  static registerListenAuctionsChange = (auction_id, fnListen) => {
     realtimeDB.ref(`/${refAuction}/${auction_id}`).on("value", (snapshot) => {
+      fnListen(snapshot)
+    })
+  }
+  static registerListenListAuctionsChange = (fnListen) => {
+    realtimeDB.ref(`/${refAuction}`).on("value", (snapshot) => {
       fnListen(snapshot)
     })
   }
@@ -56,8 +61,15 @@ export default class Auction {
     const { player_address, bid_value, name } = bid_data
     const id = Date.now()
     realtimeDB
-      .ref(`/${refAuction}/${auction_id}/players`)
+      .ref(`/${refAuction}/${auction_id}/players/${player_address}_${id}`)
       .set({ [`${player_address}_${id}`]: `${bid_value}_${name}` })
+
+    realtimeDB.ref(`/${refAuction}/${auction_id}`).update({
+      max_bid: bid_value
+    })
+    firestoreDB.collection(autionCollection).doc(auction_id).update({
+      max_bid: bid_value
+    })
 
     firestoreDB
       .collection(autionCollection)
@@ -72,7 +84,7 @@ export default class Auction {
   }
 
   static startAuctions = (auction_id) => {
-    firestoreDB.collection(autionCollection).doc(auction_id).set({
+    firestoreDB.collection(autionCollection).doc(auction_id).update({
       status: AUCTION_STATUS.BIDDING
     })
     realtimeDB.ref(`/${refAuction}/${auction_id}`).update({
@@ -85,22 +97,18 @@ export default class Auction {
     if (!auction_id) {
       return
     }
-    firestoreDB.collection(autionCollection).doc(auction_id).set({
+    firestoreDB.collection(autionCollection).doc(auction_id).update({
       status: AUCTION_STATUS.ENDED
     })
     realtimeDB.ref(`/${refAuction}/${auction_id}`).update({
-      max_bid: 0,
-      players: [],
       status: AUCTION_STATUS.ENDED
     })
   }
   static removeAuctions = (auction_id) => {
-    firestoreDB.collection(autionCollection).doc(auction_id).delete({
+    firestoreDB.collection(autionCollection).doc(auction_id).update({
       status: AUCTION_STATUS.HIDE
     })
     realtimeDB.ref(`/${refAuction}/${auction_id}`).update({
-      max_bid: 0,
-      players: [],
       status: AUCTION_STATUS.HIDE
     })
   }
@@ -121,5 +129,10 @@ export default class Auction {
 
   static unRegisterListenAuctionsChange = (auction_id, fnListen, type = "") => {
     realtimeDB.ref(`/${refAuction}/${auction_id}`).off("value")
+  }
+  static unRegisterListenListAuctionsChange = (fnListen) => {
+    realtimeDB.ref(`/${refAuction}`).off("value", (snapshot) => {
+      fnListen(snapshot)
+    })
   }
 }

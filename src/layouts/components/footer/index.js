@@ -40,7 +40,7 @@ const Footer = () => {
         <div className="container">
           <Row className="m-0 h-100 justify-content-center align-items-center">
             <Col lg="8" md="8" sm="8" xs="8" className="left-footer-wrapper">
-              <span
+              {/* <span
                 className="ttl-footer"
                 style={{ cursor: "pointer" }}
                 onClick={() => {
@@ -48,8 +48,8 @@ const Footer = () => {
                 }}
               >
                 <TTLIcon />
-              </span>
-              <span className="stnhd-footer">
+              </span> */}
+              {/* <span className="stnhd-footer">
                 {isMobile ? (
                   <img src={logo} />
                 ) : (
@@ -58,12 +58,12 @@ const Footer = () => {
                     style={{ maxWidth: 200, height: "auto" }}
                   />
                 )}
-              </span>
+              </span> */}
             </Col>
 
             <Col lg="4" md="4" xs="4" sm="4" className="footer-right">
-              <p className="company-name">© 2021 Tâm Trí Lực</p>
-              <ul
+              <p className="company-name">© 2021 BIDDAPP</p>
+              {/* <ul
                 style={{
                   display: "flex",
                   justifyContent: "flex-end",
@@ -110,7 +110,7 @@ const Footer = () => {
                     <TiktokIcon />
                   </Link>
                 </li>
-              </ul>
+              </ul> */}
             </Col>
           </Row>
         </div>

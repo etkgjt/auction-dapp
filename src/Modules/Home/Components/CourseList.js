@@ -32,7 +32,14 @@ export default function ShopVTwo() {
     fetchListCate()
     fetchListAuction()
   }, [])
-  console.log(listAuction)
+  React.useEffect(() => {
+    Auction.registerListenListAuctionsChange(() => {
+      fetchListAuction()
+    })
+    return () => {
+      Auction.unRegisterListenListAuctionsChange(() => {})
+    }
+  }, [])
   return (
     <section className="product-area ptb-100">
       <div className="container px-5">
@@ -40,7 +47,7 @@ export default function ShopVTwo() {
           <div className="col-lg-8 col-md-12">
             <div className="row">
               <div className="col-lg-12 col-md-12">
-                <div className="woocommerce-topbar">
+                {/* <div className="woocommerce-topbar">
                   <div className="row h-100 justify-content-center align-items-center">
                     <div className="col-lg-7 col-md-7">
                       <div className="woocommerce-result-count">
@@ -69,14 +76,14 @@ export default function ShopVTwo() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {listAuction?.map((data, idx) => (
                 <CourseItem key={idx} data={data} />
               ))}
 
-              <div className="col-lg-12 col-md-12">
+              {/* <div className="col-lg-12 col-md-12">
                 <div className="pagination-area">
                   <nav aria-label="Page navigation example">
                     <ul className="pagination justify-content-center">
@@ -112,7 +119,7 @@ export default function ShopVTwo() {
                     </ul>
                   </nav>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -145,248 +152,6 @@ export default function ShopVTwo() {
                   ))}
                 </ul>
               </div>
-
-              {/* <div className="widget widget_recent_products">
-                <h3 className="widget-title">Recent Post</h3>
-                <div className="bar"></div>
-
-                <ul>
-                  <li>
-                    <div className="recent-products-thumb">
-                      <Link href="#">
-                        <a>
-                          <img src="/images/shop-item1.jpg" alt="blog-image" />
-                        </a>
-                      </Link>
-                    </div>
-
-                    <div className="recent-products-content">
-                      <h3>
-                        <a href="#">Form Rocking Chair</a>
-                      </h3>
-                      <ul>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                      </ul>
-                      <span className="date">$18.00</span>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div className="recent-products-thumb">
-                      <Link href="#">
-                        <a>
-                          <img
-                            src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                            alt="blog-image"
-                          />
-                        </a>
-                      </Link>
-                    </div>
-
-                    <div className="recent-products-content">
-                      <h3>
-                        <a href="#">Form Rocking Chair</a>
-                      </h3>
-                      <ul>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                      </ul>
-                      <span className="date">$18.00</span>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div className="recent-products-thumb">
-                      <Link href="#">
-                        <a>
-                          <img
-                            src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                            alt="blog-image"
-                          />
-                        </a>
-                      </Link>
-                    </div>
-
-                    <div className="recent-products-content">
-                      <h3>
-                        <a href="#">Form Rocking Chair</a>
-                      </h3>
-                      <ul>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                      </ul>
-                      <span className="date">$18.00</span>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div className="recent-products-thumb">
-                      <Link href="#">
-                        <a>
-                          <img
-                            src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                            alt="blog-image"
-                          />
-                        </a>
-                      </Link>
-                    </div>
-
-                    <div className="recent-products-content">
-                      <h3>
-                        <Link href="#">
-                          <a>Form Rocking Chair</a>
-                        </Link>
-                      </h3>
-                      <ul>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                      </ul>
-                      <span className="date">$18.00</span>
-                    </div>
-                  </li>
-                </ul>
-              </div> */}
-              {/* 
-              <div className="widget widget_tag_cloud">
-                <h3 className="widget-title">Popular Tags</h3>
-                <div className="bar"></div>
-
-                <div className="tagcloud">
-                  <a href="#">Art</a>
-                  <a href="#">Book</a>
-                  <a href="#">Watch</a>
-                  <a href="#">TV</a>
-                  <a href="#">Gifts</a>
-                  <a href="#">Smart TV</a>
-                  <a href="#">Design</a>
-                </div>
-              </div> */}
-              {/* 
-              <div className="widget widget_text">
-                <h3 className="widget-title">Instagram</h3>
-                <div className="bar"></div>
-
-                <ul>
-                  <li>
-                    <Link href="#">
-                      <a>
-                        <img
-                          src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                          alt="image"
-                        />
-                      </a>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link href="#">
-                      <a>
-                        <img
-                          src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                          alt="image"
-                        />
-                      </a>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link href="#">
-                      <a>
-                        <img
-                          src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                          alt="image"
-                        />
-                      </a>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link href="#">
-                      <a>
-                        <img
-                          src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                          alt="image"
-                        />
-                      </a>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link href="#">
-                      <a>
-                        <img
-                          src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                          alt="image"
-                        />
-                      </a>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link href="#">
-                      <a>
-                        <img
-                          src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                          alt="image"
-                        />
-                      </a>
-                    </Link>
-                  </li>
-                </ul>
-              </div> */}
             </div>
           </div>
         </div>

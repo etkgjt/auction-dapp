@@ -21,6 +21,8 @@ const DetailsBody = () => {
 
   const [bidVal, setBidVal] = useState(0)
 
+  const [realtimeBidData, setRealtimeBidData] = useState(null)
+
   const productInfo = productData?.product_info
     ? JSON.parse(productData?.product_info)
     : {}
@@ -33,6 +35,16 @@ const DetailsBody = () => {
     } catch (err) {
       console.log("GET DETAIL ERR", err)
     }
+  }
+  const pushNewBiddingToDB = () => {
+    const bid = localStorage.getItem("bid_value")
+    const address = localStorage.getItem("user_address")
+    const name = localStorage.getItem("name")
+    Auction.createBid(id, {
+      player_address: address,
+      bid_value: bid * 1,
+      name: name
+    })
   }
 
   const handleCreateBidding = async () => {
@@ -57,17 +69,14 @@ const DetailsBody = () => {
         value: getWei(bidVal),
         gas: 500000
       })
+      localStorage.setItem("bid_value", getWei(bidVal))
+      localStorage.setItem("user_address", userData?.address)
+      localStorage.setItem("name", userData?.user_name)
     } catch (err) {
       console.log("CREATE BID ERR", err)
     }
   }
-  const pushNewBiddingToDB = () => {
-    Auction.createBid(id, {
-      player_address: userData?.address,
-      bid_value: getWei(bidVal),
-      name: userData?.user_name
-    })
-  }
+
   React.useEffect(() => {
     getProductDetails()
   }, [id])
@@ -149,11 +158,21 @@ const DetailsBody = () => {
         })
       }
     }
-  }, [productData])
+  }, [productData, userData])
+
+  React.useEffect(() => {
+    Auction.registerListenAuctionsChange(id, (snapshot) => {
+      setRealtimeBidData(snapshot?.val())
+    })
+    return () => {
+      Auction.unRegisterListenAuctionsChange(id)
+    }
+  }, [])
 
   const getWei = (val) => {
     return val * 1000000000000000000
   }
+  const getEth = (val) => val / Math.pow(10, 18)
 
   return (
     <section className="shop-details-area ptb-100">
@@ -179,7 +198,7 @@ const DetailsBody = () => {
                         "prod-image" +
                         (imgIndex === index ? " prod-image-active" : "")
                       }
-                      src={productInfo?.images?.[imgIndex]}
+                      src={item}
                     />
                   </div>
                 ))}
@@ -188,11 +207,14 @@ const DetailsBody = () => {
             <div className="col-lg-7 col-md-12">
               <div className="product-entry-summary">
                 <h3>{productInfo?.prodName}</h3>
-                <h4>Giá hiện tại: {productData?.max_bid}ETH</h4>
+                <h4>
+                  Giá hiện tại:
+                  {getEth(realtimeBidData?.max_bid || productData?.max_bid)} ETH
+                </h4>
 
                 <p>{productInfo?.introduce}</p>
 
-                <ul className="product-categories">
+                {/* <ul className="product-categories">
                   <li>Categories:</li>
                   <li>
                     <a href="#">Books</a>,
@@ -200,24 +222,40 @@ const DetailsBody = () => {
                   <li>
                     <a href="#">Art</a>
                   </li>
-                </ul>
+                </ul> */}
 
                 <form>
                   <input
                     type="number"
                     name="quantity"
-                    title="Qty"
                     className="form-control"
                     value={bidVal}
-                    min={0}
+                    min={realtimeBidData?.max_bid}
                     max={999999999}
                     contentEditable={false}
                     onChange={(e) => setBidVal(e.target.value)}
                   />
                   <button
-                    type="submit"
                     className="btn btn-primary"
-                    onClick={handleCreateBidding}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      if (getWei(bidVal) <= realtimeBidData?.max_bid) {
+                        toast.error(
+                          "Giá đấu giá phải cao hơn so với giá hiện tại!",
+                          {
+                            position: "top-center",
+                            autoClose: 5000,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined
+                          }
+                        )
+                        return
+                      }
+                      handleCreateBidding()
+                      setBidVal(0)
+                    }}
                   >
                     Đấu giá
                   </button>
@@ -226,7 +264,10 @@ const DetailsBody = () => {
             </div>
           </div>
 
-          <Description data={productInfo} />
+          <Description
+            data={productInfo}
+            players={Object.values(realtimeBidData?.players || {})}
+          />
         </div>
       </div>
 

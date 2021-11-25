@@ -104,6 +104,38 @@ const Navbar = () => {
       alert("You have to install MetaMask !")
     }
   }
+  React.useEffect(() => {
+    window?.ethereum.on("accountsChanged", function (accounts) {
+      console.log("ACCOUNTS", accounts[0])
+      User.login(
+        accounts[0],
+        (data) => {
+          SlideInModal.show(() => {}, <SigninForm address={data} />)
+        },
+        () => {
+          toast.success("Có lỗi xảy ra, xin vui lòng thử lại!", {
+            position: "top-center",
+            autoClose: 5000,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+          })
+        },
+        (user_info) => {
+          dispatch({
+            type: SIGN_IN_SUCCESS,
+            payload: user_info
+          })
+          dispatch(
+            actions.setInfoData({
+              ...user_info
+            })
+          )
+        }
+      )
+    })
+  }, [])
 
   return (
     <header id="header" className="header-inner">
@@ -131,12 +163,12 @@ const Navbar = () => {
               </Link>
               <Link to="/">
                 <a className="nav-list__item">
-                  <h5 className="mb-0">Lịch sử</h5>
+                  <h5 className="mb-0">Hồ sơ</h5>
                 </a>
               </Link>
-              <Link to="/">
+              <Link to="/create">
                 <a className="nav-list__item">
-                  <h5 className="mb-0">Danh mục</h5>
+                  <h5 className="mb-0">Tạo đấu giá</h5>
                 </a>
               </Link>
               {isLogin && userData?.address ? (

@@ -6,8 +6,10 @@ import useCoundDown from "../../../hook/useCountDown"
 
 const CourseItem = ({ data }) => {
   const info = data?.product_info
+
   const productData = JSON.parse(info)
   const countDown = useCoundDown(productData?.endDate - moment().valueOf())
+  const [realtimeBidData, setRealtimeBidData] = React.useState(null)
 
   React.useEffect(() => {
     if (data?.status !== AUCTION_STATUS.ENDED) {
@@ -15,7 +17,17 @@ const CourseItem = ({ data }) => {
         Auction.endAuctions(data?.id)
       }
     }
-  }, [data])
+  }, [data, countDown])
+
+  React.useEffect(() => {
+    Auction.registerListenAuctionsChange(data?.id, (snapshot) => {
+      setRealtimeBidData(snapshot?.val())
+    })
+    return () => {
+      Auction.unRegisterListenAuctionsChange(data?.id)
+    }
+  }, [])
+  const getEth = (val) => val / Math.pow(10, 18)
 
   return (
     <div className="col-lg-6 col-md-6">
@@ -45,37 +57,49 @@ const CourseItem = ({ data }) => {
           </h3>
 
           <div className="row h-100 justify-content-center align-items-center">
-            <div className="col-lg-7">
-              <h5>{`Giá hiện tại: ${data?.max_bid}`}</h5>
+            <div className="col-lg-8">
+              <h5>{`Giá hiện tại: ${getEth(
+                realtimeBidData?.max_bid || data?.max_bid
+              )} ETH`}</h5>
             </div>
 
-            <div className="col-lg-5">
-              <h5
-                style={{ textAlign: "right" }}
-                className="text-danger"
-              >{`${moment.duration(countDown).hours()}:${moment
-                .duration(countDown)
-                .minutes()}:${moment.duration(countDown).seconds()}`}</h5>
+            <div className="col-lg-4">
+              {realtimeBidData?.status !== AUCTION_STATUS.ENDED && (
+                <h5
+                  style={{ textAlign: "right" }}
+                  className="text-danger"
+                >{`${moment.duration(countDown).hours()}:${
+                  moment.duration(countDown).minutes() < 10
+                    ? "0" + moment.duration(countDown).minutes()
+                    : moment.duration(countDown).minutes()
+                }:${
+                  moment.duration(countDown).seconds() < 10
+                    ? "0" + moment.duration(countDown).seconds()
+                    : moment.duration(countDown).seconds()
+                }`}</h5>
+              )}
             </div>
           </div>
         </div>
-        {/* <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "black",
-            opacity: 0.7,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "#fff"
-          }}
-        >
-          <h5>Đã hết thời gian đấu giá</h5>
-        </div> */}
+        {realtimeBidData?.status === AUCTION_STATUS.ENDED && (
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              backgroundColor: "black",
+              opacity: 0.7,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "#fff"
+            }}
+          >
+            <h5>Đã hết thời gian đấu giá</h5>
+          </div>
+        )}
       </div>
     </div>
   )
