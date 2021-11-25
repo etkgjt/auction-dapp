@@ -1,6 +1,6 @@
 export default [
-  { key: "CreateAuction" },
   { key: "Detail" },
+  { key: "CreateAuction" },
   { key: "Achievement" },
   { key: "Profile" },
   { key: "Ranking" },

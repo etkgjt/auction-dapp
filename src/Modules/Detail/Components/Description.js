@@ -118,10 +118,14 @@ const Description = ({ data, players = [] }) => {
                           <img
                             width="30"
                             height="30"
-                            src={`data:image/png;base64,${new Identicon(
-                              getPlayerInfo(item).address,
-                              30
-                            ).toString()}`}
+                            src={
+                              getPlayerInfo(item).address?.length >= 15
+                                ? `data:image/png;base64,${new Identicon(
+                                    getPlayerInfo(item).address,
+                                    30
+                                  ).toString()}`
+                                : ""
+                            }
                           />
                         </th>
                         <td className="product-name">
