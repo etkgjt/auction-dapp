@@ -36,14 +36,17 @@ const SignInForm = ({
     <div className="signin-form-container">
       <div
         style={{ width: "100%" }}
-        className="d-flex flex-column align-items-center w-100 p-5"
+        className="d-flex flex-column align-items-center w-100 px-5 py-3"
       >
+        <h2 style={{ fontWeight: "bold" }} className="text-dark mb-4">
+          Đăng ký
+        </h2>
         <Input
           onChange={(e) => setName(e.target.value)}
           type="text"
-          placeholder="Họ tên"
+          placeholder="Tên"
         />
-        <Button onClick={onSubmit} color="primary">
+        <Button onClick={onSubmit} color="primary" className="mt-4">
           Đăng ký
         </Button>
       </div>

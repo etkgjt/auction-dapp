@@ -4,11 +4,14 @@ import { useSelector } from "react-redux"
 
 import { useMediaQuery } from "react-responsive"
 import { getUserData } from "../../../store/user/selector"
+import { loginSuccessSelector } from "../../Authenticate/store/auth/selectors"
 import AnimatedTable from "./AnimatedTable"
 
 const Profile = () => {
   const userData = useSelector(getUserData)
+  const isLogin = useSelector(loginSuccessSelector)
   const getMiniAddress = () => {
+    if (!isLogin) return
     let str = userData?.address?.split("")
     str.splice(5, 34, "-")
     return str.join("").replace("-", "...")

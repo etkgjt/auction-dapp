@@ -188,11 +188,14 @@ const Navbar = () => {
                   <h5 className="mb-0">Thống kê</h5>
                 </a>
               </Link>
-              <Link to="/profile">
-                <a className="nav-list__item">
-                  <h5 className="mb-0">Hồ sơ</h5>
-                </a>
-              </Link>
+              {isLogin && (
+                <Link to="/profile">
+                  <a className="nav-list__item">
+                    <h5 className="mb-0">Hồ sơ</h5>
+                  </a>
+                </Link>
+              )}
+
               <Link to="/create">
                 <a className="nav-list__item">
                   <h5 className="mb-0">Tạo đấu giá</h5>
