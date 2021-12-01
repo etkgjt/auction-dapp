@@ -7,15 +7,29 @@ import { useTranslation } from "react-i18next"
 import { useHistory } from "react-router"
 
 import { actions } from "../../../store/user/reducer"
+import Auction from "../../../Firebase/Auction"
+import User from "../../../Firebase/User"
 
-const SignInForm = ({ setIsDropdownOpen = () => {}, address = "" }) => {
+const SignInForm = ({
+  setIsDropdownOpen = () => {},
+  address = "",
+  signInCb = () => {}
+}) => {
   const { i18n } = useTranslation()
   const history = useHistory()
   const dispatch = useDispatch()
   const [name, setName] = useState("")
 
   const onSubmit = () => {
-    console.log("NAME", name, address)
+    User.createUsers(
+      {
+        user_data: {
+          address: address,
+          name: name
+        }
+      },
+      signInCb
+    )
   }
 
   return (

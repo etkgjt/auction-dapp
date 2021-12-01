@@ -54,7 +54,7 @@ function CheckoutBody({ total, shipping }) {
 
   const getAbiString = async () => {
     try {
-      const res = await axios.get(window.location.origin + "/deploy")
+      const res = await axios.get("http://localhost:8080/deploy")
       return { abi: res.data?.abi, bytecode: res.data?.bytecode }
     } catch (err) {
       console.log("GET ABI ERR", err)
@@ -81,7 +81,7 @@ function CheckoutBody({ total, shipping }) {
           data: bytecode,
           arguments: [prodInfo, startValue, duration]
         })
-        .send({ gas: "4000000", from: userData?.address })
+        .send({ gas: "1200000", from: userData?.address })
       console.log(result)
       console.log("Contract deployed to", result.options.address)
       cb(abi, result.options.address)
@@ -102,6 +102,9 @@ function CheckoutBody({ total, shipping }) {
         }
       }
     )
+  }
+  const getWei = (val) => {
+    return val * 1000000000000000000
   }
 
   async function handleSubmit(values) {
@@ -133,19 +136,28 @@ function CheckoutBody({ total, shipping }) {
         endDate: dateTemp.valueOf()
       })
 
+      const prodId = Date.now() + ""
+
+      Auction.createAuctions(
+        {
+          abi: "abi",
+          address: "address",
+          owner: userData?.address,
+          product_info: productInfo,
+          duration: Math.round(
+            (dateTemp?.valueOf() - moment().valueOf()) / 1000
+          )
+        },
+        prodId
+      )
+
       const { contract_address, abi } = await handleDeploy(
-        productInfo,
+        prodId,
         userData?.address,
-        values?.initBidValue * 1,
-        800000,
+        getWei(values?.initBidValue * 1),
+        Math.round((dateTemp?.valueOf() - moment().valueOf()) / 1000),
         (dataAbi, dataAddress) => {
-          Auction.createAuctions({
-            abi: JSON.stringify(dataAbi),
-            address: dataAddress,
-            owner: userData?.address,
-            product_info: productInfo,
-            duration: 1
-          })
+          Auction.startAuctions(prodId, JSON.stringify(dataAbi), dataAddress)
         }
       )
       connectNewAuction(abi, contract_address)
@@ -204,8 +216,8 @@ function CheckoutBody({ total, shipping }) {
             introduce: "",
             prodName: "",
             initBidValue: "",
-            stepValue: "",
-            unlockValue: "",
+            // stepValue: "",
+            // unlockValue: "",
             endDate: "",
             endTime: ""
           }}

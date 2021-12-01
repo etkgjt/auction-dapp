@@ -12,8 +12,6 @@ const Home = () => {
   }, [])
   return (
     <div className="profile__page">
-      <Banner />
-
       <Profile />
     </div>
   )

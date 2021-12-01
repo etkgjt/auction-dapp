@@ -16,7 +16,7 @@ export default {
         authRoute: true
       },
       props: {
-        title: "Thông báo",
+        title: "Tạo mới",
         titleI18n: "CreateAuction:title"
       }
     }

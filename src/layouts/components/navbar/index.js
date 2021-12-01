@@ -28,6 +28,7 @@ import { Button } from "reactstrap"
 import SlideInModal from "../../../components/SlideInModal"
 import SigninForm from "./SigninForm"
 import User from "../../../Firebase/User"
+import { toast } from "react-toastify"
 
 const Navbar = () => {
   const { t } = useTranslation()
@@ -70,7 +71,34 @@ const Navbar = () => {
           User.login(
             address[0],
             (data) => {
-              SlideInModal.show(() => {}, <SigninForm address={data} />)
+              SlideInModal.show(
+                () => {},
+                <SigninForm
+                  address={data}
+                  signInCb={() => {
+                    SlideInModal.hide()
+                    User.login(
+                      address[0],
+                      () => {},
+                      () => {
+                        toast.error("Đăng nhập thất bại")
+                      },
+                      (user_info) => {
+                        console.log("USER INFO", address[0], user_info)
+                        dispatch({
+                          type: SIGN_IN_SUCCESS,
+                          payload: user_info
+                        })
+                        dispatch(
+                          actions.setInfoData({
+                            ...user_info
+                          })
+                        )
+                      }
+                    )
+                  }}
+                />
+              )
             },
             () => {
               toast.success("Có lỗi xảy ra, xin vui lòng thử lại!", {
@@ -106,7 +134,6 @@ const Navbar = () => {
   }
   React.useEffect(() => {
     window?.ethereum.on("accountsChanged", function (accounts) {
-      console.log("ACCOUNTS", accounts[0])
       User.login(
         accounts[0],
         (data) => {
@@ -144,7 +171,7 @@ const Navbar = () => {
           <nav className="navbar navbar-expand-md navbar-light">
             <Link to="/">
               <a className="navbar-brand">
-                <h3 style={{ fontWeight: "900", color: "#335dff" }}>
+                <h3 style={{ fontWeight: "900", color: "#F0B90A" }}>
                   BidChain
                 </h3>
               </a>
@@ -156,12 +183,12 @@ const Navbar = () => {
                   <h5 className="mb-0">Đấu giá</h5>
                 </a>
               </Link>
-              <Link to="/">
+              <Link to="/dashboard">
                 <a className="nav-list__item">
                   <h5 className="mb-0">Thống kê</h5>
                 </a>
               </Link>
-              <Link to="/">
+              <Link to="/profile">
                 <a className="nav-list__item">
                   <h5 className="mb-0">Hồ sơ</h5>
                 </a>

@@ -15,7 +15,7 @@ export default {
         authRoute: true
       },
       props: {
-        title: "Trang chủ | Siêu Trí Nhớ Học Đường",
+        title: "Đấu giá",
         titleI18n: "Home:title",
         headerStyle: "fill"
       }

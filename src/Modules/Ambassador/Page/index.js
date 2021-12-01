@@ -8,19 +8,19 @@ import Step from "@Modules/Ambassador/Components/Step"
 import bgRight from "../assets/images/bg-right.png"
 import bgLeft from "../assets/images/bg-left.png"
 
+import AnimatedTable from "../Components/AnimatedTable"
+
 const Home = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
   return (
     <div className="ambassador__page">
-      <img src={bgLeft} style={{ position: "fixed", left: 0, zIndex: -1 }} />
-      <img
-        src={bgRight}
-        style={{ position: "fixed", right: 0, bottom: 0, zIndex: -1 }}
-      />
-      <Banner />
-      <Step />
+      <div className="container pt-5">
+        <div className="mt-5">
+          <AnimatedTable />
+        </div>
+      </div>
     </div>
   )
 }

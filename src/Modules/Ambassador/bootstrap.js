@@ -8,13 +8,13 @@ export default {
   pathRoot: "",
   routes: [
     {
-      url: "inviter",
+      url: "dashboard",
       component: "Page/index",
       meta: {
         authRoute: true
       },
       props: {
-        title: "Đại sứ",
+        title: "Thống kê",
         titleI18n: "Ambassador:title",
         headerStyle: "fill"
       }

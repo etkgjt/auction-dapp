@@ -1,63 +1,66 @@
+import Identicon from "identicon.js"
 import React from "react"
-import { Row, Col } from "reactstrap"
+import { useSelector } from "react-redux"
 
-import Progress from "./Progress"
-import Armorial from "./Armorial"
-import FriendList from "./FriendList"
-import FormProfile from "./FormProfile"
 import { useMediaQuery } from "react-responsive"
-
-import bgLeft from "../assets/images/bg-left.png"
-import bgRight from "../assets/images/bg-right.png"
+import { getUserData } from "../../../store/user/selector"
+import AnimatedTable from "./AnimatedTable"
 
 const Profile = () => {
-  const isMobile = useMediaQuery({ maxWidth: 767 })
-
+  const userData = useSelector(getUserData)
+  const getMiniAddress = () => {
+    let str = userData?.address?.split("")
+    str.splice(5, 34, "-")
+    return str.join("").replace("-", "...")
+  }
   return (
-    <div className="profile-area">
-      <img
-        src={bgLeft}
-        style={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          zIndex: -2
-        }}
-      />
-      <img
-        src={bgRight}
-        style={{ position: "fixed", bottom: 100, right: 0, zIndex: -2 }}
-      />
-      {isMobile ? (
-        <Row noGutters>
-          <Col>
-            <Row noGutters>
-              <Col xs="8" sm="8">
-                <Progress />
-              </Col>
-              <Col xs="4" sm="4" className="no-padding-left">
-                <Armorial />
-              </Col>
-            </Row>
-          </Col>
-          <Col xl="6" lg="6" md="6">
-            <FormProfile />
-
-            <FriendList />
-          </Col>
-        </Row>
-      ) : (
-        <Row>
-          <Col xl="6" lg="6" md="6">
-            <FormProfile />
-          </Col>
-          <Col xl="6" lg="6" md="6">
-            <Progress />
-            <Armorial />
-            <FriendList />
-          </Col>
-        </Row>
-      )}
+    <div className="pbt-100">
+      <div className="container">
+        <div style={{ position: "relative" }}>
+          <img
+            src="https://pancakeswap.finance/images/teams/no-team-banner.png"
+            style={{ width: "100%", height: "auto", borderRadius: 50 }}
+          />
+          {userData?.address && (
+            <img
+              src={
+                userData.address?.length >= 15
+                  ? `data:image/png;base64,${new Identicon(
+                      userData.address,
+                      30
+                    ).toString()}`
+                  : ""
+              }
+              style={{
+                width: 150,
+                height: 150,
+                position: "absolute",
+                bottom: -75,
+                left: "50%",
+                transform: "translate(-50%,0)",
+                border: "10px solid #fff",
+                borderRadius: 40,
+                boxSizing: "border-box"
+              }}
+            />
+          )}
+        </div>
+        <div
+          className="d-flex flex-row justify-content-center w-100"
+          style={{ marginTop: 90 }}
+        >
+          <h1 style={{ fontWeight: "bold", color: "#181A20" }}>
+            {userData?.name}
+          </h1>
+        </div>
+        <h1
+          style={{ fontWeight: "900", textAlign: "center", color: "#F0B90A" }}
+        >
+          {getMiniAddress()}
+        </h1>
+        <h5 style={{ fontWeight: "bold" }}>Lịch sử giao dịch</h5>
+        <AnimatedTable />
+      </div>
     </div>
   )
 }

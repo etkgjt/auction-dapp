@@ -1,180 +1,48 @@
-import React, { Component } from "react"
+import React, { Component, useState } from "react"
 import { Link } from "react-router-dom"
+import Auction from "../../../Firebase/Auction"
+import CourseItem from "../../Home/Components/CourseItem"
 
-class RelatedProducts extends Component {
-  render() {
-    return (
-      <div className="shop-related-prodcut">
-        <div className="container">
-          <div className="section-title">
-            <h2>Related Products</h2>
-            <div className="bar"></div>
-          </div>
+export default function RelatedProducts({ category = 1 }) {
+  const [listAuction, setListAuction] = useState([])
 
-          <div className="row">
-            <div className="col-lg-4 col-md-6">
-              <div className="single-product">
-                <div className="product-img">
-                  <img
-                    src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                    alt="item"
-                  />
+  const fetchListAuction = async (val = 1) => {
+    try {
+      const res = await Auction.getListAuction()
+      setListAuction(
+        res
+          ?.sort((a, b) => b?.id * 1 - a?.id * 1)
+          .filter((item) => {
+            let proData = JSON.parse(item?.product_info)
+            if (proData?.category == val) return true
+            return false
+          })
+      )
+    } catch (err) {
+      console.log("FETCH LIST CATE ERR", err)
+    } finally {
+    }
+  }
+  React.useEffect(() => {
+    fetchListAuction()
+  }, [])
+  return (
+    <div className="shop-related-prodcut">
+      <div className="container">
+        <div className="section-title">
+          <h2>Sản phẩm tương tự</h2>
+          <div className="bar"></div>
+        </div>
 
-                  <Link href="/cart">
-                    <a className="add-to-cart-btn">
-                      Add to Cart <i className="icofont-shopping-cart"></i>
-                    </a>
-                  </Link>
-                </div>
-
-                <div className="product-content">
-                  <h3>
-                    <Link href="/shop-details">
-                      <a>Drop Side Watch</a>
-                    </Link>
-                  </h3>
-
-                  <div className="row h-100 justify-content-center align-items-center">
-                    <div className="col-lg-5">
-                      <h5>
-                        $8.50 <span>$12.00</span>
-                      </h5>
-                    </div>
-
-                    <div className="col-lg-7">
-                      <ul>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6">
-              <div className="single-product">
-                <div className="product-img">
-                  <img
-                    src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                    alt="item"
-                  />
-
-                  <Link href="/cart">
-                    <a className="add-to-cart-btn">
-                      Add to Cart <i className="icofont-shopping-cart"></i>
-                    </a>
-                  </Link>
-                </div>
-
-                <div className="product-content">
-                  <h3>
-                    <Link href="/shop-details">
-                      <a>Drop Side Watch</a>
-                    </Link>
-                  </h3>
-
-                  <div className="row h-100 justify-content-center align-items-center">
-                    <div className="col-lg-5">
-                      <h5>
-                        $8.50 <span>$12.00</span>
-                      </h5>
-                    </div>
-
-                    <div className="col-lg-7">
-                      <ul>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
-              <div className="single-product">
-                <div className="product-img">
-                  <img
-                    src="https://nextland-react.envytheme.com/_next/static/images/shop-item3-2599099f3131c1f2716d49ccf6c3713c.jpg"
-                    alt="item"
-                  />
-
-                  <Link href="/cart">
-                    <a className="add-to-cart-btn">
-                      Add to Cart <i className="icofont-shopping-cart"></i>
-                    </a>
-                  </Link>
-                </div>
-
-                <div className="product-content">
-                  <h3>
-                    <Link href="/shop-details">
-                      <a>Drop Side Watch</a>
-                    </Link>
-                  </h3>
-
-                  <div className="row h-100 justify-content-center align-items-center">
-                    <div className="col-lg-5">
-                      <h5>
-                        $8.50 <span>$12.00</span>
-                      </h5>
-                    </div>
-
-                    <div className="col-lg-7">
-                      <ul>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                        <li>
-                          <i className="icofont-star"></i>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="row">
+          {listAuction?.map(
+            (item, index) =>
+              index < 3 && (
+                <CourseItem data={item} key={index} isRelated={true} />
+              )
+          )}
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
-
-export default RelatedProducts

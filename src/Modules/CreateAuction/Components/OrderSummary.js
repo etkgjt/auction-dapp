@@ -26,7 +26,7 @@ export default function OrderSummary({
           </div>
         </div>
 
-        <div className="col-lg-12 col-md-6">
+        {/* <div className="col-lg-12 col-md-6">
           <div className="form-group">
             <label>Bước giá</label>
             <input
@@ -51,7 +51,7 @@ export default function OrderSummary({
               className="form-control"
             />
           </div>
-        </div>
+        </div> */}
         <div className="col-lg-12 col-md-6">
           <div className="form-group">
             <label>Thời gian kết thúc</label>

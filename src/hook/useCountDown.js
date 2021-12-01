@@ -1,16 +1,27 @@
-import React from "react"
+import React, { useRef, useState } from "react"
 export default function useCoundDown(initValue = 480000) {
+  const [firstTime, setFirstTime] = useState(true)
   const [countDown, setCoundDown] = React.useState(0)
+  const intervalIdRef = useRef()
   React.useEffect(() => {
-    const id = setInterval(() => {
-      setCoundDown((pre) => pre - 1000)
+    intervalIdRef.current = setInterval(() => {
+      setCoundDown((pre) => {
+        if (pre - 1000 >= 0) {
+          return pre - 1000
+        }
+        clearInterval(intervalIdRef.current)
+        return 0
+      })
     }, 1000)
     return () => {
-      clearInterval(id)
+      clearInterval(intervalIdRef.current)
     }
   }, [])
   React.useEffect(() => {
-    setCoundDown(initValue)
+    if (firstTime) {
+      setFirstTime(false)
+      setCoundDown(initValue)
+    }
   }, [initValue])
   return countDown
 }

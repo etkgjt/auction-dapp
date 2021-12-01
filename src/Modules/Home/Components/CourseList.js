@@ -2,18 +2,26 @@ import React, { Component, useState } from "react"
 import { Link } from "react-router-dom"
 
 import Categories from "../../../Firebase/Categories"
-import Auction from "../../../Firebase/Auction"
+import Auction, { AUCTION_STATUS } from "../../../Firebase/Auction"
 import CourseItem from "./CourseItem"
+import { Spinner } from "reactstrap"
+import { nonAccentVietnamese } from "../../../utility/helpers"
+
+const LIMIT = 6
 
 export default function ShopVTwo() {
+  const [loading, setLoading] = useState(true)
+  const [page, setPage] = useState(1)
   const [category, setCategory] = useState([])
 
   const [listAuction, setListAuction] = useState([])
 
+  const [listAuctionFilter, setListAuctionFilter] = useState([])
+
   const fetchListCate = async () => {
     try {
       const res = await Categories.getAllCategori()
-      setCategory(res)
+      setCategory(res?.sort((a, b) => b?.id * 1 - a?.id * 1))
     } catch (err) {
       console.log("FETCH LIST CATE ERR", err)
     }
@@ -22,9 +30,60 @@ export default function ShopVTwo() {
   const fetchListAuction = async () => {
     try {
       const res = await Auction.getListAuction()
-      setListAuction(res)
+      setListAuction(
+        res
+          ?.sort((a, b) => b?.id * 1 - a?.id * 1)
+          .filter(
+            (item) =>
+              item?.status === AUCTION_STATUS.ENDED ||
+              item?.status === AUCTION_STATUS.BIDDING
+          )
+      )
+      setListAuctionFilter(
+        res
+          ?.sort((a, b) => b?.id * 1 - a?.id * 1)
+          .filter(
+            (item) =>
+              item?.status === AUCTION_STATUS.ENDED ||
+              item?.status === AUCTION_STATUS.BIDDING
+          )
+      )
     } catch (err) {
       console.log("FETCH LIST CATE ERR", err)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const _handleSearch = (val) => {
+    if (!val) {
+      setListAuctionFilter(listAuction)
+      return
+    } else {
+      let newList = listAuction?.filter((item) => {
+        let proData = JSON.parse(item?.product_info)
+        if (
+          nonAccentVietnamese(proData?.prodName)?.indexOf(
+            nonAccentVietnamese(val)
+          ) !== -1
+        )
+          return true
+        return false
+      })
+      setListAuctionFilter(newList)
+    }
+  }
+  const _filter = (val) => {
+    if (!val || val === "all") {
+      setListAuctionFilter(listAuction)
+      return
+    } else {
+      let newList = listAuction?.filter((item) => {
+        let proData = JSON.parse(item?.product_info)
+        if (proData?.category == val) return true
+        return false
+      })
+      setListAuctionFilter(newList)
     }
   }
 
@@ -46,80 +105,81 @@ export default function ShopVTwo() {
         <div className="row">
           <div className="col-lg-8 col-md-12">
             <div className="row">
-              <div className="col-lg-12 col-md-12">
-                {/* <div className="woocommerce-topbar">
-                  <div className="row h-100 justify-content-center align-items-center">
-                    <div className="col-lg-7 col-md-7">
-                      <div className="woocommerce-result-count">
-                        <p>Showing 1–16 of 100 results</p>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-5 col-md-5">
-                      <div className="woocommerce-topbar-ordering">
-                        <form>
-                          <div className="select-box">
-                            <select className="form-control">
-                              <option value="1">Sort by Popularity</option>
-                              <option value="2">Sort by Average Rating</option>
-                              <option value="0">Sort by Latest</option>
-                              <option value="3">
-                                Sort by price: Low to High
-                              </option>
-                              <option value="4">
-                                Sort by price: High to Low
-                              </option>
-                              <option value="5">Sort by New</option>
-                            </select>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
-              </div>
-
-              {listAuction?.map((data, idx) => (
-                <CourseItem key={idx} data={data} />
-              ))}
-
-              {/* <div className="col-lg-12 col-md-12">
-                <div className="pagination-area">
-                  <nav aria-label="Page navigation example">
-                    <ul className="pagination justify-content-center">
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          <i className="icofont-double-left"></i>
-                        </a>
-                      </li>
-
-                      <li className="page-item active">
-                        <a className="page-link" href="#">
-                          1
-                        </a>
-                      </li>
-
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          2
-                        </a>
-                      </li>
-
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          3
-                        </a>
-                      </li>
-
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          <i className="icofont-double-right"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
+              <div className="col-lg-12 col-md-12"></div>
+              {loading && (
+                <div className="w-100 d-flex justify-content-center p-5 mt-5">
+                  <Spinner color="warning" />
                 </div>
-              </div> */}
+              )}
+              {listAuctionFilter?.map((data, idx) =>
+                idx + 1 <= page * LIMIT && idx + 1 > (page - 1) * LIMIT ? (
+                  <CourseItem key={idx} data={data} />
+                ) : null
+              )}
+              {listAuctionFilter?.length ? (
+                <div className="col-lg-12 col-md-12">
+                  <div className="pagination-area">
+                    <nav aria-label="Page navigation example">
+                      <ul className="pagination justify-content-center">
+                        {page !== 1 && (
+                          <li className="page-item">
+                            <a
+                              className="page-link"
+                              onClick={(e) => {
+                                e.preventDefault()
+                                window.scrollTo(0, 0)
+                                setPage(page - 1)
+                              }}
+                            >
+                              <i className="icofont-double-left"></i>
+                            </a>
+                          </li>
+                        )}
+                        {Array.from(
+                          Array(
+                            Math.round(listAuctionFilter?.length / LIMIT)
+                          ).keys()
+                        ).map((item, index) => (
+                          <li
+                            className={
+                              "page-item" +
+                              (page === index + 1 ? " active" : "")
+                            }
+                          >
+                            <a
+                              className="page-link"
+                              href="#"
+                              onClick={(e) => {
+                                e.preventDefault()
+                                window.scrollTo(0, 0)
+                                setPage(index + 1)
+                              }}
+                            >
+                              {index + 1}
+                            </a>
+                          </li>
+                        ))}
+                        {page !==
+                          Math.round(listAuctionFilter?.length / LIMIT) && (
+                          <li className="page-item">
+                            <a
+                              className="page-link"
+                              href="#"
+                              onClick={(e) => {
+                                e.preventDefault()
+                                window.scrollTo(0, 0)
+                                setPage(page + 1)
+                              }}
+                            >
+                              <i className="icofont-double-right"></i>
+                            </a>
+                          </li>
+                        )}
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
 
@@ -128,9 +188,12 @@ export default function ShopVTwo() {
               <div className="widget widget-search">
                 <form>
                   <input
+                    onChange={(e) => {
+                      _handleSearch(e.target.value)
+                    }}
                     type="text"
                     className="form-control"
-                    placeholder="Search"
+                    placeholder="Tìm kiếm"
                   />
                   <button type="submit">
                     <i className="icofont-search-2"></i>
@@ -143,9 +206,26 @@ export default function ShopVTwo() {
                 <div className="bar"></div>
 
                 <ul>
+                  <li>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        _filter("all")
+                      }}
+                    >
+                      <i className="icofont-bubble-right"></i> Tất cả
+                    </a>
+                  </li>
                   {category?.map((item, index) => (
                     <li key={index}>
-                      <a href="#">
+                      <a
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          _filter(item?.id)
+                        }}
+                      >
                         <i className="icofont-bubble-right"></i> {item?.name}
                       </a>
                     </li>

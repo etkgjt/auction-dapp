@@ -4,12 +4,16 @@ import { connect, useSelector } from "react-redux"
 import RelatedProducts from "./RelatedProducts"
 import Description from "./Description"
 import { useParams } from "react-router"
-import Auction from "../../../Firebase/Auction"
+import Auction, { AUCTION_STATUS } from "../../../Firebase/Auction"
 import web3_infura from "../../../utility/web3Infura"
 import web3Local from "../../../utility/web3Local"
 import Web3 from "web3"
 import { getUserData } from "../../../store/user/selector"
 import { toast } from "react-toastify"
+import moment from "moment"
+import EndAuctionModal from "./EndAuctionModal"
+import SlideInModal from "../../../components/SlideInModal"
+import useCoundDown from "../../../hook/useCountDown"
 
 const DetailsBody = () => {
   const { id } = useParams()
@@ -27,6 +31,29 @@ const DetailsBody = () => {
     ? JSON.parse(productData?.product_info)
     : {}
 
+  const countDown = useCoundDown(productInfo?.endDate * 1 - moment().valueOf())
+
+  const stopAuctionFirebase = (aucId) => {
+    if (!productInfo) return
+    Auction.stopAuctions(aucId)
+  }
+
+  const stopAuctionContract = () => {
+    try {
+      const contract_MM = new web3Local.eth.Contract(
+        JSON.parse(productData?.abi),
+        productData?.address
+      )
+      contract_MM.methods.auctionEnd().send({
+        from: userData?.address,
+        gas: 200000
+      })
+      localStorage.setItem("AUCTION_END_PENDING", id)
+    } catch (err) {
+      console.log("END AUCTION", err)
+    }
+  }
+
   const getProductDetails = async () => {
     try {
       const res = await Auction.getListAuction()
@@ -40,11 +67,22 @@ const DetailsBody = () => {
     const bid = localStorage.getItem("bid_value")
     const address = localStorage.getItem("user_address")
     const name = localStorage.getItem("name")
-    Auction.createBid(id, {
-      player_address: address,
-      bid_value: bid * 1,
-      name: name
-    })
+    if (bid > 0 && address && name) {
+      Auction.createBid(id, {
+        player_address: address,
+        bid_value: bid * 1,
+        name: name
+      })
+      Auction.updateAuctionDashboard({
+        address: address,
+        bid_value: bid * 1,
+        name: name,
+        auction_id: id
+      })
+      localStorage.setItem("bid_value", 0)
+      localStorage.setItem("user_address", null)
+      localStorage.setItem("name", null)
+    }
   }
 
   const handleCreateBidding = async () => {
@@ -71,7 +109,7 @@ const DetailsBody = () => {
       })
       localStorage.setItem("bid_value", getWei(bidVal))
       localStorage.setItem("user_address", userData?.address)
-      localStorage.setItem("name", userData?.user_name)
+      localStorage.setItem("name", userData?.name)
     } catch (err) {
       console.log("CREATE BID ERR", err)
     }
@@ -81,84 +119,139 @@ const DetailsBody = () => {
     getProductDetails()
   }, [id])
 
-  React.useEffect(() => {
-    if (productData?.abi) {
-      try {
-        web3_infura.eth.getBlockNumber((err, num) => {
-          if (err) {
-            return 0
-          }
-          if (num) {
-            const contract_Infura = new web3_infura.eth.Contract(
-              JSON.parse(productData?.abi),
-              productData?.address
-            )
-            contract_Infura.events.bidFailed(
-              { filter: {}, fromBlock: num },
-              (err, data) => {
-                if (err) {
-                  console.log("BID ERROR", err)
-                  toast.error("Đấu giá thất bại", {
-                    position: "top-center",
-                    autoClose: 5000,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined
-                  })
-                } else {
-                  toast.error("Đấu giá thất bại", {
-                    position: "top-center",
-                    autoClose: 5000,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined
-                  })
-                }
-              }
-            )
-            contract_Infura.events.bidEvent(
-              { filter: {}, fromBlock: num },
-              (err, data) => {
-                if (err) {
-                  console.log("BID ERROR", err)
-                  toast.error("Đấu giá thất bại", {
-                    position: "top-center",
-                    autoClose: 5000,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined
-                  })
-                } else {
-                  pushNewBiddingToDB()
-                  toast.success("Đấu giá thành công", {
-                    position: "top-center",
-                    autoClose: 5000,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined
-                  })
-                  console.log("BID SUCCESS", data)
-                }
-              }
-            )
-          }
-        })
-      } catch (err) {
-        toast.error("Đấu giá thất bại", {
-          position: "top-center",
-          autoClose: 5000,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined
-        })
-      }
-    }
-  }, [productData, userData])
+  // React.useEffect(() => {
+  //   if (productData?.abi) {
+  //     try {
+  //       web3_infura.eth.getBlockNumber((err, num) => {
+  //         if (err) {
+  //           return 0
+  //         }
+  //         if (num) {
+  //           const contract_Infura = new web3_infura.eth.Contract(
+  //             JSON.parse(productData?.abi),
+  //             productData?.address
+  //           )
+  //           contract_Infura.events.bidFailed(
+  //             { filter: {}, fromBlock: num },
+  //             (err, data) => {
+  //               if (err) {
+  //                 console.log("BID ERROR", err)
+  //                 toast.error("Đấu giá thất bại", {
+  //                   position: "top-center",
+  //                   autoClose: 5000,
+  //                   closeOnClick: true,
+  //                   pauseOnHover: true,
+  //                   draggable: true,
+  //                   progress: undefined
+  //                 })
+  //               } else {
+  //                 toast.error("Đấu giá thất bại:" + data?.returnValues?.["0"], {
+  //                   position: "top-center",
+  //                   autoClose: 5000,
+  //                   closeOnClick: true,
+  //                   pauseOnHover: true,
+  //                   draggable: true,
+  //                   progress: undefined
+  //                 })
+  //               }
+  //             }
+  //           )
+  //           contract_Infura.events.endAuctionEvent(
+  //             { filter: {}, fromBlock: num },
+  //             (err, data) => {
+  //               if (err) {
+  //                 console.log("END AUCTION ERROR", err)
+  //                 toast.error("Kết thúc đấu giá thất bại", {
+  //                   position: "top-center",
+  //                   autoClose: 5000,
+  //                   closeOnClick: true,
+  //                   pauseOnHover: true,
+  //                   draggable: true,
+  //                   progress: undefined
+  //                 })
+  //               } else {
+  //                 let auctionId = localStorage.getItem("AUCTION_END_PENDING")
+  //                 console.log("AUCTION END SUCCESS", auctionId)
+  //                 if (auctionId) {
+  //                   stopAuctionFirebase(auctionId)
+  //                   localStorage.setItem("AUCTION_END_PENDING", null)
+  //                 }
+  //               }
+  //             }
+  //           )
+  //           contract_Infura.events.endAuctionEventFailed(
+  //             { filter: {}, fromBlock: num },
+  //             (err, data) => {
+  //               if (err) {
+  //                 console.log("END AUCTION ERROR", err)
+  //                 toast.error("Kết thúc đấu giá thất bại", {
+  //                   position: "top-center",
+  //                   autoClose: 5000,
+  //                   closeOnClick: true,
+  //                   pauseOnHover: true,
+  //                   draggable: true,
+  //                   progress: undefined
+  //                 })
+  //               } else {
+  //                 console.log("END AUCTION ERROR SUCCESS", data)
+  //                 localStorage.setItem("AUCTION_END_PENDING", null)
+  //                 toast.error(
+  //                   "Kết thúc đấu giá thất bại:" + data?.returnValues?.["0"],
+  //                   {
+  //                     position: "top-center",
+  //                     autoClose: 5000,
+  //                     closeOnClick: true,
+  //                     pauseOnHover: true,
+  //                     draggable: true,
+  //                     progress: undefined
+  //                   }
+  //                 )
+  //               }
+  //             }
+  //           )
+  //           contract_Infura.events.bidEvent(
+  //             { filter: {}, fromBlock: num },
+  //             (err, data) => {
+  //               if (err) {
+  //                 console.log("BID ERROR", err)
+  //                 toast.error("Đấu giá thất bại", {
+  //                   position: "top-center",
+  //                   autoClose: 5000,
+  //                   closeOnClick: true,
+  //                   pauseOnHover: true,
+  //                   draggable: true,
+  //                   progress: undefined
+  //                 })
+  //               } else {
+  //                 pushNewBiddingToDB()
+  //                 const bid = localStorage.getItem("bid_value")
+  //                 if (bid > 0) {
+  //                   toast.success("Đấu giá thành công", {
+  //                     position: "top-center",
+  //                     autoClose: 5000,
+  //                     closeOnClick: true,
+  //                     pauseOnHover: true,
+  //                     draggable: true,
+  //                     progress: undefined
+  //                   })
+  //                 }
+  //               }
+  //             }
+  //           )
+  //         }
+  //       })
+  //     } catch (err) {
+  //       toast.error("Đấu giá thất bại", {
+  //         position: "top-center",
+  //         autoClose: 5000,
+  //         closeOnClick: true,
+  //         pauseOnHover: true,
+  //         draggable: true,
+  //         progress: undefined
+  //       })
+  //     }
+  //   }
+  // }, [productData, userData])
 
   React.useEffect(() => {
     Auction.registerListenAuctionsChange(id, (snapshot) => {
@@ -168,6 +261,25 @@ const DetailsBody = () => {
       Auction.unRegisterListenAuctionsChange(id)
     }
   }, [])
+
+  // React.useEffect(() => {
+  //   if (
+  //     productInfo?.endDate * 1 < moment().valueOf() &&
+  //     productData?.owner?.toLowerCase() === userData?.address &&
+  //     localStorage.getItem("AUCTION_END_PENDING") !== id
+  //   ) {
+  //     SlideInModal.show(
+  //       () => {},
+  //       <EndAuctionModal
+  //         onSubmit={() => {
+  //           SlideInModal.hide()
+  //           stopAuctionContract()
+  //         }}
+  //       />,
+  //       "static"
+  //     )
+  //   }
+  // }, [countDown])
 
   const getWei = (val) => {
     return val * 1000000000000000000
@@ -208,8 +320,17 @@ const DetailsBody = () => {
               <div className="product-entry-summary">
                 <h3>{productInfo?.prodName}</h3>
                 <h4>
+                  Giá khởi điểm:
+                  {" " + productInfo?.initBidValue + " "}
+                  ETH
+                </h4>
+                <h4 className="text-success">
                   Giá hiện tại:
-                  {getEth(realtimeBidData?.max_bid || productData?.max_bid)} ETH
+                  {" " +
+                    getEth(
+                      realtimeBidData?.max_bid || productData?.max_bid
+                    )}{" "}
+                  ETH
                 </h4>
 
                 <p>{productInfo?.introduce}</p>
@@ -236,6 +357,10 @@ const DetailsBody = () => {
                     onChange={(e) => setBidVal(e.target.value)}
                   />
                   <button
+                    disabled={
+                      realtimeBidData?.status === AUCTION_STATUS.ENDED ||
+                      realtimeBidData?.status === AUCTION_STATUS.STOP
+                    }
                     className="btn btn-primary"
                     onClick={(e) => {
                       e.preventDefault()
@@ -253,18 +378,48 @@ const DetailsBody = () => {
                         )
                         return
                       }
+                      console.log(bidVal, productInfo)
+
+                      if (
+                        getWei(bidVal) <= getWei(productInfo?.initBidValue * 1)
+                      ) {
+                        toast.error(
+                          "Giá đấu giá phải cao hơn so với giá khởi tạo!",
+                          {
+                            position: "top-center",
+                            autoClose: 5000,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined
+                          }
+                        )
+                        return
+                      }
                       handleCreateBidding()
                       setBidVal(0)
                     }}
                   >
                     Đấu giá
                   </button>
+                  {realtimeBidData?.status === AUCTION_STATUS.ENDED ||
+                  realtimeBidData?.status === AUCTION_STATUS.STOP ? (
+                    <p className="text-danger mt-1">
+                      {realtimeBidData?.status === AUCTION_STATUS.ENDED
+                        ? `Đã hết thời gian đấu giá`
+                        : "Đấu giá đã kết thúc"}
+                    </p>
+                  ) : null}
                 </form>
               </div>
             </div>
           </div>
 
           <Description
+            isEnded={
+              realtimeBidData?.status === AUCTION_STATUS.ENDED ||
+              realtimeBidData?.status === AUCTION_STATUS.STOP
+            }
             data={productInfo}
             players={Object.values(realtimeBidData?.players || {})}
           />

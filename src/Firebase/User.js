@@ -29,15 +29,19 @@ export default class Users {
     }
     onError()
   }
-  static createUsers = ({
-    user_data = {
-      address: "",
-      name: ""
-    }
-  }) => {
-    firestoreDB.collection(refUsers).doc(user_data?.address).update({
+  static createUsers = (
+    {
+      user_data = {
+        address: "",
+        name: ""
+      }
+    },
+    successCb = () => {}
+  ) => {
+    firestoreDB.collection(refUsers).doc(user_data?.address).set({
       address: user_data?.address,
       name: user_data?.name
     })
+    successCb()
   }
 }

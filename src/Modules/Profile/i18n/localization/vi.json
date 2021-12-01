@@ -1,13 +1,13 @@
 {
-    "Home": {
-        "title": "Trang chủ | Siêu Trí nhớ học đường",
-        "featuresTitle": "Siêu Trí Nhớ Học Đường - Biết Cách Học Khỏi Cực Nhọc",
-        "featuresContent": "Bộ công cụ hỗ trợ con học tập từ lớp 1 tới lớp 12, được đào tạo bởi huấn luyện viên trưởng đội tuyển Siêu Trí Nhớ Việt Nam thầy Nguyễn Phùng Phong cùng các thầy cô, với hơn 150.000 trẻ em đang học",
-        "featuresDownload": "Download",
-        "buyNowVersionNew": "Phiên bản mới giúp học tập hiệu quả",
-        "buyNowContent": "Với 2 phiên bản desktop và mobile giúp bạn thoải mái. học mọi lúc mọi nơi, tiết kiệm thời gian tuyệt đối",
-        "buyNowBtn": "Mua ngay",
-        "buyCourse": "Tìm hiểu thêm",
-        "btnLearnMore": "Tìm hiểu thêm"
-    }
+  "Home": {
+    "title": "Đấu giá",
+    "featuresTitle": "Siêu Trí Nhớ Học Đường - Biết Cách Học Khỏi Cực Nhọc",
+    "featuresContent": "Bộ công cụ hỗ trợ con học tập từ lớp 1 tới lớp 12, được đào tạo bởi huấn luyện viên trưởng đội tuyển Siêu Trí Nhớ Việt Nam thầy Nguyễn Phùng Phong cùng các thầy cô, với hơn 150.000 trẻ em đang học",
+    "featuresDownload": "Download",
+    "buyNowVersionNew": "Phiên bản mới giúp học tập hiệu quả",
+    "buyNowContent": "Với 2 phiên bản desktop và mobile giúp bạn thoải mái. học mọi lúc mọi nơi, tiết kiệm thời gian tuyệt đối",
+    "buyNowBtn": "Mua ngay",
+    "buyCourse": "Tìm hiểu thêm",
+    "btnLearnMore": "Tìm hiểu thêm"
+  }
 }

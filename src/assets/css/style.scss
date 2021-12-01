@@ -598,13 +598,10 @@ button {
       transition: 0.4s;
       background: var(--templateColor);
       z-index: -1;
-     
     }
   }
 
   &.btn-blue {
-    
-
     &::after,
     &::before {
       content: "";
@@ -615,13 +612,10 @@ button {
       transition: 0.4s;
       background: var(--blueActive);
       z-index: -1;
-      
     }
   }
 
   &.btn-light-blue {
-    
-
     &::after,
     &::before {
       content: "";
@@ -632,13 +626,10 @@ button {
       transition: 0.4s;
       background: var(--lightBlueHover);
       z-index: -1;
-      
     }
   }
 
   &.btn-mint {
-    
-
     &::after,
     &::before {
       content: "";
@@ -649,13 +640,10 @@ button {
       transition: 0.4s;
       background: var(--mintHover);
       z-index: -1;
-      
     }
   }
 
   &.btn-green {
-    
-
     &::after,
     &::before {
       content: "";
@@ -666,13 +654,10 @@ button {
       transition: 0.4s;
       background: var(--greenHover);
       z-index: -1;
-      
     }
   }
 
   &.btn-purple {
-    
-
     &::after,
     &::before {
       content: "";
@@ -683,13 +668,10 @@ button {
       transition: 0.4s;
       background: var(--purpleHover);
       z-index: -1;
-      
     }
   }
 
   &.btn-yellow {
-    
-
     &::after,
     &::before {
       content: "";
@@ -700,13 +682,10 @@ button {
       transition: 0.4s;
       background: var(--yellowHover);
       z-index: -1;
-      
     }
   }
 
   &.btn-pink {
-    
-
     &::after,
     &::before {
       content: "";
@@ -717,7 +696,6 @@ button {
       transition: 0.4s;
       background: var(--pinkHover);
       z-index: -1;
-      
     }
   }
 
@@ -7394,8 +7372,8 @@ Product CSS
       left: 0;
       bottom: -45px;
       width: 100%;
-      background: #09277d;
-      color: var(--whiteColor);
+      background: #fcd536;
+      color: var(--blackColor);
       height: auto;
       letter-spacing: 2px;
       padding: 12px 20px;
@@ -9186,12 +9164,11 @@ Footer CSS
 
 .copyright-area {
   padding: 12px 0;
-  background: #E03F0D;
-  
+  background: #181a20;
 
   .container {
     p {
-      color: var(--whiteColor);
+      color: #eaecef;
     }
 
     .copy__right-text {
@@ -9199,7 +9176,7 @@ Footer CSS
       font-weight: normal;
       font-size: 14px;
       line-height: 140%;
-      color: var(--whiteColor);
+      color: #eaecef;
     }
   }
 
@@ -9417,4 +9394,17 @@ html[xmlns] .clearfix {
 }
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.47) !important;
+}
+.out-date-text {
+  color: #cf304a;
+}
+.btn {
+  border-radius: 0px;
+}
+.product-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }

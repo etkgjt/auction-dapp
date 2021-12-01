@@ -5,10 +5,11 @@ contract Auction {
     // events
     event initedAuctionEvent();
     event bidEvent(address player, uint bidValue);
-    event endAuctionEvent();
-    event bidFailed(string status);    
+    event endAuctionEvent(address winner, uint bidvalWin);
+    event bidFailed(string status);
+    event withdrawSuccess(string status);
+    event withdrawError(string status);
     event endAuctionEventFailed(string status);
-    
     
      // auction product_infor
     struct ProductAuction{
@@ -42,38 +43,32 @@ contract Auction {
     constructor(string memory productInfor,uint startPrice,uint duration){
         productAuction = ProductAuction(msg.sender, productInfor,startPrice, block.timestamp, block.timestamp + duration);
         highestPrice = startPrice;
-        isAuctionEnd = false;
-        
+        isAuctionEnd = false;        
         emit initedAuctionEvent();
     }
 
     function bid() public payable{
         if (block.timestamp > productAuction.endTime){
             emit bidFailed("Auction has ended");
-        }
-        else if (msg.value <= highestPrice){
-             emit bidFailed("Need to pay higher price");
-        }
-        else 
-        {        
+            // revert("Auction has ended");
+        } else if (msg.value <= highestPrice){
+            emit bidFailed("Need to pay higher price");
+            // revert("Need to pay higher price");
+        }else {
             if (!isExistPlayer(msg.sender)){
-            listPlayer.push(msg.sender); 
+                    listPlayer.push(msg.sender); 
             }
             // record history
             records.push(HistoryRecord(msg.sender, block.timestamp, msg.value));
-        
             pendingResultPlayer[msg.sender] += msg.value;
-            
+                    
             // set new highestBidder
             highestPrice = msg.value;
             highestBidder = msg.sender;
-        
             emit bidEvent(msg.sender,msg.value);
-
-            returnCoin();
         }
     }
-
+    
     function isExistPlayer(address addessPlayer) private view returns(bool){
         for (uint i = 0; i < listPlayer.length; i++){
             if (listPlayer[i] == addessPlayer){
@@ -92,50 +87,36 @@ contract Auction {
     }
     
     
-    function withdraw(address receiver) private returns(bool){
-        uint total = pendingResultPlayer[receiver];
-        if (receiver == highestBidder){
-            if (total > highestPrice) {
-                pendingResultPlayer[receiver] = highestPrice;
-                uint prevAmount = total - highestPrice;
-                if (!payable(receiver).send(prevAmount)){
-                    pendingResultPlayer[receiver] = total;
-                    return false;
-                }
-            }
-        } else {
-            if (total > 0){
-                pendingResultPlayer[receiver] = 0;
-                if (!payable(receiver).send(total)){
-                    pendingResultPlayer[receiver] = total;
-                    return false;
-                }
+    function withdraw() public returns(bool){
+        if (msg.sender == highestBidder){
+            emit withdrawError("withdraw failed");            
+        }
+        uint amount = pendingResultPlayer[msg.sender];
+        if (amount > 0){
+            pendingResultPlayer[msg.sender] = 0;
+            if (!payable(msg.sender).send(amount)){
+                pendingResultPlayer[msg.sender] = amount;
+                return false;
             }
         }
+        emit withdrawSuccess("withdraw success");
         return true;
     }
-
-    function returnCoin() private {
-        for (uint i = 0; i < listPlayer.length; i++){
-            withdraw(listPlayer[i]);
-        }
-    }
+    
     
     function auctionEnd() public{
         if (isAuctionEnd){
             emit endAuctionEventFailed("Auction has ended");             
         }
-        else if (block.timestamp < productAuction.endTime)
-        {
+        else if (block.timestamp < productAuction.endTime){
             emit endAuctionEventFailed("The game is not over yet");
-        }
-        else 
-        {
-            isAuctionEnd = true;        
-            emit endAuctionEvent();        
+            
+        } else {
+            isAuctionEnd = true;    
+            emit endAuctionEvent(highestBidder, highestPrice);        
             productAuction.productOwner.transfer(highestPrice);
-            returnCoin();
         }
+        
     }
 
 }

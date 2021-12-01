@@ -1,10 +1,12 @@
 import moment from "moment"
 import React from "react"
 import { Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import Auction, { AUCTION_STATUS } from "../../../Firebase/Auction"
 import useCoundDown from "../../../hook/useCountDown"
 
-const CourseItem = ({ data }) => {
+const CourseItem = ({ data, isRelated = false }) => {
+  const history = useHistory()
   const info = data?.product_info
 
   const productData = JSON.parse(info)
@@ -17,7 +19,7 @@ const CourseItem = ({ data }) => {
         Auction.endAuctions(data?.id)
       }
     }
-  }, [data, countDown])
+  }, [data])
 
   React.useEffect(() => {
     Auction.registerListenAuctionsChange(data?.id, (snapshot) => {
@@ -28,9 +30,15 @@ const CourseItem = ({ data }) => {
     }
   }, [])
   const getEth = (val) => val / Math.pow(10, 18)
-
+  const goToDetail = (e) => {
+    e.preventDefault()
+    history.push(`/detail/${data?.id}`)
+    if (isRelated) {
+      window.scrollTo(0, 0)
+    }
+  }
   return (
-    <div className="col-lg-6 col-md-6">
+    <div className={isRelated ? "col-lg-4 col-md-4" : "col-lg-6 col-md-6"}>
       <div className="single-product" style={{ position: "relative" }}>
         <div className="product-img">
           <img
@@ -42,7 +50,7 @@ const CourseItem = ({ data }) => {
             style={{ height: 250, width: "100%", objectFit: "cover" }}
           />
 
-          <Link to="/detail/1637680403895">
+          <Link onClick={goToDetail} to={`/detail/${data?.id}`}>
             <a className="add-to-cart-btn" onClick={(e) => {}}>
               Bid now <i className="icofont-shopping-cart"></i>
             </a>
@@ -51,20 +59,21 @@ const CourseItem = ({ data }) => {
 
         <div className="product-content">
           <h3>
-            <Link to={`/detail/${data?.id}`}>
-              <a>{productData?.prodName}</a>
+            <Link onClick={goToDetail} to={`/detail/${data?.id}`}>
+              <a className="product-name">{productData?.prodName}</a>
             </Link>
           </h3>
 
           <div className="row h-100 justify-content-center align-items-center">
             <div className="col-lg-8">
-              <h5>{`Giá hiện tại: ${getEth(
+              <h5 className="product-name">{`Giá hiện tại: ${getEth(
                 realtimeBidData?.max_bid || data?.max_bid
               )} ETH`}</h5>
             </div>
 
             <div className="col-lg-4">
-              {realtimeBidData?.status !== AUCTION_STATUS.ENDED && (
+              {realtimeBidData?.status !== AUCTION_STATUS.ENDED &&
+              countDown > 0 ? (
                 <h5
                   style={{ textAlign: "right" }}
                   className="text-danger"
@@ -77,11 +86,21 @@ const CourseItem = ({ data }) => {
                     ? "0" + moment.duration(countDown).seconds()
                     : moment.duration(countDown).seconds()
                 }`}</h5>
-              )}
+              ) : null}
             </div>
+            {realtimeBidData?.status === AUCTION_STATUS.ENDED && (
+              <div className="mt-2">
+                <h5 className="out-date-text">{"Đã hết thời gian đấu giá"}</h5>
+              </div>
+            )}
+            {realtimeBidData?.status === AUCTION_STATUS.STOP && (
+              <div className="mt-2">
+                <h5 className="out-date-text">{"Đã kết thúc"}</h5>
+              </div>
+            )}
           </div>
         </div>
-        {realtimeBidData?.status === AUCTION_STATUS.ENDED && (
+        {/* {realtimeBidData?.status === AUCTION_STATUS.ENDED && (
           <div
             style={{
               position: "absolute",
@@ -99,7 +118,7 @@ const CourseItem = ({ data }) => {
           >
             <h5>Đã hết thời gian đấu giá</h5>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   )
