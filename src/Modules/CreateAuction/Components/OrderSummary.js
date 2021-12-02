@@ -14,7 +14,7 @@ export default function OrderSummary({
 
         <div className="col-lg-12 col-md-12">
           <div className="form-group">
-            <label>Giá khởi điểm</label>
+            <label>Giá khởi điểm (ETH)</label>
             <input
               name="initBidValue"
               onChange={(e) => {
