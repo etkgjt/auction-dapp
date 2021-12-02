@@ -64,7 +64,7 @@ const Navbar = () => {
 
   const connectMetaMask = () => {
     let web3 = null
-    if (window.ethereum) {
+    if (window?.ethereum) {
       web3 = new Web3(window.ethereum)
       try {
         window.ethereum.enable().then(function (address, b) {
@@ -129,40 +129,49 @@ const Navbar = () => {
     } else if (window.web3) {
       web3 = new Web3(window.web3.currentProvider)
     } else {
-      alert("You have to install MetaMask !")
+      toast.success("Bạn phải có MetaMask trước khi sử dụng", {
+        position: "top-center",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      })
     }
   }
   React.useEffect(() => {
-    window?.ethereum.on("accountsChanged", function (accounts) {
-      User.login(
-        accounts[0],
-        (data) => {
-          SlideInModal.show(() => {}, <SigninForm address={data} />)
-        },
-        () => {
-          toast.success("Có lỗi xảy ra, xin vui lòng thử lại!", {
-            position: "top-center",
-            autoClose: 5000,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined
-          })
-        },
-        (user_info) => {
-          dispatch({
-            type: SIGN_IN_SUCCESS,
-            payload: user_info
-          })
-          dispatch(
-            actions.setInfoData({
-              ...user_info
+    if (window?.ethereum) {
+      window?.ethereum.on("accountsChanged", function (accounts) {
+        User.login(
+          accounts[0],
+          (data) => {
+            SlideInModal.show(() => {}, <SigninForm address={data} />)
+          },
+          () => {
+            toast.success("Có lỗi xảy ra, xin vui lòng thử lại!", {
+              position: "top-center",
+              autoClose: 5000,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined
             })
-          )
-        }
-      )
-    })
-  }, [])
+          },
+          (user_info) => {
+            dispatch({
+              type: SIGN_IN_SUCCESS,
+              payload: user_info
+            })
+            dispatch(
+              actions.setInfoData({
+                ...user_info
+              })
+            )
+          }
+        )
+      })
+    }
+  }, [isLogin])
 
   return (
     <header id="header" className="header-inner">
