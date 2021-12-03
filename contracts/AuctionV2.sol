@@ -36,7 +36,7 @@ contract Auction {
     // player
     mapping(address => uint) public pendingResultPlayer;
     // uint public countPlayer;
-    address[] public listPlayer;
+    address payable[] public listPlayer;
     
     // constructor
     constructor(string memory productInfor,uint startPrice,uint duration){
@@ -57,7 +57,7 @@ contract Auction {
         else 
         {        
             if (!isExistPlayer(msg.sender)){
-            listPlayer.push(msg.sender); 
+                listPlayer.push(msg.sender); 
             }
             // record history
             records.push(HistoryRecord(msg.sender, block.timestamp, msg.value));
@@ -134,7 +134,7 @@ contract Auction {
             isAuctionEnd = true;        
             emit endAuctionEvent();        
             productAuction.productOwner.transfer(highestPrice);
-            returnCoin();
+            
         }
     }
 
