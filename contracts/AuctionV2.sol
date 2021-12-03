@@ -92,7 +92,7 @@ contract Auction {
     }
     
     
-    function withdraw(address receiver) private returns(bool){
+    function withdraw(address payable receiver) private returns(bool){
         uint total = pendingResultPlayer[receiver];
         if (receiver == highestBidder){
             if (total > highestPrice) {
