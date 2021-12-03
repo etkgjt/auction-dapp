@@ -126,107 +126,18 @@ const DetailsBody = () => {
           if (err) {
             return 0
           }
-          if (num) {
-            const contract_Infura = new web3_infura.eth.Contract(
-              JSON.parse(productData?.abi),
-              productData?.address
-            )
-            contract_Infura.events.bidFailed(
-              { filter: {}, fromBlock: num },
-              (err, data) => {
-                if (err) {
-                  console.log("BID ERROR", err)
-                  toast.error("Đấu giá thất bại", {
-                    position: "top-center",
-                    autoClose: 5000,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined
-                  })
-                } else {
-                  toast.error("Đấu giá thất bại:" + data?.returnValues?.["0"], {
-                    position: "top-center",
-                    autoClose: 5000,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined
-                  })
-                }
-              }
-            )
-            contract_Infura.events.endAuctionEvent(
-              { filter: {}, fromBlock: num },
-              (err, data) => {
-                if (err) {
-                  console.log("END AUCTION ERROR", err)
-                  toast.error("Kết thúc đấu giá thất bại", {
-                    position: "top-center",
-                    autoClose: 5000,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined
-                  })
-                } else {
-                  let auctionId = localStorage.getItem("AUCTION_END_PENDING")
-                  console.log("AUCTION END SUCCESS", auctionId)
-                  if (auctionId) {
-                    stopAuctionFirebase(auctionId)
-                    localStorage.setItem("AUCTION_END_PENDING", null)
-                  }
-                }
-              }
-            )
-            contract_Infura.events.endAuctionEventFailed(
-              { filter: {}, fromBlock: num },
-              (err, data) => {
-                if (err) {
-                  console.log("END AUCTION ERROR", err)
-                  toast.error("Kết thúc đấu giá thất bại", {
-                    position: "top-center",
-                    autoClose: 5000,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined
-                  })
-                } else {
-                  console.log("END AUCTION ERROR SUCCESS", data)
-                  localStorage.setItem("AUCTION_END_PENDING", null)
-                  toast.error(
-                    "Kết thúc đấu giá thất bại:" + data?.returnValues?.["0"],
-                    {
-                      position: "top-center",
-                      autoClose: 5000,
-                      closeOnClick: true,
-                      pauseOnHover: true,
-                      draggable: true,
-                      progress: undefined
-                    }
-                  )
-                }
-              }
-            )
-            contract_Infura.events.bidEvent(
-              { filter: {}, fromBlock: num },
-              (err, data) => {
-                if (err) {
-                  console.log("BID ERROR", err)
-                  toast.error("Đấu giá thất bại", {
-                    position: "top-center",
-                    autoClose: 5000,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined
-                  })
-                } else {
-                  pushNewBiddingToDB()
-                  const bid = localStorage.getItem("bid_value")
-                  if (bid > 0) {
-                    toast.success("Đấu giá thành công", {
+          try {
+            if (num) {
+              const contract_Infura = new web3_infura.eth.Contract(
+                JSON.parse(productData?.abi),
+                productData?.address
+              )
+              contract_Infura.events.bidFailed(
+                { filter: {}, fromBlock: num },
+                (err, data) => {
+                  if (err) {
+                    console.log("BID ERROR", err)
+                    toast.error("Đấu giá thất bại", {
                       position: "top-center",
                       autoClose: 5000,
                       closeOnClick: true,
@@ -234,10 +145,106 @@ const DetailsBody = () => {
                       draggable: true,
                       progress: undefined
                     })
+                  } else {
+                    toast.error(
+                      "Đấu giá thất bại:" + data?.returnValues?.["0"],
+                      {
+                        position: "top-center",
+                        autoClose: 5000,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined
+                      }
+                    )
                   }
                 }
-              }
-            )
+              )
+              contract_Infura.events.endAuctionEvent(
+                { filter: {}, fromBlock: num },
+                (err, data) => {
+                  if (err) {
+                    console.log("END AUCTION ERROR", err)
+                    toast.error("Kết thúc đấu giá thất bại", {
+                      position: "top-center",
+                      autoClose: 5000,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined
+                    })
+                  } else {
+                    let auctionId = localStorage.getItem("AUCTION_END_PENDING")
+                    console.log("AUCTION END SUCCESS", auctionId)
+                    if (auctionId) {
+                      stopAuctionFirebase(auctionId)
+                      localStorage.setItem("AUCTION_END_PENDING", null)
+                    }
+                  }
+                }
+              )
+              contract_Infura.events.endAuctionEventFailed(
+                { filter: {}, fromBlock: num },
+                (err, data) => {
+                  if (err) {
+                    console.log("END AUCTION ERROR", err)
+                    toast.error("Kết thúc đấu giá thất bại", {
+                      position: "top-center",
+                      autoClose: 5000,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined
+                    })
+                  } else {
+                    console.log("END AUCTION ERROR SUCCESS", data)
+                    localStorage.setItem("AUCTION_END_PENDING", null)
+                    toast.error(
+                      "Kết thúc đấu giá thất bại:" + data?.returnValues?.["0"],
+                      {
+                        position: "top-center",
+                        autoClose: 5000,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined
+                      }
+                    )
+                  }
+                }
+              )
+              contract_Infura.events.bidEvent(
+                { filter: {}, fromBlock: num },
+                (err, data) => {
+                  if (err) {
+                    console.log("BID ERROR", err)
+                    toast.error("Đấu giá thất bại", {
+                      position: "top-center",
+                      autoClose: 5000,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined
+                    })
+                  } else {
+                    pushNewBiddingToDB()
+                    const bid = localStorage.getItem("bid_value")
+                    if (bid > 0) {
+                      toast.success("Đấu giá thành công", {
+                        position: "top-center",
+                        autoClose: 5000,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined
+                      })
+                    }
+                  }
+                }
+              )
+            }
+          } catch (err) {
+            console.log("CONNECT INFURA ERROR", err)
           }
         })
       } catch (err) {

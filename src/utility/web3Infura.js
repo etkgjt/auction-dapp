@@ -1,5 +1,7 @@
 import Web3 from "web3"
-window.ethereum.enable()
+if (window.ethereum) {
+  window.ethereum.enable()
+}
 
 const provider = new Web3.providers.WebsocketProvider(
   "wss://rinkeby.infura.io/ws/v3/5ae2eff463b7467eb7cba7a5638ede58",
