@@ -40,7 +40,7 @@ contract Auction {
     
     // constructor
     constructor(string memory productInfor,uint startPrice,uint duration){
-        productAuction = ProductAuction(msg.sender, productInfor,startPrice, block.timestamp, block.timestamp + duration);
+        productAuction = ProductAuction(payable(msg.sender) , productInfor,startPrice, block.timestamp, block.timestamp + duration);
         highestPrice = startPrice;
         isAuctionEnd = false;
         
@@ -56,8 +56,8 @@ contract Auction {
         }
         else 
         {        
-            if (!isExistPlayer(msg.sender)){
-                listPlayer.push(msg.sender); 
+            if (!isExistPlayer(payable(msg.sender))){
+                listPlayer.push(payable(msg.sender)); 
             }
             // record history
             records.push(HistoryRecord(msg.sender, block.timestamp, msg.value));
